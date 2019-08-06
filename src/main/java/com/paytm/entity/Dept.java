@@ -1,4 +1,4 @@
 package com.paytm.entity;
 
-public class Dept {
+public class Dept {git
 }
