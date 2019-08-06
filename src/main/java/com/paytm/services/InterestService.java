@@ -1,4 +1,4 @@
-package com.paytm.service;
+package com.paytm.services;
 
 import com.paytm.entity.User;
 
