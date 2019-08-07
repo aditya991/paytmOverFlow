@@ -31,10 +31,25 @@ public class InterestDalImpl implements InterestDal {
     }
 
     public void deleteInterest(Integer u_id, Integer dept_id) {
-         Interest i = InterestRepo.getInterestByUIdByDeptId( String.valueOf(u_id),
-                                                             String.valueOf(dept_id) );
+        try {
 
+            Interest i = InterestRepo.getInterestByUIdByDeptId(String.valueOf(u_id),
+                    String.valueOf(dept_id));
+
+            if(!i.isOwnDept()) {
+                i.setUpdated(new Date());
+                EntityManager em = emf.createEntityManager();
+                EntityTransaction tx = em.getTransaction();
+                em.getTransaction().begin();
+                em.remove(i);
+                em.getTransaction().commit();
+                em.close();
+            }
+            else
+                System.out.println("User can't remove his/her own department as an interest.");
+
+        } catch (Exception e) {
+            System.out.println("Interest matching the user details Not found.");
+        }
     }
-
-
 }
