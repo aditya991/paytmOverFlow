@@ -14,11 +14,20 @@ import java.util.UUID;
  * @created: 06/08/19
  */
 @Controller
+<<<<<<< HEAD
 public class UserController
 {
     @RequestMapping(value="/login", method = RequestMethod.GET)
     public ModelAndView login(HttpServletRequest request, HttpServletResponse response)
     {
+=======
+public class UserController extends  {
+
+
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public ModelAndView login(HttpServletRequest request, HttpServletResponse response) {
+>>>>>>> 1ccf1587a44a93028a36e14985d8c623d287063d
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         LoginServiceImpl ls = new LoginServiceImpl();
@@ -68,9 +77,14 @@ public class UserController
         String email = request.getParameter("email");
         String phone = request.getParameter("phone");
         String password = request.getParameter("password");
+        String department
+
+
+
 
 
         ModelAndView mv = new ModelAndView();
+        mv.setViewName("index.jsp");
         return mv;
     }
 }
