@@ -1,7 +1,8 @@
 package com.paytm.services;
 
-<<<<<<< HEAD
+
 import com.paytm.dal.UserDal;
+import com.paytm.entity.Dept;
 import com.paytm.entity.User;
 
 
@@ -20,7 +21,7 @@ public class SignupServiceImpl implements SignupService {
         user.setEmail(email);
         user.setPhone(phone);
         user.setPassword(password);
-        user.setDept(dept);
+        user.setDept(new Dept(dept));
 
 
         userDal.createUserDal(user);

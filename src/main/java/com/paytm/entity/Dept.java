@@ -12,6 +12,10 @@ public class Dept extends AbstractEntity {
     @Column(unique = true)
     private String dept_name;
 
+    public Dept(String dept_name) {
+        this.dept_name = dept_name;
+    }
+
     public Integer getDept_id() {
         return dept_id;
     }
