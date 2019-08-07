@@ -12,17 +12,26 @@ import java.util.Set;
  */
 @Entity
 public class User extends AbstractEntity {
+
+
     @Id
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "u_id", updatable = false, nullable = false)
+
     private Integer u_id;
 
     private String u_name;
     private String password;
+
     @Column(unique = true)
     private String email;
+
+
+    @Column(unique = true)
     private String phone;
 
+<<<<<<< HEAD
     /*This is for creating a join on Dept and User
     @ManyToMany
     Set<Dept> likedDepartments;
@@ -33,9 +42,17 @@ public class User extends AbstractEntity {
             joinColumns = @JoinColumn(name = "u_id"),
             inverseJoinColumns = @JoinColumn(name = "dept_id")
     )*/
+=======
+
+
+    @OneToOne
+    private Dept dept;
+
+>>>>>>> 8cd48fd461a12d87e7dc0ccac7d1fe368b6b21e9
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
 
     public Integer getU_id() {
         return u_id;
@@ -73,4 +90,15 @@ public class User extends AbstractEntity {
         return phone;
     }
 
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public Dept getDept() {
+        return dept;
+    }
+
+    public void setDept(String dept) {
+        this.dept = dept;
+    }
 }

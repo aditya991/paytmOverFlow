@@ -1,6 +1,9 @@
 package com.paytm.controller;
 
 import com.paytm.services.LoginServiceImpl;
+
+import com.paytm.services.SignupServiceImpl;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,11 +18,15 @@ import java.util.UUID;
  */
 @Controller
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 8cd48fd461a12d87e7dc0ccac7d1fe368b6b21e9
 public class UserController
 {
     @RequestMapping(value="/login", method = RequestMethod.GET)
     public ModelAndView login(HttpServletRequest request, HttpServletResponse response)
     {
+<<<<<<< HEAD
 =======
 public class UserController extends  {
 
@@ -28,6 +35,8 @@ public class UserController extends  {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView login(HttpServletRequest request, HttpServletResponse response) {
 >>>>>>> 1ccf1587a44a93028a36e14985d8c623d287063d
+=======
+>>>>>>> 8cd48fd461a12d87e7dc0ccac7d1fe368b6b21e9
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         LoginServiceImpl ls = new LoginServiceImpl();
@@ -47,6 +56,7 @@ public class UserController extends  {
             mv.addObject("email", email);
             mv.addObject("password", password);
             return mv;
+<<<<<<< HEAD
 //        }
 //        else {
 //            ModelAndView mv = new ModelAndView();
@@ -55,6 +65,17 @@ public class UserController extends  {
 ////            mv.addObject("password", password);
 //            return mv;
 //        }
+=======
+        }
+        else
+        {
+            ModelAndView mv = new ModelAndView();
+            mv.setViewName("index.jsp");
+//            mv.addObject("email", email);
+//            mv.addObject("password", password);
+            return mv;
+        }
+>>>>>>> 8cd48fd461a12d87e7dc0ccac7d1fe368b6b21e9
     }
 
     @RequestMapping(value="/logout", method = RequestMethod.POST)
@@ -73,16 +94,36 @@ public class UserController extends  {
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public ModelAndView signup(HttpServletRequest request, HttpServletResponse response) {
 
+
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String phone = request.getParameter("phone");
         String password = request.getParameter("password");
-        String department
+        String dept = request.getParameter("dept");
 
 
 
+        SignupServiceImpl signupService =new SignupServiceImpl();
 
         ModelAndView mv = new ModelAndView();
+
+        boolean valid_user= signupService.validUser(email,phone);
+
+        if(valid_user)
+        {
+            boolean created=signupService.createUser(name,email,phone,password,dept);
+
+            if(created) {
+                mv.addObject("status", "User Created successfully");
+            }
+            else {
+                mv.addObject("status","Error in creating user");
+            }
+        }
+        else {
+            mv.addObject("status", "User already Exists");
+        }
+
         mv.setViewName("index.jsp");
         return mv;
     }
