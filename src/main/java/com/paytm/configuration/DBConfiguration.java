@@ -22,13 +22,16 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "com.paytm.repo", entityManagerFactoryRef = "DbFactory",
-        transactionManagerRef = "transactionManagerDb")
+@EnableJpaRepositories(basePackages = "com.paytm.repo",
+                       entityManagerFactoryRef = "DbFactory",
+                       transactionManagerRef = "transactionManagerDb")
 @ComponentScan(basePackages = "com.paytm")
+
 public class DBConfiguration {
     private static final Logger LOG = LoggerFactory.getLogger(DBConfiguration.class);
 
-    static {
+    static
+    {
         LOG.info("Loading DB Configuration");
     }
 
@@ -53,7 +56,7 @@ public class DBConfiguration {
     private Properties getJpaProperties() {
         Properties properties = new Properties();
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
-        properties.setProperty("hibernate.hbm2ddl.auto", "create");
+        properties.setProperty("hibernate.hbm2ddl.auto", "update");//create or update
         properties.setProperty("showSql", "false");
         return properties;
     }

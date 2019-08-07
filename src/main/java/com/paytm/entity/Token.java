@@ -3,16 +3,32 @@ package com.paytm.entity;
  * @author: aditya10.kumar
  * @created: 06/08/19
  */
-
-
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
 public class Token extends AbstractEntity
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "token_id", updatable = false, nullable = false)
     private Integer token_id;
+
+    @Column(unique = true)
     private String token_no;
     private Date expiry_time;
     private Integer flag;
+
+    @ManyToOne
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Integer getToken_id() {
         return token_id;
@@ -46,4 +62,3 @@ public class Token extends AbstractEntity
         this.flag = flag;
     }
 }
-

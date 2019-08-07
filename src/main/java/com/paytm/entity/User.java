@@ -11,7 +11,10 @@ public class User extends AbstractEntity {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "u_id", updatable = false, nullable = false)
+
     private Integer u_id;
 
     private String u_name;
@@ -25,8 +28,14 @@ public class User extends AbstractEntity {
     private String phone;
 
 
+
     @OneToOne
     private Dept dept;
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
 
     public Integer getU_id() {
         return u_id;
