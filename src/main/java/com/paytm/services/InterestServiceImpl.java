@@ -14,7 +14,7 @@ public class InterestServiceImpl implements InterestService {
     public void removeInterest(Dept d) {
 
     }
-
+git
     @Override
     public void showAllInterest(User u) {
 
