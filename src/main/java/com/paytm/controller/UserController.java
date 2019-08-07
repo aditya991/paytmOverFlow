@@ -15,7 +15,7 @@ import java.util.UUID;
  * @created: 06/08/19
  */
 @Controller
-public class UserController extends HttpServlet {
+public class UserController extends  {
 
 
 
@@ -70,9 +70,14 @@ public class UserController extends HttpServlet {
         String email = request.getParameter("email");
         String phone = request.getParameter("phone");
         String password = request.getParameter("password");
+        String department
+
+
+
 
 
         ModelAndView mv = new ModelAndView();
+        mv.setViewName("index.jsp");
         return mv;
     }
 
