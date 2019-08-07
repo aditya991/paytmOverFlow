@@ -1,8 +1,6 @@
 package com.paytm.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /*
  * @author: aditya10.kumar
@@ -10,13 +8,25 @@ import javax.persistence.Id;
  */
 @Entity
 public class User extends AbstractEntity {
+
+
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer u_id;
+
     private String u_name;
     private String password;
+
     @Column(unique = true)
     private String email;
+
+
+    @Column(unique = true)
     private String phone;
+
+
+    @OneToOne
+    private Dept dept;
 
     public Integer getU_id() {
         return u_id;
@@ -54,4 +64,15 @@ public class User extends AbstractEntity {
         return phone;
     }
 
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public Dept getDept() {
+        return dept;
+    }
+
+    public void setDept(String dept) {
+        this.dept = dept;
+    }
 }

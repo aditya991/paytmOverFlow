@@ -4,13 +4,15 @@ package com.paytm.entity;
  * @created: 06/08/19
  */
 
-public class Token extends AbstractEntity {
 
+import java.util.Date;
 
+public class Token extends AbstractEntity
+{
     private Integer token_id;
-    private String token_number;
+    private String token_no;
+    private Date expiry_time;
     private Integer flag;
-
 
     public Integer getToken_id() {
         return token_id;
@@ -20,12 +22,20 @@ public class Token extends AbstractEntity {
         this.token_id = token_id;
     }
 
-    public String getToken_number() {
-        return token_number;
+    public String getToken_no() {
+        return token_no;
     }
 
-    public void setToken_number(String token_number) {
-        this.token_number = token_number;
+    public void setToken_no(String token_no) {
+        this.token_no = token_no;
+    }
+
+    public Date getExpiry_time() {
+        return expiry_time;
+    }
+
+    public void setExpiry_time(Date expiry_time) {
+        this.expiry_time = expiry_time;
     }
 
     public Integer getFlag() {
@@ -36,3 +46,4 @@ public class Token extends AbstractEntity {
         this.flag = flag;
     }
 }
+
