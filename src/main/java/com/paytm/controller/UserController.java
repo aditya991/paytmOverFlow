@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -23,10 +22,11 @@ public class UserController
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         LoginServiceImpl ls = new LoginServiceImpl();
+        System.out.println("Inside Login Controller");
         boolean flag = ls.UserCredentials(email, password);
 
-
-        if (flag == true) {
+        if (flag == true)
+        {
             HttpSession session = request.getSession();
             UUID uuid = UUID.randomUUID();
             String randomUUIDString = uuid.toString();
@@ -41,7 +41,8 @@ public class UserController
             mv.addObject("email", email);
             mv.addObject("password", password);
             return mv;
-        } else {
+        }
+        else {
             ModelAndView mv = new ModelAndView();
             mv.setViewName("index.jsp");
 //            mv.addObject("email", email);
@@ -50,8 +51,7 @@ public class UserController
         }
     }
 
-
-    @RequestMapping("/logout")
+    @RequestMapping(value="/logout", method = RequestMethod.POST)
     public ModelAndView logout(HttpSession session) {
         System.out.println("Logging you out...session Invalidated");
         ModelAndView mv = new ModelAndView("index.jsp");
@@ -73,6 +73,4 @@ public class UserController
         ModelAndView mv = new ModelAndView();
         return mv;
     }
-
-
 }

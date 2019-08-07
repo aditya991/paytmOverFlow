@@ -18,6 +18,10 @@ public class User extends AbstractEntity {
     private String email;
     private String phone;
 
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     public Integer getU_id() {
         return u_id;
     }
