@@ -4,5 +4,3 @@ package com.paytm.entity;
  * @created: 06/08/19
  */
 
-public class Question {
-}
