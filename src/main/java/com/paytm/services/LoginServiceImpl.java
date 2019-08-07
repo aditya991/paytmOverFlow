@@ -44,7 +44,8 @@ public class LoginServiceImpl implements LoginService
     @Override
     public boolean UserAuthenticationService(String email, String password)
     {
-        try {
+        try
+        {
             String DBPass = userDal.findPasswordByEmailMethod(email);
         }
         catch (Exception e)

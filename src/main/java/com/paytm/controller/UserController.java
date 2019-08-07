@@ -23,10 +23,7 @@ public class UserController
         String password = request.getParameter("password");
         LoginServiceImpl ls = new LoginServiceImpl();
         System.out.println("Inside Login Controller");
-        boolean flag = ls.UserAuthenticationService(email, password);
 
-        if (flag == true)
-        {
             HttpSession session = request.getSession();
             UUID uuid = UUID.randomUUID();
             String randomUUIDString = uuid.toString();
@@ -41,14 +38,14 @@ public class UserController
             mv.addObject("email", email);
             mv.addObject("password", password);
             return mv;
-        }
-        else {
-            ModelAndView mv = new ModelAndView();
-            mv.setViewName("index.jsp");
-//            mv.addObject("email", email);
-//            mv.addObject("password", password);
-            return mv;
-        }
+//        }
+//        else {
+//            ModelAndView mv = new ModelAndView();
+//            mv.setViewName("index.jsp");
+////            mv.addObject("email", email);
+////            mv.addObject("password", password);
+//            return mv;
+//        }
     }
 
     @RequestMapping(value="/logout", method = RequestMethod.POST)
