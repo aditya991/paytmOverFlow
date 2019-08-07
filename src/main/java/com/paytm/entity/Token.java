@@ -3,7 +3,6 @@ package com.paytm.entity;
  * @author: aditya10.kumar
  * @created: 06/08/19
  */
-
 import java.util.Date;
 
 public class Token extends AbstractEntity

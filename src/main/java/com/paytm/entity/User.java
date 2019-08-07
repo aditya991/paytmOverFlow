@@ -54,7 +54,4 @@ public class User extends AbstractEntity {
         return phone;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
 }
