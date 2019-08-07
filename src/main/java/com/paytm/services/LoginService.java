@@ -9,4 +9,5 @@ public interface LoginService
 {
     User SessionValidate(String token);
     boolean UserCredentials(String email, String password);
+    boolean markSessionInactive(String token);
 }

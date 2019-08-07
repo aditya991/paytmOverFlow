@@ -19,4 +19,9 @@ public class LoginServiceImpl implements LoginService
     public boolean UserCredentials(String email, String password) {
         return false;
     }
+
+    @Override
+    public boolean markSessionInactive(String token) {
+        return false;
+    }
 }

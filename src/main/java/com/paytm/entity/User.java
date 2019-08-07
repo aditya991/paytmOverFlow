@@ -17,6 +17,7 @@ public class User extends AbstractEntity {
     private String email;
     private String phone;
 
+<<<<<<< HEAD
     /*This is for creating a join on Dept and User
     @ManyToMany
     Set<Dept> likedDepartments;
@@ -27,6 +28,11 @@ public class User extends AbstractEntity {
             joinColumns = @JoinColumn(name = "u_id"),
             inverseJoinColumns = @JoinColumn(name = "dept_id")
     )*/
+=======
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+>>>>>>> 9ffb32308bc2b06c1bbae28a4745e311bd43bfd9
 
     public Integer getU_id() {
         return u_id;
@@ -64,7 +70,4 @@ public class User extends AbstractEntity {
         return phone;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
 }

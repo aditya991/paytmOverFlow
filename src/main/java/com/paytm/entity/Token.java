@@ -3,12 +3,16 @@ package com.paytm.entity;
  * @author: aditya10.kumar
  * @created: 06/08/19
  */
-
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Date;
-
+@Entity
 public class Token extends AbstractEntity
 {
+    @Id
     private Integer token_id;
+    @Column(unique = true)
     private String token_no;
     private Date expiry_time;
     private Integer flag;
