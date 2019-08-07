@@ -4,6 +4,7 @@ package com.paytm.entity;
  * @created: 06/08/19
  */
 
+<<<<<<< HEAD
 import java.util.Date;
 
 public class Token extends AbstractEntity
@@ -45,3 +46,4 @@ public class Token extends AbstractEntity
         this.flag = flag;
     }
 }
+
