@@ -6,16 +6,21 @@ import javax.persistence.*;
 public class Dept extends AbstractEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int dept_id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Integer dept_id;
+
     @Column(unique = true)
     private String dept_name;
 
-    public int getDept_id() {
+    public Dept(String dept_name) {
+        this.dept_name = dept_name;
+    }
+
+    public Integer getDept_id() {
         return dept_id;
     }
 
-    public void setDept_id(int dept_id) {
+    public void setDept_id(Integer dept_id) {
         this.dept_id = dept_id;
     }
 

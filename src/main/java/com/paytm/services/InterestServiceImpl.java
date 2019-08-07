@@ -1,5 +1,6 @@
 package com.paytm.services;
 
+import com.paytm.entity.Dept;
 import com.paytm.entity.User;
 
 public class InterestServiceImpl implements InterestService {
