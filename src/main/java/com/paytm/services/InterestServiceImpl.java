@@ -6,7 +6,8 @@ import com.paytm.entity.User;
 public class InterestServiceImpl implements InterestService {
     @Override
     public void addInterest(User u, Dept d) {
-
+          Integer u_id =u.getU_id()
+          Integer dept_id =d.getDept_id();
     }
 
     @Override
