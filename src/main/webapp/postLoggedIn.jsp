@@ -15,6 +15,14 @@
     Welcome <%= request.getAttribute("email")%> !!;
     <br/>
 
+    Wanna See your profile? Click on Profile button otherwise you can logout.
+
+    <form action="Profile.jsp">
+        <input type="submit"  value="Profile">
+    </form>
+
+</br>
+
     <form action="${pageContext.request.contextPath}/logout">
         <input type="submit"  value="logout">
     </form>
