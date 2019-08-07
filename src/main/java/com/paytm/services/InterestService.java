@@ -5,8 +5,8 @@ import com.paytm.entity.User;
 
 public interface InterestService {
 
-    void addInterest(User u, Dept d);
-    void removeInterest(Dept d);
+    void addInterest(User u,Dept d);
+    void removeInterest(User u,Dept d);
     void showAllInterest(User u);
     void showFeed(User u);
 }
