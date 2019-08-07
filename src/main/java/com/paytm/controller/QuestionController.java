@@ -16,6 +16,8 @@ public class QuestionController {
     {
       String department=request.getParameter("Department");
       String Question=request.getParameter("Question");
+
+
       ModelAndView mvc=new ModelAndView();
       return mvc;
     }
