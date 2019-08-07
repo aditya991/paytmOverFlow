@@ -12,10 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @created: 07/08/19
  */
 
-import com.paytm.entity.User;
 import com.paytm.repo.TokenRepo;
-import com.paytm.repo.UserRepo;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

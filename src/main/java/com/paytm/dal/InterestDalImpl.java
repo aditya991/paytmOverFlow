@@ -2,7 +2,6 @@ package com.paytm.dal;
 
 import com.paytm.entity.Dept;
 import com.paytm.entity.Interest;
-import com.paytm.repo.DeptRepo;
 import com.paytm.repo.InterestRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 

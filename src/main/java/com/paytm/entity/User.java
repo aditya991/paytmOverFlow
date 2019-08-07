@@ -1,10 +1,8 @@
 package com.paytm.entity;
 
 import javax.persistence.*;
-<<<<<<< HEAD
+
 import java.util.Set;
-=======
->>>>>>> 178d14c312b9d1e600973efc542f629ed302c1d3
 
 /*
  * @author: aditya10.kumar
@@ -31,7 +29,7 @@ public class User extends AbstractEntity {
     @Column(unique = true)
     private String phone;
 
-<<<<<<< HEAD
+
     /*This is for creating a join on Dept and User
     @ManyToMany
     Set<Dept> likedDepartments;
@@ -42,17 +40,15 @@ public class User extends AbstractEntity {
             joinColumns = @JoinColumn(name = "u_id"),
             inverseJoinColumns = @JoinColumn(name = "dept_id")
     )*/
-=======
 
 
     @OneToOne
     private Dept dept;
 
->>>>>>> 8cd48fd461a12d87e7dc0ccac7d1fe368b6b21e9
+
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
 
     public Integer getU_id() {
         return u_id;

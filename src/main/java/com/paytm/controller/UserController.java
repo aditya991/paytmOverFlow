@@ -17,26 +17,11 @@ import java.util.UUID;
  * @created: 06/08/19
  */
 @Controller
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 8cd48fd461a12d87e7dc0ccac7d1fe368b6b21e9
 public class UserController
 {
     @RequestMapping(value="/login", method = RequestMethod.GET)
     public ModelAndView login(HttpServletRequest request, HttpServletResponse response)
     {
-<<<<<<< HEAD
-=======
-public class UserController extends  {
-
-
-
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public ModelAndView login(HttpServletRequest request, HttpServletResponse response) {
->>>>>>> 1ccf1587a44a93028a36e14985d8c623d287063d
-=======
->>>>>>> 8cd48fd461a12d87e7dc0ccac7d1fe368b6b21e9
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         LoginServiceImpl ls = new LoginServiceImpl();
@@ -56,16 +41,7 @@ public class UserController extends  {
             mv.addObject("email", email);
             mv.addObject("password", password);
             return mv;
-<<<<<<< HEAD
-//        }
-//        else {
-//            ModelAndView mv = new ModelAndView();
-//            mv.setViewName("index.jsp");
-////            mv.addObject("email", email);
-////            mv.addObject("password", password);
-//            return mv;
-//        }
-=======
+
         }
         else
         {
@@ -75,7 +51,7 @@ public class UserController extends  {
 //            mv.addObject("password", password);
             return mv;
         }
->>>>>>> 8cd48fd461a12d87e7dc0ccac7d1fe368b6b21e9
+
     }
 
     @RequestMapping(value="/logout", method = RequestMethod.POST)
@@ -100,9 +76,6 @@ public class UserController extends  {
         String phone = request.getParameter("phone");
         String password = request.getParameter("password");
         String dept = request.getParameter("dept");
-
-
-
         SignupServiceImpl signupService =new SignupServiceImpl();
 
         ModelAndView mv = new ModelAndView();

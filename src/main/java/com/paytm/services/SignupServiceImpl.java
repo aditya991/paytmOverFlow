@@ -1,7 +1,7 @@
 package com.paytm.services;
 
-<<<<<<< HEAD
 import com.paytm.dal.UserDal;
+import com.paytm.entity.Dept;
 import com.paytm.entity.User;
 
 
@@ -22,6 +22,11 @@ public class SignupServiceImpl implements SignupService {
         user.setPassword(password);
         user.setDept(dept);
 
+        //ekansh
+        Dept ownDept =user.getDept();
+        InterestServiceImpl is = new InterestServiceImpl();
+        boolean isAdded=is.addInterest(user,ownDept);
+        //this was for adding default interest in his/her own department
 
         userDal.createUserDal(user);
 
