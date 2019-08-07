@@ -30,10 +30,11 @@ public class InterestDalImpl implements InterestDal {
         em.close();
     }
 
-    @Override
     public void deleteInterest(Integer u_id, Integer dept_id) {
          Interest i = InterestRepo.getInterestByUIdByDeptId( String.valueOf(u_id),
                                                              String.valueOf(dept_id) );
 
     }
+
+
 }
