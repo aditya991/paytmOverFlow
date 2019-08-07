@@ -68,7 +68,7 @@ public class DBConfiguration {
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
         dataSource.setUsername("root");
         dataSource.setPassword("root");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/paytmDB?createDatabaseIfNotExist=true");
+        dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/paytmDB?createDatabaseIfNotExist=true");
         return dataSource;
     }
 }

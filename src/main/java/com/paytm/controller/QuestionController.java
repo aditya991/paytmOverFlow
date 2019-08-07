@@ -36,13 +36,16 @@ public class QuestionController {
     {
         String department=request.getParameter("Department");
         String Question_Id=request.getParameter("Question_Id");
-
+        ModelAndView mv = new ModelAndView();
+        return  mv;
     }
     @RequestMapping("/DeleteQuesServlet")
     public ModelAndView DeleteQuestion(HttpServletRequest request,HttpServletResponse response)
     {
         String department=request.getParameter("Department");
         String Question_Id=request.getParameter("Question_Id");
+        ModelAndView mv = new ModelAndView();
+        return  mv;
     }
 }
 

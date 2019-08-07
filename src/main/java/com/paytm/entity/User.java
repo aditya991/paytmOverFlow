@@ -18,7 +18,6 @@ public class User extends AbstractEntity {
     @Column(name = "u_id", updatable = false, nullable = false)
 
     private Integer u_id;
-
     private String u_name;
     private String password;
 
@@ -44,11 +43,6 @@ public class User extends AbstractEntity {
 
     @OneToOne
     private Dept dept;
-
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
 
     public Integer getU_id() {
         return u_id;
@@ -94,7 +88,7 @@ public class User extends AbstractEntity {
         return dept;
     }
 
-    public void setDept(String dept) {
+    public void setDept(Dept dept) {
         this.dept = dept;
     }
 }

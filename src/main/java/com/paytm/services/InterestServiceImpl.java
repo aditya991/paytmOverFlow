@@ -35,4 +35,9 @@ public class InterestServiceImpl implements InterestService {
         InterestDalImpl dal = new InterestDalImpl();
         return dal.showAllInterest(u_id);
     }
+
+    @Override
+    public void showFeed(User u) {
+
+    }
 }

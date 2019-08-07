@@ -33,12 +33,12 @@ public class QuestionServiceImpl implements QuestionService{
     }
 
     @Override
-    public boolean UpdateQuestionService(Integer Ques_Id, String Department) {
+    public boolean UpdateQuestionService(Integer Ques_Id) {
         return false;
     }
 
     @Override
-    public boolean DeleteQuestionService(Integer Ques_Id, String Department) {
+    public boolean DeleteQuestionService(Integer Ques_Id) {
         return false;
     }
 

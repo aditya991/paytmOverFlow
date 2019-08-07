@@ -14,29 +14,26 @@ public class SignupServiceImpl implements SignupService {
     @Override
     public boolean createUser(String u_name, String email, String phone, String password ,String dept) {
 
-        User user=new User();
+        User user = new User();
 
         user.setU_name(u_name);
         user.setEmail(email);
         user.setPhone(phone);
         user.setPassword(password);
-        user.setDept(dept);
+        user.setDept(new Dept(dept));
 
         //ekansh
-        Dept ownDept =user.getDept();
+        Dept ownDept = user.getDept();
         InterestServiceImpl is = new InterestServiceImpl();
-        boolean isAdded=is.addInterest(user,ownDept);
+        boolean isAdded = is.addInterest(user, ownDept);
         //this was for adding default interest in his/her own department
-
+       // */
         userDal.createUserDal(user);
 
         return false;
 
 
     }
-
-
-
 
     @Override
     public boolean validUser(String email, String phone) {
@@ -50,8 +47,3 @@ public class SignupServiceImpl implements SignupService {
 
     }
 }
-
-
-
-
-

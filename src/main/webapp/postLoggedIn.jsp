@@ -17,13 +17,13 @@
 
     Wanna See your profile? Click on Profile button otherwise you can logout.
 
-    <form action="profile">
+    <form action="profile" method="post">
         <input type="submit"  value="Profile">
     </form>
 
 </br>
 
-    <form action="value=${pageContext.request.contextPath}/logout" method="post">
+    <form action="logout" method="post">
         <input type="submit"  value="logout">
     </form>
 </body>

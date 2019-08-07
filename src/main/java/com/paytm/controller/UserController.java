@@ -41,18 +41,7 @@ public class UserController
             mv.addObject("email", email);
             mv.addObject("password", password);
             return mv;
-
         }
-        else
-        {
-            ModelAndView mv = new ModelAndView();
-            mv.setViewName("index.jsp");
-//            mv.addObject("email", email);
-//            mv.addObject("password", password);
-            return mv;
-        }
-
-    }
 
     @RequestMapping(value="/logout", method = RequestMethod.POST)
     public ModelAndView logout(HttpSession session)
@@ -76,9 +65,18 @@ public class UserController
         String phone = request.getParameter("phone");
         String password = request.getParameter("password");
         String dept = request.getParameter("dept");
+
+
+        System.out.println("step 1 in controller" +name+"  "+email+"    "+phone);
+
+
         SignupServiceImpl signupService =new SignupServiceImpl();
 
         ModelAndView mv = new ModelAndView();
+
+
+        System.out.println("step 2 in controller");
+
 
         boolean valid_user= signupService.validUser(email,phone);
 
