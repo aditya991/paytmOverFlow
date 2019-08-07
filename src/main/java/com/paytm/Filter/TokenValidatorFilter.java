@@ -29,14 +29,15 @@ public class TokenValidatorFilter implements Filter {
             System.out.println(token);
             LoginServiceImpl ls=new LoginServiceImpl();
             User u=ls.SessionValidate(token);
-            if(u.getEmail().equals(sess.getAttribute("email")) && u.getPassword().equals(sess.getAttribute("password")))
-            {
-                filterChain.doFilter(servletRequest,servletResponse);
-            }
-            else
-            {
-                servletRequest.getRequestDispatcher("index.jsp").forward(servletRequest, servletResponse);
-            }
+            filterChain.doFilter(servletRequest,servletResponse);
+//            if(u.getEmail().equals(sess.getAttribute("email")) && u.getPassword().equals(sess.getAttribute("password")))
+//            {
+//                filterChain.doFilter(servletRequest,servletResponse);
+//            }
+//            else
+//            {
+//                servletRequest.getRequestDispatcher("index.jsp").forward(servletRequest, servletResponse);
+//            }
         }
         else
         {

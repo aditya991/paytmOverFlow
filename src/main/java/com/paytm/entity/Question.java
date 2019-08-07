@@ -10,6 +10,16 @@ public class Question {
     @Id
     @GeneratedValue
     private Integer Ques_Id;
+    private String Department;
+
+    public String getDepartment() {
+        return Department;
+    }
+
+    public void setDepartment(String department) {
+        Department = department;
+    }
+
     public String getQuestion() {
         return Question;
     }

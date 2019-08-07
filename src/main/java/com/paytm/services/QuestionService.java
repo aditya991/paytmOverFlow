@@ -3,8 +3,9 @@ package com.paytm.services;
 import com.paytm.entity.Question;
 
 public interface QuestionService {
-    Question AddQuestion(String Ques, Integer Ques_Id);
-    boolean UpdateQuestion(Integer Ques_Id,String Department);
-    boolean DeleteQuestion(Integer Ques_Id,String Department);
+    Integer AddQuestionService(String Department,String Question );
+    boolean UpdateQuestionService(Integer Ques_Id);
+    boolean DeleteQuestionService(Integer Ques_Id);
+    boolean ValidUser(Integer Ques_Id);
 
 }

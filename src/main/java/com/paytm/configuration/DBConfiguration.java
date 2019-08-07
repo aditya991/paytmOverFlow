@@ -22,13 +22,16 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "com.paytm.repo", entityManagerFactoryRef = "DbFactory",
-        transactionManagerRef = "transactionManagerDb")
+@EnableJpaRepositories(basePackages = "com.paytm.repo",
+                       entityManagerFactoryRef = "DbFactory",
+                       transactionManagerRef = "transactionManagerDb")
 @ComponentScan(basePackages = "com.paytm")
+
 public class DBConfiguration {
     private static final Logger LOG = LoggerFactory.getLogger(DBConfiguration.class);
 
-    static {
+    static
+    {
         LOG.info("Loading DB Configuration");
     }
 
