@@ -15,7 +15,7 @@ import java.util.UUID;
  * @created: 06/08/19
  */
 @Controller
-public class UserController extends HttpServlet
+public class UserController
 {
     @RequestMapping(value="/login", method = RequestMethod.GET)
     public ModelAndView login(HttpServletRequest request, HttpServletResponse response)
