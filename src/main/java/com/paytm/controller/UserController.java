@@ -17,13 +17,6 @@ import java.util.UUID;
  * @created: 06/08/19
  */
 @Controller
-<<<<<<< HEAD
-
-public class UserController   {
-
-
-
-=======
 public class UserController
 {
     @RequestMapping(value="/login", method = RequestMethod.GET)
@@ -52,7 +45,8 @@ public class UserController
             mv.addObject("password", password);
             return mv;
         }
-        else {
+        else
+        {
             ModelAndView mv = new ModelAndView();
             mv.setViewName("index.jsp");
 //            mv.addObject("email", email);
@@ -73,7 +67,6 @@ public class UserController
         session.invalidate();
         return mv;
     }
->>>>>>> 45906b645d3a5d142dc36bce287bf41d1dd53502
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public ModelAndView signup(HttpServletRequest request, HttpServletResponse response) {
@@ -86,11 +79,9 @@ public class UserController
         String dept = request.getParameter("dept");
 
 
-<<<<<<< HEAD
 
         SignupServiceImpl signupService =new SignupServiceImpl();
-=======
->>>>>>> 45906b645d3a5d142dc36bce287bf41d1dd53502
+
         ModelAndView mv = new ModelAndView();
 
         boolean valid_user= signupService.validUser(email,phone);
