@@ -23,7 +23,7 @@ public class UserController
         String password = request.getParameter("password");
         LoginServiceImpl ls = new LoginServiceImpl();
         System.out.println("Inside Login Controller");
-        boolean flag = ls.UserCredentials(email, password);
+        boolean flag = ls.UserAuthenticationService(email, password);
 
         if (flag == true)
         {
@@ -32,7 +32,7 @@ public class UserController
             String randomUUIDString = uuid.toString();
 
             session.setAttribute("email", email);
-            session.setAttribute("password", password);
+            //session.setAttribute("password", password);
             session.setAttribute("token", randomUUIDString);
             session.setAttribute("created", System.currentTimeMillis());
 
@@ -52,11 +52,14 @@ public class UserController
     }
 
     @RequestMapping(value="/logout", method = RequestMethod.POST)
-    public ModelAndView logout(HttpSession session) {
+    public ModelAndView logout(HttpSession session)
+    {
         System.out.println("Logging you out...session Invalidated");
         ModelAndView mv = new ModelAndView("index.jsp");
         LoginServiceImpl ls = new LoginServiceImpl();
-        ls.markSessionInactive((String) session.getAttribute("token"));   //mark that session id inactive
+
+        ls.markSessionInactive((String)session.getAttribute("token"));   //mark that session id inactive
+
         session.invalidate();
         return mv;
     }
@@ -68,7 +71,6 @@ public class UserController
         String email = request.getParameter("email");
         String phone = request.getParameter("phone");
         String password = request.getParameter("password");
-
 
         ModelAndView mv = new ModelAndView();
         return mv;

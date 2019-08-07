@@ -1,8 +1,6 @@
 package com.paytm.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /*
  * @author: aditya10.kumar
@@ -11,7 +9,10 @@ import javax.persistence.Id;
 @Entity
 public class User extends AbstractEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "u_id", updatable = false, nullable = false)
     private Integer u_id;
+
     private String u_name;
     private String password;
     @Column(unique = true)
