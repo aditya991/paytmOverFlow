@@ -8,5 +8,5 @@ import com.paytm.entity.User;
 public interface LoginService
 {
     User SessionValidate(String token);
-    boolean UserCredential(String email, String password);
+    boolean UserCredentials(String email, String password);
 }
