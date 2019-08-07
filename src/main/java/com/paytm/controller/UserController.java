@@ -32,16 +32,13 @@ public class UserController extends  {
         String password = request.getParameter("password");
         LoginServiceImpl ls = new LoginServiceImpl();
         System.out.println("Inside Login Controller");
-        boolean flag = ls.UserCredentials(email, password);
 
-        if (flag == true)
-        {
             HttpSession session = request.getSession();
             UUID uuid = UUID.randomUUID();
             String randomUUIDString = uuid.toString();
 
             session.setAttribute("email", email);
-            session.setAttribute("password", password);
+            //session.setAttribute("password", password);
             session.setAttribute("token", randomUUIDString);
             session.setAttribute("created", System.currentTimeMillis());
 
@@ -50,22 +47,25 @@ public class UserController extends  {
             mv.addObject("email", email);
             mv.addObject("password", password);
             return mv;
-        }
-        else {
-            ModelAndView mv = new ModelAndView();
-            mv.setViewName("index.jsp");
-//            mv.addObject("email", email);
-//            mv.addObject("password", password);
-            return mv;
-        }
+//        }
+//        else {
+//            ModelAndView mv = new ModelAndView();
+//            mv.setViewName("index.jsp");
+////            mv.addObject("email", email);
+////            mv.addObject("password", password);
+//            return mv;
+//        }
     }
 
     @RequestMapping(value="/logout", method = RequestMethod.POST)
-    public ModelAndView logout(HttpSession session) {
+    public ModelAndView logout(HttpSession session)
+    {
         System.out.println("Logging you out...session Invalidated");
         ModelAndView mv = new ModelAndView("index.jsp");
         LoginServiceImpl ls = new LoginServiceImpl();
-        ls.markSessionInactive((String) session.getAttribute("token"));   //mark that session id inactive
+
+        ls.markSessionInactive((String)session.getAttribute("token"));   //mark that session id inactive
+
         session.invalidate();
         return mv;
     }
@@ -78,7 +78,6 @@ public class UserController extends  {
         String phone = request.getParameter("phone");
         String password = request.getParameter("password");
         String department
-
 
 
 

@@ -1,7 +1,10 @@
 package com.paytm.entity;
 
 import javax.persistence.*;
+<<<<<<< HEAD
 import java.util.Set;
+=======
+>>>>>>> 178d14c312b9d1e600973efc542f629ed302c1d3
 
 /*
  * @author: aditya10.kumar
@@ -10,7 +13,10 @@ import java.util.Set;
 @Entity
 public class User extends AbstractEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "u_id", updatable = false, nullable = false)
     private Integer u_id;
+
     private String u_name;
     private String password;
     @Column(unique = true)
