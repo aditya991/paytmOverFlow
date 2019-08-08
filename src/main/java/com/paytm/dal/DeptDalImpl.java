@@ -21,7 +21,7 @@ public class DeptDalImpl {
         return deptRepo.findDeptByDeptName(deptName);
     }
 
-    public List<Dept> enterAllAvailableDeptMethod() {
+   /* public List<Dept> enterAllAvailableDeptMethod() {
         return deptRepo.showAllDept();
-    }
+    }*/
 }

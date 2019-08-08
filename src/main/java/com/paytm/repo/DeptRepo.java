@@ -15,8 +15,8 @@ public interface DeptRepo extends JpaRepository<Dept,Integer> {
     @Query("select dept from Dept dept where dept.dept_name=:dept_name ")
     Dept findDeptByDeptName(@Param("dept_name") String dept_name);
 
-    @Query("select * from Dept")
-    List<Dept> showAllDept();
+    /*@Query("select * from Dept")
+    List<Dept> showAllDept();*/
 
 
 }

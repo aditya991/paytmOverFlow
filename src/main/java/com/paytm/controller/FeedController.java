@@ -75,7 +75,7 @@ public class FeedController {
         DeptDalImpl dd = new DeptDalImpl();
         ModelAndView mv = new ModelAndView();
 
-        List<Dept> deptSet = dd.enterAllAvailableDeptMethod();
+       // List<Dept> deptSet = dd.enterAllAvailableDeptMethod();
         String email = (String) session.getAttribute("email");
         User u = us.findUserByEmailService(email);
 
@@ -83,7 +83,7 @@ public class FeedController {
 
         mv.setViewName("Profile.jsp");
         mv.addObject("listofinterest",resultSet);
-        mv.addObject("listofdepartments",deptSet);
+     //   mv.addObject("listofdepartments",deptSet);
 
         return  mv;
     }

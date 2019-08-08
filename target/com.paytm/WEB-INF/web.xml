@@ -12,7 +12,7 @@
 <!--<web-app>-->
   <display-name>Archetype Created Web Application</display-name>
 
-  <filter>
+  <!--<filter>
     <filter-name>TokenFilter</filter-name>
     <filter-class>com.paytm.Filter.TokenValidatorFilter</filter-class>
   </filter>
@@ -30,7 +30,7 @@
     <filter-name>loginFilter</filter-name>
     <url-pattern>/login</url-pattern>
   </filter-mapping>
-
+-->
   <servlet>
     <servlet-name>springex</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
