@@ -7,7 +7,8 @@ import com.paytm.entity.User;
 
 public interface UserService
 {
-    User findUserByName(String name);
-    User findUserByEmail(String email);
-    boolean deleteUser(String email);
+    User findUserByNameService(String name);
+    User findUserByEmailService(String email);
+    boolean deleteUserService(String email);
 }
+

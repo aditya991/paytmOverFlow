@@ -1,5 +1,4 @@
 package com.paytm.controller;
-import com.paytm.entity.User;
 import com.paytm.services.LoginServiceImpl;
 
 import com.paytm.services.SignupServiceImpl;
@@ -10,9 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -90,7 +86,7 @@ public class UserController
         System.out.println(" in controller");
 
 
-        boolean valid_user= signupServiceImpl.validUser(email,phone);
+        boolean valid_user= signupServiceImpl.checkExistingUserService(email,phone);
 
         System.out.println(" in controller 1");
 
@@ -98,7 +94,7 @@ public class UserController
         {
             System.out.println("User creating stage");
 
-            boolean created=signupServiceImpl.createUser(name,email,phone,password,dept);
+            boolean created=signupServiceImpl.createUserService(name,email,phone,password,dept);
 
             if(created) {
                 mv.addObject("status", "User Created successfully");
