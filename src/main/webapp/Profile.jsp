@@ -32,7 +32,7 @@
 <form action="/addinterest" method="get">
     Select a department to add into your interests.
     <select name="deptName">
-        <c:forEach items="${listofdepartments}" var="dept">
+        <c:forEach items="${deptSet}" var="dept">
             <option value="${dept.dep_name}">${dept.dept_name}</option>
         </c:forEach>
     </select>

@@ -4,7 +4,6 @@ import com.paytm.dal.DeptDalImpl;
 import com.paytm.entity.Dept;
 import com.paytm.entity.User;
 import com.paytm.services.InterestServiceImpl;
-import com.paytm.services.UserServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

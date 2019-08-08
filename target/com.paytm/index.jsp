@@ -1,30 +1,40 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: adityakumar
-  Date: 07/08/19
-  Time: 10:33 AM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
-    <title>Welcome !!</title>
-</head>
 <body>
-    Successfully logged in...
-    Welcome <%= request.getAttribute("email")%> !!;
-    <br/>
+<form action="login" method="get">
+    Email ID: <input type="text" placeholder="enter your email address" name="email"/>
+    </br>
+    Password: <input type="password" placeholder="enter your password" name="password"/>
+    </br>
+    <input type="submit" value="login"/>
+</form>
 
-    Wanna See your profile? Click on Profile button otherwise you can logout.
 
-    <form action="profile" method="post">
-        <input type="submit"  value="Profile">
-    </form>
 
-</br>
+<br>
+<br>
+<br>
+<br>
 
-    <form action="logout" method="post">
-        <input type="submit"  value="logout">
-    </form>
+<h2> New User Signup here</h2>
+
+<br>
+<br>
+
+<form action="signup" method="post">
+
+    Nmae  : <input type="text" name="name"/>  <br>
+    Email Id: <input type="text" name="email"/> <br>
+    Phone : <input type="text" name="phone"/> <br>
+    Department: <input type="text" name="dept"/> <br>
+    Password: <input type="password" name="password"/> <br>
+
+    <input type="submit" value="signup"/> <br>
+</form>
+
+
+
+
+
+
 </body>
 </html>
