@@ -16,6 +16,7 @@ import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 import java.util.Properties;
@@ -28,6 +29,7 @@ import java.util.Properties;
 @ComponentScan(basePackages = "com.paytm")
 
 public class DBConfiguration {
+
     private static final Logger LOG = LoggerFactory.getLogger(DBConfiguration.class);
 
     static
@@ -56,8 +58,10 @@ public class DBConfiguration {
     private Properties getJpaProperties() {
         Properties properties = new Properties();
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
-        properties.setProperty("hibernate.hbm2ddl.auto", "create");
-        properties.setProperty("showSql", "false");
+        properties.setProperty("hibernate.hbm2ddl.auto", "create");//create or update
+
+        properties.setProperty("hibernate.transaction.jta.platform","org.hibernate.service.jta.platform.internal.JBossAppServerJtaPlatform");
+        properties.setProperty("showSql", "true");
         return properties;
     }
 
@@ -68,7 +72,7 @@ public class DBConfiguration {
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
         dataSource.setUsername("root");
         dataSource.setPassword("root");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/paytmDB?createDatabaseIfNotExist=true");
+        dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/paytmDB?createDatabaseIfNotExist=true");
         return dataSource;
     }
 }

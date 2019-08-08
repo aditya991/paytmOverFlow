@@ -3,11 +3,13 @@ package com.paytm.entity;
 import javax.persistence.*;
 import java.util.Set;
 
+
 @Entity
 public class Dept extends AbstractEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "dept_id" ,updatable = false ,nullable = false)
     private Integer dept_id;
     @Column(unique = true)
     private String dept_name;

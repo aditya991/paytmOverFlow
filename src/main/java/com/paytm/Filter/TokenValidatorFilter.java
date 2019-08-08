@@ -19,36 +19,40 @@ public class TokenValidatorFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException
     {
-        //typecasting needed to access the getSession()method;
-        HttpServletRequest request=(HttpServletRequest) servletRequest;
-        HttpSession sess=request.getSession(false);
-        if(sess!= null)
+        String path = ((HttpServletRequest) servletRequest).getRequestURI();
+        System.out.println(path);
+        if (path.startsWith("/paytmOverFlow_war_exploded/login") || path.startsWith("/paytmOverFlow_war_exploded/signup")|| path.startsWith("/paytmOverFlow_war/signup"))
         {
-            String token= (String) sess.getAttribute("token");
-            System.out.print("Inside session validate :");
-            System.out.println(token);
-            LoginServiceImpl ls=new LoginServiceImpl();
-            User u=ls.SessionValidate(token);
-            filterChain.doFilter(servletRequest,servletResponse);
-//            if(u.getEmail().equals(sess.getAttribute("email")) && u.getPassword().equals(sess.getAttribute("password")))
-//            {
-//                filterChain.doFilter(servletRequest,servletResponse);
-//            }
-//            else
-//            {
-//                servletRequest.getRequestDispatcher("index.jsp").forward(servletRequest, servletResponse);
-//            }
+            filterChain.doFilter(servletRequest, servletResponse);
         }
         else
         {
-            //RequestDispatcher rd=servletRequest.getRequestDispatcher("index.jsp");
-            servletRequest.getRequestDispatcher("index.jsp").forward(servletRequest, servletResponse);
-            //rd.forward(servletRequest, servletResponse);
+            //typecasting needed to access the getSession()method;
+            HttpServletRequest request = (HttpServletRequest) servletRequest;
+            HttpSession sess = request.getSession(false);
+            if (sess != null) {
+                String token = (String) sess.getAttribute("token");
+                System.out.print("Inside session validate :");
+                System.out.println(token);
+                LoginServiceImpl ls = new LoginServiceImpl();
+
+                int id = ls.findUserIdByTokenService(token);
+                System.out.println(id);
+                User u= ls.findUserByUserIdService(id);
+                if (u.getEmail().equals(sess.getAttribute("email"))) {
+                    filterChain.doFilter(servletRequest, servletResponse);
+                } else {
+                    //login unsuccessful
+                    servletRequest.getRequestDispatcher("index.jsp").forward(servletRequest, servletResponse);
+                }
+            } else {
+                //login unsuccessful
+                //RequestDispatcher rd=servletRequest.getRequestDispatcher("index.jsp");
+                servletRequest.getRequestDispatcher("index.jsp").forward(servletRequest, servletResponse);
+                //rd.forward(servletRequest, servletResponse);
+            }
         }
     }
-
     @Override
-    public void destroy() {
-
-    }
+    public void destroy() {}
 }

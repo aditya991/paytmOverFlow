@@ -3,19 +3,18 @@ package com.paytm.controller;
  * @author: aditya10.kumar
  * @created: 06/08/19
  */
-import com.paytm.entity.Question;
 import com.paytm.services.QuestionServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import com.paytm.services.QuestionService;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @Controller
 public class QuestionController {
-    QuestionServiceImpl ques=new QuestionServiceImpl();
+    QuestionServiceImpl questionServiceImpl =new QuestionServiceImpl();
 
     @RequestMapping("/AddQuesServlet")
     public ModelAndView AddQuestion(HttpServletRequest request, HttpServletResponse response)
@@ -23,7 +22,7 @@ public class QuestionController {
       String department=request.getParameter("Department");
       String question=request.getParameter("Question");
         ModelAndView mvc=new ModelAndView();
-       ques.AddQuestionService(department,question,session);
+       questionServiceImpl.AddQuestionService(department,question,session);
        mvc.setViewName("AddQuestion.jsp");
        return mvc;
     }
@@ -34,13 +33,16 @@ public class QuestionController {
 
         ModelAndView mvc=new ModelAndView();
 
-        if(ques.ValidUser(Question,session))
+        if(questionServiceImpl.ValidUser(Question,session))
         {
+          mvc.setViewName("UpdateQuestion.jsp");
+          return mvc;
 
         }
         else
         {
            mvc.setViewName("UpdateQuestion.jsp");
+           return mvc;
         }
 
     }

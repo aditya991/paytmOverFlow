@@ -2,8 +2,8 @@ package com.paytm.dal;
 import com.paytm.entity.Question;
 import com.paytm.entity.User;
 public interface QuestionDal {
-    Void AddQuestionDal(Question ques ,User user );
-    boolean UpdateQuestionDal(Integer Ques_Id);
-    boolean DeleteQuestionDal(Integer Ques_Id);
-    boolean ValidUserDal(Integer Ques_Id,User user);
+    Void AddQuestionMethod(Question ques , User user );
+    boolean UpdateQuestionMethod(Integer Ques_Id);
+    boolean DeleteQuestionMethod(Integer Ques_Id);
+    boolean ValidUserMethod(Integer Ques_Id, User user);
 }

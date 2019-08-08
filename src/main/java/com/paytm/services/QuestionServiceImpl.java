@@ -1,8 +1,9 @@
 package com.paytm.services;
 import com.paytm.dal.QuestionDalImpl;
+import com.paytm.entity.Interest;
 import com.paytm.entity.Question;
 import com.paytm.entity.User;
-import com.paytm.repo.UserRepo;
+import com.paytm.repo.QuestionRepo;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -23,10 +24,10 @@ public class QuestionServiceImpl implements QuestionService{
         Question q=new Question();
         q.setQuestion(question);
         q.setDepartment(department);
-        q.setQues_Id(q.getQues_Id());
+        q.setQuestion_Id(q.getQuestion_Id());
         q.setUser(user);
 
-        ques.AddQuestionDal(q,user);
+        ques.AddQuestionMethod(q,user);
 
 
 
@@ -43,10 +44,11 @@ public class QuestionServiceImpl implements QuestionService{
     }
 
     @Override
-    public boolean ValidUser(String  Ques,HttpSession session) {
+    public boolean ValidUser(String  question,HttpSession session) {
         UserServiceImpl userservice=new UserServiceImpl();
         User user=userservice.findUserByEmail(session.getAttribute("email"));
-
-    return ques.ValidUserDal(Ques_Id,user);
+        Question ques=new Question();
+        ques=getquestion_Idbyquestion(question);
+    return ques.ValidUserMethod(ques.getQuestion_Id(),session);
     }
 }

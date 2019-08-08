@@ -18,7 +18,7 @@ public class QuestionDalImpl<UserRepo> implements QuestionService {
     private EntityManagerFactory emf;
 
     @Override
-    public  void AddQuestionDal(Question ques, User user )
+    public  void AddQuestionMethod(Question ques, User user )
     {  ques.setUser(user);
         EntityManager em=emf.createEntityManager();
         EntityTransaction tx=em.getTransaction();
@@ -30,23 +30,24 @@ public class QuestionDalImpl<UserRepo> implements QuestionService {
     }
 
     @Override
-    public boolean UpdateQuestionDal(Integer Ques_Id, String Department) {
+    public boolean UpdateQuestionMethod(Integer Ques_Id, String Department) {
         return false;
     }
 
     @Override
-    public boolean DeleteQuestionDal(Integer Ques_Id, String Department) {
+    public boolean DeleteQuestionMethod(Integer Ques_Id, String Department) {
         return false;
     }
 
 
 
     @Override
-    public boolean ValidUser(Integer Ques_Id,User user) {
-       String name=getUsernameByQues_Id(Ques_Id);
-       if(user.getU_name().equals(name))
+    public boolean ValidUserMethod(Integer Ques_Id,User user) {
+       Question question=getUsernameByquestion_Id(Ques_Id);
+
+     /*  if(user.getU_name().equals(question.g))
            return true;
-       else
+       else*/
         return false;
     }
 }

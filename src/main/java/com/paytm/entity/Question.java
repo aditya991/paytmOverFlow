@@ -4,11 +4,11 @@ import javax.persistence.*;
 
 @Entity
 public class Question {
-    private String Question;
+    private String question;
     @Id
     @GeneratedValue
-    private Integer Ques_Id;
-    private String Department;
+    private Integer question_Id;
+    private String department;
     @ManyToOne
     @JoinColumn(name="u_name")
     private User user;
@@ -22,26 +22,26 @@ public class Question {
     }
 
     public String getDepartment() {
-        return Department;
+        return department;
     }
 
     public void setDepartment(String department) {
-        Department = department;
+        this.department = department;
     }
 
     public String getQuestion() {
-        return Question;
+        return question;
     }
 
     public void setQuestion(String question) {
-        Question = question;
+        this.question = question;
     }
 
-    public Integer getQues_Id() {
-        return Ques_Id;
+    public Integer getQuestion_Id() {
+        return question_Id;
     }
 
-    public void setQues_Id(Integer ques_Id) {
-        Ques_Id = ques_Id;
+    public void setQuestion_Id(Integer question_Id) {
+        this.question_Id = question_Id;
     }
 }
