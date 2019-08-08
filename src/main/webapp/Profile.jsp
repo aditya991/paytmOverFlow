@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.paytm.entity.Dept" %><%--
+<%@ page import="com.paytm.entity.Dept" %>
+<%@ page import="java.util.Iterator" %><%--
   Created by IntelliJ IDEA.
   User: ekanshgupta
   Date: 07/08/19
@@ -19,25 +20,19 @@
 
 <%
     int i = 1;
-    List<String> list = (List <String>) request.getAttribute("listofinterest");
-%>
-<%
-    for (String d : list) {
-%>
-    <%=i++%>
-    <%=System.out.println(d)%>
-<%
-    }
-%>
-
-<%
+    List<String> listInterest = (List <String>) request.getAttribute("listofinterest");
     List<Dept> listDept = (List <Dept>) request.getAttribute("listofdepartments");
+    Iterator<String> iterator = listInterest.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(i+iterator.next());
+            i++;
+        }
 %>
 
 <form action="/addinterest" method="get">
     Select a department to add into your interests.
     <select name="deptName">
-        <c:forEach items="${listDept}" var="dept">
+        <c:forEach items="${listofdepartments}" var="dept">
             <option value="${dept.dep_name}">${dept.dept_name}</option>
         </c:forEach>
     </select>
