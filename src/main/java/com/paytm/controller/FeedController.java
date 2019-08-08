@@ -36,12 +36,12 @@ public class FeedController {
         String email = (String) session.getAttribute("email");
         User u = us.findUserByEmailService(email);
         Dept d = ds.findDeptByNameMethod(deptName);
-        if(is.addInterest(u,d)){
+       /* if(is.addInterest(u,d)){
             System.out.println("Interest successfully added.");
         }
         else{
             System.out.println("Error in adding Interest.");
-        }
+        }*/
         return mv;
     }
 

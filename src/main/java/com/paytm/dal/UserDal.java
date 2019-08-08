@@ -1,11 +1,13 @@
 package com.paytm.dal;
 
 
+import com.paytm.entity.Dept;
 import com.paytm.entity.User;
 import com.paytm.repo.DeptRepo;
 import com.paytm.repo.TokenRepo;
 import com.paytm.repo.UserRepo;
 
+import com.paytm.services.InterestServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -58,14 +60,17 @@ public class UserDal
         em.getTransaction().commit();
 
 
-
-
-
         em.getTransaction().begin();
         em.persist(user);
         em.getTransaction().commit();
         em.close();
 
+        //ekansh
+        InterestServiceImpl is = new InterestServiceImpl();
+        System.out.println(user+" "+user.getDept());
+        boolean isAdded = is.addInterest(user, user.getDept(),emf);
+        System.out.print(isAdded);
+        //this was for adding default interest in his/her own department
 
         System.out.println("in user DAL final .user must be added to table");
 

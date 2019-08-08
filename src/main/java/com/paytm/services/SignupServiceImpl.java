@@ -33,12 +33,6 @@ public class SignupServiceImpl implements SignupService {
         user.setUpdated(new Date());
         user.setDept(d);
 
-        //ekansh
-        Dept ownDept = user.getDept();
-        InterestServiceImpl is = new InterestServiceImpl();
-        boolean isAdded = is.addInterest(user, ownDept);
-        //this was for adding default interest in his/her own department
-
 
         userDal.createUserMethod(user);
 

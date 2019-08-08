@@ -22,7 +22,7 @@
 
 <form action="signup" method="post">
 
-    Nmae  : <input type="text" name="name"/>  <br>
+    Name  : <input type="text" name="name"/>  <br>
     Email Id: <input type="text" name="email"/> <br>
     Phone : <input type="text" name="phone"/> <br>
     Department: <input type="text" name="dept"/> <br>

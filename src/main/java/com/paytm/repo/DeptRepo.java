@@ -7,7 +7,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import java.util.List;
 
-public interface DeptRepo extends JpaRepository<Dept,Integer> {
+public interface DeptRepo extends JpaRepository<Dept,Integer>
+{
 
     @Query("select d.dept_name from Dept d where d.dept_id = :deptid")
     List<String> getDeptNameByDeptId(@Param("deptid") String deptid);
