@@ -10,7 +10,7 @@ import java.util.Date;
 public class Token extends AbstractEntity
 {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "token_id", updatable = false, nullable = false)
     private Integer token_id;
 

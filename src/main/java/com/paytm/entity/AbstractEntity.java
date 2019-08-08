@@ -4,8 +4,10 @@ package com.paytm.entity;
  * @created: 06/08/19
  */
 
+import javax.persistence.MappedSuperclass;
 import java.util.Date;
 
+@MappedSuperclass
 public class AbstractEntity {
 
     private Date created;

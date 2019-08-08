@@ -1,6 +1,9 @@
 package com.paytm.controller;
 
+import com.paytm.entity.Token;
+import com.paytm.entity.User;
 import com.paytm.services.LoginServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -8,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 import java.util.UUID;
 /*
  * @author: aditya10.kumar
@@ -16,36 +20,42 @@ import java.util.UUID;
 @Controller
 public class UserController
 {
+    @Autowired
+    private LoginServiceImpl ls;
+
     @RequestMapping(value="/login", method = RequestMethod.GET)
     public ModelAndView login(HttpServletRequest request, HttpServletResponse response)
     {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        LoginServiceImpl ls = new LoginServiceImpl();
+
         System.out.println("Inside Login Controller");
 
-            HttpSession session = request.getSession();
-            UUID uuid = UUID.randomUUID();
-            String randomUUIDString = uuid.toString();
+        HttpSession session = request.getSession();
+        UUID uuid = UUID.randomUUID();
+        String randomUUIDString = uuid.toString();
 
-            session.setAttribute("email", email);
-            //session.setAttribute("password", password);
-            session.setAttribute("token", randomUUIDString);
-            session.setAttribute("created", System.currentTimeMillis());
+        session.setAttribute("email", email);
+        //session.setAttribute("password", password);
+        session.setAttribute("token", randomUUIDString);
+        session.setAttribute("created", System.currentTimeMillis());
 
-            ModelAndView mv = new ModelAndView();
-            mv.setViewName("postLoggedIn.jsp");
-            mv.addObject("email", email);
-            mv.addObject("password", password);
-            return mv;
-//        }
-//        else {
-//            ModelAndView mv = new ModelAndView();
-//            mv.setViewName("index.jsp");
-////            mv.addObject("email", email);
-////            mv.addObject("password", password);
-//            return mv;
-//        }
+        User u=ls.findUserByEmailService(email);
+
+        Token t= new Token();
+        //t.setExpiry_time();
+        t.setFlag(1);
+        t.setToken_no((String) session.getAttribute("token"));
+        t.setUser(u);
+        t.setCreated(new Date());
+        t.setUpdated(new Date());
+
+        ls.createTokenService(t);
+
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("postLoggedIn.jsp");
+        mv.addObject("email", email);
+        return mv;
     }
 
     @RequestMapping(value="/logout", method = RequestMethod.POST)
@@ -53,7 +63,6 @@ public class UserController
     {
         System.out.println("Logging you out...session Invalidated");
         ModelAndView mv = new ModelAndView("index.jsp");
-        LoginServiceImpl ls = new LoginServiceImpl();
 
         ls.markSessionInactive((String)session.getAttribute("token"));   //mark that session id inactive
 

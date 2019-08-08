@@ -15,7 +15,7 @@
     Welcome <%= request.getAttribute("email")%> !!;
     <br/>
 
-    <form action="value=${pageContext.request.contextPath}/logout" method="post">
+    <form action="/logout" method="post">
         <input type="submit"  value="logout">
     </form>
 </body>

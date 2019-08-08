@@ -47,6 +47,7 @@ public class DBConfiguration {
         JpaVendorAdapter jpaVendorAdapter = new HibernateJpaVendorAdapter();
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setDataSource(DbDatasource());
+        //entityManagerFactoryBean.setPersistenceUnitName("hibernate-persistence"); //persistence name
         entityManagerFactoryBean.setPackagesToScan("com.paytm.entity");
         entityManagerFactoryBean.setJpaVendorAdapter(jpaVendorAdapter);
         entityManagerFactoryBean.setJpaProperties(getJpaProperties());
@@ -56,7 +57,7 @@ public class DBConfiguration {
     private Properties getJpaProperties() {
         Properties properties = new Properties();
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
-        properties.setProperty("hibernate.hbm2ddl.auto", "update");//create or update
+        properties.setProperty("hibernate.hbm2ddl.auto", "create");//create or update
         properties.setProperty("showSql", "false");
         return properties;
     }
