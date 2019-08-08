@@ -4,6 +4,7 @@ import com.paytm.dal.DeptDalImpl;
 import com.paytm.entity.Dept;
 import com.paytm.entity.User;
 import com.paytm.services.InterestServiceImpl;
+import com.paytm.services.UserServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -33,7 +34,7 @@ public class FeedController {
 
         String deptName=req.getParameter("deptName");
         String email = (String) session.getAttribute("email");
-        User u = us.findUserByEmail(email);
+        User u = us.findUserByEmailService(email);
         Dept d = ds.findDeptByNameMethod(deptName);
         if(is.addInterest(u,d)){
             System.out.println("Interest successfully added.");
@@ -54,7 +55,7 @@ public class FeedController {
 
         String deptName=req.getParameter("deptName");
         String email = (String) session.getAttribute("email");
-        User u = us.findUserByEmail(email);
+        User u = us.findUserByEmailService(email);
         Dept d = ds.findDeptByNameMethod(deptName);
         if(is.removeInterest(u,d)){
             System.out.println("Interest successfully removed.");
@@ -76,7 +77,7 @@ public class FeedController {
 
         List<Dept> deptSet = dd.enterAllAvailableDeptMethod();
         String email = (String) session.getAttribute("email");
-        User u = us.findUserByEmail(email);
+        User u = us.findUserByEmailService(email);
 
         List<String> resultSet = is.showAllInterest(u);
 

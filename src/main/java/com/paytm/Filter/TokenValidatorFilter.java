@@ -21,7 +21,7 @@ public class TokenValidatorFilter implements Filter {
     {
         String path = ((HttpServletRequest) servletRequest).getRequestURI();
         System.out.println(path);
-        if (path.startsWith("/paytmOverFlow_war_exploded/login") || path.startsWith("/paytmOverFlow_war_exploded/signup"))
+        if (path.startsWith("/paytmOverFlow_war_exploded/login") || path.startsWith("/paytmOverFlow_war_exploded/signup")|| path.startsWith("/paytmOverFlow_war/signup"))
         {
             filterChain.doFilter(servletRequest, servletResponse);
         }

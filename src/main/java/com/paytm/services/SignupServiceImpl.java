@@ -3,16 +3,25 @@ package com.paytm.services;
 import com.paytm.dal.UserDal;
 import com.paytm.entity.Dept;
 import com.paytm.entity.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import java.util.Date;
 
-
+@Service
 public class SignupServiceImpl implements SignupService {
 
-
-    private UserDal userDal = new UserDal();
+    @Autowired
+    UserDal userDal ;
 
     @Override
-    public boolean createUser(String u_name, String email, String phone, String password ,String dept) {
+    public boolean createUserService(String u_name, String email, String phone, String password , String dept) {
+
+        System.out.println("inside create user function");
+
+
+        Dept d= new Dept(dept);
+
 
         User user = new User();
 
@@ -20,7 +29,9 @@ public class SignupServiceImpl implements SignupService {
         user.setEmail(email);
         user.setPhone(phone);
         user.setPassword(password);
-        user.setDept(new Dept(dept));
+        user.setCreated(new Date());
+        user.setUpdated(new Date());
+        user.setDept(d);
 
         //ekansh
         Dept ownDept = user.getDept();
@@ -28,20 +39,27 @@ public class SignupServiceImpl implements SignupService {
         boolean isAdded = is.addInterest(user, ownDept);
         //this was for adding default interest in his/her own department
 
-        userDal.createUserDal(user);
+
+        userDal.createUserMethod(user);
+
+
+        System.out.println("inside create user function final step");
 
         return false;
     }
 
     @Override
-    public boolean validUser(String email, String phone) {
+    public boolean checkExistingUserService(String email, String phone) {
 
-        boolean a= userDal.validUserEmail(email) ;
+       boolean a= !userDal.validUserEmailMethod(email) ;
 
-        boolean b= userDal.validUserPhone(phone) ;
+        boolean b= !userDal.validUserPhoneMethod(phone) ;
 
 
-        return  (a && b);
+        System.out.println("in valid user     "+a+"        "+ b);
+
+
+        return  a && b;
 
     }
 }

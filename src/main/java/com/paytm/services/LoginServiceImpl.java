@@ -30,14 +30,14 @@ public class LoginServiceImpl implements LoginService
 
     @Override
     public User findUserByUserIdService(int id) {
-        User u=userDal.findUserByUserId(id);
+        User u=userDal.findUserByUserIdMethod(id);
         return u;
     }
 
     @Override
     public int findUserIdByTokenService(String token)
     {
-        int id=userDal.findUserIdByToken(token);
+        int id=userDal.findUserIdByTokenMethod(token);
         return id;
     }
 

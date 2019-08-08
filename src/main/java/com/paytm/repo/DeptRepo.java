@@ -18,4 +18,5 @@ public interface DeptRepo extends JpaRepository<Dept,Integer> {
     @Query("select * from Dept")
     List<Dept> showAllDept();
 
+
 }
