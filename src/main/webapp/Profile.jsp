@@ -1,4 +1,6 @@
-<%@ page import="java.util.List" %><%--
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.paytm.entity.Dept" %><%--
   Created by IntelliJ IDEA.
   User: ekanshgupta
   Date: 07/08/19
@@ -17,7 +19,7 @@
 
 <%
     int i = 1;
-    List<String> list = (List) request.getAttribute("listofinterest");
+    List<String> list = (List <String>) request.getAttribute("listofinterest");
 %>
 <%
     for (String d : list) {
@@ -28,15 +30,19 @@
     }
 %>
 
-<form action="profile" method="post">
+<%
+    List<Dept> listDept = (List <Dept>) request.getAttribute("listofdepartments");
+%>
 
-    <input type="submit" value="Add Interest"/>
-</form>
-
-</br>
-
-<form action="profile" method="post">
-<input type="submit" value="Remove Interest"/>
+<form action="/addinterest" method="get">
+    Select a department to add into your interests.
+    <select name="deptName">
+        <c:forEach items="${listDept}" var="dept">
+            <option value="${dept.dep_name}">${dept.dept_name}</option>
+        </c:forEach>
+    </select>
+    <br/><br/>
+    <input type="submit" value="Submit" />
 </form>
 
 </body>

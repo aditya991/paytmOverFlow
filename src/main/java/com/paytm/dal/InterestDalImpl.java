@@ -13,7 +13,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
-public class InterestDalImpl implements InterestDal {
+public class InterestDalImpl {
 
     @Autowired
     private EntityManagerFactory emf;
@@ -24,8 +24,7 @@ public class InterestDalImpl implements InterestDal {
     @Autowired
     private DeptRepo deptRepo;
 
-    @Override
-    public boolean insertInterest(Integer u_id, Integer dept_id) {
+    public boolean insertInterestMethod(Integer u_id, Integer dept_id) {
         try {
             Interest i = new Interest(u_id, dept_id);
             i.setCreated(new Date());
@@ -43,8 +42,7 @@ public class InterestDalImpl implements InterestDal {
         }
     }
 
-    @Override
-    public boolean deleteInterest(Integer u_id, Integer dept_id) {
+    public boolean deleteInterestMethod(Integer u_id, Integer dept_id) {
       //  try {
 
             Interest i = interestRepo.getInterestByUIdByDeptId(String.valueOf(u_id),
@@ -70,8 +68,7 @@ public class InterestDalImpl implements InterestDal {
               return true;
     }
 
-    @Override
-    public List<String> showAllInterest(Integer u_id) {
+    public List<String> showAllInterestMethod(Integer u_id) {
         List<Integer> deptIdList = interestRepo.getDeptIdbyUId(String.valueOf(u_id));
         List<String> deptNameList = null;
 

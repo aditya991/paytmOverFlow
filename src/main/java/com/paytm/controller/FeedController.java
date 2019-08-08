@@ -35,7 +35,7 @@ public class FeedController {
         String deptName=req.getParameter("deptName");
         String email = (String) session.getAttribute("email");
         User u = us.findUserByEmail(email);
-        Dept d = ds.findDeptByName(deptName);
+        Dept d = ds.findDeptByNameMethod(deptName);
         if(is.addInterest(u,d)){
             System.out.println("Interest successfully added.");
         }
@@ -56,7 +56,7 @@ public class FeedController {
         String deptName=req.getParameter("deptName");
         String email = (String) session.getAttribute("email");
         User u = us.findUserByEmail(email);
-        Dept d = ds.findDeptByName(deptName);
+        Dept d = ds.findDeptByNameMethod(deptName);
         if(is.removeInterest(u,d)){
             System.out.println("Interest successfully removed.");
         }
@@ -72,8 +72,10 @@ public class FeedController {
         HttpSession session = req.getSession(false);
         UserServiceImpl us = new UserServiceImpl();
         InterestServiceImpl is = new InterestServiceImpl();
+        DeptDalImpl dd = new DeptDalImpl();
         ModelAndView mv = new ModelAndView();
 
+        List<Dept> deptSet = dd.enterAllAvailableDeptMethod();
         String email = (String) session.getAttribute("email");
         User u = us.findUserByEmail(email);
 
@@ -81,6 +83,7 @@ public class FeedController {
 
         mv.setViewName("Profile.jsp");
         mv.addObject("listofinterest",resultSet);
+        mv.addObject("listofdepartments",deptSet);
 
         return  mv;
     }

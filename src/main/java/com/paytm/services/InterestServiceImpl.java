@@ -2,10 +2,7 @@ package com.paytm.services;
 
 import com.paytm.dal.InterestDalImpl;
 import com.paytm.entity.Dept;
-import com.paytm.entity.Interest;
 import com.paytm.entity.User;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -23,7 +20,7 @@ public class InterestServiceImpl implements InterestService {
         Integer dept_id = d.getDept_id();
         InterestDalImpl dal = new InterestDalImpl();
         System.out.println("Inside addInterest");
-        return dal.insertInterest(u_id, dept_id);
+        return dal.insertInterestMethod(u_id, dept_id);
     }
 
     @Override
@@ -31,14 +28,14 @@ public class InterestServiceImpl implements InterestService {
         Integer u_id = u.getU_id();
         Integer dept_id = d.getDept_id();
         InterestDalImpl dal = new InterestDalImpl();
-        return dal.deleteInterest(u_id, dept_id);
+        return dal.deleteInterestMethod(u_id, dept_id);
     }
 
     @Override
     public List<String> showAllInterest(User u) {
         Integer u_id = u.getU_id();
         InterestDalImpl dal = new InterestDalImpl();
-        return dal.showAllInterest(u_id);
+        return dal.showAllInterestMethod(u_id);
     }
 
     @Override
