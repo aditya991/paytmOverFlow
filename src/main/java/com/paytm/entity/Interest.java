@@ -13,22 +13,22 @@ public class Interest extends AbstractEntity {
     private Integer interest_id;
     private Integer u_id;
     private Integer dept_id;
-    private boolean ownDept;
-    private static int  count = 1;
+   // private boolean ownDept;
+    //private static int  count = 1;
 
     public Interest(Integer u_id, Integer dept_id) {
         this.u_id = u_id;
         this.dept_id = dept_id;
-        if(count == 1) {
+       /* if(count == 1) {
             ownDept = true;
             count--;
         }
         else
-            ownDept = false;
+            ownDept = false;*/
     }
 
     public boolean isOwnDept() {
-        return ownDept;
+        return true;//ownDept;
     }
 
     public Integer getInterest_id() {

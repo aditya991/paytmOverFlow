@@ -36,6 +36,7 @@ public class InterestDalImpl implements InterestDal {
             em.persist(i);
             em.getTransaction().commit();
             em.close();
+            System.out.println("inside insertInterest");
             return true;
         } catch (Exception e) {
             return false;
@@ -44,28 +45,29 @@ public class InterestDalImpl implements InterestDal {
 
     @Override
     public boolean deleteInterest(Integer u_id, Integer dept_id) {
-        try {
+      //  try {
 
             Interest i = interestRepo.getInterestByUIdByDeptId(String.valueOf(u_id),
                     String.valueOf(dept_id));
 
-            if (!i.isOwnDept()) {
+           // if (!i.isOwnDept()) {
                 i.setUpdated(new Date());
                 EntityManager em = emf.createEntityManager();
                 EntityTransaction tx = em.getTransaction();
                 em.getTransaction().begin();
                 em.remove(i);
                 em.getTransaction().commit();
-                em.close();
-                return true;
+               em.close();
+              /*  return true;
             } else
                 return false;
-            //System.out.println("User can't remove his/her own department as an interest.");
+
 
         } catch (Exception e) {
             return false;
-            //System.out.println("Interest matching the user details Not found.");
-        }
+
+        }*/
+              return true;
     }
 
     @Override

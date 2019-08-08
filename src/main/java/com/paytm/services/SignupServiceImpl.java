@@ -27,12 +27,10 @@ public class SignupServiceImpl implements SignupService {
         InterestServiceImpl is = new InterestServiceImpl();
         boolean isAdded = is.addInterest(user, ownDept);
         //this was for adding default interest in his/her own department
-       // */
+
         userDal.createUserDal(user);
 
         return false;
-
-
     }
 
     @Override

@@ -37,7 +37,7 @@ public class UserController
             session.setAttribute("created", System.currentTimeMillis());
 
             ModelAndView mv = new ModelAndView();
-            mv.setViewName("postLoggedIn.jsp");
+            mv.setViewName("postloggedIn.jsp");
             mv.addObject("email", email);
             mv.addObject("password", password);
             return mv;

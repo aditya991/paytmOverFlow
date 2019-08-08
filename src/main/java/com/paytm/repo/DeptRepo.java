@@ -13,6 +13,6 @@ public interface DeptRepo extends JpaRepository<Dept,Integer> {
     List<String> getDeptNameByDeptId(@Param("deptid") String deptid);
 
     @Query("select dept from Dept dept where dept.dept_name=:dept_name ")
-    String findDeptByDeptName(@Param("dept_name") String dept_name);
+    Dept findDeptByDeptName(@Param("dept_name") String dept_name);
 
 }

@@ -24,7 +24,6 @@ public class User extends AbstractEntity {
     @Column(unique = true)
     private String email;
 
-
     @Column(unique = true)
     private String phone;
 
@@ -40,9 +39,16 @@ public class User extends AbstractEntity {
             inverseJoinColumns = @JoinColumn(name = "dept_id")
     )*/
 
-
     @OneToOne
     private Dept dept;
+
+    /*public User(String u_name, String password, String email, String phone, Dept dept) {
+        this.u_name = u_name;
+        this.password = password;
+        this.email = email;
+        this.phone = phone;
+        this.dept = dept;
+    }*/
 
     public Integer getU_id() {
         return u_id;
