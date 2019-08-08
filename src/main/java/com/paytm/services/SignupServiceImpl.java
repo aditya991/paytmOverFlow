@@ -30,8 +30,6 @@ public class SignupServiceImpl implements SignupService {
         user.setEmail(email);
         user.setPhone(phone);
         user.setPassword(password);
-        user.setCreated(new Date());
-        user.setUpdated(new Date());
         user.setDept(d);
 
 

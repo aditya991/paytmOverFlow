@@ -13,15 +13,6 @@ public class InterestServiceImpl implements InterestService {
           dal.insertInterest(u_id,dept_id);
     }
 
-    @Override
-    public void removeInterest(User u,Dept d) {
-          Integer u_id =u.getU_id();
-          Integer dept_id =d.getDept_id();
-          InterestDalImpl dal = new InterestDalImpl();
-          dal.deleteInterest(u_id,dept_id);
-
-
-    }
 
     @Override
     public void removeInterest(Dept d) {
@@ -40,4 +31,4 @@ public class InterestServiceImpl implements InterestService {
 
 }
 
-}
+

@@ -23,7 +23,7 @@ public class QuestionDalImpl implements QuestionDal {
 
     @Override
     public void AddQuestionMethod(Question ques, User user )
-    {  ques.setUser(user);
+    {  //ques.setUser(user);
         EntityManager em=emf.createEntityManager();
         EntityTransaction tx=em.getTransaction();
         em.getTransaction().begin();

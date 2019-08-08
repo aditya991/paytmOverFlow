@@ -37,11 +37,15 @@ public class QuestionServiceImpl implements QuestionService{
     {   String email= (String) session.getAttribute("email");
         User user=userService.findUserByEmailService(email);
 
+
+        System.out.println("in question service");
+        System.out.println(department+"      "+ question+"          "+email);
+
         Question q=new Question();
         q.setQuestion(question);
         q.setDepartment(department);
         q.setQuestion_Id(q.getQuestion_Id());
-        q.setUser(user);
+        //q.setUser(user);
 
         questionDal.AddQuestionMethod(q,user);
 
@@ -56,10 +60,11 @@ public class QuestionServiceImpl implements QuestionService{
 
     @Override
     public boolean ValidUser(String  question,HttpSession session) {
-        String email= (String) session.getAttribute("email");
+     /*   String email= (String) session.getAttribute("email");
         User user=userService.findUserByEmailService(email);
         Question ques=new Question();
         ques=questionRepo.getquestion_Idbyquestion(question);
-    return questionDal.ValidUserMethod(ques.getQuestion_Id(),user);
+    return questionDal.ValidUserMethod(ques.getQuestion_Id(),user);*/
+    return  false;
     }
 }

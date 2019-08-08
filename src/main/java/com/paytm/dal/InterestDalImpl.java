@@ -1,6 +1,8 @@
 package com.paytm.dal;
 
+import com.paytm.entity.Dept;
 import com.paytm.entity.Interest;
+import com.paytm.entity.User;
 import com.paytm.repo.InterestRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -18,6 +20,11 @@ public class InterestDalImpl implements InterestDal {
     private InterestRepo interestRepo;
 
     @Override
+    public void removeInterest(User u, Dept d) {
+
+    }
+
+    @Override
     public void insertInterest(Integer u_id, Integer dept_id) {
         Interest i = new Interest(u_id,dept_id);
         i.setCreated(new Date());
@@ -30,10 +37,5 @@ public class InterestDalImpl implements InterestDal {
         em.close();
     }
 
-    @Override
-    public void deleteInterest(Integer u_id, Integer dept_id) {
-         Interest i = InterestRepo.getInterestByUIdByDeptId( String.valueOf(u_id),
-                                                             String.valueOf(dept_id) );
 
-    }
 }

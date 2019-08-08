@@ -1,8 +1,5 @@
 <html>
 <body>
-<<<<<<< HEAD
-<h2>Hello World!</h2>
-=======
 <form action="login" method="get">
     Email ID: <input type="text" placeholder="enter your email address" name="email"/>
     </br>
@@ -10,9 +7,6 @@
     </br>
     <input type="submit" value="login"/>
 </form>
-<<<<<<< HEAD
->>>>>>> a149ba5865b2c86373d2daef58ec5cee8ff687f1
-=======
 
 
 
@@ -42,6 +36,5 @@
 
 
 
->>>>>>> 653cab14fe340ecc435755bbe96bbc97f1397f2c
 </body>
 </html>

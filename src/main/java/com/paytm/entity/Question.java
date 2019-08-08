@@ -9,17 +9,18 @@ public class Question {
     @GeneratedValue
     private Integer question_Id;
     private String department;
-    @ManyToOne
-    @JoinColumn(name="u_name")
-    private User user;
 
-    public User getUser() {
-        return user;
-    }
+    //@ManyToOne
+   // @JoinColumn(name="u_name")
+    //private User user;
 
-    public void setUser(User user) {
-        this.user = user;
-    }
+//    public User getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
 
     public String getDepartment() {
         return department;
