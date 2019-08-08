@@ -1,13 +1,18 @@
 package com.paytm.controller;
-
+import com.paytm.entity.User;
 import com.paytm.services.LoginServiceImpl;
 
 import com.paytm.services.SignupServiceImpl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -16,9 +21,18 @@ import java.util.UUID;
  * @author: aditya10.kumar
  * @created: 06/08/19
  */
+
+
+
+
 @Controller
 public class UserController
 {
+
+
+    @Autowired
+    private SignupServiceImpl signupServiceImpl ;
+
     @RequestMapping(value="/login", method = RequestMethod.GET)
     public ModelAndView login(HttpServletRequest request, HttpServletResponse response)
     {
@@ -70,22 +84,21 @@ public class UserController
         String password = request.getParameter("password");
         String dept = request.getParameter("dept");
 
-
-        System.out.println("step 1 in controller" +name+"  "+email+"    "+phone);
-
-        SignupServiceImpl signupService =new SignupServiceImpl();
-
         ModelAndView mv = new ModelAndView();
 
 
-        System.out.println("step 2 in controller");
+        System.out.println(" in controller");
 
 
-        boolean valid_user= signupService.validUser(email,phone);
+        boolean valid_user= signupServiceImpl.validUser(email,phone);
+
+        System.out.println(" in controller 1");
 
         if(valid_user)
         {
-            boolean created=signupService.createUser(name,email,phone,password,dept);
+            System.out.println("User creating stage");
+
+            boolean created=signupServiceImpl.createUser(name,email,phone,password,dept);
 
             if(created) {
                 mv.addObject("status", "User Created successfully");
@@ -94,7 +107,10 @@ public class UserController
                 mv.addObject("status","Error in creating user");
             }
         }
-        else {
+        else
+        {
+
+            System.out.println("User already exists ");
             mv.addObject("status", "User already Exists");
         }
 

@@ -7,7 +7,8 @@ import javax.persistence.*;
  * @created: 06/08/19
  */
 @Entity
-public class User extends AbstractEntity {
+public class User extends AbstractEntity  {
+
 
 
     @Id
@@ -31,6 +32,14 @@ public class User extends AbstractEntity {
 
     @OneToOne
     private Dept dept;
+
+    public Dept getDept() {
+        return dept;
+    }
+
+    public void setDept(Dept dept) {
+        this.dept = dept;
+    }
 
     public Integer getU_id() {
         return u_id;
@@ -72,11 +81,21 @@ public class User extends AbstractEntity {
         this.phone = phone;
     }
 
-    public Dept getDept() {
-        return dept;
-    }
 
-    public void setDept(Dept dept) {
-        this.dept = dept;
+
+
+
+
+
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "u_id=" + u_id +
+                ", u_name='" + u_name + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
     }
 }

@@ -7,6 +7,7 @@ public class Dept extends AbstractEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "dept_id" ,updatable = false ,nullable = false)
     private Integer dept_id;
 
     @Column(unique = true)
@@ -31,5 +32,4 @@ public class Dept extends AbstractEntity {
     public void setDept_name(String dept_name) {
         this.dept_name = dept_name;
     }
-
 }

@@ -3,8 +3,11 @@ package com.paytm.dal;
 
 import com.paytm.entity.User;
 import com.paytm.repo.DeptRepo;
+import com.paytm.repo.TokenRepo;
 import com.paytm.repo.UserRepo;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 
 /*
@@ -12,17 +15,13 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @created: 07/08/19
  */
 
-import com.paytm.entity.User;
-import com.paytm.repo.TokenRepo;
-import com.paytm.repo.UserRepo;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 
 
-
+@Component
 public class UserDal
 {
 
@@ -30,27 +29,44 @@ public class UserDal
     private UserRepo userRepo;
 
     @Autowired
-
     private DeptRepo deptRepo;
 
+    @Autowired
     private TokenRepo tokenRepo;
+
 
     @Autowired
     private EntityManagerFactory emf;
 
-    private EntityManager em = emf.createEntityManager();
 
-    public UserDal(){
-    }
 
     public boolean createUserDal(User user)
     {
 
-//        EntityTransaction tx = em.getTransaction();
+
+
+        System.out.println("in user DAL initial        "+ emf);
+
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+
+
+        em.getTransaction().begin();
+        em.persist(user.getDept());
+        em.getTransaction().commit();
+
+
+
+
+
         em.getTransaction().begin();
         em.persist(user);
         em.getTransaction().commit();
         em.close();
+
+
+        System.out.println("in user DAL final .user must be added to table");
+
 
         return true;
     }
@@ -58,12 +74,33 @@ public class UserDal
 
     public boolean validUserEmail(String email)
     {
-        return true;
+        try{
+            User u=userRepo.findUserByEmail(email);
+            System.out.println(u);
+
+            if(u==null)
+                return true;
+
+        }
+        catch (Exception e) {
+        }
+
+        return  false;
     }
 
     public boolean validUserPhone(String phone)
     {
-        return true;
+            try{
+                User u=userRepo.findUserByPhone(phone);
+                System.out.println(u);
+
+                if(u==null)
+                    return true;
+
+              }
+             catch (Exception e) {
+            }
+        return  false;
     }
 
 
