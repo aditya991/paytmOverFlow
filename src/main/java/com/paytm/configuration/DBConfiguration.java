@@ -49,6 +49,7 @@ public class DBConfiguration {
         JpaVendorAdapter jpaVendorAdapter = new HibernateJpaVendorAdapter();
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setDataSource(DbDatasource());
+        //entityManagerFactoryBean.setPersistenceUnitName("hibernate-persistence"); //persistence name
         entityManagerFactoryBean.setPackagesToScan("com.paytm.entity");
         entityManagerFactoryBean.setJpaVendorAdapter(jpaVendorAdapter);
         entityManagerFactoryBean.setJpaProperties(getJpaProperties());
@@ -62,6 +63,7 @@ public class DBConfiguration {
 
         properties.setProperty("hibernate.transaction.jta.platform","org.hibernate.service.jta.platform.internal.JBossAppServerJtaPlatform");
         properties.setProperty("showSql", "true");
+
         return properties;
     }
 
