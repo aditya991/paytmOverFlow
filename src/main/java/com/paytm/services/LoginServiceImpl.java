@@ -9,6 +9,9 @@ import com.paytm.entity.User;
 public class LoginServiceImpl implements LoginService
 {
     public LoginServiceImpl() {}
+
+
+
     UserDal userDal=new UserDal();
 
     @Override
