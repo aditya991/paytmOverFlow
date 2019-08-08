@@ -34,7 +34,7 @@ public class QuestionController {
 
         ModelAndView mvc=new ModelAndView();
 
-        if(ques.ValidUser(Question_Id,session))
+        if(ques.ValidUser(Question,session))
         {
 
         }

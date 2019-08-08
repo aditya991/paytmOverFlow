@@ -43,9 +43,10 @@ public class QuestionServiceImpl implements QuestionService{
     }
 
     @Override
-    public boolean ValidUser(Integer Ques_Id,HttpSession session) {
+    public boolean ValidUser(String  Ques,HttpSession session) {
         UserServiceImpl userservice=new UserServiceImpl();
         User user=userservice.findUserByEmail(session.getAttribute("email"));
+
     return ques.ValidUserDal(Ques_Id,user);
     }
 }
