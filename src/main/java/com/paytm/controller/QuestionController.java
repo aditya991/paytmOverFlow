@@ -4,6 +4,7 @@ package com.paytm.controller;
  * @created: 06/08/19
  */
 import com.paytm.services.QuestionServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -14,7 +15,9 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class QuestionController {
-    QuestionServiceImpl questionServiceImpl =new QuestionServiceImpl();
+
+    @Autowired
+    private QuestionServiceImpl questionServiceImpl ;
 
     @RequestMapping("/AddQuesServlet")
     public ModelAndView AddQuestion(HttpServletRequest request, HttpServletResponse response)

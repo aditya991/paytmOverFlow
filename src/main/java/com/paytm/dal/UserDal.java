@@ -40,7 +40,7 @@ public class UserDal
 
 
 
-    public boolean createUserDal(User user)
+    public boolean createUserMethod(User user)
     {
 
 
@@ -72,39 +72,39 @@ public class UserDal
     }
 
 
-    public boolean validUserEmail(String email)
+    public boolean validUserEmailMethod(String email)
     {
         try{
             User u=userRepo.findUserByEmail(email);
             System.out.println(u);
 
             if(u==null)
-                return true;
+                return false;
 
         }
         catch (Exception e) {
         }
 
-        return  false;
+        return  true;
     }
 
-    public boolean validUserPhone(String phone)
+    public boolean validUserPhoneMethod(String phone)
     {
             try{
                 User u=userRepo.findUserByPhone(phone);
                 System.out.println(u);
 
                 if(u==null)
-                    return true;
+                    return false;
 
               }
              catch (Exception e) {
             }
-        return  false;
+        return  true;
     }
 
 
-    public User findUserByUserId(int id)
+    public User findUserByUserIdMethod(int id)
     {
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -114,7 +114,7 @@ public class UserDal
         em.close();
         return u;
     }
-    public int findUserIdByToken(String token)
+    public int findUserIdByTokenMethod(String token)
     {
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -124,6 +124,17 @@ public class UserDal
         em.close();
         return id;
     }
+
+
+    public User findUserByEmailMethod(String email)
+    {
+
+        User u=userRepo.findUserByEmail(email);
+
+        return u;
+
+    }
+
 
     public String findPasswordByEmailMethod(String email)
     {

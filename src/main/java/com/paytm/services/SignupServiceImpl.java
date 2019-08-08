@@ -5,7 +5,6 @@ import com.paytm.dal.UserDal;
 import com.paytm.entity.Dept;
 import com.paytm.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -17,14 +16,13 @@ public class SignupServiceImpl implements SignupService {
     UserDal userDal ;
 
     @Override
-    public boolean createUser(String u_name, String email, String phone, String password ,String dept) {
+    public boolean createUserService(String u_name, String email, String phone, String password , String dept) {
 
         System.out.println("inside create user function");
 
 
         Dept d= new Dept(dept);
 
-        //d.setDept_id(1);
 
         User user=new User();
 
@@ -38,7 +36,7 @@ public class SignupServiceImpl implements SignupService {
 
 
 
-        userDal.createUserDal(user);
+        userDal.createUserMethod(user);
 
 
         System.out.println("inside create user function final step");
@@ -51,12 +49,13 @@ public class SignupServiceImpl implements SignupService {
 
 
 
+
     @Override
-    public boolean validUser(String email, String phone) {
+    public boolean checkExistingUserService(String email, String phone) {
 
-       boolean a= userDal.validUserEmail(email) ;
+       boolean a= !userDal.validUserEmailMethod(email) ;
 
-        boolean b= userDal.validUserPhone(phone) ;
+        boolean b= !userDal.validUserPhoneMethod(phone) ;
 
 
         System.out.println("in valid user     "+a+"        "+ b);

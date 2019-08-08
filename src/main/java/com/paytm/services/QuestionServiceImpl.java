@@ -6,6 +6,7 @@ import com.paytm.entity.User;
 import com.paytm.repo.QuestionRepo;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.net.ssl.SSLEngine;
 import javax.persistence.Entity;
@@ -15,26 +16,36 @@ import javax.persistence.EntityTransaction;
 import javax.servlet.http.HttpSession;
 
 
+@Service
 public class QuestionServiceImpl implements QuestionService{
-   QuestionDalImpl ques=new QuestionDalImpl();
+
+    @Autowired
+  private QuestionDalImpl questionDal;
+   @Autowired
+  private UserServiceImpl userService;
+   @Autowired
+  private QuestionRepo questionRepo;
+
+
+    @Override
+    public boolean UpdateQuestionService(String Ques, HttpSession session) {
+        return false;
+    }
+
     @Override
     public void AddQuestionService(String department, String question, HttpSession session)
-    {  UserServiceImpl userservice=new UserServiceImpl() ;
-        User user=userservice.findUserByEmail(session.getAttribute("email"));
+    {   String email= (String) session.getAttribute("email");
+        User user=userService.findUserByEmailService(email);
+
         Question q=new Question();
         q.setQuestion(question);
         q.setDepartment(department);
         q.setQuestion_Id(q.getQuestion_Id());
         q.setUser(user);
 
-        ques.AddQuestionMethod(q,user);
+        questionDal.AddQuestionMethod(q,user);
 
 
-
-    }
-
-    @Override
-    public boolean UpdateQuestionService(Integer Ques_Id,HttpSession session) {
 
     }
 
@@ -45,10 +56,10 @@ public class QuestionServiceImpl implements QuestionService{
 
     @Override
     public boolean ValidUser(String  question,HttpSession session) {
-        UserServiceImpl userservice=new UserServiceImpl();
-        User user=userservice.findUserByEmail(session.getAttribute("email"));
+        String email= (String) session.getAttribute("email");
+        User user=userService.findUserByEmailService(email);
         Question ques=new Question();
-        ques=getquestion_Idbyquestion(question);
-    return ques.ValidUserMethod(ques.getQuestion_Id(),session);
+        ques=questionRepo.getquestion_Idbyquestion(question);
+    return questionDal.ValidUserMethod(ques.getQuestion_Id(),user);
     }
 }
