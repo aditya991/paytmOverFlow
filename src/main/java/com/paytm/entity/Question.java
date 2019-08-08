@@ -1,8 +1,6 @@
 package com.paytm.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Question {
@@ -11,6 +9,17 @@ public class Question {
     @GeneratedValue
     private Integer Ques_Id;
     private String Department;
+    @ManyToOne
+    @JoinColumn(name="u_name")
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public String getDepartment() {
         return Department;

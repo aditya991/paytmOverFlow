@@ -1,50 +1,51 @@
 package com.paytm.services;
+import com.paytm.dal.QuestionDalImpl;
 import com.paytm.entity.Question;
+import com.paytm.entity.User;
 import com.paytm.repo.UserRepo;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.net.ssl.SSLEngine;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import javax.servlet.http.HttpSession;
 
 
 public class QuestionServiceImpl implements QuestionService{
-    @Autowired
-    private UserRepo userrepo;
-    @Autowired
-    private EntityManagerFactory emf;
-
+   QuestionDalImpl ques=new QuestionDalImpl();
     @Override
-    public Integer AddQuestionService(String Department,String Question)
-    {  Question ques=new Question();
-       ques.setDepartment(Department);
-       ques.setQuestion(Question);
-      Integer k= ques.getQues_Id();
+    public void AddQuestionService(String department, String question, HttpSession session)
+    {  UserServiceImpl userservice=new UserServiceImpl() ;
+        User user=userservice.findUserByEmail(session.getAttribute("email"));
+        Question q=new Question();
+        q.setQuestion(question);
+        q.setDepartment(department);
+        q.setQues_Id(q.getQues_Id());
+        q.setUser(user);
 
-      EntityManager em=emf.createEntityManager();
-        EntityTransaction tx=em.getTransaction();
-        em.getTransaction().begin();
-        em.persist(ques);
-        em.getTransaction().commit();
-        em.close();
+        ques.AddQuestionDal(q,user);
 
-        return k;
+
+
     }
 
     @Override
-    public boolean UpdateQuestionService(Integer Ques_Id, String Department) {
+    public boolean UpdateQuestionService(Integer Ques_Id,HttpSession session) {
+
+    }
+
+    @Override
+    public boolean DeleteQuestionService(Integer Ques_Id,HttpSession session) {
         return false;
     }
 
     @Override
-    public boolean DeleteQuestionService(Integer Ques_Id, String Department) {
-        return false;
-    }
-
-    @Override
-    public boolean ValidUser(Integer Ques_Id) {
-
-        return false;
+    public boolean ValidUser(Integer Ques_Id,HttpSession session) {
+        UserServiceImpl userservice=new UserServiceImpl();
+        User user=userservice.findUserByEmail(session.getAttribute("email"));
+    return ques.ValidUserDal(Ques_Id,user);
     }
 }
