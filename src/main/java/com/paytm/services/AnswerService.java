@@ -8,7 +8,7 @@ import com.paytm.entity.Answer;
 
 public interface AnswerService
 {
-    public void updateAnswerByAnswerIdService(int id);
+    public void updateAnswerByAnswerIdService(int id, String answer);
     public void deleteAnswerByAnswerIdService(int id);
     void saveAnswerService(Answer ans);
 }

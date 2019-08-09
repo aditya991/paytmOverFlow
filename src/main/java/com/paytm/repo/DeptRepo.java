@@ -5,10 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-public interface DeptRepo extends JpaRepository<Dept,Integer> {
-
-
+public interface DeptRepo extends JpaRepository<Dept,Integer>
+{
     @Query("select dept from Dept dept where dept.dept_name=:dept_name ")
     Dept findDeptByName(@Param("dept_name") String dept_name);
-
 }

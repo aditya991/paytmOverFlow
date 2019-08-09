@@ -21,9 +21,9 @@ public class AnswerDal
     @Autowired
     private EntityManagerFactory emf;
 
-    public void updateAnswerByAnswerIdMethod(int id)
+    public void updateAnswerByAnswerIdMethod(int id, String answer)
     {
-        answerRepo.updateAnswerByAnswerId(id);
+        answerRepo.updateAnswerByAnswerId(id, answer);
     }
 
     public void deleteAnswerByAnswerIdMethod(int id)

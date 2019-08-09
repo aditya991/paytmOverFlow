@@ -5,7 +5,7 @@ package com.paytm.entity;
  */
 
 import javax.persistence.*;
-
+@Entity
 public class Answer extends AbstractEntity
 {
     @Id

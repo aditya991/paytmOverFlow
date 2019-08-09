@@ -12,8 +12,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
-
 public interface TokenRepo extends JpaRepository<Token,Integer>
 {
     @Query("select t.user from Token t where t.token_no=:token")

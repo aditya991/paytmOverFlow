@@ -52,13 +52,13 @@ public class AnswerController
     {
         int ans_id= (int) request.getAttribute("answer_id");
         answerService.deleteAnswerByAnswerIdService(ans_id);
-
     }
 
     @RequestMapping("/updateAnswer")
     public void updateAnswer(HttpServletRequest request, HttpServletResponse response)
     {
         int ans_id= (int) request.getAttribute("answer_id");
-        answerService.updateAnswerByAnswerIdService(ans_id);
+        String answer= (String) request.getAttribute("answer");
+        answerService.updateAnswerByAnswerIdService(ans_id, answer);
     }
 }

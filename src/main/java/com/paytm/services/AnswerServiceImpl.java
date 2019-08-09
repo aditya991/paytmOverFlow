@@ -16,9 +16,9 @@ public class AnswerServiceImpl implements AnswerService
     private AnswerDal answerDal;
 
     @Override
-    public void updateAnswerByAnswerIdService(int id)
+    public void updateAnswerByAnswerIdService(int id, String answer)
     {
-        answerDal.updateAnswerByAnswerIdMethod(id);
+        answerDal.updateAnswerByAnswerIdMethod(id, answer);
     }
     public void deleteAnswerByAnswerIdService(int id)
     {
