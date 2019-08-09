@@ -5,22 +5,26 @@ import javax.persistence.*;
 @Entity
 public class Question {
     private String question;
+
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "question_Id", updatable = false, nullable = false)
     private Integer question_Id;
+
+
     private String department;
 
-    //@ManyToOne
-   // @JoinColumn(name="u_name")
-    //private User user;
+    @ManyToOne
+    private User user;
 
-//    public User getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public String getDepartment() {
         return department;

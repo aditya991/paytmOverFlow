@@ -11,6 +11,7 @@ import org.springframework.data.repository.query.Param;
 public interface UserRepo extends JpaRepository<User,Integer>
 {
 
+
     @Query("select u from User u where u.email = :email")
     User findUserByEmail(@Param("email") String email);
 
@@ -19,11 +20,12 @@ public interface UserRepo extends JpaRepository<User,Integer>
     User findUserByPhone(@Param("phone") String phone);
 
 
+
     @Query("select u from User u where u.u_id=:uid")
     User findUserByUserId(@Param("uid") int uid);
 
     @Query("select u.password from User u where u.email=:email")
-    String findPasswordByEmail(@Param("email") String email);
+    User findPasswordByEmail(@Param("email") String email);
 
 }
 

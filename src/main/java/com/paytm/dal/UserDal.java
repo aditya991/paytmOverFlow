@@ -1,6 +1,7 @@
 package com.paytm.dal;
 
 
+import com.paytm.entity.Token;
 import com.paytm.entity.User;
 import com.paytm.repo.DeptRepo;
 import com.paytm.repo.TokenRepo;
@@ -9,19 +10,23 @@ import com.paytm.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-
 /*
  * @author: aditya10.kumar
  * @created: 07/08/19
  */
 
 
+import org.springframework.stereotype.Controller;
+
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import java.util.Date;
 
 
 @Component
+
 public class UserDal
 {
 
@@ -37,6 +42,7 @@ public class UserDal
 
     @Autowired
     private EntityManagerFactory emf;
+
 
 
 
@@ -104,6 +110,7 @@ public class UserDal
     }
 
 
+
     public User findUserByUserIdMethod(int id)
     {
         EntityManager em = emf.createEntityManager();
@@ -126,14 +133,6 @@ public class UserDal
     }
 
 
-    public User findUserByEmailMethod(String email)
-    {
-
-        User u=userRepo.findUserByEmail(email);
-
-        return u;
-
-    }
 
 
     public String findPasswordByEmailMethod(String email)
@@ -141,9 +140,25 @@ public class UserDal
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
-        String password=userRepo.findPasswordByEmail(email);
+        User user=userRepo.findPasswordByEmail(email);
+        String password=user.getPassword();
         tx.commit();
         em.close();
         return password;
+    }
+    public User findUserByEmailMethod(String email)
+    {
+        User u= userRepo.findUserByEmail(email);
+        return u;
+    }
+
+    public void createTokenMethod(Token tok)
+    {
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+        em.persist(tok);
+        tx.commit();
+        em.close();
     }
 }

@@ -19,6 +19,10 @@ public class Dept extends AbstractEntity {
     /*@ManyToMany
     Set<User> likes;*/
 
+    public Dept() {
+        this.dept_name = "dept_name";
+    }
+
 
 
     public Dept(String dept_name) {

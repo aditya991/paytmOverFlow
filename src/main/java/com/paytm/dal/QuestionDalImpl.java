@@ -5,25 +5,29 @@ import com.paytm.entity.User;
 import com.paytm.repo.QuestionRepo;
 import com.paytm.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 
-@Service
+@Component
 public class QuestionDalImpl implements QuestionDal {
 
     @Autowired
     private UserRepo userRepo;
+
     @Autowired
     private QuestionRepo questionRepo;
+
+
     @Autowired
     private EntityManagerFactory emf;
 
     @Override
-    public void AddQuestionMethod(Question ques, User user )
-    {  //ques.setUser(user);
+    public void AddQuestionMethod(Question ques )
+    {
         EntityManager em=emf.createEntityManager();
         EntityTransaction tx=em.getTransaction();
         em.getTransaction().begin();

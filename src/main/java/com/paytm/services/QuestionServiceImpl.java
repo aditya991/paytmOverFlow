@@ -19,12 +19,14 @@ import javax.servlet.http.HttpSession;
 @Service
 public class QuestionServiceImpl implements QuestionService{
 
+
     @Autowired
-  private QuestionDalImpl questionDal;
+   QuestionDalImpl questionDal;
+
    @Autowired
-  private UserServiceImpl userService;
+   UserServiceImpl userService;
    @Autowired
-  private QuestionRepo questionRepo;
+   QuestionRepo questionRepo;
 
 
     @Override
@@ -33,21 +35,26 @@ public class QuestionServiceImpl implements QuestionService{
     }
 
     @Override
-    public void AddQuestionService(String department, String question, HttpSession session)
-    {   String email= (String) session.getAttribute("email");
+    public void AddQuestionService(String department, String question ,String email)
+    {
+
+        System.out.println("in question service");
+        System.out.println(department+"      "+ question+"          "+ email);
+
+
+
         User user=userService.findUserByEmailService(email);
 
 
-        System.out.println("in question service");
-        System.out.println(department+"      "+ question+"          "+email);
+        System.out.println(user);
 
         Question q=new Question();
         q.setQuestion(question);
         q.setDepartment(department);
-        q.setQuestion_Id(q.getQuestion_Id());
-        //q.setUser(user);
 
-        questionDal.AddQuestionMethod(q,user);
+        q.setUser(user);
+
+        questionDal.AddQuestionMethod(q);
 
 
 
