@@ -33,17 +33,21 @@ public class TokenValidatorFilter implements HandlerInterceptor
             System.out.println(token);
 
             //query fire
-            int id = ls.findUserIdByTokenService(token);
-            System.out.println(id);
-
-            //query fire
-            User u= ls.findUserByUserIdService(id);
-
-            if (u.getEmail().equals(sess.getAttribute("email"))==false)
+            int  valid=ls.isTokenActiveService(token);
+            if(valid==1)
             {
-                //login unsuccessful
-                httpServletRequest.getRequestDispatcher("index.jsp").forward(httpServletRequest, httpServletResponse);
+                int id = ls.findUserIdByTokenService(token);
+                System.out.println(id);
+
+                //query fire
+                User u = ls.findUserByUserIdService(id);
+
+                if (u.getEmail().equals(sess.getAttribute("email")) == false) {
+                    //login unsuccessful
+                    httpServletRequest.getRequestDispatcher("index.jsp").forward(httpServletRequest, httpServletResponse);
+                }
             }
+            else httpServletRequest.getRequestDispatcher("index.jsp").forward(httpServletRequest, httpServletResponse);
         }
         return true;
     }

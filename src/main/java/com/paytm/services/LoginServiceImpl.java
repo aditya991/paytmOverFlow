@@ -28,8 +28,17 @@ public class LoginServiceImpl implements LoginService
     }
 
     @Override
-    public boolean markSessionInactive(String token) {
+    public boolean markSessionInactiveService(String token)
+    {
+        userDal.markSessionInactivemethod(token);
         return false;
+    }
+
+    @Override
+    public int isTokenActiveService(String token)
+    {
+        int flag=userDal.isTokenActiveMethod(token);
+        return flag;
     }
 
     @Override

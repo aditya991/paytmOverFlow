@@ -27,8 +27,6 @@ import java.util.UUID;
 public class UserController
 {
 
-
-
     @Autowired
     private SignupServiceImpl signupServiceImpl ;
 
@@ -62,7 +60,6 @@ public class UserController
         t.setCreated(new Date());
         t.setUpdated(new Date());
 
-//<<<<<<< HEAD
 //            ModelAndView mv = new ModelAndView();
 //            mv.setViewName("postLoggedIn.jsp");
 //            mv.addObject("email", email);
@@ -70,10 +67,7 @@ public class UserController
 //            return mv;
 //
 //        }
-//
-//
-//
-//=======
+
         ls.createTokenService(t);
 
         ModelAndView mv = new ModelAndView();
@@ -81,7 +75,6 @@ public class UserController
         mv.addObject("email", email);
         return mv;
     }
-//>>>>>>> f3b06422d24b6dc60bc02bc89bdfb43a17f94610
 
     @RequestMapping(value="/logout", method = RequestMethod.POST)
     public ModelAndView logout(HttpSession session)
@@ -89,7 +82,7 @@ public class UserController
         System.out.println("Logging you out...session Invalidated");
         ModelAndView mv = new ModelAndView("index.jsp");
 
-        ls.markSessionInactive((String)session.getAttribute("token"));   //mark that session id inactive
+        ls.markSessionInactiveService((String)session.getAttribute("token"));   //mark that session id inactive
 
         session.invalidate();
         return mv;
