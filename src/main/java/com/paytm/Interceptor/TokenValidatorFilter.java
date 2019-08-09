@@ -3,12 +3,12 @@ package com.paytm.Interceptor;
  * @author: aditya10.kumar
  * @created: 08/08/19
  */
-
 import com.paytm.entity.User;
 import com.paytm.services.LoginServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -33,17 +33,21 @@ public class TokenValidatorFilter implements HandlerInterceptor
             System.out.println(token);
 
             //query fire
-            int id = ls.findUserIdByTokenService(token);
-            System.out.println(id);
-
-            //query fire
-            User u= ls.findUserByUserIdService(id);
-
-            if (u.getEmail().equals(sess.getAttribute("email"))==false)
+            int  valid=ls.isTokenActiveService(token);
+            if(valid==1)
             {
-                //login unsuccessful
-                httpServletRequest.getRequestDispatcher("index.jsp").forward(httpServletRequest, httpServletResponse);
+                int id = ls.findUserIdByTokenService(token);
+                System.out.println(id);
+
+                //query fire
+                User u = ls.findUserByUserIdService(id);
+
+                if (u.getEmail().equals(sess.getAttribute("email")) == false) {
+                    //login unsuccessful
+                    httpServletRequest.getRequestDispatcher("index.jsp").forward(httpServletRequest, httpServletResponse);
+                }
             }
+            else httpServletRequest.getRequestDispatcher("index.jsp").forward(httpServletRequest, httpServletResponse);
         }
         return true;
     }

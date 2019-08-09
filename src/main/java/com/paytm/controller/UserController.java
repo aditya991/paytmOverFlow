@@ -1,11 +1,10 @@
 package com.paytm.controller;
+import com.paytm.entity.Dept;
 import com.paytm.services.LoginServiceImpl;
-
 import com.paytm.services.SignupServiceImpl;
-
 import com.paytm.entity.Token;
 import com.paytm.entity.User;
-import com.paytm.services.LoginServiceImpl;
+import com.paytm.services.SignupServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,14 +21,9 @@ import java.util.UUID;
  * @created: 06/08/19
  */
 
-
-
-
 @Controller
 public class UserController
 {
-
-
 
     @Autowired
     private SignupServiceImpl signupServiceImpl ;
@@ -75,11 +69,23 @@ public class UserController
 
 
        /* ls.createTokenService(t);
+=======
+//            ModelAndView mv = new ModelAndView();
+//            mv.setViewName("postLoggedIn.jsp");
+//            mv.addObject("email", email);
+//            mv.addObject("password", password);
+//            return mv;
+//
+//        }
+
+        ls.createTokenService(t);
+>>>>>>> d8468d61190e1c1b5a9e1ae273f4b5d63018cadc
 
         ModelAndView mv = new ModelAndView();
         mv.setViewName("postLoggedIn.jsp");
         mv.addObject("email", email);
         return mv;
+<<<<<<< HEAD
     }*/
 
     @RequestMapping(value="/logout", method = RequestMethod.POST)
@@ -88,7 +94,7 @@ public class UserController
         System.out.println("Logging you out...session Invalidated");
         ModelAndView mv = new ModelAndView("index.jsp");
 
-        ls.markSessionInactive((String)session.getAttribute("token"));   //mark that session id inactive
+        ls.markSessionInactiveService((String)session.getAttribute("token"));   //mark that session id inactive
 
         session.invalidate();
         return mv;

@@ -6,9 +6,12 @@ import com.paytm.entity.User;
 import com.paytm.repo.DeptRepo;
 import com.paytm.repo.TokenRepo;
 import com.paytm.repo.UserRepo;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 
 /*
  * @author: aditya10.kumar
@@ -16,17 +19,7 @@ import org.springframework.stereotype.Component;
  */
 
 
-import org.springframework.stereotype.Controller;
-
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import java.util.Date;
-
-
 @Component
-
 public class UserDal
 {
 
@@ -57,9 +50,14 @@ public class UserDal
         EntityTransaction tx = em.getTransaction();
 
 
-        em.getTransaction().begin();
-        em.persist(user.getDept());
-        em.getTransaction().commit();
+
+
+
+
+
+//        em.getTransaction().begin();
+//        em.persist(user.getDept());
+//        em.getTransaction().commit();
 
 
 
@@ -96,16 +94,16 @@ public class UserDal
 
     public boolean validUserPhoneMethod(String phone)
     {
-            try{
-                User u=userRepo.findUserByPhone(phone);
-                System.out.println(u);
+        try{
+            User u=userRepo.findUserByPhone(phone);
+            System.out.println(u);
 
-                if(u==null)
-                    return false;
+            if(u==null)
+                return false;
 
-              }
-             catch (Exception e) {
-            }
+        }
+        catch (Exception e) {
+        }
         return  true;
     }
 
@@ -126,13 +124,25 @@ public class UserDal
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
-        int id=tokenRepo.findUserIdByToken(token);
+        User u=tokenRepo.findUserIdByToken(token);
+        int id=u.getU_id();
         tx.commit();
         em.close();
         return id;
     }
 
 
+//<<<<<<< HEAD
+//=======
+////    public User findUserByEmailMethod(String email)
+////    {
+////
+////        User u=userRepo.findUserByEmail(email);
+////
+////        return u;
+////
+////    }
+//>>>>>>> d8468d61190e1c1b5a9e1ae273f4b5d63018cadc
 
 
     public String findPasswordByEmailMethod(String email)
@@ -149,6 +159,9 @@ public class UserDal
     public User findUserByEmailMethod(String email)
     {
         User u= userRepo.findUserByEmail(email);
+
+        System.out.println("in find"+ u);
+
         return u;
     }
 
@@ -160,5 +173,15 @@ public class UserDal
         em.persist(tok);
         tx.commit();
         em.close();
+    }
+    public int isTokenActiveMethod(String token)
+    {
+        int flag=tokenRepo.isSessionActive(token);
+        return flag;
+    }
+    public void markSessionInactivemethod(String token)
+    {
+        ///write your function here///
+        tokenRepo.markSessionInactive(token);
     }
 }

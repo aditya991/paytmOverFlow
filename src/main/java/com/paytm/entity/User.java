@@ -1,5 +1,5 @@
 package com.paytm.entity;
-
+import com.paytm.entity.Dept;
 import javax.persistence.*;
 
 
@@ -29,8 +29,7 @@ public class User extends AbstractEntity  {
     @Column(unique = true)
     private String phone;
 
-
-    @OneToOne
+    @ManyToOne
     private Dept dept;
 
     /*This is for creating a join on Dept and User
@@ -45,17 +44,13 @@ public class User extends AbstractEntity  {
     )*/
 
 
-
-
-
-
-    public Dept getDept() {
+    public com.paytm.entity.Dept getDept() {
         return dept;
     }
 
-    public void setDept(Dept dept) {
+    public void setDept(com.paytm.entity.Dept dept) {
         this.dept = dept;
-   }
+    }
 
     public Integer getU_id() {
         return u_id ;
@@ -97,21 +92,14 @@ public class User extends AbstractEntity  {
         this.phone = phone;
     }
 
-
-
-
-
-
-
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "u_id=" + u_id +
-                ", u_name='" + u_name + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                '}';
-    }
+    //    @Override
+//    public String toString() {
+//        return "User{" +
+//                "u_id=" + u_id +
+//                ", u_name='" + u_name + '\'' +
+//                ", password='" + password + '\'' +
+//                ", email='" + email + '\'' +
+//                ", phone='" + phone + '\'' +
+//                '}';
+//    }
 }
