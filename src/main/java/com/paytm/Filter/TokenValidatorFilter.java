@@ -3,10 +3,12 @@ package com.paytm.Filter;
  * @author: aditya10.kumar
  * @created: 06/08/19
  */
+
 import com.paytm.entity.User;
 import com.paytm.services.LoginServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -26,7 +28,7 @@ public class TokenValidatorFilter implements Filter {
     {
         String path = ((HttpServletRequest) servletRequest).getRequestURI();
         System.out.println(path);
-        if (path.startsWith("/paytmOverFlow_war_exploded/login") || path.startsWith("/paytmOverFlow_war_exploded/signup"))
+        if (path.startsWith("/paytmOverFlow_war_exploded/login") || path.startsWith("/paytmOverFlow_war_exploded/signup")|| path.startsWith("/paytmOverFlow_war/signup"))
         {
             filterChain.doFilter(servletRequest, servletResponse);
         }

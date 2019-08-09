@@ -13,6 +13,11 @@ public class AbstractEntity {
     private Date created;
     private Date updated;
 
+    public AbstractEntity() {
+        this.created = new Date();
+        this.updated = new Date();
+    }
+
     public Date getCreated() {
         return created;
     }
@@ -28,8 +33,5 @@ public class AbstractEntity {
     public void setUpdated(Date updated) {
         this.updated = updated;
     }
-
-
-
 
 }
