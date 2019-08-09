@@ -125,7 +125,8 @@ public class UserDal
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
-        int id=tokenRepo.findUserIdByToken(token);
+        User u=tokenRepo.findUserIdByToken(token);
+        int id=u.getU_id();
         tx.commit();
         em.close();
         return id;
@@ -169,5 +170,15 @@ public class UserDal
         em.persist(tok);
         tx.commit();
         em.close();
+    }
+    public int isTokenActiveMethod(String token)
+    {
+        int flag=tokenRepo.isSessionActive(token);
+        return flag;
+    }
+    public void markSessionInactivemethod(String token)
+    {
+        ///write your function here///
+        tokenRepo.markSessionInactive(token);
     }
 }
