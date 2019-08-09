@@ -4,5 +4,51 @@ package com.paytm.entity;
  * @created: 06/08/19
  */
 
-public class Answer {
+import javax.persistence.*;
+@Entity
+public class Answer extends AbstractEntity
+{
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "ans_id" ,updatable = false ,nullable = false)
+    private int answer_id;
+    private String answer;
+
+    @ManyToOne
+    private User user;
+
+    @ManyToOne
+    private Question question;
+
+    public int getAnswer_id() {
+        return answer_id;
+    }
+
+    public void setAnswer_id(int answer_id) {
+        this.answer_id = answer_id;
+    }
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Question getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(Question question) {
+        this.question = question;
+    }
 }

@@ -13,6 +13,7 @@
 <body>
     Successfully logged in...
     Welcome <%= request.getAttribute("email")%> !!;
+
     <br/>
 
     Wanna See your profile? Click on Profile button otherwise you can logout.
