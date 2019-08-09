@@ -102,4 +102,17 @@ public class FeedController {
         mv.addObject("message","");
         return  mv;
     }
+
+   /* @RequestMapping(value = "/answerfeed", method = RequestMethod.POST)
+    public ModelAndView  showAnswerFeed(HttpServletRequest req, HttpServletResponse res) {
+        HttpSession session = req.getSession(false);
+        ModelAndView mv = new ModelAndView();
+
+        String email = (String) session.getAttribute("email");
+        User u= userService.findUserByEmailService(email);
+
+        mv.setViewName("showMyAnswers.jsp");
+        mv.addObject("",);
+        return  mv;
+    }*/
 }

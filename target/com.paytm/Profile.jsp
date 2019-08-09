@@ -59,5 +59,16 @@
 <br/>
 <font color="#a52a2a"><%=request.getAttribute("message")%></font>
 
+<form action="questionfeed" method="post">
+    <input type="submit"  value="Show my Questions">
+</form>
+
+<br/>
+<br/>
+
+<form action="answerfeed" method="post">
+    <input type="submit"  value="Show my Answers">
+</form>
+
 </body>
 </html>
