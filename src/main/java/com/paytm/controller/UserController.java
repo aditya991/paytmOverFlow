@@ -68,8 +68,9 @@ public class UserController
 
 
 
+
        /* ls.createTokenService(t);
-=======
+
 //            ModelAndView mv = new ModelAndView();
 //            mv.setViewName("postLoggedIn.jsp");
 //            mv.addObject("email", email);
@@ -78,8 +79,8 @@ public class UserController
 //
 //        }
 
-        ls.createTokenService(t);
->>>>>>> d8468d61190e1c1b5a9e1ae273f4b5d63018cadc
+        System.out.println("Passed Token.");
+        System.out.println("Passed createTokenService.");
 
         ModelAndView mv = new ModelAndView();
         mv.setViewName("postLoggedIn.jsp");
@@ -109,6 +110,14 @@ public class UserController
         String phone = request.getParameter("phone");
         String password = request.getParameter("password");
         String dept = request.getParameter("dept");
+
+
+
+        System.out.println("step 1 in controller" +name+"  "+email+"    "+phone);
+
+
+        SignupServiceImpl signupService =new SignupServiceImpl();
+
 
         ModelAndView mv = new ModelAndView();
 

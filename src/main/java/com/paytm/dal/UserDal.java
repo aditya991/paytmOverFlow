@@ -1,14 +1,13 @@
 package com.paytm.dal;
 
-
 import com.paytm.entity.Token;
 import com.paytm.entity.User;
 import com.paytm.repo.DeptRepo;
 import com.paytm.repo.TokenRepo;
 import com.paytm.repo.UserRepo;
+import com.paytm.services.InterestServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -17,7 +16,6 @@ import javax.persistence.EntityTransaction;
  * @author: aditya10.kumar
  * @created: 07/08/19
  */
-
 
 @Component
 public class UserDal
@@ -60,14 +58,17 @@ public class UserDal
 //        em.getTransaction().commit();
 
 
-
-
-
         em.getTransaction().begin();
         em.persist(user);
         em.getTransaction().commit();
         em.close();
 
+        //ekansh
+        InterestServiceImpl is = new InterestServiceImpl();
+        //System.out.println(user+" "+user.getDept());
+        boolean isAdded = is.addInterestService(user, user.getDept());//,emf);
+      //  System.out.print(isAdded);
+        //this was for adding default interest in his/her own department
 
         System.out.println("in user DAL final .user must be added to table");
 
@@ -157,6 +158,7 @@ public class UserDal
     }
     public User findUserByEmailMethod(String email)
     {
+        System.out.println("Inside findUserByEmailMethod");
         User u= userRepo.findUserByEmail(email);
 
         System.out.println("in find"+ u);

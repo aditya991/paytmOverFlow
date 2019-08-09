@@ -1,7 +1,11 @@
 package com.paytm.services;
 
 import com.paytm.entity.Dept;
+import com.paytm.entity.Interest;
 import com.paytm.entity.User;
+
+import javax.persistence.EntityManagerFactory;
+import java.util.List;
 
 public interface InterestService {
 
@@ -9,6 +13,8 @@ public interface InterestService {
     void addInterest(User u, Dept d);
     void removeInterest(Dept d);
 
-    void showAllInterest(User u);
-    void showFeed(User u);
+    boolean addInterestService(User u, Dept d);//, EntityManagerFactory emf2);
+    boolean removeInterestService(User u, Dept d);
+    List<String> showAllInterestService(User u);
+    void showFeedService(User u);
 }

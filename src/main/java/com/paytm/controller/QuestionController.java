@@ -3,6 +3,7 @@ package com.paytm.controller;
  * @author: aditya10.kumar
  * @created: 06/08/19
  */
+import com.paytm.entity.Dept;
 import com.paytm.services.QuestionServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class QuestionController {
@@ -38,26 +40,16 @@ public class QuestionController {
     @RequestMapping("/UpdateQuesServlet")
     public ModelAndView UpdateQuestion(HttpServletRequest request,HttpServletResponse response)
     {
-        String Question=request.getParameter("Question");
         String email= (String) request.getSession().getAttribute("email");
-
-
         System.out.println("in question controller     "+email);
 
+       ModelAndView mv=new ModelAndView();
 
-        ModelAndView mvc=new ModelAndView();
+        List<String> question = questionServiceImpl.showAllQuestionService(email);
+        mv.setViewName("updateQuestion.jsp");
+        mv.addObject("listofQuestion",question);
 
-        if(questionServiceImpl.ValidUser(Question,email))
-        {
-          mvc.setViewName("UpdateQuestion.jsp");
-          return mvc;
-
-        }
-        else
-        {
-           mvc.setViewName("UpdateQuestion.jsp");
-           return mvc;
-        }
+        return  mv;
 
     }
    /* @RequestMapping("/DeleteQuesServlet")
@@ -69,5 +61,7 @@ public class QuestionController {
         QuestionService.AddQuestionService(Question)
 
     }*/
+
+
 }
 

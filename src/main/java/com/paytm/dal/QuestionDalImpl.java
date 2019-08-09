@@ -6,11 +6,12 @@ import com.paytm.repo.QuestionRepo;
 import com.paytm.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import java.util.Iterator;
+import java.util.List;
 
 @Component
 public class QuestionDalImpl implements QuestionDal {
@@ -55,5 +56,21 @@ public class QuestionDalImpl implements QuestionDal {
            return true;
        else*/
         return false;
+    }
+
+    @Override
+    public List<String> showAllQuestionMethod(User user) {
+        System.out.println("inside showAll");
+
+
+
+        List<String> QuestionList = questionRepo.getQuestionByUser(user);
+
+        EntityManager em = emf.createEntityManager();
+
+        Iterator iterator = QuestionList.iterator();
+
+
+        return QuestionList;
     }
 }

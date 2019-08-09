@@ -12,7 +12,7 @@
 <br>
 <a href="DeleteQuestion.jsp">Delete Question</a><br>
 <br>
-<a href ="UpdateQuestion.jsp">Update Question</a><br>
+<a href ="updateQuestion.jsp">Update Question</a><br>
 <br>
 
 </form>

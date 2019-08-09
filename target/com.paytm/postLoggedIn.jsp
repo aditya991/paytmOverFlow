@@ -15,6 +15,15 @@
     Welcome <%= request.getAttribute("email")%> !!;
     <br/>
 
+    Wanna See your profile? Click on Profile button otherwise you can logout.
+
+    <form action="profile" method="post">
+        <input type="submit"  value="Profile">
+    </form>
+
+</br>
+
+
     <form action="logout" method="post">
         <input type="submit"  value="logout">
     </form>

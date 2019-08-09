@@ -1,6 +1,5 @@
 package com.paytm.services;
 
-
 import com.paytm.dal.UserDal;
 import com.paytm.entity.Dept;
 import com.paytm.entity.User;
@@ -33,14 +32,13 @@ public class SignupServiceImpl implements SignupService {
 
 
 
-        User user=new User();
+        User user = new User();
 
         user.setU_name(u_name);
         user.setEmail(email);
         user.setPhone(phone);
         user.setPassword(password);
         user.setDept(d);
-
 
 
         userDal.createUserMethod(user);
@@ -66,8 +64,3 @@ public class SignupServiceImpl implements SignupService {
 
     }
 }
-
-
-
-
-

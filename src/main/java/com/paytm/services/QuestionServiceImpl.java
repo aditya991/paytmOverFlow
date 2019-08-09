@@ -1,4 +1,5 @@
 package com.paytm.services;
+import com.paytm.dal.QuestionDal;
 import com.paytm.dal.QuestionDalImpl;
 import com.paytm.entity.Interest;
 import com.paytm.entity.Question;
@@ -14,6 +15,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 
 @Service
@@ -29,10 +31,6 @@ public class QuestionServiceImpl implements QuestionService{
    QuestionRepo questionRepo;
 
 
-    @Override
-    public boolean UpdateQuestionService(String Ques, HttpSession session) {
-        return false;
-    }
 
     @Override
     public void AddQuestionService(String department, String question ,String email)
@@ -60,8 +58,14 @@ public class QuestionServiceImpl implements QuestionService{
 
     }
 
+
     @Override
-    public boolean DeleteQuestionService(Integer Ques_Id,HttpSession session) {
+    public boolean UpdateQuestionService(String Ques, HttpSession session) {
+        return false;
+    }
+
+    @Override
+    public boolean DeleteQuestionService(Integer Ques_Id, HttpSession session) {
         return false;
     }
 
@@ -70,8 +74,19 @@ public class QuestionServiceImpl implements QuestionService{
 
         User user=userService.findUserByEmailService(email);
         Question ques=new Question();
-        ques=questionRepo.getquestion_Idbyquestion(question);
+      //  ques=questionRepo.getquestion_Idbyquestion(question);
     return questionDal.ValidUserMethod(ques.getQuestion_Id(),user);
-    return  false;
     }
+
+    @Override
+    public List<String> showAllQuestionService(String email) {
+
+        User user=userService.findUserByEmailService(email);
+            System.out.println("in showAllquestion   "+user.getU_id());
+
+            List<String> l= questionDal.showAllQuestionMethod(user);
+            return l;
+
+    }
+
 }

@@ -27,6 +27,10 @@ public class Interest extends AbstractEntity {
             ownDept = false;
     }
 
+    public boolean isOwnDept() {
+        return ownDept;
+    }
+
     public Integer getInterest_id() {
         return interest_id;
     }
