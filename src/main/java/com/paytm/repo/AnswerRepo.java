@@ -16,4 +16,7 @@ public interface AnswerRepo extends JpaRepository<Answer,Integer>
     @Transactional
     @Query("UPDATE Answer a SET a.answer=:answer, t.updated=CURRENT_TIMESTAMP WHERE a.answer_id=:answer_id")
     void updateAnswerByAnswerId(@Param("answer_id") int answer_id);
+
+    @Query("DELETE FROM Answer a WHERE a.answer_id=:answer_id")
+    void deleteAnswerByAnswerId(@Param("answer_id") int answer_id);
 }
