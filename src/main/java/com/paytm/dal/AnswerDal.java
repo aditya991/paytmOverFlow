@@ -23,7 +23,7 @@ public class AnswerDal
 
     public void updateAnswerByAnswerIdMethod(int id)
     {
-        answerRepo.updateAnswerByAnswerId(id);
+        answerRepo.updateAnswerByAnswerId(id,"hello");
     }
 
     public void deleteAnswerByAnswerIdMethod(int id)

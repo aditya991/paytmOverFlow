@@ -12,10 +12,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 public interface AnswerRepo extends JpaRepository<Answer,Integer>
 {
-    @Modifying
+
     @Transactional
-    @Query("UPDATE Answer a SET a.answer=:answer, t.updated=CURRENT_TIMESTAMP WHERE a.answer_id=:answer_id")
-    void updateAnswerByAnswerId(@Param("answer_id") int answer_id);
+    @Modifying
+    @Query("UPDATE Answer a SET a.answer=:answer, a.updated=CURRENT_TIMESTAMP WHERE a.answer_id=:answer_id")
+    void updateAnswerByAnswerId(@Param("answer_id") int answer_id , @Param("answer") String answer);
 
     @Query("DELETE FROM Answer a WHERE a.answer_id=:answer_id")
     void deleteAnswerByAnswerId(@Param("answer_id") int answer_id);

@@ -1,38 +1,52 @@
 package com.paytm.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Question {
-    private String Question;
+    private String question;
+
+
     @Id
-    @GeneratedValue
-    private Integer Ques_Id;
-    private String Department;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "question_Id", updatable = false, nullable = false)
+    private Integer question_Id;
+
+
+    private String department;
+
+    @ManyToOne
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public String getDepartment() {
-        return Department;
+        return department;
     }
 
     public void setDepartment(String department) {
-        Department = department;
+        this.department = department;
     }
 
     public String getQuestion() {
-        return Question;
+        return question;
     }
 
     public void setQuestion(String question) {
-        Question = question;
+        this.question = question;
     }
 
-    public Integer getQues_Id() {
-        return Ques_Id;
+    public Integer getQuestion_Id() {
+        return question_Id;
     }
 
-    public void setQues_Id(Integer ques_Id) {
-        Ques_Id = ques_Id;
+    public void setQuestion_Id(Integer question_Id) {
+        this.question_Id = question_Id;
     }
 }

@@ -20,7 +20,7 @@ public class QuestionServiceImpl implements QuestionService{
     {  Question ques=new Question();
        ques.setDepartment(Department);
        ques.setQuestion(Question);
-      Integer k= ques.getQues_Id();
+      Integer k= ques.getQuestion_Id();
 
       EntityManager em=emf.createEntityManager();
         EntityTransaction tx=em.getTransaction();
