@@ -3,7 +3,6 @@ package com.paytm.Interceptor;
  * @author: aditya10.kumar
  * @created: 08/08/19
  */
-
 import com.paytm.entity.User;
 import com.paytm.services.LoginServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
