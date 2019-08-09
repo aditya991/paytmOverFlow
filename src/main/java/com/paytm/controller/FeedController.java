@@ -43,8 +43,14 @@ public class FeedController {
         User u = userService.findUserByEmailService(email);
         Dept d = deptDal.findDeptByNameMethod(deptName);
 
-        if(interestService.addInterestService(u,d)){ System.out.println("Interest successfully added."); }
-        else{ System.out.println("Error in adding Interest."); }
+        mv.setViewName("Profile.jsp");
+
+        if(interestService.addInterestService(u,d)){
+            mv.addObject("message","Interest successfully added.");
+        }
+        else{
+            mv.addObject("message","Interest can't be added.");
+        }
 
         return mv;
     }
@@ -56,11 +62,18 @@ public class FeedController {
 
         String deptName=req.getParameter("deptName");
         String email = (String) session.getAttribute("email");
+
         User u = userService.findUserByEmailService(email);
         Dept d = deptDal.findDeptByNameMethod(deptName);
 
-        if(interestService.removeInterestService(u,d)){ System.out.println("Interest successfully removed."); }
-        else{ System.out.println("Error in removing Interest."); }
+        mv.setViewName("Profile.jsp");
+
+        if(interestService.removeInterestService(u,d)){
+            mv.addObject("message","Interest successfully removed.");
+        }
+        else{
+            mv.addObject("message","Interest can't be removed.");
+        }
 
         return mv;
     }
@@ -72,16 +85,15 @@ public class FeedController {
 
         String email = (String) session.getAttribute("email");
         User u= userService.findUserByEmailService(email);
+
         List<String> resultSet = interestService.showAllInterestService(u);
-
-       //String userDeptName=u.getDept().getDept_name();
-
-        List<Dept> deptSet = deptDal.enterAllAvailableDeptMethod();
+        List<Dept> deptSet = deptDal.enterAllAvailableDeptMethod(resultSet);
 
         mv.setViewName("Profile.jsp");
         mv.addObject("listofinterest",resultSet);
         mv.addObject("listofdepartments",deptSet);
-
+        mv.addObject("username",u.getU_name());
+        mv.addObject("message","");
         return  mv;
     }
 }

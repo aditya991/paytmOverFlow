@@ -16,6 +16,8 @@ public class Interest extends AbstractEntity {
     private boolean ownDept;
     private static int  count = 1;
 
+    public Interest() {}
+
     public Interest(Integer u_id, Integer dept_id) {
         this.u_id = u_id;
         this.dept_id = dept_id;

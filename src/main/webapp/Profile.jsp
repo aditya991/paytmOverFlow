@@ -16,6 +16,7 @@
 <body>
 
 <h1>Aap Apni Profile Dekh Rahe Hai</h1></br>
+<h2>Hello <%=request.getAttribute("username")%></h2>
 <h2>You interests are</h2>
 
 <%
@@ -26,13 +27,13 @@
 %>
 
 <c:forEach items="${listinterest}" var="s">
-    <c:out value="${s}"/>
+    <font color="blue"><c:out value="${s}"/></font><br/>
 </c:forEach>
 
 </br>
 </br>
 
-<form action="/addinterest" method="get">
+<form action="addinterest" method="get">
     Select any department to add into your interests.
     <select name="deptName">
         <c:forEach items="${listdept}" var="dept">
@@ -45,7 +46,7 @@
 
 <br/>
 
-<form action="/addinterest" method="get">
+<form action="removeinterest" method="get">
     Select any department to remove from your interests.
     <select name="deptName">
         <c:forEach items="${listinterest}" var="s">
@@ -55,5 +56,8 @@
     <br/><br/>
     <input type="submit" value="Remove" />
 </form>
+<br/>
+<font color="#a52a2a"><%=request.getAttribute("message")%></font>
+
 </body>
 </html>

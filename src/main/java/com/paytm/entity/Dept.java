@@ -44,5 +44,4 @@ public class Dept extends AbstractEntity {
         this.dept_name = dept_name;
     }
 
-
 }

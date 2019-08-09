@@ -31,7 +31,6 @@
     <url-pattern>/login</url-pattern>
   </filter-mapping>
 -->
-=======
 <!--  <filter>-->
 <!--    <filter-name>ValidatorFilter</filter-name>-->
 <!--    <filter-class>com.paytm.Filter.TokenValidatorFilter</filter-class>-->
@@ -50,7 +49,6 @@
 <!--    <url-pattern>/login</url-pattern>-->
 <!--  </filter-mapping>-->
 
->>>>>>> d8468d61190e1c1b5a9e1ae273f4b5d63018cadc
   <servlet>
     <servlet-name>springex</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>

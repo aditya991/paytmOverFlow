@@ -56,28 +56,14 @@ public class InterestDalImpl {
     }
 
     public boolean deleteInterestMethod(Integer u_id, Integer dept_id) {
-      //  try {
-
-            Interest i = interestRepo.getInterestByUIdByDeptId(u_id,dept_id);
-
-           // if (!i.isOwnDept()) {
-               // i.setUpdated(new Date());
-                EntityManager em = emf3.createEntityManager();
-                EntityTransaction tx = em.getTransaction();
-                em.getTransaction().begin();
-                em.remove(i);
-                em.getTransaction().commit();
-               em.close();
-              /*  return true;
-            } else
-                return false;
-
-
-        } catch (Exception e) {
+       try {
+           interestRepo.removeInterestByUIdByDeptId(u_id,dept_id);
+           System.out.println("Inside deleteInterestMethod OwnDept");
+           return true;
+          } catch (Exception e) {
+           System.out.println(e);
             return false;
-
-        }*/
-              return true;
+          }
     }
 
     public List<String> showAllInterestMethod(Integer u_id) {
@@ -88,26 +74,14 @@ public class InterestDalImpl {
         List<String> deptNameList = new ArrayList<>();
 
         EntityManager em = emf3.createEntityManager();
-
         Iterator iterator = deptIdList.iterator();
-
-
-//        for(Integer i :deptIdList)
-//            System.out.println(i);
-
-
 
         while (iterator.hasNext()) {
 
             Dept dpt = em.find(Dept.class, (Integer)iterator.next());
-
             System.out.println(dpt.getDept_name());
-
             deptNameList.add(dpt.getDept_name());
         }
-
-
-
         return deptNameList;
     }
 }
