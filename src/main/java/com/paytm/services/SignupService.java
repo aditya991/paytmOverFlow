@@ -7,5 +7,4 @@ public interface SignupService {
 
     boolean createUserService(String u_name, String email, String phone, String password , String dept );
 
-
 }

@@ -60,13 +60,6 @@ public class UserController
         t.setCreated(new Date());
         t.setUpdated(new Date());
 
-//            ModelAndView mv = new ModelAndView();
-//            mv.setViewName("postLoggedIn.jsp");
-//            mv.addObject("email", email);
-//            mv.addObject("password", password);
-//            return mv;
-//
-//        }
 
         ls.createTokenService(t);
 
@@ -97,6 +90,14 @@ public class UserController
         String phone = request.getParameter("phone");
         String password = request.getParameter("password");
         String dept = request.getParameter("dept");
+
+
+
+        System.out.println("step 1 in controller" +name+"  "+email+"    "+phone);
+
+
+        SignupServiceImpl signupService =new SignupServiceImpl();
+
 
         ModelAndView mv = new ModelAndView();
 
