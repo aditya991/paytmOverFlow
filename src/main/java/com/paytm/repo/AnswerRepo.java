@@ -12,6 +12,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 public interface AnswerRepo extends JpaRepository<Answer,Integer>
 {
     @Transactional
@@ -23,4 +25,7 @@ public interface AnswerRepo extends JpaRepository<Answer,Integer>
     @Modifying
     @Query("delete from Answer a where a.answer_id=:answer_id")
     void deleteAnswerByAnswerId(@Param("answer_id") int answer_id);
+
+    @Query("select a from Answer a where a.user=:user")
+    List<Answer> findAllAnswerByUser(@Param("user") User user);
 }
