@@ -16,31 +16,44 @@
 <body>
 
 <h1>Aap Apni Profile Dekh Rahe Hai</h1></br>
-<h2>You are interested in</h2></br>
+<h2>You interests are</h2>
 
 <%
-    int i = 1;
-    List<String> listInterest = (List <String>) request.getAttribute("listofinterest");
-
-    Iterator<String> iterator = listInterest.iterator();
-        while (iterator.hasNext()) {
-            System.out.println(i+". "+iterator.next());
-            i++;
-        }
+    List listDept = (List) request.getAttribute("listofdepartments");
+    List listInterest = (List) request.getAttribute("listofinterest");
+    request.setAttribute("listinterest", listInterest);
+    request.setAttribute("listdept",listDept);
 %>
 
-List<Dept> listDept = (List <Dept>) request.getAttribute("listofdepartments");
+<c:forEach items="${listinterest}" var="s">
+    <c:out value="${s}"/>
+</c:forEach>
+
+</br>
+</br>
 
 <form action="/addinterest" method="get">
-    Select a department to add into your interests.
+    Select any department to add into your interests.
     <select name="deptName">
-        <c:forEach items="${listDept}" var="dept">
-            <option value="${dept.dep_name}">${dept.dept_name}</option>
+        <c:forEach items="${listdept}" var="dept">
+            <option value="${dept.dept_name}">${dept.dept_name}</option>
         </c:forEach>
     </select>
     <br/><br/>
-    <input type="submit" value="Submit" />
+    <input type="submit" value="Add" />
 </form>
 
+<br/>
+
+<form action="/addinterest" method="get">
+    Select any department to remove from your interests.
+    <select name="deptName">
+        <c:forEach items="${listinterest}" var="s">
+            <option value="${s}">${s}</option>
+        </c:forEach>
+    </select>
+    <br/><br/>
+    <input type="submit" value="Remove" />
+</form>
 </body>
 </html>

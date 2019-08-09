@@ -16,10 +16,8 @@ import java.util.List;
 @Service
 public class InterestServiceImpl implements InterestService {
 
-  //  @Autowired
-  //   InterestDalImpl interestDal= new InterestDalImpl();
     @Autowired
-    InterestDalImpl interestDal;
+    private InterestDalImpl interestDal;
 
     @Autowired
     private EntityManagerFactory EMF;
@@ -58,7 +56,17 @@ public class InterestServiceImpl implements InterestService {
     @Override
     public List<String> showAllInterestService(User u) {
         Integer u_id = u.getU_id();
-        return interestDal.showAllInterestMethod(u_id);
+
+        System.out.println("in showAllInterestService      "+u_id);
+
+        List<String> l= interestDal.showAllInterestMethod(u_id);
+
+        for(String str:l)
+            System.out.println("12"+str);
+
+
+        return l;
+
     }
 
     @Override

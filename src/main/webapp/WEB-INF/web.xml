@@ -12,7 +12,6 @@
 <!--<web-app>-->
   <display-name>Archetype Created Web Application</display-name>
 
-<<<<<<< HEAD
   <!--<filter>
     <filter-name>TokenFilter</filter-name>
     <filter-class>com.paytm.Filter.TokenValidatorFilter</filter-class>

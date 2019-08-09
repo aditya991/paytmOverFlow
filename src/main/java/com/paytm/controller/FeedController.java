@@ -71,12 +71,13 @@ public class FeedController {
         ModelAndView mv = new ModelAndView();
 
         String email = (String) session.getAttribute("email");
-        System.out.println(email);
         User u= userService.findUserByEmailService(email);
-        System.out.println("User "+u);
-
         List<String> resultSet = interestService.showAllInterestService(u);
+
+       //String userDeptName=u.getDept().getDept_name();
+
         List<Dept> deptSet = deptDal.enterAllAvailableDeptMethod();
+
         mv.setViewName("Profile.jsp");
         mv.addObject("listofinterest",resultSet);
         mv.addObject("listofdepartments",deptSet);

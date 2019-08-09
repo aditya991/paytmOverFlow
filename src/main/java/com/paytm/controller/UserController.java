@@ -60,8 +60,11 @@ public class UserController
         t.setCreated(new Date());
         t.setUpdated(new Date());
 
+        System.out.println("Passed Token.");
 
         ls.createTokenService(t);
+
+        System.out.println("Passed createTokenService.");
 
         ModelAndView mv = new ModelAndView();
         mv.setViewName("postLoggedIn.jsp");
