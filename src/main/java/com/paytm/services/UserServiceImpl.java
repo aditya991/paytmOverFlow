@@ -11,12 +11,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService {
 
-
-   // @Autowired
-    UserDal userDal = new UserDal() ;
-
     @Autowired
-    UserRepo userRepo;
+    UserDal userDal;
+
 
     @Override
     public User findUserByNameService(String name) {

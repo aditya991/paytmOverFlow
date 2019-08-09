@@ -5,18 +5,22 @@ package com.paytm.services;
  */
 
 import com.paytm.dal.UserDal;
+import com.paytm.entity.Token;
 import com.paytm.entity.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
 public class LoginServiceImpl implements LoginService
 {
-    public LoginServiceImpl() {}
-    UserDal userDal=new UserDal();
+
+    @Autowired
+    private UserDal userDal;
 
     @Override
-    public User SessionValidate(String token)
-    {
-       User u=new User();
-        return null;
-    }
+    public User SessionValidate(String token) {
+        User u=new User();
+        return null; }
 
     @Override
     public boolean UserCredentials(String email, String password) {
@@ -24,8 +28,17 @@ public class LoginServiceImpl implements LoginService
     }
 
     @Override
-    public boolean markSessionInactive(String token) {
+    public boolean markSessionInactiveService(String token)
+    {
+        userDal.markSessionInactivemethod(token);
         return false;
+    }
+
+    @Override
+    public int isTokenActiveService(String token)
+    {
+        int flag=userDal.isTokenActiveMethod(token);
+        return flag;
     }
 
     @Override
@@ -47,11 +60,29 @@ public class LoginServiceImpl implements LoginService
         try
         {
             String DBPass = userDal.findPasswordByEmailMethod(email);
+            if(DBPass.equals(password))
+            {
+                return true;
+            }
         }
         catch (Exception e)
         {
             System.out.println("User not found");
         }
+        return false;
+    }
+
+    @Override
+    public boolean createTokenService(Token tok)
+    {
+        userDal.createTokenMethod(tok);
         return true;
+    }
+
+    @Override
+    public User findUserByEmailService(String email)
+    {
+        User u= userDal.findUserByEmailMethod(email);
+        return u;
     }
 }

@@ -40,7 +40,7 @@ public class User extends AbstractEntity  {
             inverseJoinColumns = @JoinColumn(name = "dept_id")
     )*/
 
-    @OneToOne
+    @ManyToOne
     private Dept dept;
 
 

@@ -12,6 +12,7 @@
 <!--<web-app>-->
   <display-name>Archetype Created Web Application</display-name>
 
+<<<<<<< HEAD
   <!--<filter>
     <filter-name>TokenFilter</filter-name>
     <filter-class>com.paytm.Filter.TokenValidatorFilter</filter-class>
@@ -31,13 +32,35 @@
     <url-pattern>/login</url-pattern>
   </filter-mapping>
 -->
+=======
+<!--  <filter>-->
+<!--    <filter-name>ValidatorFilter</filter-name>-->
+<!--    <filter-class>com.paytm.Filter.TokenValidatorFilter</filter-class>-->
+<!--  </filter>-->
+<!--  <filter-mapping>-->
+<!--    <filter-name>ValidatorFilter</filter-name>-->
+<!--    <url-pattern>/*</url-pattern>-->
+<!--  </filter-mapping>-->
+
+<!--  <filter>-->
+<!--    <filter-name>LoginFilter</filter-name>-->
+<!--    <filter-class>com.paytm.Filter.LoginFilter</filter-class>-->
+<!--  </filter>-->
+<!--  <filter-mapping>-->
+<!--    <filter-name>LoginFilter</filter-name>-->
+<!--    <url-pattern>/login</url-pattern>-->
+<!--  </filter-mapping>-->
+
+>>>>>>> d8468d61190e1c1b5a9e1ae273f4b5d63018cadc
   <servlet>
     <servlet-name>springex</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
+
   <servlet-mapping>
     <servlet-name>springex</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
+
 </web-app>

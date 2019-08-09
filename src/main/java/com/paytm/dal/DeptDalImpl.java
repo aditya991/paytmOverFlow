@@ -20,7 +20,7 @@ public class DeptDalImpl {
     private EntityManagerFactory emf;
 
     public Dept findDeptByNameMethod(String deptName) {
-        return deptRepo.findDeptByDeptName(deptName);
+        return deptRepo.findDeptByName(deptName);
     }
 
     public List<Dept> enterAllAvailableDeptMethod() { return deptRepo.showAllDept(); }

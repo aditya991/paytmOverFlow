@@ -11,6 +11,7 @@ public class Dept extends AbstractEntity {
     @Column(name = "dept_id" ,updatable = false ,nullable = false)
     private Integer dept_id;
 
+
     @Column(unique = true)
     private String dept_name;
 
@@ -18,6 +19,10 @@ public class Dept extends AbstractEntity {
     /*This is for creating a join on Dept and User*/
     /*@ManyToMany
     Set<User> likes;*/
+    public Dept() {
+        this.dept_name = "name not given";
+    }
+
 
     public Dept(String dept_name) {
         this.dept_name = dept_name;

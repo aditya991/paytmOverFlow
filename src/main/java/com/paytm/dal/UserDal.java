@@ -1,28 +1,24 @@
 package com.paytm.dal;
 
-
+import com.paytm.entity.Token;
 import com.paytm.entity.User;
 import com.paytm.repo.DeptRepo;
 import com.paytm.repo.TokenRepo;
 import com.paytm.repo.UserRepo;
-
 import com.paytm.services.InterestServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 
 /*
  * @author: aditya10.kumar
  * @created: 07/08/19
  */
 
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-
-
 @Component
+
 public class UserDal
 {
 
@@ -41,6 +37,7 @@ public class UserDal
 
 
 
+
     public boolean createUserMethod(User user)
     {
 
@@ -52,9 +49,14 @@ public class UserDal
         EntityTransaction tx = em.getTransaction();
 
 
-        em.getTransaction().begin();
-        em.persist(user.getDept());
-        em.getTransaction().commit();
+
+
+
+
+
+//        em.getTransaction().begin();
+//        em.persist(user.getDept());
+//        em.getTransaction().commit();
 
 
         em.getTransaction().begin();
@@ -94,18 +96,19 @@ public class UserDal
 
     public boolean validUserPhoneMethod(String phone)
     {
-            try{
-                User u=userRepo.findUserByPhone(phone);
-                System.out.println(u);
+        try{
+            User u=userRepo.findUserByPhone(phone);
+            System.out.println(u);
 
-                if(u==null)
-                    return false;
+            if(u==null)
+                return false;
 
-              }
-             catch (Exception e) {
-            }
+        }
+        catch (Exception e) {
+        }
         return  true;
     }
+
 
 
     public User findUserByUserIdMethod(int id)
@@ -123,26 +126,22 @@ public class UserDal
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
-        int id=tokenRepo.findUserIdByToken(token);
+        User u=tokenRepo.findUserIdByToken(token);
+        int id=u.getU_id();
         tx.commit();
         em.close();
         return id;
     }
 
 
-    public User findUserByEmailMethod(String email)
-    {
-        System.out.println("Inside findUserByEmailMethod");
-
-        EntityManager em = emf.createEntityManager();
-        EntityTransaction tx = em.getTransaction();
-        tx.begin();
-        User u=userRepo.findUserByEmail(email);
-        tx.commit();
-        em.close();
-        return u;
-
-    }
+//    public User findUserByEmailMethod(String email)
+//    {
+//
+//        User u=userRepo.findUserByEmail(email);
+//
+//        return u;
+//
+//    }
 
 
     public String findPasswordByEmailMethod(String email)
@@ -154,5 +153,34 @@ public class UserDal
         tx.commit();
         em.close();
         return password;
+    }
+    public User findUserByEmailMethod(String email)
+    {
+        System.out.println("Inside findUserByEmailMethod");
+        User u= userRepo.findUserByEmail(email);
+
+        System.out.println("in find"+ u);
+
+        return u;
+    }
+
+    public void createTokenMethod(Token tok)
+    {
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+        em.persist(tok);
+        tx.commit();
+        em.close();
+    }
+    public int isTokenActiveMethod(String token)
+    {
+        int flag=tokenRepo.isSessionActive(token);
+        return flag;
+    }
+    public void markSessionInactivemethod(String token)
+    {
+        ///write your function here///
+        tokenRepo.markSessionInactive(token);
     }
 }
