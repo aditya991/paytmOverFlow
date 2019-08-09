@@ -14,6 +14,10 @@ public class Dept extends AbstractEntity {
     @Column(unique = true)
     private String dept_name;
 
+    public Dept() {
+        this.dept_name = "name not given";
+    }
+
 
     public Dept(String dept_name) {
         this.dept_name = dept_name;

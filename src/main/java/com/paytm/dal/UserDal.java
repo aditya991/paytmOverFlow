@@ -6,23 +6,17 @@ import com.paytm.entity.User;
 import com.paytm.repo.DeptRepo;
 import com.paytm.repo.TokenRepo;
 import com.paytm.repo.UserRepo;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 
 /*
  * @author: aditya10.kumar
  * @created: 07/08/19
  */
-
-
-import org.springframework.stereotype.Controller;
-
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import java.util.Date;
 
 
 @Component
@@ -57,9 +51,14 @@ public class UserDal
         EntityTransaction tx = em.getTransaction();
 
 
-        em.getTransaction().begin();
-        em.persist(user.getDept());
-        em.getTransaction().commit();
+
+
+
+
+
+//        em.getTransaction().begin();
+//        em.persist(user.getDept());
+//        em.getTransaction().commit();
 
 
 
@@ -96,16 +95,16 @@ public class UserDal
 
     public boolean validUserPhoneMethod(String phone)
     {
-            try{
-                User u=userRepo.findUserByPhone(phone);
-                System.out.println(u);
+        try{
+            User u=userRepo.findUserByPhone(phone);
+            System.out.println(u);
 
-                if(u==null)
-                    return false;
+            if(u==null)
+                return false;
 
-              }
-             catch (Exception e) {
-            }
+        }
+        catch (Exception e) {
+        }
         return  true;
     }
 
@@ -133,14 +132,14 @@ public class UserDal
     }
 
 
-    public User findUserByEmailMethod(String email)
-    {
-
-        User u=userRepo.findUserByEmail(email);
-
-        return u;
-
-    }
+//    public User findUserByEmailMethod(String email)
+//    {
+//
+//        User u=userRepo.findUserByEmail(email);
+//
+//        return u;
+//
+//    }
 
 
     public String findPasswordByEmailMethod(String email)
@@ -156,6 +155,9 @@ public class UserDal
     public User findUserByEmailMethod(String email)
     {
         User u= userRepo.findUserByEmail(email);
+
+        System.out.println("in find"+ u);
+
         return u;
     }
 

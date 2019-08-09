@@ -5,6 +5,7 @@ package com.paytm.configuration;
  */
 
 //Check commit
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
@@ -16,8 +17,8 @@ import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
-import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
 import javax.sql.DataSource;
 import java.util.Properties;
 
@@ -59,7 +60,7 @@ public class DBConfiguration {
     private Properties getJpaProperties() {
         Properties properties = new Properties();
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
-        properties.setProperty("hibernate.hbm2ddl.auto", "create");//create or update
+        properties.setProperty("hibernate.hbm2ddl.auto", "update");//create or update
 
         properties.setProperty("hibernate.transaction.jta.platform","org.hibernate.service.jta.platform.internal.JBossAppServerJtaPlatform");
         properties.setProperty("showSql", "true");

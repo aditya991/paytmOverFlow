@@ -30,7 +30,7 @@ public class User extends AbstractEntity  {
 
 
 
-    @OneToOne
+    @ManyToOne
     private Dept dept;
 
     public Dept getDept() {
