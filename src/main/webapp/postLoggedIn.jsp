@@ -13,6 +13,7 @@
 <body>
     Successfully logged in...
     Welcome <%= request.getAttribute("email")%> !!;
+
     <br/>
 
     <form action="logout" method="post">
