@@ -68,6 +68,12 @@ public class FeedController {
 
         mv.setViewName("Profile.jsp");
 
+        if(u.getDept().getDept_name().equals(d.getDept_name()))
+        {
+            mv.addObject("message","Interest can't be removed.");
+            return mv;
+        }
+
         if(interestService.removeInterestService(u,d)){
             mv.addObject("message","Interest successfully removed.");
         }
