@@ -66,12 +66,12 @@ public class QuestionServiceImpl implements QuestionService{
     }
 
     @Override
-    public boolean ValidUser(String  question,HttpSession session) {
-     /*   String email= (String) session.getAttribute("email");
+    public boolean ValidUser(String  question,String email) {
+
         User user=userService.findUserByEmailService(email);
         Question ques=new Question();
         ques=questionRepo.getquestion_Idbyquestion(question);
-    return questionDal.ValidUserMethod(ques.getQuestion_Id(),user);*/
+    return questionDal.ValidUserMethod(ques.getQuestion_Id(),user);
     return  false;
     }
 }

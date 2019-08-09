@@ -22,29 +22,32 @@ public class QuestionController {
     @RequestMapping("/AddQuesServlet")
     public ModelAndView AddQuestion(HttpServletRequest request, HttpServletResponse response)
     {
-
-      String department=request.getParameter("Department");
+        String department=request.getParameter("Department");
       String question=request.getParameter("Question");
+
       String email= (String) request.getSession().getAttribute("email");
-
-
 
 
       System.out.println("in question controller     "+email);
 
         ModelAndView mvc=new ModelAndView();
        questionServiceImpl.AddQuestionService(department,question ,email);
-       mvc.setViewName("AddQuestion.jsp");
+       mvc.setViewName("UpdateQuestion.jsp");
        return mvc;
     }
     @RequestMapping("/UpdateQuesServlet")
     public ModelAndView UpdateQuestion(HttpServletRequest request,HttpServletResponse response)
-    { HttpSession session= (HttpSession) request.getAttribute("false");
+    {
         String Question=request.getParameter("Question");
+        String email= (String) request.getSession().getAttribute("email");
+
+
+        System.out.println("in question controller     "+email);
+
 
         ModelAndView mvc=new ModelAndView();
 
-        if(questionServiceImpl.ValidUser(Question,session))
+        if(questionServiceImpl.ValidUser(Question,email))
         {
           mvc.setViewName("UpdateQuestion.jsp");
           return mvc;

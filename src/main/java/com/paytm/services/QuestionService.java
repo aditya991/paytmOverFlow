@@ -10,6 +10,6 @@ public interface QuestionService {
 
     boolean UpdateQuestionService(String Ques,HttpSession session);
     boolean DeleteQuestionService(Integer Ques_Id,HttpSession session);
-    boolean ValidUser(String Ques,HttpSession session);
+    boolean ValidUser(String Ques,String email);
 
 }

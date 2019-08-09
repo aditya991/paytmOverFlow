@@ -57,7 +57,7 @@ public class UserController
         t.setUser(u);
         t.setCreated(new Date());
         t.setUpdated(new Date());
-
+        ls.createTokenService(t);
             ModelAndView mv = new ModelAndView();
             mv.setViewName("postLoggedIn.jsp");
             mv.addObject("email", email);

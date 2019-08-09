@@ -25,7 +25,7 @@ public interface UserRepo extends JpaRepository<User,Integer>
     User findUserByUserId(@Param("uid") int uid);
 
     @Query("select u.password from User u where u.email=:email")
-    User findPasswordByEmail(@Param("email") String email);
+    String findPasswordByEmail(@Param("email") String email);
 
 }
 

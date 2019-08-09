@@ -150,8 +150,7 @@ public class UserDal
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
-        User user=userRepo.findPasswordByEmail(email);
-        String password=user.getPassword();
+        String password=userRepo.findPasswordByEmail(email);
         tx.commit();
         em.close();
         return password;
