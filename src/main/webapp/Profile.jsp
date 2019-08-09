@@ -15,24 +15,26 @@
 </head>
 <body>
 
-<h1>Aap Apni Profile Dekh Rahe Hai</h1></body></br>
+<h1>Aap Apni Profile Dekh Rahe Hai</h1></br>
 <h2>You are interested in</h2></br>
 
 <%
     int i = 1;
     List<String> listInterest = (List <String>) request.getAttribute("listofinterest");
-    List<Dept> listDept = (List <Dept>) request.getAttribute("listofdepartments");
+
     Iterator<String> iterator = listInterest.iterator();
         while (iterator.hasNext()) {
-            System.out.println(i+iterator.next());
+            System.out.println(i+". "+iterator.next());
             i++;
         }
 %>
 
+List<Dept> listDept = (List <Dept>) request.getAttribute("listofdepartments");
+
 <form action="/addinterest" method="get">
     Select a department to add into your interests.
     <select name="deptName">
-        <c:forEach items="${deptSet}" var="dept">
+        <c:forEach items="${listDept}" var="dept">
             <option value="${dept.dep_name}">${dept.dept_name}</option>
         </c:forEach>
     </select>

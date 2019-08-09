@@ -8,8 +8,8 @@ import java.util.List;
 
 public interface InterestService {
 
-    boolean addInterest(User u, Dept d, EntityManagerFactory emf2);
-    boolean removeInterest(User u,Dept d);
-    List<String> showAllInterest(User u);
-    void showFeed(User u);
+    boolean addInterestService(User u, Dept d);//, EntityManagerFactory emf2);
+    boolean removeInterestService(User u, Dept d);
+    List<String> showAllInterestService(User u);
+    void showFeedService(User u);
 }

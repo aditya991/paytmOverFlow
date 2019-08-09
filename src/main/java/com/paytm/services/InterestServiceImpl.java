@@ -10,59 +10,59 @@ import org.springframework.stereotype.Service;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import java.util.Date;
 import java.util.List;
 
 @Service
 public class InterestServiceImpl implements InterestService {
 
-//    @Autowired
-//    private InterestDalImpl interestDal;
-    /*@Autowired
-    private EntityManagerFactory emf2;*/
+  //  @Autowired
+  //   InterestDalImpl interestDal= new InterestDalImpl();
+    @Autowired
+    InterestDalImpl interestDal;
+
+    @Autowired
+    private EntityManagerFactory EMF;
 
     @Override
-    public boolean addInterest(User u, Dept d,EntityManagerFactory emf2) {
+    //public boolean addInterestService(User u, Dept d, EntityManagerFactory emf2) {
+    public boolean addInterestService(User u, Dept d) {
         Integer u_id = u.getU_id();
         Integer dept_id = d.getDept_id();
-        System.out.print(u_id);
-        System.out.print(dept_id);
-      //  InterestDalImpl dal = new InterestDalImpl();
+
         System.out.println("Inside addInterest");
 
         Interest i = new Interest(u_id, dept_id);
-        System.out.println(i);
-//            i.setCreated(new Date());
-//            i.setUpdated(new Date());
-           System.out.println(emf2);
-           EntityManager em = emf2.createEntityManager();
-           EntityTransaction tx = em.getTransaction();
-           em.getTransaction().begin();
-           em.persist(i);
-            em.getTransaction().commit();
-            em.close();
-        /*boolean x=interestDal.insertInterestMethod(u_id, dept_id);
+        i.setCreated(new Date());
+        i.setUpdated(new Date());
 
-        System.out.print(x);*/
+        //  EMF=emf2;
+        EntityManager em = EMF.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        em.getTransaction().begin();
+        em.persist(i);
+        em.getTransaction().commit();
+        em.close();
+
+        System.out.println("Interest Added.");
         return true;
     }
 
     @Override
-    public boolean removeInterest(User u, Dept d) {
+    public boolean removeInterestService(User u, Dept d) {
         Integer u_id = u.getU_id();
         Integer dept_id = d.getDept_id();
-        InterestDalImpl dal = new InterestDalImpl();    ////////////////////////////////////////
-        return dal.deleteInterestMethod(u_id, dept_id);
+        return interestDal.deleteInterestMethod(u_id, dept_id);
     }
 
     @Override
-    public List<String> showAllInterest(User u) {
+    public List<String> showAllInterestService(User u) {
         Integer u_id = u.getU_id();
-        InterestDalImpl dal = new InterestDalImpl();   //////////////////////////////////////
-        return dal.showAllInterestMethod(u_id);
+        return interestDal.showAllInterestMethod(u_id);
     }
 
     @Override
-    public void showFeed(User u) {
+    public void showFeedService(User u) {
 
     }
 }

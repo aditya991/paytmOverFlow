@@ -18,7 +18,7 @@ import java.util.List;
 public class InterestDalImpl {
 
     @Autowired
-    private EntityManagerFactory emf;
+    private EntityManagerFactory emf3;
 
     @Autowired
     private InterestRepo interestRepo;
@@ -26,30 +26,32 @@ public class InterestDalImpl {
     @Autowired
     private DeptRepo deptRepo;
 
-    public boolean insertInterestMethod(Integer u_id, Integer dept_id)
+    public InterestDalImpl() {}
+
+    public boolean insertInterestMethod(Integer u_id, Integer dept_id, EntityManagerFactory EMF2)
     {
-        System.out.println("inside insertInterestMethod-------1");
-        return true;
-//        try
-//        {
-//
-//            System.out.println("inside insert InterestMethod");
-//            Interest i = new Interest(u_id, dept_id);
-//            i.setCreated(new Date());
-//            i.setUpdated(new Date());
-//            EntityManager em = emf.createEntityManager();
-//            EntityTransaction tx = em.getTransaction();
-//            em.getTransaction().begin();
-//            em.persist(i);
-//            em.getTransaction().commit();
-//            em.close();
-//            return true;
-//        }
-//        catch (Exception e)
-//        {
-//            System.out.println(e);
-//            return false;
-//        }
+        //System.out.println("inside insertInterestMethod-------1");
+        //return true;
+        //try
+        //{
+            System.out.println("inside insert InterestMethod");
+            Interest i = new Interest(u_id, dept_id);
+           // i.setCreated(new Date());
+          //  i.setUpdated(new Date());
+            emf3=EMF2;
+            EntityManager em = emf3.createEntityManager();
+            EntityTransaction tx = em.getTransaction();
+            em.getTransaction().begin();
+            em.persist(i);
+            em.getTransaction().commit();
+            em.close();
+            return true;
+     /*   }
+        catch (Exception e)
+        {
+           // System.out.println(e);
+            return false;
+        }*/
     }
 
     public boolean deleteInterestMethod(Integer u_id, Integer dept_id) {
@@ -59,8 +61,8 @@ public class InterestDalImpl {
                     String.valueOf(dept_id));
 
            // if (!i.isOwnDept()) {
-                i.setUpdated(new Date());
-                EntityManager em = emf.createEntityManager();
+               // i.setUpdated(new Date());
+                EntityManager em = emf3.createEntityManager();
                 EntityTransaction tx = em.getTransaction();
                 em.getTransaction().begin();
                 em.remove(i);
@@ -82,7 +84,7 @@ public class InterestDalImpl {
         List<Integer> deptIdList = interestRepo.getDeptIdbyUId(String.valueOf(u_id));
         List<String> deptNameList = null;
 
-        EntityManager em = emf.createEntityManager();
+        EntityManager em = emf3.createEntityManager();
 
         Iterator iterator = deptIdList.iterator();
         while (iterator.hasNext()) {
