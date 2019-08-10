@@ -48,7 +48,7 @@ public class UserDal
         em.getTransaction().commit();
         em.close();
 
-        //ekansh
+        //TODO ekansh
         boolean isAdded = interestService.addInterestService(user, user.getDept());//,emf);
         System.out.println("in user DAL final .user must be added to table");
         return true;

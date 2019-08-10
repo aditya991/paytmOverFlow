@@ -17,9 +17,6 @@
             <!--            <mvc:exclude-mapping path=""/>-->
             <bean class="com.paytm.Interceptor.LoginInterceptor"/>
         </mvc:interceptor>
-    </mvc:interceptors>
-
-    <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**" />
                         <mvc:exclude-mapping path="/login"/>

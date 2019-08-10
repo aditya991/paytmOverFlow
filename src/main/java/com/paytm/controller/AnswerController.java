@@ -9,6 +9,7 @@ import com.paytm.services.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -47,14 +48,14 @@ public class AnswerController
         answerService.saveAnswerService(ans);
     }
 
-    @RequestMapping("/deleteAnswer")
+    @RequestMapping(value = "/answer", method = RequestMethod.DELETE)
     public void deleteAnswer(HttpServletRequest request, HttpServletResponse response)
     {
         int ans_id= (int) request.getAttribute("answer_id");
         answerService.deleteAnswerByAnswerIdService(ans_id);
     }
 
-    @RequestMapping("/updateAnswer")
+    @RequestMapping(value ="/answer", method = RequestMethod.PUT)
     public void updateAnswer(HttpServletRequest request, HttpServletResponse response)
     {
         int ans_id= (int) request.getAttribute("answer_id");

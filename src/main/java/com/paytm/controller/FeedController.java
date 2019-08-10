@@ -1,8 +1,10 @@
 package com.paytm.controller;
 
 import com.paytm.dal.DeptDalImpl;
+import com.paytm.entity.Answer;
 import com.paytm.entity.Dept;
 import com.paytm.entity.User;
+import com.paytm.services.AnswerServiceImpl;
 import com.paytm.services.InterestServiceImpl;
 import com.paytm.services.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,9 @@ public class FeedController {
 
     @Autowired
     private InterestServiceImpl interestService;
+
+    @Autowired
+    private AnswerServiceImpl answerService;
 
     @Autowired
     private DeptDalImpl deptDal;
@@ -103,7 +108,7 @@ public class FeedController {
         return  mv;
     }
 
-   /* @RequestMapping(value = "/answerfeed", method = RequestMethod.POST)
+   @RequestMapping(value = "/answerfeed", method = RequestMethod.POST)
     public ModelAndView  showAnswerFeed(HttpServletRequest req, HttpServletResponse res) {
         HttpSession session = req.getSession(false);
         ModelAndView mv = new ModelAndView();
@@ -111,8 +116,11 @@ public class FeedController {
         String email = (String) session.getAttribute("email");
         User u= userService.findUserByEmailService(email);
 
-        mv.setViewName("showMyAnswers.jsp");
-        mv.addObject("",);
+       List<Answer> listAnswers = answerService.findAllAnswerByUserService(u);
+
+
+        mv.setViewName("userAnswers.jsp");
+        mv.addObject("listanswers",listAnswers);
         return  mv;
-    }*/
+    }
 }
