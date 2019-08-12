@@ -1,5 +1,4 @@
 package com.paytm.entity;
-
 import javax.persistence.*;
 import java.util.Set;
 
@@ -15,10 +14,17 @@ public class Dept extends AbstractEntity {
     @Column(unique = true)
     private String dept_name;
 
+
     //Right now I am not creating join instead I am explicitly creating a table called Interest
     /*This is for creating a join on Dept and User*/
     /*@ManyToMany
     Set<User> likes;*/
+//
+//    public Dept() {
+//        this.dept_name = "dept_name";
+//    }
+
+
     public Dept() {
         this.dept_name = "name not given";
     }

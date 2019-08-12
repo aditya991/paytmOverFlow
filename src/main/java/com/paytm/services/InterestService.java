@@ -9,6 +9,10 @@ import java.util.List;
 
 public interface InterestService {
 
+
+    void addInterest(User u, Dept d);
+    void removeInterest(Dept d);
+
     boolean addInterestService(User u, Dept d);//, EntityManagerFactory emf2);
     boolean removeInterestService(User u, Dept d);
     List<String> showAllInterestService(User u);

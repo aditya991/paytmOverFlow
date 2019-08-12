@@ -3,49 +3,65 @@ package com.paytm.controller;
  * @author: aditya10.kumar
  * @created: 06/08/19
  */
-import com.paytm.entity.Question;
+import com.paytm.entity.Dept;
 import com.paytm.services.QuestionServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import com.paytm.services.QuestionService;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.util.List;
+
 @Controller
 public class QuestionController {
+
+    @Autowired
+    private QuestionServiceImpl questionServiceImpl ;
+
     @RequestMapping("/AddQuesServlet")
     public ModelAndView AddQuestion(HttpServletRequest request, HttpServletResponse response)
     {
-      String department=request.getParameter("Department");
+        String department=request.getParameter("Department");
       String question=request.getParameter("Question");
+
+      String email= (String) request.getSession().getAttribute("email");
+
+
+      System.out.println("in question controller     "+email);
+
         ModelAndView mvc=new ModelAndView();
-      QuestionServiceImpl ques=new QuestionServiceImpl();
-
-        Integer k= ques.AddQuestionService(department,question);
-        if(k==1)
-       {
-
-      return mvc;}
-       else
-       {
-        return mvc;
-       }
+       questionServiceImpl.AddQuestionService(department,question ,email);
+       mvc.setViewName("UpdateQuestion.jsp");
+       return mvc;
     }
     @RequestMapping("/UpdateQuesServlet")
     public ModelAndView UpdateQuestion(HttpServletRequest request,HttpServletResponse response)
     {
-        String department=request.getParameter("Department");
-        String Question_Id=request.getParameter("Question_Id");
-        ModelAndView mv = new ModelAndView();
+        String email= (String) request.getSession().getAttribute("email");
+        System.out.println("in question controller     "+email);
+
+       ModelAndView mv=new ModelAndView();
+
+        List<String> question = questionServiceImpl.showAllQuestionService(email);
+        mv.setViewName("updateQuestion.jsp");
+        mv.addObject("listofQuestion",question);
+
         return  mv;
+
     }
-    @RequestMapping("/DeleteQuesServlet")
+   /* @RequestMapping("/DeleteQuesServlet")
     public ModelAndView DeleteQuestion(HttpServletRequest request,HttpServletResponse response)
     {
         String department=request.getParameter("Department");
         String Question_Id=request.getParameter("Question_Id");
-        ModelAndView mv = new ModelAndView();
-        return  mv;
-    }
+       /* QuestionService Ques= new QuestionService();
+        QuestionService.AddQuestionService(Question)
+
+    }*/
+
+
 }
 

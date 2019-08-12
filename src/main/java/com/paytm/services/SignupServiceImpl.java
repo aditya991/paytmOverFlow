@@ -28,7 +28,7 @@ public class SignupServiceImpl implements SignupService {
         //Dept d= new Dept(dept);
 
 
-         Dept d=deptRepo.findDeptByName(dept);
+        Dept d=deptRepo.findDeptByName(dept);
 
         User user = new User();
 
@@ -50,7 +50,7 @@ public class SignupServiceImpl implements SignupService {
     @Override
     public boolean checkExistingUserService(String email, String phone) {
 
-       boolean a= !userDal.validUserEmailMethod(email) ;
+        boolean a= !userDal.validUserEmailMethod(email) ;
 
         boolean b= !userDal.validUserPhoneMethod(phone) ;
 

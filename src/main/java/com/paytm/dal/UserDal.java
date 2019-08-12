@@ -18,7 +18,6 @@ import javax.persistence.EntityTransaction;
  */
 
 @Component
-
 public class UserDal
 {
 
@@ -104,7 +103,22 @@ public class UserDal
         return id;
     }
 
+
     public String findPasswordByEmailMethod(String email) {
+
+
+//<<<<<<< HEAD
+//=======
+////    public User findUserByEmailMethod(String email)
+////    {
+////
+////        User u=userRepo.findUserByEmail(email);
+////
+////        return u;
+////
+////    }
+//>>>>>>> d8468d61190e1c1b5a9e1ae273f4b5d63018cadc
+
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();

@@ -1,5 +1,4 @@
 package com.paytm.services;
-
 import com.paytm.dal.InterestDalImpl;
 import com.paytm.entity.Dept;
 import com.paytm.entity.Interest;
@@ -16,6 +15,20 @@ import java.util.List;
 
 @Service
 public class InterestServiceImpl implements InterestService {
+    @Override
+    public void addInterest(User u, Dept d) {
+
+          Integer u_id =u.getU_id();
+          Integer dept_id =d.getDept_id();
+          InterestDalImpl dal = new InterestDalImpl();
+          dal.insertInterest(u_id,dept_id);
+    }
+
+
+    @Override
+    public void removeInterest(Dept d) {
+    }
+
 
     @Autowired
     private InterestDalImpl interestDal;
@@ -50,6 +63,7 @@ public class InterestServiceImpl implements InterestService {
         Integer u_id = u.getU_id();
         Integer dept_id = d.getDept_id();
         return interestDal.deleteInterestMethod(u_id, dept_id);
+
     }
 
     @Override
@@ -62,4 +76,8 @@ public class InterestServiceImpl implements InterestService {
     public void showFeedService(User u) {
 
     }
+
 }
+
+
+

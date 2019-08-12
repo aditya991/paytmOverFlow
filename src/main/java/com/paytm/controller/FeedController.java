@@ -123,7 +123,7 @@ public class FeedController {
     }
 
     @RequestMapping(value = "/questionfeed", method = RequestMethod.POST)
-    public ModelAndView  showAnswerFeed(HttpServletRequest req, HttpServletResponse res) {
+    public ModelAndView  showQuestionFeed(HttpServletRequest req, HttpServletResponse res) {
         HttpSession session = req.getSession(false);
         ModelAndView mv = new ModelAndView();
 
@@ -135,6 +135,23 @@ public class FeedController {
 
         mv.setViewName("Question.jsp");
         //mv.addObject("listanswers",listAnswers);
+        return  mv;
+    }
+
+    @RequestMapping(value = "/feed", method = RequestMethod.POST)
+    public ModelAndView  showFeed(HttpServletRequest req, HttpServletResponse res) {
+        HttpSession session = req.getSession(false);
+        ModelAndView mv = new ModelAndView();
+
+        String email = (String) session.getAttribute("email");
+        User u= userService.findUserByEmailService(email);
+
+        List<String> resultSet = interestService.showAllInterestService(u);
+        //List<Answer> listAnswers = answerService.findAllAnswerByUserService(u);
+
+        mv.setViewName("feed.jsp");
+        mv.addObject("listofinterest",resultSet);
+
         return  mv;
     }
 

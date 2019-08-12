@@ -66,9 +66,11 @@ public class LoginServiceImpl implements LoginService
     @Override
     public boolean UserAuthenticationService(String email, String password)
     {
+        System.out.println("inside user auth");
         try
         {
             String DBPass = userDal.findPasswordByEmailMethod(email);
+            System.out.println("DBPass+"+DBPass+"email"+email);
             if(DBPass.equals(password))
             {
                 return true;
@@ -76,7 +78,7 @@ public class LoginServiceImpl implements LoginService
         }
         catch (Exception e)
         {
-            System.out.println("User not found");
+            System.out.println("User not found"+e);
         }
         return false;
     }

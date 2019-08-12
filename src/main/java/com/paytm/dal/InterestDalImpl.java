@@ -2,7 +2,9 @@ package com.paytm.dal;
 
 import com.paytm.entity.Dept;
 import com.paytm.entity.Interest;
+import com.paytm.entity.User;
 import com.paytm.repo.DeptRepo;
+
 import com.paytm.repo.InterestRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -23,6 +25,25 @@ public class InterestDalImpl {
 
     @Autowired
     private InterestRepo interestRepo;
+
+
+    public void removeInterest(User u, Dept d) {
+
+    }
+
+    public void insertInterest(Integer u_id, Integer dept_id) {
+        Interest i = new Interest(u_id,dept_id);
+        i.setCreated(new Date());
+        i.setUpdated(new Date());
+        EntityManager em = emf3.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        em.getTransaction().begin();
+        em.persist(i);
+        em.getTransaction().commit();
+        em.close();
+    }
+
+
 
     @Autowired
     private DeptRepo deptRepo;
@@ -85,3 +106,4 @@ public class InterestDalImpl {
         return deptNameList;
     }
 }
+

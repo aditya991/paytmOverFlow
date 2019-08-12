@@ -10,7 +10,7 @@
          version="2.4">
 
 <!--<web-app>-->
-  <display-name>Archetype Created Web Application</display-name>
+<!--  <display-name>Archetype Created Web Application</display-name>-->
 
   <!--<filter>
     <filter-name>TokenFilter</filter-name>
@@ -32,6 +32,21 @@
   </filter-mapping>
 -->
 <!--  <filter>-->
+<!--    <filter-name>TokenFilter</filter-name>-->
+<!--    <filter-class>com.paytm.Filter.TokenValidatorFilter</filter-class>-->
+<!--  </filter>-->
+<!--  <filter-mapping>-->
+<!--    <filter-name>TokenFilter</filter-name>-->
+<!--    <url-pattern>/*</url-pattern>-->
+<!--  </filter-mapping>-->
+
+
+<!--  <filter>-->
+<!--    <filter-name>loginFilter</filter-name>-->
+<!--    <filter-class>com.paytm.Filter.TokenValidatorFilter</filter-class>-->
+<!--  </filter>-->
+<!--  <filter-mapping>-->
+<!--    <filter-name>loginFilter</filter-name>-->
 <!--    <filter-name>ValidatorFilter</filter-name>-->
 <!--    <filter-class>com.paytm.Filter.TokenValidatorFilter</filter-class>-->
 <!--  </filter>-->

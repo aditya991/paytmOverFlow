@@ -1,4 +1,4 @@
-package com.paytm.configuration;
+
 /*
  * @author: aditya10.kumar
  * @created: 06/08/19

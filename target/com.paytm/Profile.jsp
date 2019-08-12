@@ -70,6 +70,10 @@
     <input type="submit"  value="Show my Answers">
 </form>
 
+<form action="feed" method="post">
+    <input type="submit"  value="Take me to my Feed">
+</form>
+
 <br/>
 <font color="#a52a2a">
     <%=S%>

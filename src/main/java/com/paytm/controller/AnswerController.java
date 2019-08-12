@@ -25,14 +25,10 @@ import java.util.Date;
 public class AnswerController
 {
     @Autowired
-    private EntityManagerFactory emf;
-
-    @Autowired
     private AnswerServiceImpl answerService;
 
     @Autowired
     private UserServiceImpl userService;
-
 
     @RequestMapping("/answer")
     public void answerGiven(HttpServletRequest request, HttpServletResponse response)
@@ -62,4 +58,6 @@ public class AnswerController
         String answer= (String) request.getAttribute("answer");
         answerService.updateAnswerByAnswerIdService(ans_id, answer);
     }
+
+
 }

@@ -1,8 +1,9 @@
 package com.paytm.entity;
-
+import com.paytm.entity.Dept;
 import javax.persistence.*;
 
 import java.util.Set;
+
 
 /*
  * @author: aditya10.kumar
@@ -28,6 +29,9 @@ public class User extends AbstractEntity  {
     @Column(unique = true)
     private String phone;
 
+    @ManyToOne
+    private Dept dept;
+
 
     /*This is for creating a join on Dept and User
     @ManyToMany
@@ -40,20 +44,19 @@ public class User extends AbstractEntity  {
             inverseJoinColumns = @JoinColumn(name = "dept_id")
     )*/
 
-    @ManyToOne
-    private Dept dept;
+
 
 
     public Dept getDept() {
         return dept;
     }
 
-    public void setDept(Dept dept) {
+    public void setDept(com.paytm.entity.Dept dept) {
         this.dept = dept;
     }
 
     public Integer getU_id() {
-        return u_id;
+        return u_id ;
     }
 
     public void setU_id(Integer u_id) {
@@ -93,12 +96,6 @@ public class User extends AbstractEntity  {
     }
 
 
-
-
-
-
-
-
     @Override
     public String toString() {
         return "User{" +
@@ -111,4 +108,5 @@ public class User extends AbstractEntity  {
                 super.getUpdated()+
                 '}';
     }
+
 }

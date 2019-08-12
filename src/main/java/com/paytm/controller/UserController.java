@@ -1,8 +1,9 @@
 package com.paytm.controller;
-
+import com.paytm.entity.Dept;
+import com.paytm.services.LoginServiceImpl;
+import com.paytm.services.SignupServiceImpl;
 import com.paytm.entity.Token;
 import com.paytm.entity.User;
-import com.paytm.services.LoginServiceImpl;
 import com.paytm.services.SignupServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,9 +20,6 @@ import java.util.UUID;
  * @author: aditya10.kumar
  * @created: 06/08/19
  */
-
-
-
 
 @Controller
 public class UserController
@@ -59,18 +57,37 @@ public class UserController
         t.setUser(u);
         t.setCreated(new Date());
         t.setUpdated(new Date());
+        ls.createTokenService(t);
+            ModelAndView mv = new ModelAndView();
+            mv.setViewName("postLoggedIn.jsp");
+            mv.addObject("email", email);
+            mv.addObject("password", password);
+            return mv;
+
+        }
+
+
+
+
+       /* ls.createTokenService(t);
+
+//            ModelAndView mv = new ModelAndView();
+//            mv.setViewName("postLoggedIn.jsp");
+//            mv.addObject("email", email);
+//            mv.addObject("password", password);
+//            return mv;
+//
+//        }
 
         System.out.println("Passed Token.");
-
-        ls.createTokenService(t);
-
         System.out.println("Passed createTokenService.");
 
         ModelAndView mv = new ModelAndView();
         mv.setViewName("postLoggedIn.jsp");
         mv.addObject("email", email);
         return mv;
-    }
+<<<<<<< HEAD
+    }*/
 
     @RequestMapping(value="/logout", method = RequestMethod.POST)
     public ModelAndView logout(HttpSession session)

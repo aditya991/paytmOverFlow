@@ -1,19 +1,36 @@
 package com.paytm.services;
+import com.paytm.dal.QuestionDal;
+import com.paytm.dal.QuestionDalImpl;
+import com.paytm.entity.Interest;
 import com.paytm.entity.Question;
-import com.paytm.repo.UserRepo;
+import com.paytm.entity.User;
+import com.paytm.repo.QuestionRepo;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import javax.net.ssl.SSLEngine;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import javax.servlet.http.HttpSession;
+import java.util.List;
 
 
+@Service
 public class QuestionServiceImpl implements QuestionService{
+
+
     @Autowired
-    private UserRepo userrepo;
-    @Autowired
-    private EntityManagerFactory emf;
+   QuestionDalImpl questionDal;
+
+   @Autowired
+   UserServiceImpl userService;
+   @Autowired
+   QuestionRepo questionRepo;
+
+
 
 
     /**
@@ -23,35 +40,61 @@ public class QuestionServiceImpl implements QuestionService{
      * @return
      */
     @Override
-    public Integer AddQuestionService(String Department,String Question)
-    {  Question ques=new Question();
-       ques.setDepartment(Department);
-       ques.setQuestion(Question);
-      Integer k= ques.getQuestion_Id();
+    public void AddQuestionService(String department, String question ,String email)
+    {
 
-      EntityManager em=emf.createEntityManager();
-        EntityTransaction tx=em.getTransaction();
-        em.getTransaction().begin();
-        em.persist(ques);
-        em.getTransaction().commit();
-        em.close();
+        System.out.println("in question service");
+        System.out.println(department+"      "+ question+"          "+ email);
 
-        return k;
+
+
+        User user=userService.findUserByEmailService(email);
+
+
+        System.out.println(user);
+
+        Question q=new Question();
+        q.setQuestion(question);
+        q.setDepartment(department);
+
+        q.setUser(user);
+
+        questionDal.AddQuestionMethod(q);
+
+
+
+
     }
 
+
     @Override
-    public boolean UpdateQuestionService(Integer Ques_Id) {
+    public boolean UpdateQuestionService(String Ques, HttpSession session) {
         return false;
     }
 
     @Override
-    public boolean DeleteQuestionService(Integer Ques_Id) {
+    public boolean DeleteQuestionService(Integer Ques_Id, HttpSession session) {
         return false;
     }
 
     @Override
-    public boolean ValidUser(Integer Ques_Id) {
+    public boolean ValidUser(String  question,String email) {
 
-        return false;
+        User user=userService.findUserByEmailService(email);
+        Question ques=new Question();
+      //  ques=questionRepo.getquestion_Idbyquestion(question);
+    return questionDal.ValidUserMethod(ques.getQuestion_Id(),user);
     }
+
+    @Override
+    public List<String> showAllQuestionService(String email) {
+
+        User user=userService.findUserByEmailService(email);
+            System.out.println("in showAllquestion   "+user.getU_id());
+
+            List<String> l= questionDal.showAllQuestionMethod(user);
+            return l;
+
+    }
+
 }
