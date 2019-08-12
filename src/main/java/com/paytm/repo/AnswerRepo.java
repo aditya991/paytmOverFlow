@@ -4,7 +4,6 @@ package com.paytm.repo;
  * @created: 09/08/19
  */
 import com.paytm.entity.Answer;
-import com.paytm.entity.Token;
 import com.paytm.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;

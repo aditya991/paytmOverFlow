@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="paytmOverFlow:war" />
+      <artifact name="paytmOverFlow:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ca294d28-5e16-4a04-b245-095182d6efb9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/paytm/.htaccess" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/paytm/dal/DeptDalImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/paytm/dal/InterestDalImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/paytm/entity/Interest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/paytm/repo/InterestRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/paytm/services/QuestionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/paytm/services/QuestionServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/AddQuestion.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/DeleteQuestion.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Error.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Profile.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Question.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/UpdateQuestion.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/UserFeed.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/showMyAnswers.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/paytm/dal/DeptDalImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/paytm/dal/InterestDalImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/paytm/entity/Interest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/paytm/repo/InterestRepo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/paytm/services/QuestionService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/paytm/services/QuestionServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/com.paytm/AddQuestion.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/com.paytm/DeleteQuestion.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/com.paytm/Profile.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/com.paytm/Question.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/com.paytm/UpdateQuestion.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/com.paytm/UserFeed.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/dal/DeptDalImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/dal/InterestDalImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/entity/Interest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/repo/InterestRepo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/services/QuestionService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/services/QuestionServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/com.paytm/WEB-INF/lib/jstl-1.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/com.paytm/showMyAnswers.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/paytmOverFlow.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/paytmOverFlow.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/Filter/LoginFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/Filter/TokenValidatorFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/Interceptor/LoginInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/Interceptor/LoginInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/Interceptor/TokenValidatorFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/Interceptor/TokenValidatorInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/controller/AnswerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/controller/AnswerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/controller/FeedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/controller/FeedController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/controller/QuestionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/controller/QuestionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/dal/UserDal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/dal/UserDal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/entity/Dept.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/entity/Dept.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/repo/AnswerRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/repo/AnswerRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/repo/DeptRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/repo/DeptRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/repo/TokenRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/repo/TokenRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/repo/UserRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/repo/UserRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/services/InterestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/services/InterestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/services/InterestServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/services/InterestServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/services/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/services/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/services/LoginServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/services/LoginServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/services/SignupService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/services/SignupService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/services/SignupServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/services/SignupServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/services/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/services/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/springex-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/springex-servlet.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/postLoggedIn.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/postLoggedIn.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/Filter/LoginFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/Filter/TokenValidatorFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/Interceptor/LoginInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/Interceptor/LoginInterceptor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/Interceptor/TokenValidatorFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/controller/AnswerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/controller/AnswerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/controller/FeedController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/controller/FeedController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/controller/QuestionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/controller/QuestionController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/dal/UserDal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/dal/UserDal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/entity/Dept.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/entity/Dept.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/repo/DeptRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/repo/DeptRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/repo/TokenRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/repo/TokenRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/services/InterestService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/services/InterestService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/services/InterestServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/services/InterestServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/services/LoginService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/services/LoginService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/services/LoginServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/services/LoginServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/services/SignupServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/services/SignupServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/services/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/services/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/com.paytm.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/com.paytm.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/com.paytm/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/com.paytm/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/Filter/LoginFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/Filter/TokenValidatorFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/Interceptor/LoginInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/Interceptor/LoginInterceptor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/Interceptor/TokenValidatorFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/controller/AnswerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/controller/AnswerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/controller/FeedController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/controller/FeedController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/controller/QuestionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/controller/QuestionController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/dal/UserDal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/dal/UserDal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/entity/Dept.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/entity/Dept.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/repo/DeptRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/repo/DeptRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/repo/TokenRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/repo/TokenRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/services/InterestService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/services/InterestService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/services/InterestServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/services/InterestServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/services/LoginService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/services/LoginService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/services/LoginServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/services/LoginServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/services/SignupServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/services/SignupServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/services/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/com.paytm/WEB-INF/classes/com/paytm/services/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/com.paytm/WEB-INF/springex-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/com.paytm/WEB-INF/springex-servlet.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/com.paytm/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/com.paytm/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/com.paytm/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/com.paytm/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/com.paytm/postLoggedIn.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/com.paytm/postLoggedIn.jsp" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="spring-beans.schema" />
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="Jsp File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="aditya" />
+              </list>
+            </value>
+          </entry>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/aditya" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="false" />
+    <option name="FILTER_DEBUG" value="false" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1P2y9posEFfHGxbLJeHecZCs8Qz" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/paytm" />
+      <recent name="$PROJECT_DIR$/src/main/java/configuration" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.148" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/paytmOverFlow_war/" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="paytmOverFlow:war">
+          <settings>
+            <option name="CONTEXT_PATH" value="/paytmOverFlow_war" />
+          </settings>
+        </artifact>
+        <artifact name="paytmOverFlow:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/paytmOverFlow_war_exploded" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="_paytmOverFlow" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="38459" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="paytmOverFlow:war" />
+          <artifact name="paytmOverFlow:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <configuration name="index.jsp" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 9.0.148" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8082/index.jsp" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="paytmOverFlow:war">
+          <settings>
+            <option name="CONTEXT_PATH" value="/paytmOverFlow_war" />
+          </settings>
+        </artifact>
+        <artifact name="paytmOverFlow:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/paytmOverFlow_war_exploded" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="_paytmOverFlow" />
+        <option name="HTTP_PORT" value="8082" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="38459" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="paytmOverFlow:war" />
+          <artifact name="paytmOverFlow:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Tomcat Server.index.jsp" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ca294d28-5e16-4a04-b245-095182d6efb9" name="Default Changelist" comment="" />
+      <created>1565086337003</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1565086337003</updated>
+      <workItem from="1565086341041" duration="51362000" />
+      <workItem from="1565256157766" duration="53689000" />
+      <workItem from="1565468735541" duration="17157000" />
+    </task>
+    <task id="LOCAL-00001" summary="Paytm Overflow">
+      <created>1565089028672</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1565089028672</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Paytm Overflow" />
+    <option name="LAST_COMMIT_MESSAGE" value="Paytm Overflow" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/paytm/Filter/LoginFilter.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
