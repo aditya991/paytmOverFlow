@@ -70,17 +70,16 @@ public class FeedController {
         User u = userService.findUserByEmailService(email);
         Dept d = deptDal.findDeptByNameMethod(deptName);
 
-        if(u.getDept().getDept_name().equals(d.getDept_name()))
-        {
+        if(u.getDept().getDept_name().equals(d.getDept_name())) {
             req.setAttribute("message","You can't remove your own department.");
-            return showAllInterest(req,res);
-        }
-
-        if(interestService.removeInterestService(u,d)){
-            req.setAttribute("message","Interest successfully removed.");
         }
         else{
-            req.setAttribute("message","Interest can't be removed.");
+            if(interestService.removeInterestService(u,d)){
+                req.setAttribute("message","Interest successfully removed.");
+            }
+            else{
+                req.setAttribute("message","Interest can't be removed.");
+            }
         }
 
         return showAllInterest(req,res);
