@@ -45,17 +45,19 @@ public class FeedController {
         String email = (String) session.getAttribute("email");
 
         User u = userService.findUserByEmailService(email);
-        Dept d = deptDal.findDeptByNameMethod(deptName);
-
-        if(interestService.addInterestService(u,d)){
-            req.setAttribute("message","Interest successfully added.");
+        if(deptName != null) {
+            Dept d = deptDal.findDeptByNameMethod(deptName);
+            if(interestService.addInterestService(u,d)){
+                req.setAttribute("message","Interest successfully added.");
+            }
+            else{
+                req.setAttribute("message","Interest can't be added.");
+            }
         }
-        else{
-            req.setAttribute("message","Interest can't be added.");
+        else {
+            req.setAttribute("message","You have already added all the Interests.");
         }
-
         return showAllInterest(req,res);
-
     }
 
     @RequestMapping(value = "/removeinterest", method = RequestMethod.POST)
@@ -70,7 +72,7 @@ public class FeedController {
 
         if(u.getDept().getDept_name().equals(d.getDept_name()))
         {
-            req.setAttribute("message","Interest can't be removed.");
+            req.setAttribute("message","You can't remove your own department.");
             return showAllInterest(req,res);
         }
 
