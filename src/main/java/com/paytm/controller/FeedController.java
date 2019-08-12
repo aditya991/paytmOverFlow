@@ -121,4 +121,21 @@ public class FeedController {
         mv.addObject("listanswers",listAnswers);
         return  mv;
     }
+
+    @RequestMapping(value = "/questionfeed", method = RequestMethod.POST)
+    public ModelAndView  showAnswerFeed(HttpServletRequest req, HttpServletResponse res) {
+        HttpSession session = req.getSession(false);
+        ModelAndView mv = new ModelAndView();
+
+        String email = (String) session.getAttribute("email");
+        User u= userService.findUserByEmailService(email);
+
+        //List<Answer> listAnswers = answerService.findAllAnswerByUserService(u);
+
+
+        mv.setViewName("Question.jsp");
+        //mv.addObject("listanswers",listAnswers);
+        return  mv;
+    }
+
 }
