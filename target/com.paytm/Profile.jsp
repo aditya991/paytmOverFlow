@@ -24,6 +24,9 @@
     List listInterest = (List) request.getAttribute("listofinterest");
     request.setAttribute("listinterest", listInterest);
     request.setAttribute("listdept",listDept);
+    String S =  (String) request.getAttribute("message");
+    if(S == null)
+        S = "";
 %>
 
 <c:forEach items="${listinterest}" var="s">
@@ -33,7 +36,7 @@
 </br>
 </br>
 
-<form action="addinterest" method="get">
+<form action="addinterest" method="post">
     Select any department to add into your interests.
     <select name="deptName">
         <c:forEach items="${listdept}" var="dept">
@@ -46,7 +49,7 @@
 
 <br/>
 
-<form action="removeinterest" method="get">
+<form action="removeinterest" method="post">
     Select any department to remove from your interests.
     <select name="deptName">
         <c:forEach items="${listinterest}" var="s">
@@ -56,19 +59,21 @@
     <br/><br/>
     <input type="submit" value="Remove" />
 </form>
-<br/>
-<font color="#a52a2a"><%=request.getAttribute("message")%></font>
 
 <form action="questionfeed" method="post">
     <input type="submit"  value="Show my Questions">
 </form>
 
 <br/>
-<br/>
 
 <form action="answerfeed" method="post">
     <input type="submit"  value="Show my Answers">
 </form>
+
+<br/>
+<font color="#a52a2a">
+    <%=S%>
+</font>
 
 </body>
 </html>

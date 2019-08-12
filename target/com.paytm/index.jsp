@@ -28,10 +28,5 @@
     <input type="submit" value="signup"/> <br>
 </form>
 
-
-
-
-
-
 </body>
 </html>

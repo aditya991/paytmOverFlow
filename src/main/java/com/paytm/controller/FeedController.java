@@ -37,56 +37,51 @@ public class FeedController {
     @Autowired
     private DeptDalImpl deptDal;
 
-    @RequestMapping(value = "/addinterest", method = RequestMethod.GET)
+    @RequestMapping(value = "/addinterest", method = RequestMethod.POST)
     public ModelAndView addInterest(HttpServletRequest req, HttpServletResponse res){
         HttpSession session = req.getSession(false);
-        ModelAndView mv = new ModelAndView();
 
         String deptName=req.getParameter("deptName");
         String email = (String) session.getAttribute("email");
 
         User u = userService.findUserByEmailService(email);
         Dept d = deptDal.findDeptByNameMethod(deptName);
-
-        mv.setViewName("Profile.jsp");
 
         if(interestService.addInterestService(u,d)){
-            mv.addObject("message","Interest successfully added.");
+            req.setAttribute("message","Interest successfully added.");
         }
         else{
-            mv.addObject("message","Interest can't be added.");
+            req.setAttribute("message","Interest can't be added.");
         }
 
-        return mv;
+        return showAllInterest(req,res);
+
     }
 
-    @RequestMapping(value = "/removeinterest", method = RequestMethod.GET)
+    @RequestMapping(value = "/removeinterest", method = RequestMethod.POST)
     public ModelAndView removeInterest(HttpServletRequest req, HttpServletResponse res){
         HttpSession session = req.getSession(false);
-        ModelAndView mv = new ModelAndView();
 
         String deptName=req.getParameter("deptName");
         String email = (String) session.getAttribute("email");
 
         User u = userService.findUserByEmailService(email);
         Dept d = deptDal.findDeptByNameMethod(deptName);
-
-        mv.setViewName("Profile.jsp");
 
         if(u.getDept().getDept_name().equals(d.getDept_name()))
         {
-            mv.addObject("message","Interest can't be removed.");
-            return mv;
+            req.setAttribute("message","Interest can't be removed.");
+            return showAllInterest(req,res);
         }
 
         if(interestService.removeInterestService(u,d)){
-            mv.addObject("message","Interest successfully removed.");
+            req.setAttribute("message","Interest successfully removed.");
         }
         else{
-            mv.addObject("message","Interest can't be removed.");
+            req.setAttribute("message","Interest can't be removed.");
         }
 
-        return mv;
+        return showAllInterest(req,res);
     }
 
     @RequestMapping(value = "/profile", method = RequestMethod.POST)
@@ -100,11 +95,13 @@ public class FeedController {
         List<String> resultSet = interestService.showAllInterestService(u);
         List<Dept> deptSet = deptDal.enterAllAvailableDeptMethod(resultSet);
 
+
         mv.setViewName("Profile.jsp");
         mv.addObject("listofinterest",resultSet);
         mv.addObject("listofdepartments",deptSet);
         mv.addObject("username",u.getU_name());
-        mv.addObject("message","");
+        req.getAttribute("message");
+       // mv.addObject("message","");
         return  mv;
     }
 
