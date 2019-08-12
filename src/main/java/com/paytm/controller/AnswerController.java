@@ -1,6 +1,5 @@
 package com.paytm.controller;
 
-import com.paytm.dal.UserDal;
 import com.paytm.entity.Answer;
 import com.paytm.entity.Question;
 import com.paytm.entity.User;
@@ -9,13 +8,9 @@ import com.paytm.services.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.Date;
-
 /*
  * @author: aditya10.kumar
  * @created: 06/08/19

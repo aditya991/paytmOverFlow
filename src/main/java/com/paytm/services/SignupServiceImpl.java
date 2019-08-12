@@ -1,6 +1,5 @@
 package com.paytm.services;
 
-
 import com.paytm.dal.UserDal;
 import com.paytm.entity.Dept;
 import com.paytm.entity.User;
@@ -33,7 +32,7 @@ public class SignupServiceImpl implements SignupService {
 
 
 
-        User user=new User();
+        User user = new User();
 
         user.setU_name(u_name);
         user.setEmail(email);
@@ -42,20 +41,13 @@ public class SignupServiceImpl implements SignupService {
         user.setDept(d);
 
 
-
         userDal.createUserMethod(user);
 
 
         System.out.println("inside create user function final step");
 
         return false;
-
-
     }
-
-
-
-
 
     @Override
     public boolean checkExistingUserService(String email, String phone) {
@@ -72,8 +64,3 @@ public class SignupServiceImpl implements SignupService {
 
     }
 }
-
-
-
-
-

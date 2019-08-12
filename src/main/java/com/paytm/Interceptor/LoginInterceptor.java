@@ -19,22 +19,6 @@ public class LoginInterceptor implements HandlerInterceptor
 
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
-        String email = httpServletRequest.getParameter("email");
-        String password = httpServletRequest.getParameter("password");
-        System.out.println("Inside Login Interceptor");
-        try
-        {
-            boolean flag = ls.UserAuthenticationService(email, password);
-            System.out.println("Flag is "+flag+". That email doesn't exist.");
-            if (!flag)
-            {
-                httpServletRequest.getRequestDispatcher("index.jsp").forward(httpServletRequest, httpServletResponse);
-            }
-        }
-        catch(Exception e)
-        {
-            httpServletRequest.getRequestDispatcher("index.jsp").forward(httpServletRequest, httpServletResponse);
-        }
         return true;
     }
 

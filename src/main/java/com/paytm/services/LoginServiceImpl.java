@@ -3,7 +3,6 @@ package com.paytm.services;
  * @author: aditya10.kumar
  * @created: 06/08/19
  */
-
 import com.paytm.dal.UserDal;
 import com.paytm.entity.Token;
 import com.paytm.entity.User;
@@ -84,5 +83,10 @@ public class LoginServiceImpl implements LoginService
     {
         User u= userDal.findUserByEmailMethod(email);
         return u;
+    }
+
+    @Override
+    public Token findTokenByUserService(User user) {
+        return userDal.findTokenByUserMethod(user);
     }
 }
