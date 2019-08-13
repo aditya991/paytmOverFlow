@@ -22,8 +22,6 @@
     <form action="randomfeed" method="post">
         <input type="submit"  value="I wanna give Answers">
     </form>
-    <!--<a href="askUserQuestion.jsp">I wanna ask Question</a> <br/>
-    <a href="giveAnswer.jsp">I wanna give Answer</a>-->
 </h3>
 </body>
 </html>

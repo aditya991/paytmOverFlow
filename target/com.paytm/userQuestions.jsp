@@ -23,8 +23,6 @@
 
 <br/>
 
-
-
 <form action ="" method = "post">
     <input type = "submit"  name = "Update" value = "Update">
     <input type = "submit"  name = "Delete" value = "Delete">
