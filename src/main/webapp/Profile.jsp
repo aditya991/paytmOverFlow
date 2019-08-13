@@ -43,7 +43,6 @@
             <option value="${dept.dept_name}">${dept.dept_name}</option>
         </c:forEach>
     </select>
-    <br/><br/>
     <input type="submit" value="Add" />
 </form>
 
@@ -56,24 +55,26 @@
             <option value="${s}">${s}</option>
         </c:forEach>
     </select>
-    <br/><br/>
     <input type="submit" value="Remove" />
 </form>
 
+<br/>
 <form action="questionfeed" method="post">
     <input type="submit"  value="Show my Questions">
 </form>
-
-<br/>
-
 <form action="answerfeed" method="post">
     <input type="submit"  value="Show my Answers">
 </form>
-
 <br/>
+
 <font color="#a52a2a">
     <%=S%>
 </font>
+
+<br/>
+<br/>
+
+<a href="postLoggedIn.jsp">Go Back</a>
 
 </body>
 </html>
