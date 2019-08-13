@@ -20,7 +20,7 @@
 
 
 <form method="get"  action="indexPage" >
-    <input id="submitButton" class="button"  type="submit" value="Send" style="display: none"/>
+    <input id="submitButton" class="button"  type="submit" value="Send" style="display: none;"mvn/>
 </form>
 
 
