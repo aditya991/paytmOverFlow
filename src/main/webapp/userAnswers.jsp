@@ -15,20 +15,13 @@
 </head>
 <body>
 
-<h1>Aap Apni Profile Dekh Rahe Hai</h1></br>
-<h2>Hello <%=request.getAttribute("username")%></h2>
-<h2>You interests are</h2>
+<h1>Your Answers</h1></br>
 
 <%
     List listDept = (List) request.getAttribute("listofdepartments");
-    List listInterest = (List) request.getAttribute("listofinterest");
-    request.setAttribute("listinterest", listInterest);
     request.setAttribute("listdept",listDept);
 %>
 
-<c:forEach items="${listinterest}" var="s">
-    <font color="blue"><c:out value="${s}"/></font><br/>
-</c:forEach>
 
 </br>
 </br>

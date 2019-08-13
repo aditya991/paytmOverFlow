@@ -8,19 +8,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
-/*
- * @author: aditya10.kumar
- * @created: 06/08/19
- */
-
-
 
 
 @Controller
@@ -33,7 +32,62 @@ public class UserController
     @Autowired
     private LoginServiceImpl ls;
 
-    @RequestMapping(value="/login", method = RequestMethod.GET)
+
+
+    @RequestMapping(value = "/indexPage" ,method = RequestMethod.GET)
+    public  ModelAndView redirectToLogin(HttpServletRequest request,HttpServletResponse response)
+    {
+        System.out.println("hello to index servlet");
+
+        List<String> deptList =signupServiceImpl.listAllDeptByNameService();
+
+        for(String str:deptList)
+            System.out.println("hello in UC "+str);
+
+        ModelAndView mv= new ModelAndView();
+        mv.setViewName("loginSignup.jsp");
+        mv.addObject("deptList",deptList);
+
+        return mv;
+
+    }
+
+
+
+
+
+    @RequestMapping(value = "/hello",method = RequestMethod.GET)
+    @ResponseBody
+    public List<String> initialPage(HttpServletRequest request, HttpServletResponse response)
+    {
+
+
+        List<String> deptList=signupServiceImpl.listAllDeptByNameService();
+
+        ModelAndView mv =new ModelAndView();
+
+        mv.setViewName("index.jsp");
+        mv.addObject("deptList"  ,deptList);
+
+        deptList.add("naval");
+        deptList.add("naval_k");
+        for(String d_name:deptList)
+        {
+            System.out.println(d_name +"    In a check loop");
+        }
+
+        System.out.println("hello home page");
+
+
+//        request.setAttribute("nk","naval_kishore");
+
+     //   response.setHeader("nk","naval ishore");
+
+    return deptList;
+
+    }
+
+    @RequestMapping(value="/login", method = RequestMethod.POST )
     public ModelAndView login(HttpServletRequest request, HttpServletResponse response)
     {
         String email = request.getParameter("email");
@@ -60,8 +114,11 @@ public class UserController
         t.setCreated(new Date());
         t.setUpdated(new Date());
 
+        System.out.println("Passed Token.");
 
         ls.createTokenService(t);
+
+        System.out.println("Passed createTokenService.");
 
         ModelAndView mv = new ModelAndView();
         mv.setViewName("postLoggedIn.jsp");

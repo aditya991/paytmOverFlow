@@ -2,8 +2,11 @@ package com.paytm.services;
 
 import com.paytm.dal.AnswerDal;
 import com.paytm.entity.Answer;
+import com.paytm.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /*
  * @author: aditya10.kumar
@@ -16,9 +19,9 @@ public class AnswerServiceImpl implements AnswerService
     private AnswerDal answerDal;
 
     @Override
-    public void updateAnswerByAnswerIdService(int id)
+    public void updateAnswerByAnswerIdService(int id, String answer)
     {
-        answerDal.updateAnswerByAnswerIdMethod(id);
+        answerDal.updateAnswerByAnswerIdMethod(id, answer);
     }
     public void deleteAnswerByAnswerIdService(int id)
     {
@@ -29,5 +32,11 @@ public class AnswerServiceImpl implements AnswerService
     public void saveAnswerService(Answer ans)
     {
         answerDal.saveAnswerMethod(ans);
+    }
+
+    @Override
+    public List<Answer> findAllAnswerByUserService(User user)
+    {
+        return answerDal.findAllAnswerByUserMethod(user);
     }
 }

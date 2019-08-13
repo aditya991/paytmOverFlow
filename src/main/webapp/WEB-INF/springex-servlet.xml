@@ -14,17 +14,20 @@
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/login"/>
-            <!--            <mvc:exclude-mapping path=""/>-->
+
             <bean class="com.paytm.Interceptor.LoginInterceptor"/>
         </mvc:interceptor>
-    </mvc:interceptors>
 
-    <mvc:interceptors>
+
+
         <mvc:interceptor>
-            <mvc:mapping path="/**" />
+            <mvc:mapping path="/login" />
                         <mvc:exclude-mapping path="/login"/>
                         <mvc:exclude-mapping path="/signup"/>
+                        <mvc:exclude-mapping path="/indexPage"/>
             <bean class="com.paytm.Interceptor.TokenValidatorFilter"/>
         </mvc:interceptor>
+
+
     </mvc:interceptors>
 </beans>

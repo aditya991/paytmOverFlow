@@ -15,6 +15,13 @@ public class QuestionServiceImpl implements QuestionService{
     @Autowired
     private EntityManagerFactory emf;
 
+
+    /**
+     * This service takes
+     * @param Department
+     * @param Question
+     * @return
+     */
     @Override
     public Integer AddQuestionService(String Department,String Question)
     {  Question ques=new Question();

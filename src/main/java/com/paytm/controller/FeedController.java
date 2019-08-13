@@ -1,8 +1,10 @@
 package com.paytm.controller;
 
 import com.paytm.dal.DeptDalImpl;
+import com.paytm.entity.Answer;
 import com.paytm.entity.Dept;
 import com.paytm.entity.User;
+import com.paytm.services.AnswerServiceImpl;
 import com.paytm.services.InterestServiceImpl;
 import com.paytm.services.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +32,9 @@ public class FeedController {
     private InterestServiceImpl interestService;
 
     @Autowired
+    private AnswerServiceImpl answerService;
+
+    @Autowired
     private DeptDalImpl deptDal;
 
     @RequestMapping(value = "/addinterest", method = RequestMethod.GET)
@@ -43,24 +48,43 @@ public class FeedController {
         User u = userService.findUserByEmailService(email);
         Dept d = deptDal.findDeptByNameMethod(deptName);
 
-        if(interestService.addInterestService(u,d)){ System.out.println("Interest successfully added."); }
-        else{ System.out.println("Error in adding Interest."); }
+        mv.setViewName("Profile.jsp");
+
+        if(interestService.addInterestService(u,d)){
+            mv.addObject("message","Interest successfully added.");
+        }
+        else{
+            mv.addObject("message","Interest can't be added.");
+        }
 
         return mv;
     }
 
-    @RequestMapping(value = "/removeinterest", method = RequestMethod.GET)
+    @RequestMapping(value = "/removeinterest", method = RequestMethod.GET )
     public ModelAndView removeInterest(HttpServletRequest req, HttpServletResponse res){
         HttpSession session = req.getSession(false);
         ModelAndView mv = new ModelAndView();
 
         String deptName=req.getParameter("deptName");
         String email = (String) session.getAttribute("email");
+
         User u = userService.findUserByEmailService(email);
         Dept d = deptDal.findDeptByNameMethod(deptName);
 
-        if(interestService.removeInterestService(u,d)){ System.out.println("Interest successfully removed."); }
-        else{ System.out.println("Error in removing Interest."); }
+        mv.setViewName("Profile.jsp");
+
+        if(u.getDept().getDept_name().equals(d.getDept_name()))
+        {
+            mv.addObject("message","Interest can't be removed.");
+            return mv;
+        }
+
+        if(interestService.removeInterestService(u,d)){
+            mv.addObject("message","Interest successfully removed.");
+        }
+        else{
+            mv.addObject("message","Interest can't be removed.");
+        }
 
         return mv;
     }
@@ -71,16 +95,32 @@ public class FeedController {
         ModelAndView mv = new ModelAndView();
 
         String email = (String) session.getAttribute("email");
-        System.out.println(email);
         User u= userService.findUserByEmailService(email);
-        System.out.println("User "+u);
 
         List<String> resultSet = interestService.showAllInterestService(u);
-        List<Dept> deptSet = deptDal.enterAllAvailableDeptMethod();
+        List<Dept> deptSet = deptDal.enterAllAvailableDeptMethod(resultSet);
+
         mv.setViewName("Profile.jsp");
         mv.addObject("listofinterest",resultSet);
         mv.addObject("listofdepartments",deptSet);
+        mv.addObject("username",u.getU_name());
+        mv.addObject("message","");
+        return  mv;
+    }
 
+   @RequestMapping(value = "/answerfeed", method = RequestMethod.POST)
+    public ModelAndView  showAnswerFeed(HttpServletRequest req, HttpServletResponse res) {
+        HttpSession session = req.getSession(false);
+        ModelAndView mv = new ModelAndView();
+
+        String email = (String) session.getAttribute("email");
+        User u= userService.findUserByEmailService(email);
+
+       List<Answer> listAnswers = answerService.findAllAnswerByUserService(u);
+
+
+        mv.setViewName("userAnswers.jsp");
+        mv.addObject("listanswers",listAnswers);
         return  mv;
     }
 }

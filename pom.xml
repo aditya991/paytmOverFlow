@@ -140,7 +140,7 @@
   </dependencies>
 
   <build>
-    <finalName>com.paytm</finalName>
+    <finalName>overflow</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>
