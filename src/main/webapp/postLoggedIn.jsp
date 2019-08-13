@@ -22,12 +22,13 @@
         <input type="submit"  value="Profile">
     </form>
 
-</br>
-
+    </br>
     <a href="userFeed.jsp">Click here to see your FEED!</a>
+    <br/>
 
     <form action="logout" method="post">
         <input type="submit"  value="logout">
     </form>
+
 </body>
 </html>

@@ -15,15 +15,13 @@
 <h2>Do you wanna give Answer or ask Question?</h2>
 <h3>
     <br/>
-    <form action="" method="post">
+    <form action="askQuestion" method="post">
         <input type="submit"  value="I wanna ask Questions">
     </form>
     <br/>
     <form action="randomfeed" method="post">
         <input type="submit"  value="I wanna give Answers">
     </form>
-    <!--<a href="askUserQuestion.jsp">I wanna ask Question</a> <br/>
-    <a href="giveAnswer.jsp">I wanna give Answer</a>-->
 </h3>
 </body>
 </html>

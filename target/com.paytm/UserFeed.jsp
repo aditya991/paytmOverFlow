@@ -15,7 +15,7 @@
 <h2>Do you wanna give Answer or ask Question?</h2>
 <h3>
     <br/>
-    <form action="" method="post">
+    <form action="askQuestion" method="post">
         <input type="submit"  value="I wanna ask Questions">
     </form>
     <br/>

@@ -16,29 +16,31 @@
 <body>
 
 <%
-    List listInterest = (List) request.getAttribute("listofinterest");
+    List listInterest = (List) request.getAttribute("listofDept");
     request.setAttribute("listinterest", listInterest);
-
+    String S =  (String) request.getAttribute("message");
+    if(S == null)
+        S = "";
 %>
 
-<c:forEach items="${listinterest}" var="s">
-    <font color="blue"><c:out value="${s}"/></font><br/>
-</c:forEach>
-
-</br>
-</br>
-
-<form action="askUserQuestion.jsp" method="post">
-    Select any department of your interests.
+<form action="saveQuestion" method="post">
+    Select any department of your interests
     <select name="Department">
         <c:forEach items="${listinterest}" var="s">
             <option value="${s}">${s}</option>
         </c:forEach>
     </select>
     <br/><br/>
-    Question: <input type="text" name="Question">
+    <textarea placeholder="Type your question here" name='Question' style="font-size:18pt;height:80px;width:300px;text-align:center;"></textarea>
+    <br/>
     <input type="submit" value="Submit" />
 </form>
+
+<br/><br/>
+
+<font color="#a52a2a">
+    <%=S%>
+</font>
 
 
 </body>

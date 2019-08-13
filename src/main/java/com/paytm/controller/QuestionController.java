@@ -46,7 +46,7 @@ public class QuestionController {
         return  mv;
     }
 
-    @RequestMapping("/askQuestionServlet")
+    @RequestMapping(value = "/askQuestion", method = RequestMethod.POST)
     public ModelAndView askQuestion(HttpServletRequest request,HttpServletResponse response)
     {
         ModelAndView mv = new ModelAndView();
@@ -57,23 +57,30 @@ public class QuestionController {
         List<String> resultSet = interestService.showAllInterestService(u);
         mv.setViewName("askUserQuestion.jsp");
         mv.addObject("listofDept",resultSet);
+        request.getAttribute("message");
+
         return  mv;
     }
 
-   /* @RequestMapping("/AddQuesServlet")
-    public ModelAndView AddQuestion(HttpServletRequest request, HttpServletResponse response)
+    @RequestMapping(value = "/saveQuestion", method = RequestMethod.POST)
+    public ModelAndView saveQuestion(HttpServletRequest request, HttpServletResponse response)
     {
         String department=request.getParameter("Department");
         String question=request.getParameter("Question");
 
         String email= (String) request.getSession().getAttribute("email");
 
+        ModelAndView mv=new ModelAndView();
 
-        ModelAndView mvc=new ModelAndView();
-        questionServiceImpl.AddQuestionService(department,question ,email);
-        mvc.setViewName("Question.jsp");
-        return mvc;
-    }*/
+        if(question == "")
+            request.setAttribute("message","Question can't be empty!");
+        else {
+            questionServiceImpl.AddQuestionService(department, question, email);
+            request.setAttribute("message", "Question successfully submitted.");
+        }
+            return askQuestion(request,response);
+    }
+
     @RequestMapping("/UpdateQuesServlet")
     public ModelAndView UpdateQuestion(HttpServletRequest request,HttpServletResponse response)
     {
