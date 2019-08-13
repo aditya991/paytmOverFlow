@@ -1,23 +1,30 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: renu
-  Date: 06/08/19
-  Time: 6:11 PM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
-    <form action="UpdateQuesServlet" method="post">
-        Department:<input type="text" name="Department">
-        <br>
-        Question_Id:<input type="text" name="Question">
-        <br>
-        <input type="submit" name="submit">
-        <br>
-    </form>
-</head>
 <body>
+
+<%
+    List listofQuestion = (List) request.getAttribute("listofQuestion");
+    request.setAttribute("listofQuestion", listofQuestion);
+
+%>
+
+
+<form action="UpdateServlet" method="GET">
+    Select Question<br>
+    <select name="question">
+        <c:forEach items="${listofQuestion}" var="ques">
+            <option value="${ques.question}">${ques.question}</option>
+        </c:forEach>
+    </select>
+    <br/><br/>
+
+    New Question:<input type="text" name="UpdateQuestion">
+    <br>
+    <input type="submit" value="Update" />
+</form>
 
 </body>
 </html>

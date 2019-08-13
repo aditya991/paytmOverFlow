@@ -1,22 +1,24 @@
 package com.paytm.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.*;
+
+        import javax.persistence.Column;
+        import javax.persistence.Entity;
+        import javax.persistence.Id;
+
+        import javax.persistence.*;
 
 /*
  * @author: aditya10.kumar
  * @created: 06/08/19
  */
 @Entity
-public class Question
-{
+public class Question {
+    private String question;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "question_Id", updatable = false, nullable = false)
     private Integer question_Id;
-    private String question;
 
     private String department;
 
@@ -53,5 +55,14 @@ public class Question
 
     public void setQuestion_Id(Integer question_Id) {
         this.question_Id = question_Id;
+    }
+    @Override
+    public String toString() {
+        return "Question{" +
+                "question='" + question + '\'' +
+                ", question_Id=" + question_Id +
+                ", department='" + department + '\'' +
+                ", user=" + user +
+                '}';
     }
 }

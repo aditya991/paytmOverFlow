@@ -3,9 +3,11 @@ package com.paytm.controller;
 import com.paytm.dal.DeptDalImpl;
 import com.paytm.entity.Answer;
 import com.paytm.entity.Dept;
+import com.paytm.entity.Question;
 import com.paytm.entity.User;
 import com.paytm.services.AnswerServiceImpl;
 import com.paytm.services.InterestServiceImpl;
+import com.paytm.services.QuestionServiceImpl;
 import com.paytm.services.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,6 +38,9 @@ public class FeedController {
 
     @Autowired
     private DeptDalImpl deptDal;
+
+    @Autowired
+    private QuestionServiceImpl questionService;
 
     @RequestMapping(value = "/addinterest", method = RequestMethod.POST)
     public ModelAndView addInterest(HttpServletRequest req, HttpServletResponse res){
@@ -97,7 +102,7 @@ public class FeedController {
         List<Dept> deptSet = deptDal.enterAllAvailableDeptMethod(resultSet);
 
 
-        mv.setViewName("Profile.jsp");
+        mv.setViewName("profile.jsp");
         mv.addObject("listofinterest",resultSet);
         mv.addObject("listofdepartments",deptSet);
         mv.addObject("username",u.getU_name());
@@ -121,21 +126,5 @@ public class FeedController {
         mv.addObject("listanswers",listAnswers);
         return  mv;
     }*/
-
-    @RequestMapping(value = "/questionfeed", method = RequestMethod.POST)
-    public ModelAndView  showAnswerFeed(HttpServletRequest req, HttpServletResponse res) {
-        HttpSession session = req.getSession(false);
-        ModelAndView mv = new ModelAndView();
-
-        String email = (String) session.getAttribute("email");
-        User u= userService.findUserByEmailService(email);
-
-        //List<Answer> listAnswers = answerService.findAllAnswerByUserService(u);
-
-
-        mv.setViewName("Question.jsp");
-        //mv.addObject("listanswers",listAnswers);
-        return  mv;
-    }
 
 }

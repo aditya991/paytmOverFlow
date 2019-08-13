@@ -24,6 +24,7 @@
 
 </br>
 
+    <a href="userFeed.jsp">Click here to see your FEED!</a>
 
     <form action="logout" method="post">
         <input type="submit"  value="logout">
