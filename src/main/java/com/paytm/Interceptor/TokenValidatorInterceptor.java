@@ -21,7 +21,6 @@ public class TokenValidatorInterceptor implements HandlerInterceptor
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
         String path = ((HttpServletRequest) httpServletRequest).getRequestURI();
         System.out.println(path);
-        //see if it works.....
 
         String email=httpServletRequest.getParameter("email");
         String SEmail= (String) httpServletRequest.getSession().getAttribute("email");
@@ -30,6 +29,7 @@ public class TokenValidatorInterceptor implements HandlerInterceptor
         if(email==null && SEmail==null)
         {
             httpServletRequest.getRequestDispatcher("index.jsp").forward(httpServletRequest, httpServletResponse);
+            return false;
         }
 
         String action=httpServletRequest.getParameter("action");
@@ -38,48 +38,56 @@ public class TokenValidatorInterceptor implements HandlerInterceptor
         int valid1=ls.isTokenActiveService((String)session.getAttribute("token"));
 
         System.out.println(valid1);
-        if(action !=null && action.equals("login") && valid1==1)
+        if(action.equals("login") && valid1==1)
         {
             return true;
         }
-            //typecasting needed to access the getSession()method;
-            HttpServletRequest request = (HttpServletRequest) httpServletRequest;
-            HttpSession sess = request.getSession(false);
-            if (sess != null)
+        //typecasting needed to access the getSession()method;
+        HttpServletRequest request = (HttpServletRequest) httpServletRequest;
+        HttpSession sess = request.getSession(false);
+
+//            if(sess==null && action=="login")
+//            {
+//                return true;
+//            }
+
+        if (sess != null)
+        {
+            String token = (String) sess.getAttribute("token");
+            System.out.print("Inside Token Validator Interceptor :");
+            System.out.println(token);
+
+            //query fire
+            int valid = ls.isTokenActiveService(token);
+
+            if (valid == 1)
             {
-                String token = (String) sess.getAttribute("token");
-                System.out.print("Inside Token Validator Interceptor :");
-                System.out.println(token);
+                int id = ls.findUserIdByTokenService(token);
+                System.out.println("User Id: "+id);
+                User u = ls.findUserByUserIdService(id);
 
-                //query fire
-                int valid = ls.isTokenActiveService(token);
-                if (valid == 1)
+                //for allowing multiple tabs to one account
+                if(action==null && token!=null && sess.getAttribute("email").equals(u.getEmail()))
                 {
-                    int id = ls.findUserIdByTokenService(token);
-                    System.out.println("User Id: "+id);
-                    User u = ls.findUserByUserIdService(id);
-
-                    //for allowing multiple tabs to one account
-                    if(action==null && token!=null)
-                    {
-                        httpServletRequest.getRequestDispatcher("postLoggedIn.jsp").forward(httpServletRequest, httpServletResponse);
-                    }
-                    else
-                    {
-                        return true;
-                    }
-                    if (u.getEmail().equals(sess.getAttribute("email")) == false)
-                    {
-                        //login unsuccessful
-                        httpServletRequest.getRequestDispatcher("index.jsp").forward(httpServletRequest, httpServletResponse);
-                    }
+                    httpServletRequest.getRequestDispatcher("postLoggedIn.jsp").forward(httpServletRequest, httpServletResponse);
+                    return true;
                 }
-                else
+
+                if (!u.getEmail().equals(sess.getAttribute("email")))
+                {
+                    //login unsuccessful
                     httpServletRequest.getRequestDispatcher("index.jsp").forward(httpServletRequest, httpServletResponse);
+                    //return false;
+                }
             }
-            System.out.println("Here after redirecting in Interceptor.");
-            return true;
-        ///}
+            else
+            {
+                httpServletRequest.getRequestDispatcher("index.jsp").forward(httpServletRequest, httpServletResponse);
+                //return false;
+            }
+        }
+        System.out.println("Here after redirecting in Interceptor.");
+    return true;
  }
 
     @Override

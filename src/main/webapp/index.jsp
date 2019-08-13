@@ -4,11 +4,11 @@
 <meta http-equiv="Expires" content="0" />
 <body>
 <form action="login" method="post">
-    Email ID: <input type="text" placeholder="enter your email address" name="email" required/>
+    Email ID: <input id="one" type="text" placeholder="enter your email address" name="email" required/>
     </br>
-    Password: <input type="password" placeholder="enter your password" name="password" required/>
+    Password: <input id="two" type="password" placeholder="enter your password" name="password" required/>
     </br>
-    <input type="submit" name="action" value="login"/>
+    <input id="primaryButton" type="submit" name="action" value="login"/>
 </form>
 
 <br>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,13 +32,17 @@ public class UserController
     private LoginServiceImpl ls;
 
     @RequestMapping(value="/login", method ={ RequestMethod.POST})
-    public ModelAndView login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public ModelAndView login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
+        //OverridedHttpServletRequest request1= (OverridedHttpServletRequest) request;
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-
-//
-//        System.out.println(request.getParameter("password")+"           pass is ");
-        System.out.println("Inside Login Controller-----------1");
+        //request1.removeParameter("email");
+        //request1.removeParameter("password");
+        //request= request1;
+        request.setAttribute("type", "back");
+        System.out.println(request.getAttribute("type"));
+        System.out.println("email is :"+request.getParameter("email"));
         try
         {
             boolean flag = ls.UserAuthenticationService(email, password);
@@ -51,7 +56,8 @@ public class UserController
         {
             request.getRequestDispatcher("index.jsp").forward(request, response);
         }
-        System.out.println("Inside Login Controller----------2");
+//        System.out.println(request.getParameter("password")+"           pass is ");
+        System.out.println("Inside Login Controller-----------1");
 
         //find the user id on the basis of his email
         User u=ls.findUserByEmailService(email);
@@ -91,11 +97,10 @@ public class UserController
             System.out.println("Created new token & assigned to the user.");
 
             ls.createTokenService(t);
-
             modelEmail= (String) session.getAttribute("email");
 
             System.out.println("Passed createTokenService.");
-        }
+       }
         //no caching
         response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
         response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
@@ -114,7 +119,7 @@ public class UserController
         ModelAndView mv = new ModelAndView("index.jsp");
 
         ls.markSessionInactiveService((String)session.getAttribute("token"));   //mark that session id inactive
-
+        //session.invalidate();
         return mv;
     }
 

@@ -97,8 +97,17 @@ public class UserDal
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
-        User u=tokenRepo.findUserIdByToken(token);
-        int id=u.getU_id();
+        int id;
+        try
+        {
+            User u = tokenRepo.findUserIdByToken(token);
+            id=u.getU_id();
+        }
+        catch(Exception e)
+        {
+            id=0;
+        }
+
         tx.commit();
         em.close();
         return id;
