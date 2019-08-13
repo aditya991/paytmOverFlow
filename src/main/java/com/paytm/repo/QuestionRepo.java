@@ -15,17 +15,18 @@ public interface QuestionRepo extends JpaRepository<Question,Integer> {
     @Query("select q from Question q where q.user = :user")
     List<Question> getQuestionByUser(@Param("user") User user);
 
-    @Query("select  k from Question  k where k.question=:question")
-    Question getQuestionByQuestion(@Param("question")String question);
+    @Query("select  q from Question  q where q.question=:question")
+    Question getQuestionByName(@Param("question")String question);
 
     @Transactional
     @Modifying
-    @Query("delete FROM Question t WHERE t.question_Id=:Ques_Id")
-    void deleteByQuestion_Id(@Param("Ques_Id")Integer Ques_Id);
+    @Query("delete FROM Question q WHERE q.question_Id=:Ques_Id")
+    void deleteQuestionById(@Param("Ques_Id")Integer Ques_Id);
 
     @Transactional
     @Modifying
-    @Query("update Question t SET t.question =:UpdateQuestion WHERE t.question=:question")
-    void removeQuestionByQuestion(@Param("UpdateQuestion") String UpdateQuestion, @Param("question")String question);
+    @Query("update Question q SET q.question =:UpdateQuestion WHERE q.question=:question")
+    void updateQuestionByName(@Param("UpdateQuestion") String UpdateQuestion, @Param("question")String question);
 
+    //select q.question from Question q , Interest i ,Dept d where q.user_u_id = i.u_id and i.dept_id = d.dept_id and q.department = d.dept_name;
 }

@@ -32,9 +32,10 @@ public class QuestionController {
     @Autowired
     private InterestServiceImpl interestService;
 
+    //todo ekansh
     @RequestMapping(value = "/questionfeed", method = RequestMethod.POST)
-    public ModelAndView  showUserQuestionsFeed(HttpServletRequest req, HttpServletResponse res) {
-        HttpSession session = req.getSession(false);
+    public ModelAndView  showUserQuestionsFeed(HttpServletRequest request, HttpServletResponse response) {
+        HttpSession session = request.getSession(false);
         ModelAndView mv = new ModelAndView();
 
         String email = (String) session.getAttribute("email");
@@ -42,10 +43,34 @@ public class QuestionController {
 
         mv.setViewName("userQuestions.jsp");
         mv.addObject("listquestions",listQuestions);
-        req.getAttribute("message");
+        request.getAttribute("message");
         return  mv;
     }
 
+    //todo ekansh
+    @RequestMapping(value = "/manageQuestion", method = RequestMethod.POST)
+    public ModelAndView manageQuestion(HttpServletRequest request,HttpServletResponse response)
+    {
+        ModelAndView mv = new ModelAndView();
+
+        String option=request.getParameter("option");
+        String selectedQuestion=request.getParameter("selectedQuestion");
+
+        if(option.equals("Update")){
+            String updatedQuestion=request.getParameter("updatedQuestion");
+            questionServiceImpl.UpdateQuestionService(selectedQuestion,updatedQuestion);
+            request.setAttribute("message","Question updated successfully.");
+        }
+            else if(option.equals("Delete")){
+            questionServiceImpl.DeleteQuestionService(selectedQuestion);
+            request.setAttribute("message","Question deleted successfully.");
+        }
+            else{ request.setAttribute("message","Invalid option on Question."); }
+
+        return  showUserQuestionsFeed(request,response);
+    }
+
+    //todo ekansh
     @RequestMapping(value = "/askQuestion", method = RequestMethod.POST)
     public ModelAndView askQuestion(HttpServletRequest request,HttpServletResponse response)
     {
@@ -62,6 +87,7 @@ public class QuestionController {
         return  mv;
     }
 
+    //todo ekansh
     @RequestMapping(value = "/saveQuestion", method = RequestMethod.POST)
     public ModelAndView saveQuestion(HttpServletRequest request, HttpServletResponse response)
     {
@@ -72,63 +98,14 @@ public class QuestionController {
 
         ModelAndView mv=new ModelAndView();
 
-        if(question == "")
+        if(question.equals(""))
             request.setAttribute("message","Question can't be empty!");
         else {
-            questionServiceImpl.AddQuestionService(department, question, email);
-            request.setAttribute("message", "Question successfully submitted.");
-        }
-            return askQuestion(request,response);
+               if(questionServiceImpl.AddQuestionService(department, question, email))
+                   request.setAttribute("message", "Question successfully submitted.");
+               else
+                   request.setAttribute("message", "Question already exists.");
+             }
+        return askQuestion(request,response);
     }
-
-    @RequestMapping("/UpdateQuesServlet")
-    public ModelAndView UpdateQuestion(HttpServletRequest request,HttpServletResponse response)
-    {
-        String email= (String) request.getSession().getAttribute("email");
-        ModelAndView mv=new ModelAndView();
-        List<Question> questionList = questionServiceImpl.showAllQuestionService(email);
-        mv.setViewName("updateQuestion.jsp");
-        mv.addObject("listofQuestion",questionList);
-        return  mv;
-
-    }
-    @RequestMapping("/DeleteQuesServlet")
-    public ModelAndView DeleteQuestion(HttpServletRequest request,HttpServletResponse response)
-    {
-        String email= (String) request.getSession().getAttribute("email");
-
-        ModelAndView mv=new ModelAndView();
-
-        List<Question> questionList = questionServiceImpl.showAllQuestionService(email);
-
-
-        mv.setViewName("DeleteQuestion.jsp");
-        mv.addObject("listofQuestion",questionList);
-
-        return  mv;
-    }
-
-    @RequestMapping(value="/UpdateServlet",method=RequestMethod.GET)
-    public ModelAndView Update(HttpServletRequest request, HttpServletResponse response)
-    {  String question=request.getParameter("question");
-        String updateQuestion=request.getParameter("UpdateQuestion");
-        questionServiceImpl.UpdateQuestionService(question,updateQuestion);
-
-        ModelAndView mv=new ModelAndView();
-        mv.setViewName("Question.jsp");
-        return mv;
-
-    }
-    @RequestMapping(value= "/DeleteServlet",method = RequestMethod.GET)
-    public ModelAndView Delete (HttpServletRequest request, HttpServletResponse response)
-    {
-        String question=request.getParameter("question");
-        questionServiceImpl.DeleteQuestionService(question);
-        ModelAndView mv=new ModelAndView();
-        mv.setViewName("Question.jsp");
-        return mv;
-
-    }
-
-
 }

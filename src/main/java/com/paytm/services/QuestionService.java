@@ -8,7 +8,7 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public interface QuestionService {
-    void AddQuestionService(String Department, String Question , String email);
+    boolean AddQuestionService(String Department, String Question , String email);
 
     boolean UpdateQuestionService(String question,String UpdateQuestion);
     boolean DeleteQuestionService(String question);

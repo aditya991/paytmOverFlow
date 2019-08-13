@@ -1,21 +1,11 @@
 package com.paytm.services;
-import com.paytm.dal.QuestionDal;
 import com.paytm.dal.QuestionDalImpl;
-import com.paytm.entity.Dept;
-import com.paytm.entity.Interest;
 import com.paytm.entity.Question;
 import com.paytm.entity.User;
 import com.paytm.repo.QuestionRepo;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.net.ssl.SSLEngine;
-import javax.persistence.Entity;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.servlet.http.HttpSession;
 import java.util.List;
 
 
@@ -33,7 +23,7 @@ public class QuestionServiceImpl implements QuestionService{
 
 
     @Override
-    public void AddQuestionService(String department, String question ,String email)
+    public boolean AddQuestionService(String department, String question ,String email)
     {
 
         System.out.println("in question service");
@@ -52,7 +42,7 @@ public class QuestionServiceImpl implements QuestionService{
 
         q.setUser(user);
 
-        questionDal.AddQuestionMethod(q);
+         return questionDal.AddQuestionMethod(q);
 
 
 
@@ -70,7 +60,7 @@ public class QuestionServiceImpl implements QuestionService{
     @Override
     public boolean DeleteQuestionService(String question)
     {
-        Question ques=questionRepo.getQuestionByQuestion(question);
+        Question ques=questionRepo.getQuestionByName(question);
         questionDal.DeleteQuestionMethod(ques.getQuestion_Id());
         return true;
     }
