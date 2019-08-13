@@ -122,7 +122,7 @@ public class FeedController {
         return  mv;
     }*/
 
-    /*@RequestMapping(value = "/questionfeed", method = RequestMethod.POST)
+    @RequestMapping(value = "/questionfeed", method = RequestMethod.POST)
     public ModelAndView  showAnswerFeed(HttpServletRequest req, HttpServletResponse res) {
         HttpSession session = req.getSession(false);
         ModelAndView mv = new ModelAndView();
@@ -136,6 +136,6 @@ public class FeedController {
         mv.setViewName("Question.jsp");
         //mv.addObject("listanswers",listAnswers);
         return  mv;
-    }*/
+    }
 
 }

@@ -54,7 +54,7 @@
         <c:forEach items="${listinterest}" var="s">
             <option value="${s}">${s}</option>
         </c:forEach>
-    </select>ß
+    </select>
     <input type="submit" value="Remove" />
 </form>
 

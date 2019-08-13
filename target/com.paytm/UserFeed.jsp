@@ -12,5 +12,10 @@
 </head>
 <body>
 <h1>PaytmOverFlow mein Aapka Swagat Hai</h1>
+<h2>Do you wanna give Answer or ask Question?</h2>
+<h3>
+    <a href="AddQuestion.jsp">I wanna ask Question</a> <br/>
+    <a href="giveAnswer.jsp">I wanna give Answer</a>
+</h3>
 </body>
 </html>
