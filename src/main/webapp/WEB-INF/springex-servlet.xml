@@ -23,6 +23,7 @@
         <mvc:interceptor>
             <mvc:mapping path="/**" />
                         <mvc:exclude-mapping path="/signup"/>
+                        <mvc:exclude-mapping path="/indexPage"/>
             <bean class="com.paytm.Interceptor.TokenValidatorInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>

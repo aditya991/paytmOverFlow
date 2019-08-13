@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class LoginInterceptor implements HandlerInterceptor
 {
@@ -35,6 +36,7 @@ public class LoginInterceptor implements HandlerInterceptor
         {
         }
         System.out.println("Inside Login Interceptor");
+
         try
         {
             boolean flag = ls.UserAuthenticationService(email, password);

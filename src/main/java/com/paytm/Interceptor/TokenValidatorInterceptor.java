@@ -50,7 +50,7 @@ public class TokenValidatorInterceptor implements HandlerInterceptor
 //            {
 //                return true;
 //            }
-
+        System.out.println("werty");
         if (sess != null)
         {
             String token = (String) sess.getAttribute("token");

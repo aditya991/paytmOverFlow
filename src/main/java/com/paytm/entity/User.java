@@ -107,6 +107,8 @@ public class User extends AbstractEntity  {
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
+                super.getCreated()+'\''+
+                super.getUpdated()+
                 '}';
     }
 }

@@ -12,8 +12,6 @@
 <html>
 <head>
     <title>PaytmOverFlow</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
 </head>
 <body>
 
@@ -26,6 +24,9 @@
     List listInterest = (List) request.getAttribute("listofinterest");
     request.setAttribute("listinterest", listInterest);
     request.setAttribute("listdept",listDept);
+    String S =  (String) request.getAttribute("message");
+    if(S == null)
+        S = "";
 %>
 
 <c:forEach items="${listinterest}" var="s">
@@ -35,56 +36,45 @@
 </br>
 </br>
 
-<form action="addinterest" method="get">
+<form action="addinterest" method="post">
     Select any department to add into your interests.
     <select name="deptName">
         <c:forEach items="${listdept}" var="dept">
             <option value="${dept.dept_name}">${dept.dept_name}</option>
         </c:forEach>
     </select>
-    <br/><br/>
-    <input type="submit" name="action" value="Add" />
+    <input type="submit" value="Add" />
 </form>
 
 <br/>
 
-<form action="removeinterest" method="get">
+<form action="removeinterest" method="post">
     Select any department to remove from your interests.
     <select name="deptName">
         <c:forEach items="${listinterest}" var="s">
             <option value="${s}">${s}</option>
         </c:forEach>
     </select>
-    <br/><br/>
-    <input type="submit" name="action" value="Remove" />
+    <input type="submit" value="Remove" />
 </form>
-<br/>
-<font color="#a52a2a"><%=request.getAttribute("message")%></font>
 
+<br/>
 <form action="questionfeed" method="post">
-    <input type="submit" name="action" value="Show my Questions">
+    <input type="submit"  value="Show my Questions">
 </form>
-
-<br/>
-<br/>
-
 <form action="answerfeed" method="post">
-    <input type="submit"  name="action" value="Show my Answers">
+    <input type="submit"  value="Show my Answers">
 </form>
+<br/>
 
-<form action="logout" method="post">
-    <input type="submit"  name="action" value="Log Out">
-</form>
-<form action="back" method="post">
-    <input type="button"  onclick="window.location.href='http://localhost:8082/paytmOverFlow_war_exploded/postLoggedIn.jsp'" value="Go Back">
-</form>
+<font color="#a52a2a">
+    <%=S%>
+</font>
+
+<br/>
+<br/>
+
+<a href="userFeed.jsp">Click here to see your FEED!</a>
+
 </body>
-<script type="text/javascript">
-    // $(document).ready(function() {
-    //     function disableBack() { window.history.forward() }
-    //
-    //     window.onload = disableBack();
-    //     window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
-    // });
-</script>
 </html>

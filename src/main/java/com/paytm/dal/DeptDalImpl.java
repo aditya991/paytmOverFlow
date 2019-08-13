@@ -24,4 +24,15 @@ public class DeptDalImpl {
     }
 
     public List<Dept> enterAllAvailableDeptMethod(List<String> deptNames) { return deptRepo.showAllDept(deptNames); }
+
+
+    public List<String> listAllDeptByNameMethod()
+    {
+        return deptRepo.listAllDeptByName();
+
+    }
+
+
+
+
 }

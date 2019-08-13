@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.ServletException;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 /*
  * @author: aditya10.kumar
@@ -31,10 +33,59 @@ public class UserController
     @Autowired
     private LoginServiceImpl ls;
 
-    @RequestMapping(value="/login", method ={ RequestMethod.POST})
-    public ModelAndView login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+
+
+    @RequestMapping(value = "/indexPage" ,method = RequestMethod.GET)
+    public  ModelAndView redirectToLogin(HttpServletRequest request,HttpServletResponse response)
     {
-        //OverridedHttpServletRequest request1= (OverridedHttpServletRequest) request;
+        System.out.println("hello to index servlet");
+
+        List<String> deptList =signupServiceImpl.listAllDeptByNameService();
+
+        for(String str:deptList)
+            System.out.println("hello in UC "+str);
+
+        ModelAndView mv= new ModelAndView();
+        mv.setViewName("loginSignup.jsp");
+        mv.addObject("deptList",deptList);
+
+        return mv;
+
+    }
+
+    @RequestMapping(value = "/hello",method = RequestMethod.GET)
+    @ResponseBody
+    public List<String> initialPage(HttpServletRequest request, HttpServletResponse response)
+    {
+
+
+        List<String> deptList=signupServiceImpl.listAllDeptByNameService();
+
+        ModelAndView mv =new ModelAndView();
+
+        mv.setViewName("index.jsp");
+        mv.addObject("deptList"  ,deptList);
+
+        deptList.add("naval");
+        deptList.add("naval_k");
+        for(String d_name:deptList)
+        {
+            System.out.println(d_name +"    In a check loop");
+        }
+
+        System.out.println("hello home page");
+
+
+//        request.setAttribute("nk","naval_kishore");
+
+     //   response.setHeader("nk","naval ishore");
+
+    return deptList;
+
+    }
+
+    @RequestMapping(value="/login", method = RequestMethod.POST )
+    public ModelAndView login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         //request1.removeParameter("email");
@@ -119,25 +170,34 @@ public class UserController
         ModelAndView mv = new ModelAndView("index.jsp");
 
         ls.markSessionInactiveService((String)session.getAttribute("token"));   //mark that session id inactive
-        //session.invalidate();
+
+        session.invalidate();
         return mv;
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public ModelAndView signup(HttpServletRequest request, HttpServletResponse response)
-    {
+    public ModelAndView signup(HttpServletRequest request, HttpServletResponse response) {
+
+
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String phone = request.getParameter("phone");
         String password = request.getParameter("password");
         String dept = request.getParameter("dept");
+
+
+
         System.out.println("step 1 in controller" +name+"  "+email+"    "+phone);
+
 
         SignupServiceImpl signupService =new SignupServiceImpl();
 
+
         ModelAndView mv = new ModelAndView();
 
+
         System.out.println(" in controller");
+
 
         boolean valid_user= signupServiceImpl.checkExistingUserService(email,phone);
 
@@ -158,9 +218,11 @@ public class UserController
         }
         else
         {
-            System.out.println("User already Exists");
+
+            System.out.println("User already exists ");
             mv.addObject("status", "User already Exists");
         }
+
         mv.setViewName("index.jsp");
         return mv;
     }
