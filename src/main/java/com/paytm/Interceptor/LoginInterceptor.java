@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class LoginInterceptor implements HandlerInterceptor
 {
@@ -22,6 +23,7 @@ public class LoginInterceptor implements HandlerInterceptor
         String email = httpServletRequest.getParameter("email");
         String password = httpServletRequest.getParameter("password");
         System.out.println("Inside Login Interceptor");
+
         try
         {
             boolean flag = ls.UserAuthenticationService(email, password);
@@ -29,11 +31,13 @@ public class LoginInterceptor implements HandlerInterceptor
             if (!flag)
             {
                 httpServletRequest.getRequestDispatcher("index.jsp").forward(httpServletRequest, httpServletResponse);
+                return false;
             }
         }
         catch(Exception e)
         {
             httpServletRequest.getRequestDispatcher("index.jsp").forward(httpServletRequest, httpServletResponse);
+            return false;
         }
         return true;
     }

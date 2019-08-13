@@ -44,8 +44,6 @@ public class SignupServiceImpl implements SignupService {
 
          Dept d=deptRepo.findDeptByName(dept);
 
-
-
         User user = new User();
 
         user.setU_name(u_name);

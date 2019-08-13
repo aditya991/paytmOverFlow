@@ -51,11 +51,7 @@ public class Question
         return question_Id;
     }
 
-
     public void setQuestion_Id(Integer question_Id) {
         this.question_Id = question_Id;
     }
-
-
 }
-

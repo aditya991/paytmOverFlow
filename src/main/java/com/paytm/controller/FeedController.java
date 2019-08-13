@@ -37,33 +37,32 @@ public class FeedController {
     @Autowired
     private DeptDalImpl deptDal;
 
-    @RequestMapping(value = "/addinterest", method = RequestMethod.GET)
+    @RequestMapping(value = "/addinterest", method = RequestMethod.POST)
     public ModelAndView addInterest(HttpServletRequest req, HttpServletResponse res){
         HttpSession session = req.getSession(false);
-        ModelAndView mv = new ModelAndView();
 
         String deptName=req.getParameter("deptName");
         String email = (String) session.getAttribute("email");
 
         User u = userService.findUserByEmailService(email);
-        Dept d = deptDal.findDeptByNameMethod(deptName);
-
-        mv.setViewName("Profile.jsp");
-
-        if(interestService.addInterestService(u,d)){
-            mv.addObject("message","Interest successfully added.");
+        if(deptName != null) {
+            Dept d = deptDal.findDeptByNameMethod(deptName);
+            if(interestService.addInterestService(u,d)){
+                req.setAttribute("message","Interest successfully added.");
+            }
+            else{
+                req.setAttribute("message","Interest can't be added.");
+            }
         }
-        else{
-            mv.addObject("message","Interest can't be added.");
+        else {
+            req.setAttribute("message","You have already added all the Interests.");
         }
-
-        return mv;
+        return showAllInterest(req,res);
     }
 
-    @RequestMapping(value = "/removeinterest", method = RequestMethod.GET )
+    @RequestMapping(value = "/removeinterest", method = RequestMethod.POST)
     public ModelAndView removeInterest(HttpServletRequest req, HttpServletResponse res){
         HttpSession session = req.getSession(false);
-        ModelAndView mv = new ModelAndView();
 
         String deptName=req.getParameter("deptName");
         String email = (String) session.getAttribute("email");
@@ -71,22 +70,19 @@ public class FeedController {
         User u = userService.findUserByEmailService(email);
         Dept d = deptDal.findDeptByNameMethod(deptName);
 
-        mv.setViewName("Profile.jsp");
-
-        if(u.getDept().getDept_name().equals(d.getDept_name()))
-        {
-            mv.addObject("message","Interest can't be removed.");
-            return mv;
-        }
-
-        if(interestService.removeInterestService(u,d)){
-            mv.addObject("message","Interest successfully removed.");
+        if(u.getDept().getDept_name().equals(d.getDept_name())) {
+            req.setAttribute("message","You can't remove your own department.");
         }
         else{
-            mv.addObject("message","Interest can't be removed.");
+            if(interestService.removeInterestService(u,d)){
+                req.setAttribute("message","Interest successfully removed.");
+            }
+            else{
+                req.setAttribute("message","Interest can't be removed.");
+            }
         }
 
-        return mv;
+        return showAllInterest(req,res);
     }
 
     @RequestMapping(value = "/profile", method = RequestMethod.POST)
@@ -100,15 +96,17 @@ public class FeedController {
         List<String> resultSet = interestService.showAllInterestService(u);
         List<Dept> deptSet = deptDal.enterAllAvailableDeptMethod(resultSet);
 
+
         mv.setViewName("Profile.jsp");
         mv.addObject("listofinterest",resultSet);
         mv.addObject("listofdepartments",deptSet);
         mv.addObject("username",u.getU_name());
-        mv.addObject("message","");
+        req.getAttribute("message");
+       // mv.addObject("message","");
         return  mv;
     }
 
-   @RequestMapping(value = "/answerfeed", method = RequestMethod.POST)
+   /*@RequestMapping(value = "/answerfeed", method = RequestMethod.POST)
     public ModelAndView  showAnswerFeed(HttpServletRequest req, HttpServletResponse res) {
         HttpSession session = req.getSession(false);
         ModelAndView mv = new ModelAndView();
@@ -122,5 +120,22 @@ public class FeedController {
         mv.setViewName("userAnswers.jsp");
         mv.addObject("listanswers",listAnswers);
         return  mv;
+    }*/
+
+    @RequestMapping(value = "/questionfeed", method = RequestMethod.POST)
+    public ModelAndView  showAnswerFeed(HttpServletRequest req, HttpServletResponse res) {
+        HttpSession session = req.getSession(false);
+        ModelAndView mv = new ModelAndView();
+
+        String email = (String) session.getAttribute("email");
+        User u= userService.findUserByEmailService(email);
+
+        //List<Answer> listAnswers = answerService.findAllAnswerByUserService(u);
+
+
+        mv.setViewName("Question.jsp");
+        //mv.addObject("listanswers",listAnswers);
+        return  mv;
     }
+
 }
