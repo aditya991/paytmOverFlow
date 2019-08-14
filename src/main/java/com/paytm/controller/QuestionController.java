@@ -52,7 +52,7 @@ public class QuestionController {
     }
 
     //todo ekansh
-    @RequestMapping(value = "/managefeed", method = RequestMethod.POST)
+    @RequestMapping(value = "/manageFeed", method = RequestMethod.POST)
     public ModelAndView  manageFeed(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession(false);
         ModelAndView mv = new ModelAndView();

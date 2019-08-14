@@ -26,6 +26,7 @@
 %>
 
 <form action ="manageFeed" method = "post">
+
     <%
         Iterator<Dept> iterator=listDept.iterator();
         while (iterator.hasNext()) {
