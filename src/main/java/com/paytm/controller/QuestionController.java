@@ -55,15 +55,25 @@ public class QuestionController {
 
         String option=request.getParameter("option");
         String selectedQuestion=request.getParameter("selectedQuestion");
+        String updatedQuestion=request.getParameter("updatedQuestion");
 
         if(option.equals("Update")){
-            String updatedQuestion=request.getParameter("updatedQuestion");
+            System.out.println("Inside Update");
+            System.out.println(selectedQuestion);
+            System.out.println(updatedQuestion);
             questionServiceImpl.UpdateQuestionService(selectedQuestion,updatedQuestion);
             request.setAttribute("message","Question updated successfully.");
         }
             else if(option.equals("Delete")){
-            questionServiceImpl.DeleteQuestionService(selectedQuestion);
-            request.setAttribute("message","Question deleted successfully.");
+
+                if(selectedQuestion == null) {
+                    request.setAttribute("message", "Question not selected!");
+                }
+                else {
+                    questionServiceImpl.DeleteQuestionService(selectedQuestion);
+                    request.setAttribute("message", "Question deleted successfully.");
+                }
+
         }
             else{ request.setAttribute("message","Invalid option on Question."); }
 
