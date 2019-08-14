@@ -59,11 +59,8 @@ public class QuestionController {
 
         String quesName = request.getParameter("selectedQuestion");
         Question q = questionRepo.getQuestionByName(quesName);
-
-        mv.setViewName("userFeedSpecific.jsp");
-        mv.addObject("ques",q);
-        request.getAttribute("message");
-        return  mv;
+        request.setAttribute("ques",q);
+        return  answerGiven(request,response);
     }
 
     //todo ekansh

@@ -48,11 +48,12 @@ To change this template use File | Settings | File Templates.
                                   <h4 class="modal-title" style="text-align: center">Update Your Question Here</h4>
                       å        </div>
 
+                               <% String z = %>
                               <div class="modal-body">
                                   <form action = "updateQuestion" method = "post">
-                                  <% request.setAttribute("selectedQuestion","${ques.question}"); %>
-                                  <textarea name="updatedQuestion" style="font-size:18pt;height:80px;width:850px;border:1px dashed blue;">${ques.question}</textarea>
-                                  <div style="align-items: center"><input type = "submit"  name = "option" value = "Update"></div>
+                                  <input type="hidden" name="selectedQuestion" value="<%=z%>" />
+                                  <textarea name="updatedQuestion" style="font-size:18pt;height:80px;width:850px;"></textarea>
+                                  <input type = "submit"  name = "option" value = "Update">
                                   </form>
                               </div>
 
