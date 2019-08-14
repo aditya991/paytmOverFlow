@@ -1,5 +1,8 @@
 package com.paytm.services;
+import com.paytm.dal.DeptDalImpl;
 import com.paytm.dal.QuestionDalImpl;
+import com.paytm.entity.Dept;
+import com.paytm.entity.Interest;
 import com.paytm.entity.Question;
 import com.paytm.entity.User;
 import com.paytm.repo.QuestionRepo;
@@ -21,6 +24,8 @@ public class QuestionServiceImpl implements QuestionService{
     @Autowired
     QuestionRepo questionRepo;
 
+    @Autowired
+    DeptDalImpl deptDal;
 
     @Override
     public boolean AddQuestionService(String department, String question ,String email)
@@ -32,14 +37,13 @@ public class QuestionServiceImpl implements QuestionService{
 
 
         User user=userService.findUserByEmailService(email);
-
+        Dept d =deptDal.findDeptByNameMethod(department);
 
         System.out.println(user);
 
         Question q=new Question();
         q.setQuestion(question);
-        q.setDepartment(department);
-
+        q.setDept(d);
         q.setUser(user);
 
          return questionDal.AddQuestionMethod(q);

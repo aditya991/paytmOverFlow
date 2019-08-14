@@ -66,7 +66,7 @@ public class InterestDalImpl {
           }
     }
 
-    public List<String> showAllInterestMethod(Integer u_id) {
+    public List<String> getUserAllInterestNamesMethod(Integer u_id) {
 
         System.out.println("inside showAllInterestMethod ");
 
@@ -83,5 +83,23 @@ public class InterestDalImpl {
             deptNameList.add(dpt.getDept_name());
         }
         return deptNameList;
+    }
+
+    public List<Dept> getUserAllInterestMethod(Integer u_id) {
+
+        System.out.println("inside showAllInterestMethod ");
+
+        List<Integer> deptIdList = interestRepo.getDeptIdbyUId(u_id);
+        List<Dept> deptList = new ArrayList<>();
+
+        EntityManager em = emf3.createEntityManager();
+        Iterator iterator = deptIdList.iterator();
+
+        while (iterator.hasNext()) {
+
+            Dept dpt = em.find(Dept.class, (Integer)iterator.next());
+            deptList.add(dpt);
+        }
+        return deptList;
     }
 }
