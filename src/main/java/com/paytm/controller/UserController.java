@@ -52,45 +52,37 @@ public class UserController
         return mv;
 
     }
-
-    @RequestMapping(value = "/hello",method = RequestMethod.GET)
-    @ResponseBody
-    public List<String> initialPage(HttpServletRequest request, HttpServletResponse response)
-    {
-
-
-        List<String> deptList=signupServiceImpl.listAllDeptByNameService();
-
-        ModelAndView mv =new ModelAndView();
-
-        mv.setViewName("index.jsp");
-        mv.addObject("deptList"  ,deptList);
-
-        deptList.add("naval");
-        deptList.add("naval_k");
-        for(String d_name:deptList)
-        {
-            System.out.println(d_name +"    In a check loop");
-        }
-
-        System.out.println("hello home page");
-
-
-//        request.setAttribute("nk","naval_kishore");
-
-     //   response.setHeader("nk","naval ishore");
-
-    return deptList;
-
-    }
+//
+//    @RequestMapping(value = "/hello",method = RequestMethod.GET)
+//    @ResponseBody
+//    public List<String> initialPage(HttpServletRequest request, HttpServletResponse response)
+//    {
+//
+//
+//        List<String> deptList=signupServiceImpl.listAllDeptByNameService();
+//
+//        ModelAndView mv =new ModelAndView();
+//
+//        mv.setViewName("index.jsp");
+//        mv.addObject("deptList"  ,deptList);
+//
+//        for(String d_name:deptList)
+//        {
+//            System.out.println(d_name +"    In a check loop");
+//        }
+//
+//        System.out.println("hello home page");
+//
+//    return deptList;
+//
+//    }
 
     @RequestMapping(value="/login", method = RequestMethod.POST )
-    public ModelAndView login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public ModelAndView login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        //request1.removeParameter("email");
-        //request1.removeParameter("password");
-        //request= request1;
+
         request.setAttribute("type", "back");
         System.out.println(request.getAttribute("type"));
         System.out.println("email is :"+request.getParameter("email"));
@@ -123,6 +115,7 @@ public class UserController
             //session.setAttribute("password", password);
             session.setAttribute("token", t1.getToken_no());
             session.setAttribute("created", System.currentTimeMillis());
+            session.setAttribute("dept", u.getDept());
             System.out.println("Used old token & logged user inside the website...");
             modelEmail= (String) session.getAttribute("email");
         }
@@ -132,6 +125,7 @@ public class UserController
             UUID uuid = UUID.randomUUID();
             String randomUUIDString = uuid.toString();
 
+            session.setAttribute("dept", u.getDept());
             session.setAttribute("email", email);
             //session.setAttribute("password", password);
             session.setAttribute("token", randomUUIDString);
@@ -152,7 +146,7 @@ public class UserController
 
             System.out.println("Passed createTokenService.");
        }
-        //no caching
+        //no caching & force reload
         response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
         response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
         response.setHeader("Expires", "0");

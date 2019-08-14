@@ -16,7 +16,7 @@
     <br>
     Question:<input type="text"name="Question">
     <br>
-    <input type="submit" name="action" name="submit">
+    <input type="submit" name="action" value="submit">
     <br>
 </form>
 </body>

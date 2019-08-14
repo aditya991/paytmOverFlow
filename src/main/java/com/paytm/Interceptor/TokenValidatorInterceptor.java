@@ -38,7 +38,7 @@ public class TokenValidatorInterceptor implements HandlerInterceptor
         int valid1=ls.isTokenActiveService((String)session.getAttribute("token"));
 
         System.out.println(valid1);
-        if(action.equals("login") && valid1==1)
+        if(valid1==1)
         {
             return true;
         }
@@ -50,7 +50,7 @@ public class TokenValidatorInterceptor implements HandlerInterceptor
 //            {
 //                return true;
 //            }
-        System.out.println("werty");
+        System.out.println("qwerty");
         if (sess != null)
         {
             String token = (String) sess.getAttribute("token");

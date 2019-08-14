@@ -10,7 +10,7 @@ import javax.persistence.*;
  * @created: 06/08/19
  */
 @Entity
-public class Question
+public class Question //extends AbstractEntity
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

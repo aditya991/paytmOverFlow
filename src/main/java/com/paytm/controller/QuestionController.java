@@ -6,6 +6,7 @@ package com.paytm.controller;
 
 import com.paytm.entity.Question;
 import com.paytm.services.QuestionServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -14,15 +15,20 @@ import com.paytm.services.QuestionService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+
 @Controller
 public class QuestionController {
+
+
     @RequestMapping("/AddQuesServlet")
     public ModelAndView AddQuestion(HttpServletRequest request, HttpServletResponse response)
     {
+        System.out.println("here in add question");
       String department=request.getParameter("Department");
 
       String question=request.getParameter("Question");
-        ModelAndView mvc=new ModelAndView();
+      ModelAndView mvc=new ModelAndView();
       QuestionServiceImpl ques=new QuestionServiceImpl();
 
         Integer k= ques.AddQuestionService(department,question);

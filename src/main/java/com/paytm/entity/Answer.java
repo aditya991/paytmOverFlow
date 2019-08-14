@@ -3,7 +3,6 @@ package com.paytm.entity;
  * @author: aditya10.kumar
  * @created: 06/08/19
  */
-
 import javax.persistence.*;
 @Entity
 public class Answer extends AbstractEntity
@@ -51,4 +50,14 @@ public class Answer extends AbstractEntity
     public void setQuestion(Question question) {
         this.question = question;
     }
+
+//    @Override
+//    public String toString() {
+//        return "Answer{" +
+//                "answer_id=" + answer_id +
+//                ", answer='" + answer + '\'' +
+//                ", user=" + user +
+//                ", question=" + question +
+//                '}';
+//    }
 }

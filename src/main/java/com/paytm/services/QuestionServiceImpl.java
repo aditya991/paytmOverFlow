@@ -1,20 +1,28 @@
 package com.paytm.services;
+import com.paytm.dal.QuestionDal;
 import com.paytm.entity.Question;
+import com.paytm.entity.User;
 import com.paytm.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 
-
+@Service
 public class QuestionServiceImpl implements QuestionService{
     @Autowired
     private UserRepo userrepo;
     @Autowired
     private EntityManagerFactory emf;
 
+    @Autowired
+    private QuestionDal questionDal;
+
+//    @Autowired
+//    private
 
     /**
      * This service takes
@@ -53,5 +61,16 @@ public class QuestionServiceImpl implements QuestionService{
     public boolean ValidUser(Integer Ques_Id) {
 
         return false;
+    }
+
+    /**
+     * @created by: Aditya
+     * @param id
+     * @return User
+     */
+    @Override
+    public User getUserByQuestionIdService(int id)
+    {
+        return  questionDal.getUserByQuestionIdMethod(id);
     }
 }
