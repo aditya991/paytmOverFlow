@@ -15,6 +15,9 @@ public interface QuestionRepo extends JpaRepository<Question,Integer> {
     @Query("select q from Question q where q.user = :user")
     List<Question> getQuestionByUser(@Param("user") User user);
 
+    @Query("select q.user from Question q where q.question_Id = :qid")
+    User getUserByQuestionId(@Param("qid") int id);
+
     @Query("select  q from Question  q where q.question=:question")
     Question getQuestionByName(@Param("question")String question);
 

@@ -16,6 +16,10 @@ public interface DeptRepo extends JpaRepository<Dept,Integer>
     Dept findDeptByName(@Param("dept_name") String dept_name);
 
     @Query("select d from Dept d where d.dept_name not in :deptNames")
-    List<Dept> showAllDept(@Param("deptNames") List<String> deptNames);
+    List<Dept> getAllAvailableDept(@Param("deptNames") List<String> deptNames);
+
+    @Query("select d.dept_name from Dept d order by d.dept_name")
+    List<String> listAllDeptByName();
+
 
 }

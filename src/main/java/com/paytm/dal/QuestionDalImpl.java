@@ -13,7 +13,7 @@ import javax.persistence.EntityTransaction;
 import java.util.List;
 
 @Component
-public class QuestionDalImpl implements QuestionDal {
+public class QuestionDalImpl {
 
     @Autowired
     private UserRepo userRepo;
@@ -24,9 +24,7 @@ public class QuestionDalImpl implements QuestionDal {
     @Autowired
     private EntityManagerFactory emf;
 
-    @Override
-    public boolean AddQuestionMethod(Question ques)
-    {
+    public boolean AddQuestionMethod(Question ques) {
         if(!checkExistingQuestionMethod(ques)) {
             EntityManager em = emf.createEntityManager();
             EntityTransaction tx = em.getTransaction();
@@ -41,41 +39,36 @@ public class QuestionDalImpl implements QuestionDal {
     }
 
     //todo ekansh
-    @Override
-    public boolean checkExistingQuestionMethod(Question q) {
+    private boolean checkExistingQuestionMethod(Question q) {
         try{
             Question Q=questionRepo.getQuestionByName(q.getQuestion());
             if(Q==null)
                 return false;
         }
         catch (Exception e) {
+            System.out.println(e);
         }
         return  true;
     }
 
-    @Override
-    public boolean UpdateQuestionMethod(String question,String UpdateQuestion)
-    {
+    public boolean UpdateQuestionMethod(String question,String UpdateQuestion) {
         questionRepo.updateQuestionByName(UpdateQuestion,question);
         return true;
     }
 
-    @Override
-    public boolean DeleteQuestionMethod(Integer Ques_Id)
-    {
+    public boolean DeleteQuestionMethod(Integer Ques_Id) {
         questionRepo.deleteQuestionById(Ques_Id);
         return false;
     }
 
-
-
-    @Override
     public List<Question> showAllQuestionMethod(User user) {
         System.out.println("inside showAll");
-
         return questionRepo.getQuestionByUser(user);
-
-        //  List<Question> QuestionList = r
-        // return QuestionList;
     }
+
+    public User getUserByQuestionIdMethod(int id){
+        return questionRepo.getUserByQuestionId(id);
+    }
+
+    public Question getQuestionByNameMethod(String quesName) { return questionRepo.getQuestionByName(quesName); }
 }

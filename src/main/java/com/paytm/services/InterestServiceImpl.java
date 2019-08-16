@@ -1,6 +1,6 @@
 package com.paytm.services;
 
-import com.paytm.dal.InterestDalImpl;
+import com.paytm.dal.InterestDal;
 import com.paytm.entity.Dept;
 import com.paytm.entity.Interest;
 import com.paytm.entity.User;
@@ -17,7 +17,7 @@ import java.util.List;
 public class InterestServiceImpl implements InterestService {
 
     @Autowired
-    private InterestDalImpl interestDal;
+    private InterestDal interestDal;
 
     @Autowired
     private EntityManagerFactory EMF;

@@ -4,6 +4,7 @@ package com.paytm.Interceptor;
  * @created: 08/08/19
  */
 
+import com.paytm.OverridedRequest.OverridedHttpServletRequest;
 import com.paytm.services.LoginServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -22,12 +23,24 @@ public class LoginInterceptor implements HandlerInterceptor
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
         String email = httpServletRequest.getParameter("email");
         String password = httpServletRequest.getParameter("password");
+        System.out.println(httpServletRequest.getAttribute("type"));
+        try {
+            if (httpServletRequest.getAttribute("type").equals("back"))
+            {
+                System.out.println(httpServletRequest.getAttribute("type"));
+                httpServletRequest.getRequestDispatcher("index.jsp").forward(httpServletRequest, httpServletResponse);
+                return false;
+            }
+        }
+        catch(Exception e)
+        {
+        }
         System.out.println("Inside Login Interceptor");
 
         try
         {
             boolean flag = ls.UserAuthenticationService(email, password);
-            System.out.println("Flag is "+flag+". That email doesn't exist.");
+            System.out.println("Flag is "+flag);
             if (!flag)
             {
                 httpServletRequest.getRequestDispatcher("index.jsp").forward(httpServletRequest, httpServletResponse);

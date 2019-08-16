@@ -4,7 +4,7 @@ package com.paytm.repo;
  * @created: 09/08/19
  */
 import com.paytm.entity.Answer;
-import com.paytm.entity.Token;
+import com.paytm.entity.Question;
 import com.paytm.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -28,4 +28,8 @@ public interface AnswerRepo extends JpaRepository<Answer,Integer>
 
     @Query("select a from Answer a where a.user=:user")
     List<Answer> findAllAnswerByUser(@Param("user") User user);
+
+    @Query("select a from Answer a where a.question=:ques")
+    List<Answer> findAllAnswerByQuestion(@Param("ques") Question ques);
+
 }

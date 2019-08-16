@@ -1,5 +1,6 @@
 package com.paytm.services;
 
+import com.paytm.dal.DeptDal;
 import com.paytm.dal.UserDal;
 import com.paytm.entity.Dept;
 import com.paytm.entity.User;
@@ -7,15 +8,27 @@ import com.paytm.repo.DeptRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SignupServiceImpl implements SignupService {
 
     @Autowired
     UserDal userDal ;
 
+    @Autowired
+    DeptDal deptDal;
 
     @Autowired
-    private DeptRepo deptRepo;
+    DeptRepo deptRepo;
+
+
+
+
+    public List<String> listAllDeptByNameService()
+    {
+       return deptDal.listAllDeptByNameMethod();
+    }
 
 
 
@@ -25,7 +38,8 @@ public class SignupServiceImpl implements SignupService {
         System.out.println("inside create user function");
 
 
-        //Dept d= new Dept(dept);
+
+
 
 
          Dept d=deptRepo.findDeptByName(dept);
