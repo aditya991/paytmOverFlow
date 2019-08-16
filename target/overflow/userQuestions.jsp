@@ -15,6 +15,12 @@ To change this template use File | Settings | File Templates.
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     -->
+
+    <script>
+        function update(){
+        }
+    </script>
+
 </head>
 <body>
 <h1>You have asked following questions :-</h1>
@@ -31,16 +37,16 @@ To change this template use File | Settings | File Templates.
 
 <form action ="manageQuestion" method = "post">
         <c:forEach items="${askedQuestions}" var="ques">
-
                 <div style="display:flex;align-items:center;">
                     <input name="selectedQuestion" type="radio" value="${ques.question}" />
                     <textarea placeholder="${ques.question}" style="font-size:18pt;height:80px;width:300px;border:1px dashed blue;" readonly="true"></textarea>
-              <!--  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Update</button> -->
                 </div>
             <br/>
         </c:forEach>
     <br/><br/>
-    <input type = "submit"  name = "option" value = "Delete">
+    <input type = "submit" name = "option" value = "Delete">
+    <input type = "submit" name = "option" value = "Update" style="display: none">
+    <!--<input onclick='update()' type = "submit" name = "option" value = "Update"> -->
 </form>
 
 <br/>
