@@ -20,6 +20,4 @@ public interface DeptRepo extends JpaRepository<Dept,Integer>
 
     @Query("select d.dept_name from Dept d order by d.dept_name")
     List<String> listAllDeptByName();
-
-
 }

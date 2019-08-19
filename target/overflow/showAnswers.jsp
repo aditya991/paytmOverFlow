@@ -112,7 +112,7 @@
             <form class="form-inline" role="form" action="answer" method="post">
                 <div class="form-group">
                     <input class="form-control" type="text" placeholder="Write your answer here..." name="answer" />
-                    <input type="text" style="display:none" name="ques" value="<%Alist.get(0).getQuestion();%>"/>
+                    <input type="text" style="display:none" name="ques" value=""/>
                 </div>
                 <div class="form-group">
                     <input type="submit" value="Reply" name="action"/>

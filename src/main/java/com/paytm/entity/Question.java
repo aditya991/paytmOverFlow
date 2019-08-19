@@ -12,18 +12,13 @@ package com.paytm.entity;
  * @created: 06/08/19
  */
 @Entity
-<<<<<<< HEAD
 public class Question extends AbstractEntity {
-    private String question;
-
-=======
-public class Question //extends AbstractEntity
-{
->>>>>>> dfb22dd0788400655c45c1c7c01293a985c74ae4
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "question_Id", updatable = false, nullable = false)
     private Integer question_Id;
+
+    private String question;
 
     @ManyToOne
     private User user;
@@ -63,5 +58,4 @@ public class Question //extends AbstractEntity
     public void setQuestion_Id(Integer question_Id) {
         this.question_Id = question_Id;
     }
-
 }

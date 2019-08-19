@@ -9,26 +9,28 @@
 <html>
 <head>
     <title>Welcome !!</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
 </head>
 <body>
     Successfully logged in...
-    Welcome <%= request.getAttribute("email")%> !!;
+    Welcome <%= session.getAttribute("email")%> !!;
 
     <br/>
 
     Wanna See your profile? Click on Profile button otherwise you can logout.
 
     <form action="profile" method="post">
-        <input type="submit"  value="Profile">
+        <input type="submit"  name="action" value="Profile">
     </form>
-
-    </br>
-    <a href="userFeedHome.jsp">Click here to see your FEED!</a>
-    <br/>
-
+</br>
     <form action="logout" method="post">
-        <input type="submit"  value="logout">
+        <input type="submit" name="action" value="logout">
     </form>
-
 </body>
+
+
+<script type="text/javascript">
+    $(window).unload(function(){ alert('do unload stuff here'); });
+</script>
 </html>

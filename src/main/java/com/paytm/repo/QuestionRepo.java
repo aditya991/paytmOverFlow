@@ -18,6 +18,9 @@ public interface QuestionRepo extends JpaRepository<Question,Integer> {
     @Query("select  q from Question  q where q.question=:question")
     Question getQuestionByName(@Param("question")String question);
 
+    @Query("select q.user from Question q where q.question_Id=:qid")
+    User getUserByQuestionId(@Param("qid")int qid);
+
     @Transactional
     @Modifying
     @Query("delete FROM Question q WHERE q.question_Id=:Ques_Id")
@@ -28,5 +31,4 @@ public interface QuestionRepo extends JpaRepository<Question,Integer> {
     @Query("update Question q SET q.question =:UpdateQuestion WHERE q.question=:question")
     void updateQuestionByName(@Param("UpdateQuestion") String UpdateQuestion, @Param("question")String question);
 
-    //select q.question from Question q , Interest i ,Dept d where q.user_u_id = i.u_id and i.dept_id = d.dept_id and q.department = d.dept_name;
 }
