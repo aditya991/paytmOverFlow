@@ -12,7 +12,7 @@ package com.paytm.entity;
  * @created: 06/08/19
  */
 @Entity
-public class Question {
+public class Question extends AbstractEntity {
     private String question;
 
     @Id
@@ -20,10 +20,20 @@ public class Question {
     @Column(name = "question_Id", updatable = false, nullable = false)
     private Integer question_Id;
 
-    private String department;
-
     @ManyToOne
     private User user;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "dept_id", nullable = false)
+    private Dept dept;
+
+    public Dept getDept() {
+        return dept;
+    }
+
+    public void setDept(Dept dept) {
+        this.dept = dept;
+    }
 
     public User getUser() {
         return user;
@@ -31,14 +41,6 @@ public class Question {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
     }
 
     public String getQuestion() {
@@ -56,13 +58,5 @@ public class Question {
     public void setQuestion_Id(Integer question_Id) {
         this.question_Id = question_Id;
     }
-    @Override
-    public String toString() {
-        return "Question{" +
-                "question='" + question + '\'' +
-                ", question_Id=" + question_Id +
-                ", department='" + department + '\'' +
-                ", user=" + user +
-                '}';
-    }
+
 }

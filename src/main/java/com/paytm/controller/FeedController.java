@@ -1,9 +1,7 @@
 package com.paytm.controller;
 
 import com.paytm.dal.DeptDalImpl;
-import com.paytm.entity.Answer;
 import com.paytm.entity.Dept;
-import com.paytm.entity.Question;
 import com.paytm.entity.User;
 import com.paytm.services.AnswerServiceImpl;
 import com.paytm.services.InterestServiceImpl;
@@ -98,7 +96,7 @@ public class FeedController {
         String email = (String) session.getAttribute("email");
         User u= userService.findUserByEmailService(email);
 
-        List<String> resultSet = interestService.showAllInterestService(u);
+        List<String> resultSet = interestService.getUserAllInterestNamesService(u);
         List<Dept> deptSet = deptDal.enterAllAvailableDeptMethod(resultSet);
 
 
@@ -110,21 +108,4 @@ public class FeedController {
        // mv.addObject("message","");
         return  mv;
     }
-
-   /*@RequestMapping(value = "/answerfeed", method = RequestMethod.POST)
-    public ModelAndView  showAnswerFeed(HttpServletRequest req, HttpServletResponse res) {
-        HttpSession session = req.getSession(false);
-        ModelAndView mv = new ModelAndView();
-
-        String email = (String) session.getAttribute("email");
-        User u= userService.findUserByEmailService(email);
-
-       List<Answer> listAnswers = answerService.findAllAnswerByUserService(u);
-
-
-        mv.setViewName("userAnswers.jsp");
-        mv.addObject("listanswers",listAnswers);
-        return  mv;
-    }*/
-
 }

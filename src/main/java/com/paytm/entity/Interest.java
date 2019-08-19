@@ -1,9 +1,8 @@
 package com.paytm.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Interest extends AbstractEntity {
@@ -56,4 +55,5 @@ public class Interest extends AbstractEntity {
     public void setDept_id(Integer dept_id) {
         this.dept_id = dept_id;
     }
+
 }

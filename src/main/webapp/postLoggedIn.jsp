@@ -23,7 +23,7 @@
     </form>
 
     </br>
-    <a href="userFeed.jsp">Click here to see your FEED!</a>
+    <a href="userFeedHome.jsp">Click here to see your FEED!</a>
     <br/>
 
     <form action="logout" method="post">

@@ -3,9 +3,11 @@ package com.paytm.controller;
  * @author: aditya10.kumar
  * @created: 06/08/19
  */
+import com.paytm.dal.DeptDalImpl;
 import com.paytm.entity.Dept;
 import com.paytm.entity.Question;
 import com.paytm.entity.User;
+import com.paytm.repo.QuestionRepo;
 import com.paytm.services.InterestServiceImpl;
 import com.paytm.services.QuestionServiceImpl;
 import com.paytm.services.UserServiceImpl;
@@ -18,7 +20,6 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.servlet.http.HttpSessionActivationListener;
 import java.util.List;
 
 @Controller
@@ -28,11 +29,14 @@ public class QuestionController {
     private QuestionServiceImpl questionServiceImpl ;
     @Autowired
     private UserServiceImpl userService;
-
     @Autowired
     private InterestServiceImpl interestService;
+    @Autowired
+    private DeptDalImpl deptDal;
+    @Autowired
+    private QuestionRepo questionRepo;
 
-    //todo ekansh
+
     @RequestMapping(value = "/questionfeed", method = RequestMethod.POST)
     public ModelAndView  showUserQuestionsFeed(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession(false);
@@ -47,7 +51,35 @@ public class QuestionController {
         return  mv;
     }
 
-    //todo ekansh
+
+    @RequestMapping(value = "/manageFeed", method = RequestMethod.POST)
+    public ModelAndView  manageFeed(HttpServletRequest request, HttpServletResponse response) {
+        HttpSession session = request.getSession(false);
+        ModelAndView mv = new ModelAndView();
+
+        String quesName = request.getParameter("selectedQuestion");
+        Question q = questionRepo.getQuestionByName(quesName);
+        request.setAttribute("ques",q);
+        return  answerGiven(request,response);
+    }
+
+
+    @RequestMapping(value = "/generalfeed", method = RequestMethod.POST)
+    public ModelAndView  showFeed(HttpServletRequest request, HttpServletResponse response) {
+        HttpSession session = request.getSession(false);
+        ModelAndView mv = new ModelAndView();
+
+        String email = (String) session.getAttribute("email");
+        User u = userService.findUserByEmailService(email);
+        List<Dept> deptSet = interestService.getUserAllInterestService(u);
+
+        mv.setViewName("userFeedGeneral.jsp");
+        mv.addObject("listdepartments",deptSet);
+        request.getAttribute("message");
+        return  mv;
+    }
+
+
     @RequestMapping(value = "/manageQuestion", method = RequestMethod.POST)
     public ModelAndView manageQuestion(HttpServletRequest request,HttpServletResponse response)
     {
@@ -80,7 +112,26 @@ public class QuestionController {
         return  showUserQuestionsFeed(request,response);
     }
 
-    //todo ekansh
+    @RequestMapping(value = "/updateQuestion", method = RequestMethod.POST)
+    public ModelAndView updateQuestion(HttpServletRequest request,HttpServletResponse response)
+    {
+        ModelAndView mv = new ModelAndView();
+
+        System.out.println("Inside updateQuestion");
+
+        String selectedQuestion=request.getParameter("selectedQuestion");
+        String updatedQuestion=request.getParameter("updatedQuestion");
+
+            System.out.println("Inside Update");
+            System.out.println(selectedQuestion);
+            System.out.println(updatedQuestion);
+            questionServiceImpl.UpdateQuestionService(selectedQuestion,updatedQuestion);
+            request.setAttribute("message","Question updated successfully.");
+
+        return  showUserQuestionsFeed(request,response);
+    }
+
+
     @RequestMapping(value = "/askQuestion", method = RequestMethod.POST)
     public ModelAndView askQuestion(HttpServletRequest request,HttpServletResponse response)
     {
@@ -89,7 +140,7 @@ public class QuestionController {
         String email= (String) request.getSession().getAttribute("email");
         User u= userService.findUserByEmailService(email);
 
-        List<String> resultSet = interestService.showAllInterestService(u);
+        List<String> resultSet = interestService.getUserAllInterestNamesService(u);
         mv.setViewName("askUserQuestion.jsp");
         mv.addObject("listofDept",resultSet);
         request.getAttribute("message");
@@ -97,7 +148,7 @@ public class QuestionController {
         return  mv;
     }
 
-    //todo ekansh
+    
     @RequestMapping(value = "/saveQuestion", method = RequestMethod.POST)
     public ModelAndView saveQuestion(HttpServletRequest request, HttpServletResponse response)
     {

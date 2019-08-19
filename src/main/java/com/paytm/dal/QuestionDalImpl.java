@@ -40,6 +40,7 @@ public class QuestionDalImpl implements QuestionDal {
            return false;
     }
 
+    //todo ekansh
     @Override
     public boolean checkExistingQuestionMethod(Question q) {
         try{
@@ -72,5 +73,6 @@ public class QuestionDalImpl implements QuestionDal {
     public List<Question> showAllQuestionMethod(User user) {
 
         return questionRepo.getQuestionByUser(user);
+
     }
 }
