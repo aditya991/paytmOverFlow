@@ -13,58 +13,48 @@
 <head>
     <title>Title</title>
 
+    <script type="text/javascript">
 
-        <script type="text/javascript">
+        function SignupFun() {
 
-          function SignupFun() {
+            var x= document.getElementById("signupDiv");
+            var y= document.getElementById("loginDiv");
 
+            if (x.style.display === "none") {
+                x.style.display = "block";
+                y.style.display="none";
+            } else {
+                x.style.display = "none";
+                y.style.display = "block";
 
-              var x= document.getElementById("signupDiv");
-              var y= document.getElementById("loginDiv");
+            }
+        }
 
+        function loginFun() {
 
-              if (x.style.display === "none") {
-                  x.style.display = "block";
-                  y.style.display="none";
-              } else {
-                  x.style.display = "none";
-                  y.style.display = "block";
+            var x= document.getElementById("loginDiv");
+            var y= document.getElementById("signupDiv");
 
-              }
-          }
+            if (x.style.display === "none") {
+                x.style.display = "block";
+                y.style.display="none";
+            } else {
+                x.style.display = "none";
+                y.style.display = "block";
+            }
+        }
 
+        window.onload =function () {
 
-          function loginFun() {
+            var x= document.getElementById("loginDiv");
+            var y= document.getElementById("signupDiv");
 
+            x.style.display = "block";
+            y.style.display="none";
 
-              var x= document.getElementById("loginDiv");
-              var y= document.getElementById("signupDiv");
+        }
 
-
-              if (x.style.display === "none") {
-                  x.style.display = "block";
-                  y.style.display="none";
-              } else {
-                  x.style.display = "none";
-                  y.style.display = "block";
-
-              }
-          }
-
-          window.onload =function () {
-
-              var x= document.getElementById("loginDiv");
-              var y= document.getElementById("signupDiv");
-
-              x.style.display = "block";
-                      y.style.display="none";
-
-                  }
-
-
-
-        </script>
-
+    </script>
 
 </head>
 <body>
@@ -76,79 +66,60 @@
 
 <div id="loginDiv">
 
+    <form action="login" method="post" >
 
-<form action="login" method="post" >
-    Email ID: <input type="text" placeholder="enter your email address" name="email" required/>
-    </br>
-    Password: <input type="password" placeholder="enter your password" name="password" required/>
-    </br>
-    <input type="submit" value="login" name="action"/>
-</form>
+        Email ID: <input type="text" placeholder="enter your email address" name="email" required/>
+        </br>
+        Password: <input type="password" placeholder="enter your password" name="password" required/>
+        </br>
+        <input type="submit" value="login" name="action"/>
 
+    </form>
 
+    <form action="adminLogin" method="post">
 
-<form action="adminLogin" method="post">
-    Admin Email ID: <input type="text" placeholder="enter your email address" name="email" required/>
+        Admin Email ID: <input type="text" placeholder="enter your email address" name="email" required/>
+        </br>
+        Password: <input type="password" placeholder="enter your password" name="password" required/>
+        </br>
+        <input type="submit" value="login" />
 
-    </br>
-    Password: <input type="password" placeholder="enter your password" name="password" required/>
-    </br>
-    <input type="submit" value="login" />
-</form>
-
+    </form>
 
     <br>
+
     <h2> New User Signup here</h2>
     <button id="new signup" onclick="SignupFun()">New User CLick here</button>
 
-
 </div>
 
-
-
-
-
-
-<br>
-<br>
-
-
-
+<br><br>
 
 <div id="signupDiv">
 
+    <form action="signup" method="post">
 
+        Name       : <input type="text" name="name" required/>  <br>
+        Email Id   : <input type="text" name="email" required/> <br>
+        Phone      : <input type="text" name="phone"/> <br>
 
-
-<form action="signup" method="post">
-
-    Name  : <input type="text" name="name" required/>  <br>
-    Email Id: <input type="text" name="email" required/> <br>
-    Phone : <input type="text" name="phone"/> <br>
-<%--    Department: <input type="text" name="dept" required/> <br>--%>
-Department :
-    <select name="dept">
+        Department : <select name="dept">
         <c:forEach items="${deptList}" var="s">
             <option value="${s}">${s}</option>
         </c:forEach>
     </select>
 
-    <br>
+        <br>
 
-    Password: <input type="password" name="password" required/> <br>
-            <input type="submit" value="signup"/> <br>
+        Password   : <input type="password" name="password" required/> <br>
+        <input type="submit" value="signup"/> <br>
 
-</form>
+    </form>
 
-    <br>
-    <br>
+    <br><br>
 
     <button id="old login" onclick="loginFun()">Already a User </button>
 
-
 </div>
-
-
-
 </body>
 </html>
