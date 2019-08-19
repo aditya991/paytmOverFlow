@@ -71,6 +71,7 @@
 
 <%
     List deptList =(List) request.getAttribute("deptList");
+    request.setAttribute("deptList",deptList);
 %>
 
 <div id="loginDiv">
@@ -124,8 +125,7 @@
     Name  : <input type="text" name="name" required/>  <br>
     Email Id: <input type="text" name="email" required/> <br>
     Phone : <input type="text" name="phone"/> <br>
-<%--    Department: <input type="text" name="dept" required/> <br>--%>
-Department :
+    Department :
     <select name="dept">
         <c:forEach items="${deptList}" var="s">
             <option value="${s}">${s}</option>
