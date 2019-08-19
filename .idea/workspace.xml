@@ -9,25 +9,12 @@
   <component name="ChangeListManager">
     <list default="true" id="64c1fbb1-b356-4314-a7b3-18fec436fb59" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/configuration/DBConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/configuration/DBConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/controller/FeedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/controller/FeedController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/entity/Answer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/entity/Answer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/entity/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/entity/Question.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/userAnswers.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/userAnswers.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/userFeedGeneral.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/userFeedGeneral.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/userQuestions.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/userQuestions.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/configuration/DBConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/configuration/DBConfiguration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/controller/FeedController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/controller/FeedController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/entity/Answer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/entity/Answer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/entity/Question.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/entity/Question.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/loginSignup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/loginSignup.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/com.paytm.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/overflow.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/configuration/DBConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/configuration/DBConfiguration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/FeedController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/FeedController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/entity/Answer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/entity/Answer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/entity/Question.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/entity/Question.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/userAnswers.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/userAnswers.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/userFeedGeneral.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/userFeedGeneral.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/userQuestions.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/userQuestions.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/META-INF/com.paytm.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/overflow/loginSignup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/loginSignup.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -158,7 +145,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1566212168638</updated>
-      <workItem from="1566212174898" duration="3214000" />
+      <workItem from="1566212174898" duration="5048000" />
     </task>
     <servers />
   </component>

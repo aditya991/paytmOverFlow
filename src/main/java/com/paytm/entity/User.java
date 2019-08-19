@@ -92,13 +92,6 @@ public class User extends AbstractEntity  {
         this.phone = phone;
     }
 
-
-
-
-
-
-
-
     @Override
     public String toString() {
         return "User{" +
