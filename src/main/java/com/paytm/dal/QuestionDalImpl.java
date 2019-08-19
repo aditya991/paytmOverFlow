@@ -70,5 +70,11 @@ public class QuestionDalImpl {
         return questionRepo.getUserByQuestionId(id);
     }
 
-    public Question getQuestionByNameMethod(String quesName) { return questionRepo.getQuestionByName(quesName); }
+    public Question getQuestionByNameMethod(String quesName) {
+        return questionRepo.getQuestionByName(quesName);
+    }
+
+    public Question getQuestionByQuestionIdMethod(int qid){
+        return questionRepo.getQuestionByQuestionId(qid);
+    }
 }

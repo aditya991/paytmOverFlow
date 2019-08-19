@@ -44,6 +44,7 @@ public class AnswerServiceImpl implements AnswerService
     @Override
     public List<Answer> findAllAnswerByQuestionService(Question q)
     {
+        System.out.println(("Inside findAllAnswerByQuestionService"));
         return answerDal.findAllAnswerByQuestionMethod(q);
     }
 }

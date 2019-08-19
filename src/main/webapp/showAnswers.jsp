@@ -18,7 +18,7 @@
             width:800px;
             margin: 0 auto;
             border:1px solid #bbb;
-            margin-top: 150px;
+            margin-top: 70px;
         }
         .titleBox {
             background-color:#FFE933;
@@ -33,6 +33,7 @@
         .commentBox {
             padding:10px;
             border-top:1px dotted #bbb;
+            background-color:#F7F7AF;
         }
         .commentBox .form-group:first-child, .actionBox .form-group:first-child {
             width:80%;
@@ -49,7 +50,7 @@
         .commentList {
             padding:0;
             list-style:none;
-            max-height:200px;
+            max-height:500px;
             overflow:auto;
         }
         .commentList li {
@@ -87,7 +88,11 @@
 
     <div class="detailBox">
         <div class="titleBox">
-            <label>Asked By: <%=request.getAttribute("questionOwnerName")%></label>
+            <label>
+                Asked By : <span class="text"><%=request.getAttribute("user")%></span>
+                <span class="sub-text"></span>
+                <span style="margin-left: 620px;" class="text">#<%=request.getAttribute("ques_id")%></span>
+            </label>
         </div>
 
         <div class="commentBox">
@@ -99,24 +104,21 @@
             String s=(String )request.getAttribute("ques");
             request.setAttribute("quesName",s);
         %>
-
         <div class="actionBox">
             <ul class="commentList">
-                <c:forEach items="${Alist}" var="ans">
+                <c:forEach items="${Alist}" var="s">
                     <li>
                         <div class="commentText">
-                            <p class="">${ans.answer}</p> <span class="date sub-text">answered ${ans.created} <br/> By ${ans.user.u_name}</span>
-
+                            <p class="">${s.answer}</p> <span class="date sub-text">answered ${s.created} <br/> By ${s.user.u_name}</span>
                         </div>
                     </li>
                 </c:forEach>
             </ul>
 
-<%--            entering new answer--%>
-            <form class="form-inline" role="form" action="giveAnswer" method="post">
+            <form class="form-inline" role="form" action="answer" method="post">
                 <div class="form-group">
                     <input class="form-control" type="text" placeholder="Write your answer here..." name="answer" />
-                    <input type="text" style="display:none" name="question" value="${quesName}"/>
+                    <input type="text" style="display:none" name="ques" value="<%=request.getAttribute("ques_id")%>"/>
                 </div>
                 <div class="form-group">
                     <input type="submit" value="Reply" name="action"/>

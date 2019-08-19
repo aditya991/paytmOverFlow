@@ -41,6 +41,18 @@ To change this template use File | Settings | File Templates.
                     <input name="selectedQuestion" type="radio" value="${ques.question}" />
                     <textarea placeholder="${ques.question}" style="font-size:18pt;height:80px;width:300px;border:1px dashed blue;" readonly="true"></textarea>
                 </div>
+                <div class="reveal-if-active" style=
+                            "opacity: 0;
+                             max-height: 0;
+                             overflow: hidden;
+                             transform: scale(0.8);
+                             transition: 0.5s;
+                             input[type="radio"]:checked ~ &"
+                 >
+
+                 Anything you want in here.
+
+                 </div>
             <br/>
         </c:forEach>
     <br/><br/>

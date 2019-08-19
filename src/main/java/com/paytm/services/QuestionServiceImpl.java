@@ -12,7 +12,7 @@ import java.util.List;
 
 
 @Service
-public class QuestionServiceImpl implements QuestionService{
+public class QuestionServiceImpl implements QuestionService {
 
 
     @Autowired
@@ -27,16 +27,16 @@ public class QuestionServiceImpl implements QuestionService{
     DeptDal deptDal;
 
     @Override
-    public boolean AddQuestionService(String department, String question ,String email) {
+    public boolean AddQuestionService(String department, String question, String email) {
         System.out.println("in question service");
-        System.out.println(department+"      "+ question+"          "+ email);
+        System.out.println(department + "      " + question + "          " + email);
 
-        User user=userService.findUserByEmailService(email);
-        Dept d =deptDal.findDeptByNameMethod(department);
+        User user = userService.findUserByEmailService(email);
+        Dept d = deptDal.findDeptByNameMethod(department);
 
         System.out.println(user);
 
-        Question q=new Question();
+        Question q = new Question();
         q.setQuestion(question);
         q.setDept(d);
         q.setUser(user);
@@ -45,33 +45,40 @@ public class QuestionServiceImpl implements QuestionService{
     }
 
     @Override
-    public boolean UpdateQuestionService(String question,String UpdateQuestion) {
-        questionDal.UpdateQuestionMethod(question,UpdateQuestion);
+    public boolean UpdateQuestionService(String question, String UpdateQuestion) {
+        questionDal.UpdateQuestionMethod(question, UpdateQuestion);
         return true;
     }
 
     @Override
     public boolean DeleteQuestionService(String question) {
-        Question ques=questionRepo.getQuestionByName(question);
+        Question ques = questionRepo.getQuestionByName(question);
         questionDal.DeleteQuestionMethod(ques.getQuestion_Id());
         return true;
     }
 
     @Override
     public List<Question> showAllQuestionService(String email) {
-        User user=userService.findUserByEmailService(email);
-        System.out.println("in showAllquestion   "+user.getU_id());
-        List<Question> l= questionDal.showAllQuestionMethod(user);
+        User user = userService.findUserByEmailService(email);
+        System.out.println("in showAllquestion   " + user.getU_id());
+        List<Question> l = questionDal.showAllQuestionMethod(user);
         return l;
     }
 
     @Override
-    public User getUserByQuestionIdService(int id){
+    public User getUserByQuestionIdService(int id) {
         return questionDal.getUserByQuestionIdMethod(id);
     }
 
     @Override
-    public Question getQuestionByNameService(String quesName){
+    public Question getQuestionByNameService(String quesName) {
         return questionDal.getQuestionByNameMethod(quesName);
     }
+
+    @Override
+    public Question getQuestionByQuestionIdService(int id)
+    {
+        return questionDal.getQuestionByQuestionIdMethod(id);
+    }
+
 }

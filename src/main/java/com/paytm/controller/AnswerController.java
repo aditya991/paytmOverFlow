@@ -12,14 +12,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
-import javax.persistence.EntityManagerFactory;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
+import java.util.List;
 /*
  * @author: aditya10.kumar
  * @created: 06/08/19
@@ -37,54 +35,35 @@ public class AnswerController
     @Autowired
     private QuestionServiceImpl questionService;
 
-    @RequestMapping(value="/showAnswer", method= RequestMethod.POST)
-    public ModelAndView showAnswer(HttpServletRequest request, HttpServletResponse response)
-    {
-        ModelAndView mv=new ModelAndView();
-        String quesName = request.getParameter("selectedQuestion");
-        String email= (String) request.getSession().getAttribute("email");
 
-        Question ques = questionService.getQuestionByNameService(quesName);
+    @RequestMapping(value="/answer", method= RequestMethod.POST)
+    public ModelAndView answerGiven(HttpServletRequest request, HttpServletResponse response) {
+
+        int q_id = Integer.parseInt(request.getParameter("ques"));
+        Question ques = questionService.getQuestionByQuestionIdService(q_id);
+
+        String email = (String) request.getSession().getAttribute("email");
         User u = userService.findUserByEmailService(email);
 
-        String questionOwnerName = ques.getUser().getU_name();
-
-        Date quesCreated = ques.getUpdated();
-        SimpleDateFormat formatter = new SimpleDateFormat("dd MMMM yyyy");
-        String questionCreated = formatter.format(quesCreated);
-
-        /*Answer ans=new Answer();
-        ans.setAnswer(answer);
+        Answer ans = new Answer();
+        ans.setAnswer(request.getParameter("answer"));
         ans.setUser(u);
         ans.setQuestion(ques);
-        answerService.saveAnswerService(ans);*/
-
-        List<Answer> answersList= answerService.findAllAnswerByQuestionService(ques);
-
-        mv.setViewName("showAnswers.jsp");
-        mv.addObject("ques_id", ques.getQuestion_Id());
-        mv.addObject("ques", quesName);
-        mv.addObject("Alist", answersList);
-        mv.addObject("questionOwnerName",questionOwnerName);
-        mv.addObject("questionCreationTime",questionCreated);
-        return mv;
-    }
-
-    @RequestMapping(value="/giveAnswer", method= RequestMethod.POST)
-    public ModelAndView giveAnswer(HttpServletRequest request,HttpServletResponse response){
-
-        Answer ans = new Answer();
-        String email= (String) request.getSession().getAttribute("email");
-
-        ans.setAnswer(request.getParameter("answer"));
-        ans.setUser(userService.findUserByEmailService(email));
-        ans.setQuestion(questionService.getQuestionByNameService(request.getParameter("question")));
         ans.setCreated(new Date());
         ans.setUpdated(new Date());
-
         answerService.saveAnswerService(ans);
 
-        return showAnswer(request,response);
+        List<Answer> answersList = answerService.findAllAnswerByQuestionService(ques);
+
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("showAnswers.jsp");
+        mv.addObject("user", u.getU_name());
+        mv.addObject("askDate",ques.getCreated());
+        mv.addObject("ques_id", ques.getQuestion_Id());
+        mv.addObject("ques", ques.getQuestion());
+        mv.addObject("Alist", answersList);
+
+        return mv;
     }
 
     @RequestMapping(value="/answer", method= RequestMethod.DELETE)
@@ -100,42 +79,30 @@ public class AnswerController
         answerService.updateAnswerByAnswerIdService(ans_id, answer);
     }
 
- /*
-    @RequestMapping("/showAnswer")
+    @RequestMapping(value="/answer",method= RequestMethod.GET)
     public ModelAndView showAnswer(HttpServletRequest request, HttpServletResponse response)
     {
+        String quesName = request.getParameter("selectedQuestion");
+        Question q = questionService.getQuestionByNameService(quesName);
 
-        System.out.println("Here in showAnswer");
-        //int ques_id=Integer.parseInt(request.getParameter("ques_id"));
-        Question q1=new Question();
-        q1.setQuestion_Id(1);
-        q1.setQuestion("how to shop on paytm mall");
-//        q1.setCreated(new Date());
-//        q1.setUpdated(new Date());
-
-        Question q=q1;
-        //Question q= (Question) request.getAttribute("ques");
-        System.out.println("Here in showAnswer------1");
-        //retrieve user & user_id using ques id
         int id= q.getQuestion_Id();
         User u=questionService.getUserByQuestionIdService(id);
 
-        //retrieve question date from question id
-        //Date d=q.getCreated();
-        System.out.println("Here in showAnswer-----------2");
-        //retrieve all answers from question id
+        Date quesCreated = q.getUpdated();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd MMMM yyyy");
+        String questionCreated = formatter.format(quesCreated);
+
         List<Answer> Alist= answerService.findAllAnswerByQuestionService(q);
 
         System.out.println(u.getU_name());
 
         ModelAndView mv=new ModelAndView();
         mv.setViewName("showAnswers.jsp");
-        mv.addObject("ques_id", "id");
+        mv.addObject("user", u.getU_name());
+        mv.addObject("ques_id", 1);
         mv.addObject("ques", q.getQuestion());
         mv.addObject("Alist", Alist);
+        mv.addObject("questionCreationTime",questionCreated);
         return mv;
     }
-
- */
-
 }

@@ -27,7 +27,7 @@
         S = "";
 %>
 
-<form action ="showAnswer" method = "post">
+<form action ="answer" method = "get">
 
     <%
         Iterator<Dept> iterator=listDept.iterator();

@@ -14,4 +14,5 @@ public interface QuestionService {
     List<Question> showAllQuestionService(String email);
     User getUserByQuestionIdService(int id);
     Question getQuestionByNameService(String quesName);
+    Question getQuestionByQuestionIdService(int id);
 }

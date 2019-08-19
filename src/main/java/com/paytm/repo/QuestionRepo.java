@@ -31,5 +31,14 @@ public interface QuestionRepo extends JpaRepository<Question,Integer> {
     @Query("update Question q SET q.question =:UpdateQuestion WHERE q.question=:question")
     void updateQuestionByName(@Param("UpdateQuestion") String UpdateQuestion, @Param("question")String question);
 
+    /**
+     * created by Aditya
+     * @param id
+     * @return User
+     */
+
+    @Query("select q from Question q where q.question_Id=:id")
+    Question getQuestionByQuestionId(@Param("id") int id);
+
     //select q.question from Question q , Interest i ,Dept d where q.user_u_id = i.u_id and i.dept_id = d.dept_id and q.department = d.dept_name;
 }

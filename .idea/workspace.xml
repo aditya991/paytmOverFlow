@@ -7,58 +7,44 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="881b3510-b370-44ac-89c5-b90727b48ba9" name="Default Changelist" comment="">
+    <list default="true" id="64c1fbb1-b356-4314-a7b3-18fec436fb59" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/_gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/_gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/userQuestions.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/userQuestions.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/controller/AnswerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/controller/AnswerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/dal/AnswerDal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/dal/AnswerDal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/dal/QuestionDalImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/dal/QuestionDalImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/repo/QuestionRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/repo/QuestionRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/services/AnswerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/services/AnswerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/services/QuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/services/QuestionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/services/QuestionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/services/QuestionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/showAnswers.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/showAnswers.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/userFeedGeneral.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/userFeedGeneral.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/controller/AnswerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/controller/AnswerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/dal/AnswerDal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/dal/AnswerDal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/dal/QuestionDalImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/dal/QuestionDalImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/repo/QuestionRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/repo/QuestionRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/services/AnswerServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/services/AnswerServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/services/QuestionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/services/QuestionService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/services/QuestionServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/services/QuestionServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/overflow.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/AnswerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/AnswerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/dal/AnswerDal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/dal/AnswerDal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/dal/QuestionDalImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/dal/QuestionDalImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/repo/QuestionRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/repo/QuestionRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/services/AnswerServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/services/AnswerServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/services/QuestionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/services/QuestionService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/services/QuestionServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/services/QuestionServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/overflow/showAnswers.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/showAnswers.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/overflow/userFeedGeneral.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/userFeedGeneral.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/overflow/userQuestions.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/userQuestions.jsp" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="FxmlFile" />
-        <option value="spring-beans.schema" />
-        <option value="Interface" />
-        <option value="Class" />
-        <option value="Jsp File" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
-    <favorite-branches>
-      <branch-storage>
-        <map>
-          <entry type="LOCAL">
-            <value>
-              <list>
-                <branch-info repo="$PROJECT_DIR$" source="aditya" />
-              </list>
-            </value>
-          </entry>
-          <entry type="REMOTE">
-            <value>
-              <list>
-                <branch-info repo="$PROJECT_DIR$" source="origin/aditya" />
-              </list>
-            </value>
-          </entry>
-        </map>
-      </branch-storage>
-    </favorite-branches>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="IgnoredFileRootStore">
-    <option name="generatedRoots">
-      <set>
-        <option value="$PROJECT_DIR$/.idea" />
-      </set>
-    </option>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -67,37 +53,11 @@
     <option name="FILTER_DEBUG" value="false" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
-  </component>
-  <component name="ProjectId" id="1P2y9posEFfHGxbLJeHecZCs8Qz" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/webapp" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/errors" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF" />
-      <recent name="$PROJECT_DIR$/src/main/java/com/paytm" />
-    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -111,90 +71,15 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.22">
-    <configuration name="Tomcat 9.0.22" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.22" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080//" />
+  <component name="RunManager">
+    <configuration name="paytmOverFlowServer" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.22" ALTERNATIVE_JRE_ENABLED="false">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
-        <artifact name="com.paytm:war exploded">
-          <settings>
-            <option name="CONTEXT_PATH" value="/com_paytm_war_exploded" />
-          </settings>
-        </artifact>
         <artifact name="com.paytm:war">
           <settings>
             <option name="CONTEXT_PATH" value="/com_paytm_war" />
           </settings>
         </artifact>
-      </deployment>
-      <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="Tomcat_9_0_148_paytmOverFlow_2" />
-      </server-settings>
-      <predefined_log_file enabled="true" id="Tomcat" />
-      <predefined_log_file enabled="true" id="Tomcat Catalina" />
-      <predefined_log_file id="Tomcat Manager" />
-      <predefined_log_file id="Tomcat Host Manager" />
-      <predefined_log_file id="Tomcat Localhost Access" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="38459" />
-      </RunnerSettings>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <method v="2">
-        <option name="Make" enabled="true" />
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="com.paytm:war exploded" />
-          <artifact name="com.paytm:war" />
-        </option>
-      </method>
-    </configuration>
-    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.148" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080//" />
-      <option name="UPDATING_POLICY" value="restart-server" />
-      <deployment>
         <artifact name="com.paytm:war exploded">
           <settings>
             <option name="CONTEXT_PATH" value="/com_paytm_war_exploded" />
@@ -202,7 +87,9 @@
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="_paytmOverFlow" />
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_paytmOverFlow_2" />
+        <option name="HTTP_PORT" value="8081" />
+        <option name="JNDI_PORT" value="1098" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -210,7 +97,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="38459" />
+        <option name="DEBUG_PORT" value="50198" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -260,151 +147,27 @@
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="com.paytm:war exploded" />
           <artifact name="com.paytm:war" />
+          <artifact name="com.paytm:war exploded" />
         </option>
       </method>
     </configuration>
-    <configuration name="index.jsp" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 9.0.22" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/index.jsp" />
-      <option name="UPDATING_POLICY" value="restart-server" />
-      <deployment>
-        <artifact name="com.paytm:war exploded">
-          <settings>
-            <option name="CONTEXT_PATH" value="/com_paytm_war_exploded" />
-          </settings>
-        </artifact>
-      </deployment>
-      <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="_paytmOverFlow" />
-      </server-settings>
-      <predefined_log_file enabled="true" id="Tomcat" />
-      <predefined_log_file enabled="true" id="Tomcat Catalina" />
-      <predefined_log_file id="Tomcat Manager" />
-      <predefined_log_file id="Tomcat Host Manager" />
-      <predefined_log_file id="Tomcat Localhost Access" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="38459" />
-      </RunnerSettings>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <method v="2">
-        <option name="Make" enabled="true" />
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="com.paytm:war exploded" />
-          <artifact name="com.paytm:war" />
-        </option>
-      </method>
-    </configuration>
-    <list>
-      <item itemvalue="Tomcat Server.Tomcat 9.0.22" />
-      <item itemvalue="Tomcat Server.index.jsp" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Tomcat Server.index.jsp" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="ca294d28-5e16-4a04-b245-095182d6efb9" name="Default Changelist" comment="" />
-      <created>1565086337003</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1565086337003</updated>
-      <workItem from="1565086341041" duration="51362000" />
-      <workItem from="1565256157766" duration="53689000" />
-      <workItem from="1565468735541" duration="17157000" />
-      <workItem from="1565603566665" duration="9526000" />
-      <workItem from="1565671987655" duration="34906000" />
-    </task>
-    <task id="LOCAL-00001" summary="Paytm Overflow">
-      <created>1565089028672</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1565089028672</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Paytm Overflow" />
-    <option name="LAST_COMMIT_MESSAGE" value="Paytm Overflow" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/paytm/Filter/LoginFilter.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
