@@ -73,4 +73,10 @@ public class QuestionServiceImpl implements QuestionService{
     {
         return  questionDal.getUserByQuestionIdMethod(id);
     }
+
+    @Override
+    public Question getQuestionByQuestionIdService(int id)
+    {
+        return questionDal.getQuestionByQuestionIdMethod(id);
+    }
 }

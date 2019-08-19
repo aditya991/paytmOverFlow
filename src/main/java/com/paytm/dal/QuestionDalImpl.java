@@ -1,5 +1,6 @@
 package com.paytm.dal;
 
+import com.paytm.entity.Question;
 import com.paytm.entity.User;
 import com.paytm.repo.QuestionRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,5 +17,11 @@ public class QuestionDalImpl implements QuestionDal
     public User getUserByQuestionIdMethod(int id)
     {
         return questionRepo.getUserByQuestionId(id);
+    }
+
+    @Override
+    public Question getQuestionByQuestionIdMethod(int id)
+    {
+        return questionRepo.getQuestionByQuestionId(id);
     }
 }

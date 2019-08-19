@@ -18,7 +18,7 @@
             width:800px;
             margin: 0 auto;
             border:1px solid #bbb;
-            margin-top: 150px;
+            margin-top: 70px;
         }
         .titleBox {
             background-color:#FFE933;
@@ -33,6 +33,7 @@
         .commentBox {
             padding:10px;
             border-top:1px dotted #bbb;
+            background-color:#F7F7AF;
         }
         .commentBox .form-group:first-child, .actionBox .form-group:first-child {
             width:80%;
@@ -49,7 +50,7 @@
         .commentList {
             padding:0;
             list-style:none;
-            max-height:200px;
+            max-height:500px;
             overflow:auto;
         }
         .commentList li {
@@ -86,7 +87,12 @@
 <body>
     <div class="detailBox">
         <div class="titleBox">
-            <label>Asked By: User Name & Question ID</label>
+            <label>
+                Asked By : <span class="text"><%=request.getAttribute("user")%></span>
+                <span class="sub-text"></span>
+                <span style="margin-left: 620px;" class="text">#<%=request.getAttribute("ques_id")%></span>
+            </label>
+<%--            <label><span class="date sub-text"><%=request.getAttribute("askDate")%></span></label>--%>
         </div>
 
         <div class="commentBox">
@@ -96,13 +102,12 @@
         <% List<Answer> Alist= (List<Answer>) request.getAttribute("Alist");
             int size=Alist.size();
         %>
-
         <div class="actionBox">
             <ul class="commentList">
                 <c:forEach items="${Alist}" var="s">
                     <li>
                         <div class="commentText">
-                            <p class="">${s.answer}</p> <span class="date sub-text">${s.created}</span>
+                            <p class="">${s.answer}</p> <span class="date sub-text">on ${s.created}</span>
 
                         </div>
                     </li>
@@ -112,7 +117,7 @@
             <form class="form-inline" role="form" action="answer" method="post">
                 <div class="form-group">
                     <input class="form-control" type="text" placeholder="Write your answer here..." name="answer" />
-                    <input type="text" style="display:none" name="ques" value="<%Alist.get(0).getQuestion();%>"/>
+                    <input type="text" style="display:none" name="ques" value="<%=request.getAttribute("ques_id")%>"/>
                 </div>
                 <div class="form-group">
                     <input type="submit" value="Reply" name="action"/>

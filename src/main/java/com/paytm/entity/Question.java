@@ -54,4 +54,14 @@ public class Question //extends AbstractEntity
     public void setQuestion_Id(Integer question_Id) {
         this.question_Id = question_Id;
     }
+
+    @Override
+    public String toString() {
+        return "Question{" +
+                "question_Id=" + question_Id +
+                ", question='" + question + '\'' +
+                ", department='" + department + '\'' +
+                ", user=" + user +
+                '}';
+    }
 }

@@ -36,7 +36,10 @@ public interface QuestionRepo extends JpaRepository<Question,Integer> {
      * @return User
      */
     @Query("select q.user from Question q where q.question_Id=:id")
-        User getUserByQuestionId(@Param("id") int id);
+    User getUserByQuestionId(@Param("id") int id);
+
+    @Query("select q from Question q where q.question_Id=:id")
+    Question getQuestionByQuestionId(@Param("id") int id);
 
         //select q.question from Question q , Interest i ,Dept d where q.user_u_id = i.u_id and i.dept_id = d.dept_id and q.department = d.dept_name;
 }

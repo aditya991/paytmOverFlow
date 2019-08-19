@@ -9,4 +9,5 @@ public interface QuestionService {
     boolean DeleteQuestionService(Integer Ques_Id);
     boolean ValidUser(Integer Ques_Id);
     User getUserByQuestionIdService(int id);
+    Question getQuestionByQuestionIdService(int id);
 }

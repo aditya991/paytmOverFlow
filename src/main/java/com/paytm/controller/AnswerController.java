@@ -11,13 +11,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
-import javax.persistence.EntityManagerFactory;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.Date;
 import java.util.List;
-
 /*
  * @author: aditya10.kumar
  * @created: 06/08/19
@@ -42,8 +38,12 @@ public class AnswerController
         String answer=request.getParameter("answer");
         System.out.println(answer);
 
-        Question ques= (Question)request.getAttribute("ques");
-        System.out.println(ques.getQuestion());
+        int q_id= Integer.parseInt(request.getParameter("ques"));
+//        Question ques= (Question)request.getAttribute("ques");
+
+        System.out.println(q_id);
+
+        Question ques=questionService.getQuestionByQuestionIdService(q_id);
 
         String email= (String) request.getSession().getAttribute("email");
         System.out.println(email);
@@ -65,6 +65,7 @@ public class AnswerController
 
         ModelAndView mv=new ModelAndView();
         mv.setViewName("showAnswers.jsp");
+        mv.addObject("user", u.getU_name());
         mv.addObject("ques_id", ques.getQuestion_Id());
         mv.addObject("ques", ques.getQuestion());
         mv.addObject("Alist", Alist);
@@ -104,7 +105,7 @@ public class AnswerController
         //retrieve user & user_id using ques id
         int id= q.getQuestion_Id();
         User u=questionService.getUserByQuestionIdService(id);
-
+        System.out.println("id is"+id);
         //retrieve question date from question id
         //Date d=q.getCreated();
         System.out.println("Here in showAnswer-----------2");
@@ -115,7 +116,9 @@ public class AnswerController
 
         ModelAndView mv=new ModelAndView();
         mv.setViewName("showAnswers.jsp");
-        mv.addObject("ques_id", "id");
+        mv.addObject("user", u.getU_name());
+        //mv.addObject("askDate", q.created);
+        mv.addObject("ques_id", 1);
         mv.addObject("ques", q.getQuestion());
         mv.addObject("Alist", Alist);
         return mv;

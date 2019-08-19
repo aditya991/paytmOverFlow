@@ -51,6 +51,7 @@ public class AnswerDal
 
     public List<Answer> findAllAnswerByQuestionMethod(Question q)
     {
+        System.out.println(("Inside findAllAnswerByQuestionMethod"));
         return answerRepo.findAllAnswerByQuestion(q);
     }
 }
