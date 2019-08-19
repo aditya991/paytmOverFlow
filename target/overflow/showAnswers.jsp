@@ -13,12 +13,6 @@
 <html>
 <title></title>
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous">
-    </script>
-    <script src="jquery.emojiarea.js"></script>
     <style>
         .detailBox {
             width:800px;
@@ -123,7 +117,7 @@
             </ul>
 <%--            entering new answer--%>
             <form class="form-inline" role="form" action="answer" method="post">
-                <div class="form-group">
+                <div class="form-group" >
                     <input class="form-control" type="text" placeholder="Write your answer here..." name="answer" />
                     <input type="text" style="display:none" name="ques" value="<%=request.getAttribute("ques_id")%>"/>
                 </div>
@@ -132,11 +126,6 @@
                 </div>
             </form>
         </div>
-    </div>
-
-    <div data-emojiarea data-type="image" data-global-picker="false">
-        <i class="emoji emoji-smile emoji-button">&#x1f604;</i>
-        <textarea>&#x1f604;</textarea>
     </div>
 </body>
 </html>

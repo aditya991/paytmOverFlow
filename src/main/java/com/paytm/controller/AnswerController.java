@@ -114,7 +114,7 @@ public class AnswerController
         Date createdDate= q.getCreated();
         SimpleDateFormat formatter=new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         String askDate=formatter.format(createdDate);
-
+        //System.out.println("Qwerty"+request.getContextPath());
         System.out.println(u.getU_name());
 
         ModelAndView mv=new ModelAndView();
