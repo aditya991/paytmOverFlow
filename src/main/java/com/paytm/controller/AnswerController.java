@@ -97,23 +97,17 @@ public class AnswerController
     @RequestMapping(value="/answer", method= RequestMethod.GET)
     public ModelAndView showAnswer(HttpServletRequest request, HttpServletResponse response)
     {
-        //int ques_id=Integer.parseInt(request.getParameter("ques_id"));
-//        Question q1=new Question();
-//        q1.setQuestion_Id(1);
-//        q1.setQuestion("how to shop on paytm mall");
-//        q1.setCreated(new Date());
-//        q1.setUpdated(new Date());
-//        Question q=q1;
-
         Question q= (Question) request.getAttribute("ques");
+
         System.out.println("Here in showAnswer------1");
+
         //retrieve user & user_id using ques id
         int id= q.getQuestion_Id();
         User u=questionService.getUserByQuestionIdService(id);
         System.out.println("id is"+id);
-        //retrieve question date from question id
-        //Date d=q.getCreated();
+
         System.out.println("Here in showAnswer-----------2");
+
         //retrieve all answers from question id
         List<Answer> Alist= answerService.findAllAnswerByQuestionService(q);
 
