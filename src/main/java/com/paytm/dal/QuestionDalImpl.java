@@ -70,15 +70,7 @@ public class QuestionDalImpl implements QuestionDal {
 
     @Override
     public List<Question> showAllQuestionMethod(User user) {
-        System.out.println("inside showAll");
 
         return questionRepo.getQuestionByUser(user);
-
-        //  List<Question> QuestionList = r
-
-
-
-
-        // return QuestionList;
     }
 }

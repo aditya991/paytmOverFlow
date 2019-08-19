@@ -1,6 +1,7 @@
 package com.paytm.repo;
 import com.paytm.entity.Question;
 import com.paytm.entity.User;
+import com.paytm.entity.Dept;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -14,6 +15,8 @@ public interface QuestionRepo extends JpaRepository<Question,Integer> {
 
     @Query("select q from Question q where q.user = :user")
     List<Question> getQuestionByUser(@Param("user") User user);
+
+
 
     @Query("select  q from Question  q where q.question=:question")
     Question getQuestionByName(@Param("question")String question);
