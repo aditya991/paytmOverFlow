@@ -48,27 +48,3 @@ To change this template use File | Settings | File Templates.
 
 </body>
 </html>
-
-                <!--
-                <div class="modal fade" id="myModal" role="dialog">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-
-                              <div class="modal-header">
-                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                  <h4 class="modal-title" style="text-align: center">Update Your Question Here</h4>
-                              </div>
-
-                              <div class="modal-body">
-                                  <form action = "updateQuestion" method = "post">
-                                  <input type="hidden" name="selectedQuestion" value="" />
-                                  <textarea name="updatedQuestion" style="font-size:18pt;height:80px;width:850px;"></textarea>
-                                  <input type = "submit"  name = "option" value = "Update">
-                                  </form>
-                              </div>
-
-
-                        </div>
-                    </div>
-                </div>
-                 -->
