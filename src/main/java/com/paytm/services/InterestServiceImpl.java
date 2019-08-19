@@ -6,7 +6,6 @@ import com.paytm.entity.Interest;
 import com.paytm.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -53,9 +52,15 @@ public class InterestServiceImpl implements InterestService {
     }
 
     @Override
-    public List<String> showAllInterestService(User u) {
+    public List<String> getUserAllInterestNamesService(User u) {
         Integer u_id = u.getU_id();
-        return interestDal.showAllInterestMethod(u_id);
+        return interestDal.getUserAllInterestNamesMethod(u_id);
+    }
+
+    @Override
+    public List<Dept> getUserAllInterestService(User u) {
+        Integer u_id = u.getU_id();
+        return interestDal.getUserAllInterestMethod(u_id);
     }
 
     @Override

@@ -18,4 +18,8 @@ public interface InterestRepo extends JpaRepository<Interest,Integer> {
 
     @Query("select i.dept_id from Interest i where i.u_id = :uid")
     public List<Integer> getDeptIdbyUId(@Param("uid") int uid);
+
+    /*@Query("select i.dept_id from Interest i where i.dept_id = :uid")
+    public Interest getInterestByDeptId(@Param("deptid") int deptid);*/
+
 }

@@ -2,6 +2,7 @@ package com.paytm.entity;
 
 import javax.persistence.*;
 
+import java.util.List;
 import java.util.Set;
 
 /*
@@ -42,7 +43,6 @@ public class User extends AbstractEntity  {
 
     @ManyToOne
     private Dept dept;
-
 
     public Dept getDept() {
         return dept;

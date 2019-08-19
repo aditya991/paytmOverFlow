@@ -60,10 +60,10 @@
 
 <br/>
 <form action="questionfeed" method="post">
-    <input type="submit"  value="Show my Questions">
+    <input type="submit"  value="Show my asked Questions">
 </form>
 <form action="answerfeed" method="post">
-    <input type="submit"  value="Show my Answers">
+    <input type="submit"  value="Show my given Answers">
 </form>
 <br/>
 
@@ -73,8 +73,6 @@
 
 <br/>
 <br/>
-
-<a href="userFeed.jsp">Click here to see your FEED!</a>
 
 </body>
 </html>
