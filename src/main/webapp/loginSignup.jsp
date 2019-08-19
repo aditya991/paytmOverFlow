@@ -68,20 +68,16 @@
 
     <form action="login" method="post" >
 
-        Email ID: <input type="text" placeholder="enter your email address" name="email" required/>
-        </br>
-        Password: <input type="password" placeholder="enter your password" name="password" required/>
-        </br>
+        Email ID : <input type="text" placeholder="enter your email address" name="email" required/></br>
+        Password : <input type="password" placeholder="enter your password" name="password" required/></br>
         <input type="submit" value="login" name="action"/>
 
     </form>
 
     <form action="adminLogin" method="post">
 
-        Admin Email ID: <input type="text" placeholder="enter your email address" name="email" required/>
-        </br>
-        Password: <input type="password" placeholder="enter your password" name="password" required/>
-        </br>
+        Admin Email ID : <input type="text" placeholder="enter your email address" name="email" required/></br>
+        Password       : <input type="password" placeholder="enter your password" name="password" required/></br>
         <input type="submit" value="login" />
 
     </form>
@@ -104,16 +100,15 @@
         Phone      : <input type="text" name="phone"/> <br>
 
         Department : <select name="dept">
-        <c:forEach items="${deptList}" var="s">
-            <option value="${s}">${s}</option>
-        </c:forEach>
-    </select>
+                     <c:forEach items="${deptList}" var="s">
+                         <option value="${s}">${s}</option>
+                     </c:forEach>
+                     </select>
 
         <br>
 
         Password   : <input type="password" name="password" required/> <br>
-        <input type="submit" value="signup"/> <br>
-
+                     <input type="submit" value="signup"/> <br>
     </form>
 
     <br><br>

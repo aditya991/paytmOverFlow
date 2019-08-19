@@ -66,6 +66,8 @@ public class QuestionDalImpl {
         return questionRepo.getQuestionByUser(user);
     }
 
+    public void incrementNoOfAnswersMethod(int qid) { questionRepo.incrementNoOfAnswers(qid); }
+
     public User getUserByQuestionIdMethod(int id){
         return questionRepo.getUserByQuestionId(id);
     }

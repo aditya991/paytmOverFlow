@@ -40,6 +40,11 @@ public class QuestionServiceImpl implements QuestionService {
         q.setQuestion(question);
         q.setDept(d);
         q.setUser(user);
+        q.setNoOfAnswers(0);
+
+        /*List<Question> questionsList =d.getQuestions();
+        questionsList.add(q);
+        d.setQuestions(questionsList);*/
 
         return questionDal.AddQuestionMethod(q);
     }
@@ -76,9 +81,13 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
-    public Question getQuestionByQuestionIdService(int id)
-    {
+    public Question getQuestionByQuestionIdService(int id) {
         return questionDal.getQuestionByQuestionIdMethod(id);
+    }
+
+    @Override
+    public void incrementNoOfAnswersService(int qid) {
+        questionDal.incrementNoOfAnswersMethod(qid);
     }
 
 }

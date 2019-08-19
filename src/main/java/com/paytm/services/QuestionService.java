@@ -15,4 +15,5 @@ public interface QuestionService {
     User getUserByQuestionIdService(int id);
     Question getQuestionByNameService(String quesName);
     Question getQuestionByQuestionIdService(int id);
+    void incrementNoOfAnswersService(int qid);
 }

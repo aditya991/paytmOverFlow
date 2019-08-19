@@ -38,6 +38,11 @@
             System.out.println(d.getDept_name());
             List<Question> questionsList=d.getQuestions();
 
+            System.out.println("questionsList start");
+            for (Question question : questionsList )
+                System.out.println(question.getQuestion());
+
+
             if(questionsList.isEmpty())
                 isEmpty = "No questions has been asked in this department till now.";
 
@@ -73,8 +78,7 @@
             <c:set var="name" value="you" />
         </c:if>
 
-        <font color="green">asked ${ques.updated}<br/>by  <c:out value="${name}" escapeXml="false" /><br/>
-        ${ques.answers.size()} answers
+        <font color="green">asked ${ques.updated}<br/>by  <c:out value="${name}" escapeXml="false" />${ques.noOfAnswers} answers<br/>
         </font>
         <br/><br/>
 

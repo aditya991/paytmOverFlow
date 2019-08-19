@@ -52,6 +52,7 @@ public class AnswerController
         ans.setCreated(new Date());
         ans.setUpdated(new Date());
         answerService.saveAnswerService(ans);
+        questionService.incrementNoOfAnswersService(ques.getQuestion_Id());
 
         List<Answer> answersList = answerService.findAllAnswerByQuestionService(ques);
 

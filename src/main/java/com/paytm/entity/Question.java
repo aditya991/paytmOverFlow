@@ -29,10 +29,12 @@ public class Question extends AbstractEntity {
     @JoinColumn(name = "dept_id", nullable = false)
     private Dept dept;
 
-    @OneToMany(cascade = CascadeType.ALL,
+    private int noOfAnswers;
+
+    /*@OneToMany(cascade = CascadeType.ALL,
             fetch = FetchType.EAGER,
             mappedBy = "question")
-    private List<Answer> answers = new ArrayList<>();
+    private List<Answer> answers;// = new ArrayList<>();
 
     public List<Answer> getAnswers() {
         return answers;
@@ -41,6 +43,7 @@ public class Question extends AbstractEntity {
     public void setAnswers(List<Answer> answers) {
         this.answers = answers;
     }
+    */
 
     public Dept getDept() {
         return dept;
@@ -74,4 +77,11 @@ public class Question extends AbstractEntity {
         this.question_Id = question_Id;
     }
 
+    public int getNoOfAnswers() {
+        return noOfAnswers;
+    }
+
+    public void setNoOfAnswers(int noOfAnswers) {
+        this.noOfAnswers = noOfAnswers;
+    }
 }

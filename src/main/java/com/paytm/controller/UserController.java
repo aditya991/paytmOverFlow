@@ -33,8 +33,6 @@ public class UserController
     @Autowired
     private LoginServiceImpl ls;
 
-
-
     @RequestMapping(value = "/indexPage" ,method = RequestMethod.GET)
     public  ModelAndView redirectToLogin(HttpServletRequest request,HttpServletResponse response)
     {

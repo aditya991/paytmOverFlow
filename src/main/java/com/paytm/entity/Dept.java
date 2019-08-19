@@ -26,7 +26,7 @@ public class Dept extends AbstractEntity {
     @OneToMany(cascade = CascadeType.ALL,
             fetch = FetchType.EAGER,
             mappedBy = "dept")
-    private List<Question> questions = new ArrayList<>();
+    private List<Question> questions;// = new ArrayList<>();
 
     public List<Question> getQuestions() {
         return questions;

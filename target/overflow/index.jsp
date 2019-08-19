@@ -10,7 +10,7 @@
     </script>
 </head>
 <body>
-<form method="get"  action="loginSignup.jsp" >
+<form action="indexPage" method="get">
     <input id="submitButton" class="button"  type="submit" value="Send" style="display: none;"mvn/>
 </form>
 </body>
