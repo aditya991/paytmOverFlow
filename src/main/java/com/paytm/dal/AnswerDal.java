@@ -5,6 +5,7 @@ package com.paytm.dal;
  */
 
 import com.paytm.entity.Answer;
+import com.paytm.entity.Question;
 import com.paytm.entity.User;
 import com.paytm.repo.AnswerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,5 +47,10 @@ public class AnswerDal
     public List<Answer> findAllAnswerByUserMethod(User user)
     {
         return answerRepo.findAllAnswerByUser(user);
+    }
+
+    public List<Answer> findAllAnswerByQuestionMethod(Question q)
+    {
+        return answerRepo.findAllAnswerByQuestion(q);
     }
 }

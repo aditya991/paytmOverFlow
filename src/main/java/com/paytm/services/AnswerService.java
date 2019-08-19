@@ -5,6 +5,7 @@ package com.paytm.services;
  */
 
 import com.paytm.entity.Answer;
+import com.paytm.entity.Question;
 import com.paytm.entity.User;
 
 import java.util.List;
@@ -15,4 +16,5 @@ public interface AnswerService
     public void deleteAnswerByAnswerIdService(int id);
     void saveAnswerService(Answer ans);
     List<Answer> findAllAnswerByUserService(User user);
+    List<Answer> findAllAnswerByQuestionService(Question q);
 }
