@@ -66,19 +66,6 @@ public class AnswerController
         return mv;
     }
 
-    @RequestMapping(value="/answer", method= RequestMethod.DELETE)
-    public void deleteAnswer(HttpServletRequest request, HttpServletResponse response) {
-        int id=Integer.parseInt(request.getParameter("answer_id"));
-        answerService.deleteAnswerByAnswerIdService(id);
-    }
-
-    @RequestMapping(value="/answer", method= RequestMethod.PUT)
-    public void updateAnswer(HttpServletRequest request, HttpServletResponse response) {
-        int ans_id= Integer.parseInt(request.getParameter("answer_id"));
-        String answer= request.getParameter("answer");
-        answerService.updateAnswerByAnswerIdService(ans_id, answer);
-    }
-
     @RequestMapping(value="/answer",method= RequestMethod.GET)
     public ModelAndView showAnswer(HttpServletRequest request, HttpServletResponse response)
     {
@@ -92,17 +79,30 @@ public class AnswerController
         SimpleDateFormat formatter = new SimpleDateFormat("dd MMMM yyyy");
         String questionCreated = formatter.format(quesCreated);
 
-        List<Answer> Alist= answerService.findAllAnswerByQuestionService(q);
+        List<Answer> answersList = answerService.findAllAnswerByQuestionService(q);
 
         System.out.println(u.getU_name());
 
         ModelAndView mv=new ModelAndView();
         mv.setViewName("showAnswers.jsp");
         mv.addObject("user", u.getU_name());
-        mv.addObject("ques_id", 1);
+        mv.addObject("askDate",questionCreated);
+        mv.addObject("ques_id", q.getQuestion_Id());
         mv.addObject("ques", q.getQuestion());
-        mv.addObject("Alist", Alist);
-        mv.addObject("questionCreationTime",questionCreated);
+        mv.addObject("Alist", answersList);
         return mv;
+    }
+
+    @RequestMapping(value="/answer", method= RequestMethod.DELETE)
+    public void deleteAnswer(HttpServletRequest request, HttpServletResponse response) {
+        int id=Integer.parseInt(request.getParameter("answer_id"));
+        answerService.deleteAnswerByAnswerIdService(id);
+    }
+
+    @RequestMapping(value="/answer", method= RequestMethod.PUT)
+    public void updateAnswer(HttpServletRequest request, HttpServletResponse response) {
+        int ans_id= Integer.parseInt(request.getParameter("answer_id"));
+        String answer= request.getParameter("answer");
+        answerService.updateAnswerByAnswerIdService(ans_id, answer);
     }
 }

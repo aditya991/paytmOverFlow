@@ -97,7 +97,7 @@
 
         <div class="commentBox">
 
-            <p class="taskDescription"> <%= request.getAttribute("ques")%> </p><span class="date sub-text">on <%= request.getAttribute("questionCreationTime")%></span>
+            <p class="taskDescription"> <%= request.getAttribute("ques")%> </p><span class="date sub-text">on <%= request.getAttribute("askDate")%></span>
         </div>
         <%
             List Alist= (List) request.getAttribute("Alist");
