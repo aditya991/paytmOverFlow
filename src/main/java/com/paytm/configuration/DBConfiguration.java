@@ -60,7 +60,7 @@ public class DBConfiguration {
     private Properties getJpaProperties() {
         Properties properties = new Properties();
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
-        properties.setProperty("hibernate.hbm2ddl.auto", "update");//create or update
+        properties.setProperty("hibernate.hbm2ddl.auto", "create");//create or update
 
         properties.setProperty("hibernate.transaction.jta.platform","org.hibernate.service.jta.platform.internal.JBossAppServerJtaPlatform");
         properties.setProperty("showSql", "true");

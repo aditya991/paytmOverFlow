@@ -6,6 +6,8 @@ package com.paytm.entity;
         import javax.persistence.Id;
 
         import javax.persistence.*;
+        import java.util.ArrayList;
+        import java.util.List;
 
 /*
  * @author: aditya10.kumar
@@ -26,6 +28,19 @@ public class Question extends AbstractEntity {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "dept_id", nullable = false)
     private Dept dept;
+
+    @OneToMany(cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER,
+            mappedBy = "question")
+    private List<Answer> answers = new ArrayList<>();
+
+    public List<Answer> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
+    }
 
     public Dept getDept() {
         return dept;

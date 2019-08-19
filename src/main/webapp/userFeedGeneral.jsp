@@ -73,7 +73,9 @@
             <c:set var="name" value="you" />
         </c:if>
 
-        <font color="green">asked ${ques.updated}<br/>by  <c:out value="${name}" escapeXml="false" /></font>
+        <font color="green">asked ${ques.updated}<br/>by  <c:out value="${name}" escapeXml="false" /><br/>
+        ${ques.answers.size()} answers
+        </font>
         <br/><br/>
 
     </c:forEach>

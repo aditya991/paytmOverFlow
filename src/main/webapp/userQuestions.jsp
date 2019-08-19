@@ -32,10 +32,12 @@ To change this template use File | Settings | File Templates.
 <form action ="manageQuestion" method = "post">
         <c:forEach items="${askedQuestions}" var="ques">
                 <div style="display:flex;align-items:center;">
-                    <input name="selectedQuestion" type="radio" value="${ques.question} />
-                    <textarea placeholder="${ques.question}" style="font-size:18pt;height:80px;width:300px;border:1px dashed blue;" readonly="true" ></textarea>
+                    <input name="selectedQuestion" type="radio" value="${ques.question}" />
+                    <textarea placeholder="${ques.question}" style="font-size:18pt;height:80px;width:300px;border:1px dashed blue;" readonly="true"></textarea>
                 </div>
             <br/>
+            <font color="green">asked on ${ques.updated}  in ${ques.dept.dept_name}</font>
+            <br/><br/>
         </c:forEach>
     <br/><br/>
     <input type = "submit" name = "option" value = "Delete">

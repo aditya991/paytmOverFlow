@@ -16,8 +16,10 @@ public class Answer extends AbstractEntity
     @ManyToOne
     private User user;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "question_Id", nullable = false)
     private Question question;
+    
 
     public int getAnswer_id() {
         return answer_id;

@@ -1,67 +1,46 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="java.util.List" %>
-<%@ page import="com.paytm.entity.Dept" %>
-<%@ page import="java.util.Iterator" %><%--
-  Created by IntelliJ IDEA.
-  User: ekanshgupta
-  Date: 07/08/19
-  Time: 4:42 PM
-  To change this template use File | Settings | File Templates.
+<%--
+Created by IntelliJ IDEA.
+User: ekanshgupta
+Date: 2019-08-13
+Time: 14:16
+To change this template use File | Settings | File Templates.
 --%>
+<%@ page import="java.util.List" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>PaytmOverFlow</title>
 </head>
 <body>
-
-<h1>Your Answers</h1></br>
+<h1>You have asked following answers :-</h1>
 
 <%
-    List listDept = (List) request.getAttribute("listofdepartments");
-    request.setAttribute("listdept",listDept);
+    List listAnswers = (List) request.getAttribute("listanswers");
+    request.setAttribute("givenAnswers",listAnswers);
+    String S =  (String) request.getAttribute("message");
+    if(S == null)
+        S = "";
 %>
 
+<br/>
 
-</br>
-</br>
-
-<form action="addinterest" method="get">
-    Select any department to add into your interests.
-    <select name="deptName">
-        <c:forEach items="${listdept}" var="dept">
-            <option value="${dept.dept_name}">${dept.dept_name}</option>
-        </c:forEach>
-    </select>
+<form action ="manageAnswer" method = "post">
+    <c:forEach items="${givenAnswers}" var="ans">
+        <div style="display:flex;align-items:center;">
+            <input name="selectedAnswer" type="radio" value="${ans.answer}" />
+                    <textarea placeholder="${ans.answer}" style="font-size:18pt;height:80px;width:300px;border:1px dashed blue;" readonly="true"></textarea>
+        </div>
+        <br/>
+    </c:forEach>
     <br/><br/>
-    <input type="submit" value="Add" />
+    <input type = "submit" name = "option" value = "Delete">
 </form>
 
 <br/>
-
-<form action="removeinterest" method="get">
-    Select any department to remove from your interests.
-    <select name="deptName">
-        <c:forEach items="${listinterest}" var="s">
-            <option value="${s}">${s}</option>
-        </c:forEach>
-    </select>
-    <br/><br/>
-    <input type="submit" value="Remove" />
-</form>
-<br/>
-<font color="#a52a2a"><%=request.getAttribute("message")%></font>
-
-<form action="questionfeed" method="post">
-    <input type="submit"  value="Show my Questions">
-</form>
-
-<br/>
-<br/>
-
-<form action="answerfeed" method="post">
-    <input type="submit"  value="Show my Answers">
-</form>
+<font color="#a52a2a">
+    <%=S%>
+</font>
 
 </body>
 </html>

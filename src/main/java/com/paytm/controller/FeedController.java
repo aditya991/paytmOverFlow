@@ -1,9 +1,11 @@
 package com.paytm.controller;
 
+import com.paytm.entity.Answer;
 import com.paytm.entity.Dept;
 import com.paytm.entity.Question;
 import com.paytm.entity.User;
 import com.paytm.repo.QuestionRepo;
+import com.paytm.services.AnswerServiceImpl;
 import com.paytm.services.InterestServiceImpl;
 import com.paytm.services.QuestionServiceImpl;
 import com.paytm.services.UserServiceImpl;
@@ -34,6 +36,9 @@ public class FeedController {
 
     @Autowired
     InterestServiceImpl interestService;
+
+    @Autowired
+    AnswerServiceImpl answerService;
 
     //todo ekansh
     @RequestMapping(value = "/questionfeed", method = RequestMethod.POST)
@@ -121,4 +126,21 @@ public class FeedController {
         request.getAttribute("message");
         return  mv;
     }
+
+    //todo ekansh
+    @RequestMapping(value = "/answerfeed", method = RequestMethod.POST)
+    public ModelAndView showUserAnswersFeed(HttpServletRequest request, HttpServletResponse response) {
+        HttpSession session = request.getSession(false);
+        ModelAndView mv = new ModelAndView();
+
+        String email = (String) session.getAttribute("email");
+        List<Answer> listAnswers = answerService.findAllAnswerByUserService(userService.findUserByEmailService(email));
+
+        mv.setViewName("userAnswers.jsp");
+
+        mv.addObject("listanswers",listAnswers);
+        request.getAttribute("message");
+        return  mv;
+    }
+
 }
