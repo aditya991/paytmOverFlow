@@ -11,9 +11,6 @@ import java.util.Set;
  */
 @Entity
 public class User extends AbstractEntity  {
-
-
-
     @Id
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
