@@ -78,7 +78,7 @@
             <c:set var="name" value="you" />
         </c:if>
 
-        <font color="green">asked ${ques.updated}<br/>by  <c:out value="${name}" escapeXml="false" />${ques.noOfAnswers} answers<br/>
+        <font color="green">asked ${ques.updated}<br/>by  <c:out value="${name}" escapeXml="false" /><br/>${ques.noOfAnswers} answers<br/>
         </font>
         <br/><br/>
 
