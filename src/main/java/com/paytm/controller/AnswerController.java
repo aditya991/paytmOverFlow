@@ -103,8 +103,11 @@ public class AnswerController
 
         //retrieve user & user_id using ques id
         int id= q.getQuestion_Id();
-        User u=questionService.getUserByQuestionIdService(id);
-        System.out.println("id is"+id);
+
+        User u=q.getUser();
+        System.out.println("id is "+id);
+
+        System.out.println(u.getU_name());
 
         System.out.println("Here in showAnswer-----------2");
 
