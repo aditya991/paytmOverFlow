@@ -26,7 +26,6 @@ To change this template use File | Settings | File Templates.
     if(S == null)
         S = "";
 %>
-
 <br/>
 
 <form action ="manageQuestion" method = "post">
@@ -37,31 +36,6 @@ To change this template use File | Settings | File Templates.
                     <textarea placeholder="${ques.question}" style="font-size:18pt;height:80px;width:300px;border:1px dashed blue;" readonly="true"></textarea>
                 <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Update</button>
                 </div>
-
-                <!--
-                <div class="modal fade" id="myModal" role="dialog">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-
-                              <div class="modal-header">
-                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                  <h4 class="modal-title" style="text-align: center">Update Your Question Here</h4>
-                      å        </div>
-
-                               <% String z = %>
-                              <div class="modal-body">
-                                  <form action = "updateQuestion" method = "post">
-                                  <input type="hidden" name="selectedQuestion" value="<%=z%>" />
-                                  <textarea name="updatedQuestion" style="font-size:18pt;height:80px;width:850px;"></textarea>
-                                  <input type = "submit"  name = "option" value = "Update">
-                                  </form>
-                              </div>
-
-
-                        </div>
-                    </div>
-                </div>
-                 -->
             <br/>
         </c:forEach>
 <br/><br/>

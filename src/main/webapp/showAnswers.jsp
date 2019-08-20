@@ -21,7 +21,7 @@
             margin-top: 70px;
         }
         .titleBox {
-            background-color:#FFE933;
+            background-color:#5DADE2;
             padding:10px;
         }
         .titleBox label{
@@ -32,8 +32,8 @@
 
         .commentBox {
             padding:10px;
-            border-top:1px dotted #bbb;
-            background-color:#F7F7AF;
+            border-top:1px dotted #666839;
+            background-color:#AED6F1;
         }
         .commentBox .form-group:first-child, .actionBox .form-group:first-child {
             width:80%;
