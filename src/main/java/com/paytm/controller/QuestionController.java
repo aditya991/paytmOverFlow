@@ -156,7 +156,7 @@ public class QuestionController {
     //todo ekansh
     @RequestMapping(value = "/saveQuestion", method = RequestMethod.POST)
     public ModelAndView saveQuestion(HttpServletRequest request, HttpServletResponse response)
-    {
+    {///
         String department=request.getParameter("Department");
         String question=request.getParameter("Question");
 

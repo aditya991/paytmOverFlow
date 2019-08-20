@@ -7,14 +7,10 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca294d28-5e16-4a04-b245-095182d6efb9" name="Default Changelist" comment="">
+    <list default="true" id="007d575e-81e0-4da4-a289-654ab215f9f1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/controller/AnswerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/controller/AnswerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/loginSignup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/loginSignup.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/showAnswers.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/showAnswers.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/controller/QuestionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/controller/QuestionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/overflow.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/loginSignup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/loginSignup.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/showAnswers.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/showAnswers.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -113,7 +109,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 9.0.148" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.148" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8081//" />
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080//" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="com.paytm:war exploded">
@@ -128,9 +124,7 @@
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="Tomcat_9_0_148_paytmOverFlow_2" />
-        <option name="HTTP_PORT" value="8081" />
-        <option name="JNDI_PORT" value="1098" />
+        <option name="BASE_DIRECTORY_NAME" value="Tomcat_9_0_148_paytmOverFlow_3" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -200,6 +194,11 @@
         <artifact name="com.paytm:war exploded">
           <settings>
             <option name="CONTEXT_PATH" value="/com_paytm_war_exploded" />
+          </settings>
+        </artifact>
+        <artifact name="com.paytm:war">
+          <settings>
+            <option name="CONTEXT_PATH" value="/com_paytm_war" />
           </settings>
         </artifact>
       </deployment>
