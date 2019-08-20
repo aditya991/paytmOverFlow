@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Table(name = "Interest", schema = "paytmDB")
 public class Interest extends AbstractEntity {
 
     @Id

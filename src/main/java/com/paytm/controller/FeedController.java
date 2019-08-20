@@ -101,11 +101,11 @@ public class FeedController {
 
 
         mv.setViewName("profile.jsp");
-        mv.addObject("listofinterest",resultSet);
+       mv.addObject("listofinterest",resultSet);
         mv.addObject("listofdepartments",deptSet);
         mv.addObject("username",u.getU_name());
-        req.getAttribute("message");
-       // mv.addObject("message","");
+       req.getAttribute("message");
+       mv.addObject("message","");
         return  mv;
     }
 }

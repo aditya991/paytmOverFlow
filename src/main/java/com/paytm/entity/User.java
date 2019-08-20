@@ -10,6 +10,7 @@ import java.util.Set;
  * @created: 06/08/19
  */
 @Entity
+@Table(name = "User", schema = "paytmDB")
 public class User extends AbstractEntity  {
 
 

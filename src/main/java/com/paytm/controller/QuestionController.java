@@ -60,7 +60,9 @@ public class QuestionController {
         String quesName = request.getParameter("selectedQuestion");
         Question q = questionRepo.getQuestionByName(quesName);
         request.setAttribute("ques",q);
-        return  answerGiven(request,response);
+        mv.setViewName("Questions.jsp");
+
+        return mv;
     }
 
 
@@ -148,7 +150,7 @@ public class QuestionController {
         return  mv;
     }
 
-    
+
     @RequestMapping(value = "/saveQuestion", method = RequestMethod.POST)
     public ModelAndView saveQuestion(HttpServletRequest request, HttpServletResponse response)
     {

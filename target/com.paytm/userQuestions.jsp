@@ -29,29 +29,12 @@ To change this template use File | Settings | File Templates.
 
 <br/>
 
-<<<<<<< HEAD
-<%
-    boolean isChecked = true;
-%>
-
-<form action ="manageQuestion" method = "post">
-        <c:forEach items="${askedQuestions}" var="ques">
-            <div style="display:flex;align-items:center;">
-
-                <input name="selectedQuestion" type="radio" value="${ques.question}" <%= (isChecked )?"checked":"" %>/>
-                <textarea placeholder="${ques.question}" style="font-size:18pt;height:80px;width:300px;border:1px dashed blue;" readonly="true"></textarea>
-
-                <!-- Using Bootstrap for popup window -->
-                <!-- Trigger the modal with a button -->
-
-=======
 <form action ="manageQuestion" method = "post">
         <c:forEach items="${askedQuestions}" var="ques">
 
                 <div style="display:flex;align-items:center;">
                     <input name="selectedQuestion" type="radio" value="${ques.question}" />
                     <textarea placeholder="${ques.question}" style="font-size:18pt;height:80px;width:300px;border:1px dashed blue;" readonly="true"></textarea>
->>>>>>> f0f0ad097f2a63f0e6a6e73182e54018125532c3
                 <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Update</button>
                 </div>
 

@@ -12,6 +12,7 @@ package com.paytm.entity;
  * @created: 06/08/19
  */
 @Entity
+@Table(name = "Question", schema = "paytmDB")
 public class Question extends AbstractEntity {
     private String question;
 
