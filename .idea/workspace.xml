@@ -8,11 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64c1fbb1-b356-4314-a7b3-18fec436fb59" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/loginSignup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/loginSignup.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/postLoggedIn.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/postLoggedIn.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/overflow.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/loginSignup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/loginSignup.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/userFeedGeneral.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/userFeedGeneral.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/overflow/postLoggedIn.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/postLoggedIn.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
