@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 /*
  * @author: aditya10.kumar
@@ -39,7 +41,7 @@ public class AnswerController
         System.out.println(answer);
 
         int q_id= Integer.parseInt(request.getParameter("ques"));
-//        Question ques= (Question)request.getAttribute("ques");
+//      Question ques= (Question)request.getAttribute("ques");
 
         System.out.println(q_id);
 
@@ -63,9 +65,14 @@ public class AnswerController
         System.out.println(ques.getQuestion_Id());
         System.out.println(ques.getQuestion());
 
+        Date createdDate= ques.getCreated();
+        SimpleDateFormat formatter=new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        String askDate=formatter.format(createdDate);
+
         ModelAndView mv=new ModelAndView();
         mv.setViewName("showAnswers.jsp");
         mv.addObject("user", u.getU_name());
+        mv.addObject("askDate", askDate);
         mv.addObject("ques_id", ques.getQuestion_Id());
         mv.addObject("ques", ques.getQuestion());
         mv.addObject("Alist", Alist);
@@ -87,38 +94,34 @@ public class AnswerController
         answerService.updateAnswerByAnswerIdService(ans_id, answer);
     }
 
-    @RequestMapping("/showAnswer")
+    @RequestMapping(value="/answer", method= RequestMethod.GET)
     public ModelAndView showAnswer(HttpServletRequest request, HttpServletResponse response)
     {
+        Question q= (Question) request.getAttribute("ques");
 
-        System.out.println("Here in showAnswer");
-        //int ques_id=Integer.parseInt(request.getParameter("ques_id"));
-        Question q1=new Question();
-        q1.setQuestion_Id(1);
-        q1.setQuestion("how to shop on paytm mall");
-//        q1.setCreated(new Date());
-//        q1.setUpdated(new Date());
-
-        Question q=q1;
-        //Question q= (Question) request.getAttribute("ques");
         System.out.println("Here in showAnswer------1");
+
         //retrieve user & user_id using ques id
         int id= q.getQuestion_Id();
         User u=questionService.getUserByQuestionIdService(id);
         System.out.println("id is"+id);
-        //retrieve question date from question id
-        //Date d=q.getCreated();
+
         System.out.println("Here in showAnswer-----------2");
+
         //retrieve all answers from question id
         List<Answer> Alist= answerService.findAllAnswerByQuestionService(q);
 
+        Date createdDate= q.getCreated();
+        SimpleDateFormat formatter=new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        String askDate=formatter.format(createdDate);
+        //System.out.println("Qwerty"+request.getContextPath());
         System.out.println(u.getU_name());
 
         ModelAndView mv=new ModelAndView();
         mv.setViewName("showAnswers.jsp");
         mv.addObject("user", u.getU_name());
-        //mv.addObject("askDate", q.created);
-        mv.addObject("ques_id", 1);
+        mv.addObject("askDate", askDate);
+        mv.addObject("ques_id",id);
         mv.addObject("ques", q.getQuestion());
         mv.addObject("Alist", Alist);
         return mv;

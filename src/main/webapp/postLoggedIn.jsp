@@ -14,18 +14,22 @@
 </head>
 <body>
     Successfully logged in...
-    Welcome <%= session.getAttribute("email")%> !!;
+    Welcome <%= request.getAttribute("email")%> !!;
 
     <br/>
 
     Wanna See your profile? Click on Profile button otherwise you can logout.
 
     <form action="profile" method="post">
-        <input type="submit"  name="action" value="Profile">
+        <input type="submit"  value="Profile">
     </form>
-</br>
+
+    </br>
+    <a href="userFeedHome.jsp">Click here to see your FEED!</a>
+    <br/>
+
     <form action="logout" method="post">
-        <input type="submit" name="action" value="logout">
+        <input type="submit"  value="logout">
     </form>
 </body>
 

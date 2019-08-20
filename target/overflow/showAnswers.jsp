@@ -1,7 +1,8 @@
 <%@ page import="com.paytm.entity.Answer" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.paytm.entity.Question" %><%--
+<%@ page import="com.paytm.entity.Question" %>
+<%--
   Created by IntelliJ IDEA.
   User: adityakumar
   Date: 2019-08-14
@@ -12,7 +13,6 @@
 <html>
 <title></title>
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <style>
         .detailBox {
             width:800px;
@@ -97,7 +97,7 @@
 
         <div class="commentBox">
 
-            <p class="taskDescription"> <%= request.getAttribute("ques")%> </p><span class="date sub-text">on March 4th, 2014</span>
+            <p class="taskDescription"> <%= request.getAttribute("ques")%> </p><span class="date sub-text"><%=request.getAttribute("askDate")%></span>
         </div>
         <% List<Answer> Alist= (List<Answer>) request.getAttribute("Alist");
             int size=Alist.size();
@@ -107,7 +107,9 @@
                 <c:forEach items="${Alist}" var="s">
                     <li>
                         <div class="commentText">
-                            <p class="">${s.answer}</p> <span class="date sub-text">on ${s.created}</span>
+                            <p class="">${s.answer}</p>
+                            <span class="date sub-text">on ${s.getCreated()}</span>
+                            <span class="date sub-text">Answered By: ${s.user.getU_name()}</span>
 
                         </div>
                     </li>
@@ -115,7 +117,7 @@
             </ul>
 <%--            entering new answer--%>
             <form class="form-inline" role="form" action="answer" method="post">
-                <div class="form-group">
+                <div class="form-group" >
                     <input class="form-control" type="text" placeholder="Write your answer here..." name="answer" />
                     <input type="text" style="display:none" name="ques" value="<%=request.getAttribute("ques_id")%>"/>
                 </div>
@@ -124,7 +126,6 @@
                 </div>
             </form>
         </div>
-
     </div>
 </body>
 </html>
