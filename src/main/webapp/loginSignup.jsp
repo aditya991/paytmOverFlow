@@ -1,6 +1,7 @@
 <%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.util.List" %>
+<%@ page session = "false" %>
 <%--
   Created by IntelliJ IDEA.
   User: navalkishore
@@ -12,9 +13,11 @@
 <html>
 <head>
     <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
 
 
-        <script type="text/javascript">
+    <script type="text/javascript">
 
           function SignupFun() {
 
@@ -75,38 +78,20 @@
 
 <%--${deptList}--%>
 
-
-
-
-
-
-
-
-
-
-
-
 <div id="loginDiv">
 
 
-<form action="login" method="post">
+<form action="login" method="post" >
     Email ID: <input type="text" placeholder="enter your email address" name="email" required/>
     </br>
     Password: <input type="password" placeholder="enter your password" name="password" required/>
     </br>
-    <input type="submit" value="login"/>
+    <input type="submit" value="login" name="action"/>
 </form>
 
 
 
-<form action="adminLogin" method="post">
-    Admin Email ID: <input type="text" placeholder="enter your email address" name="email" required/>
 
-    </br>
-    Password: <input type="password" placeholder="enter your password" name="password" required/>
-    </br>
-    <input type="submit" value="login"/>
-</form>
 
 
     <br>
@@ -139,10 +124,21 @@
     Phone : <input type="text" name="phone"/> <br>
 <%--    Department: <input type="text" name="dept" required/> <br>--%>
 Department :
+
+
+
+
     <select name="dept">
+
+
+
         <c:forEach items="${deptList}" var="s">
             <option value="${s}">${s}</option>
         </c:forEach>
+
+
+
+
     </select>
 
     <br>
@@ -160,6 +156,9 @@ Department :
 
 </div>
 
+<script type="text/javascript">
+    $(window).unload(function(){ alert('do unload stuff here'); });
+</script>
 
 
 </body>

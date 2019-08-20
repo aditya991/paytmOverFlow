@@ -1,6 +1,5 @@
 package com.paytm.controller;
 
-import com.paytm.dal.UserDal;
 import com.paytm.entity.Answer;
 import com.paytm.entity.Question;
 import com.paytm.entity.User;
@@ -9,14 +8,9 @@ import com.paytm.services.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
-import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.Date;
-
 /*
  * @author: aditya10.kumar
  * @created: 06/08/19
@@ -48,14 +42,14 @@ public class AnswerController
         answerService.saveAnswerService(ans);
     }
 
-    @RequestMapping(value = "/answer", method = RequestMethod.DELETE)
+    @RequestMapping("/deleteAnswer")
     public void deleteAnswer(HttpServletRequest request, HttpServletResponse response)
     {
         int ans_id= (int) request.getAttribute("answer_id");
         answerService.deleteAnswerByAnswerIdService(ans_id);
     }
 
-    @RequestMapping(value ="/answer", method = RequestMethod.PUT)
+    @RequestMapping("/updateAnswer")
     public void updateAnswer(HttpServletRequest request, HttpServletResponse response)
     {
         int ans_id= (int) request.getAttribute("answer_id");

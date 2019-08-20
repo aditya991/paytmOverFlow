@@ -11,23 +11,21 @@
     <context:annotation-config/>
     <context:component-scan base-package="com.paytm"/>
 
+<!--    <mvc:interceptors>-->
+<!--        <mvc:interceptor>-->
+<!--            <mvc:mapping path="/login"/>-->
+<!--            &lt;!&ndash;            <mvc:exclude-mapping path=""/>&ndash;&gt;-->
+<!--            <bean class="com.paytm.Interceptor.LoginInterceptor"/>-->
+<!--        </mvc:interceptor>-->
+<!--    </mvc:interceptors>-->
+
     <mvc:interceptors>
         <mvc:interceptor>
-            <mvc:mapping path="/login"/>
-
-            <bean class="com.paytm.Interceptor.LoginInterceptor"/>
-        </mvc:interceptor>
-
-
-
-        <mvc:interceptor>
-            <mvc:mapping path="/login" />
-                        <mvc:exclude-mapping path="/login"/>
+            <mvc:mapping path="/**" />
                         <mvc:exclude-mapping path="/signup"/>
                         <mvc:exclude-mapping path="/indexPage"/>
-            <bean class="com.paytm.Interceptor.TokenValidatorFilter"/>
+                        <mvc:exclude-mapping path="/errors"/>
+            <bean class="com.paytm.Interceptor.TokenValidatorInterceptor"/>
         </mvc:interceptor>
-
-
     </mvc:interceptors>
 </beans>

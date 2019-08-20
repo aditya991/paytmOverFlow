@@ -16,5 +16,6 @@ public interface LoginService
     boolean UserAuthenticationService(String email, String password);
     boolean createTokenService(Token tok);
     User findUserByEmailService(String email);
-    int isTokenActiveService(String token);
+    boolean isTokenActiveService(String token);
+    Token findTokenByUserService(User user);
 }

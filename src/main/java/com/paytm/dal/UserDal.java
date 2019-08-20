@@ -48,7 +48,7 @@ public class UserDal
         em.getTransaction().commit();
         em.close();
 
-        //TODO ekansh
+        //ekansh
         boolean isAdded = interestService.addInterestService(user, user.getDept());//,emf);
         System.out.println("in user DAL final .user must be added to table");
         return true;
@@ -97,8 +97,17 @@ public class UserDal
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
-        User u=tokenRepo.findUserIdByToken(token);
-        int id=u.getU_id();
+        int id;
+        try
+        {
+            User u = tokenRepo.findUserIdByToken(token);
+            id=u.getU_id();
+        }
+        catch(Exception e)
+        {
+            id=0;
+        }
+
         tx.commit();
         em.close();
         return id;
@@ -130,15 +139,31 @@ public class UserDal
         em.close();
     }
 
-    public int isTokenActiveMethod(String token) {
-        int flag=tokenRepo.isSessionActive(token);
-        return flag;
+    public boolean isTokenActiveMethod(String token)
+    {
+        try {
+            boolean flag = tokenRepo.isSessionActive(token);
+            return flag;
+        }
+        catch(Exception e)
+        {
+            return false;
+        }
     }
 
-    public void markSessionInactivemethod(String token) {
+    public void markSessionInactivemethod(String token)
+    {
         tokenRepo.markSessionInactive(token);
     }
-
-
-
+    public Token findTokenByUserMethod(User user)
+    {
+        try
+        {
+            return tokenRepo.findTokenByUser(user);
+        }
+        catch(Exception e)
+        {
+            return null;
+        }
+    }
 }

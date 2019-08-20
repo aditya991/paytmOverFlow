@@ -3,7 +3,6 @@ package com.paytm.services;
  * @author: aditya10.kumar
  * @created: 06/08/19
  */
-
 import com.paytm.dal.UserDal;
 import com.paytm.entity.Token;
 import com.paytm.entity.User;
@@ -38,16 +37,16 @@ public class LoginServiceImpl implements LoginService
     }
 
     @Override
-    public int isTokenActiveService(String token)
+    public boolean isTokenActiveService(String token)
     {
         try{
-            int flag=userDal.isTokenActiveMethod(token);
+            boolean flag=userDal.isTokenActiveMethod(token);
             LOG.info("flag {}",flag);
-            return flag;
+            return  flag;
         }catch (Exception e){
             LOG.error("Error occurred", e);
         }
-        return -1;
+        return false;
     }
 
     @Override
@@ -93,5 +92,10 @@ public class LoginServiceImpl implements LoginService
     {
         User u= userDal.findUserByEmailMethod(email);
         return u;
+    }
+
+    @Override
+    public Token findTokenByUserService(User user) {
+        return userDal.findTokenByUserMethod(user);
     }
 }

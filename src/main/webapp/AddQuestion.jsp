@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <title>Title</title>
@@ -14,9 +15,9 @@
 <form action="AddQuesServlet" method="post">
     Department:<input type="text" name="Department">
     <br>
-    Question:<input type="text" name="Question">
+    Question:<input type="text"name="Question">
     <br>
-    <input type="submit" name="submit">
+    <input type="submit" name="action" name="submit">
     <br>
 </form>
 </body>
