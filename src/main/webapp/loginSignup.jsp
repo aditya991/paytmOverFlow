@@ -62,34 +62,64 @@
         {
             var x= document.getElementById("signupDiv");
             var y= document.getElementById("loginDiv");
+            var z= document.getElementById("forgotPasswordDiv");
 
 
             if (x.style.display === "none")
             {
                 x.style.display = "block";
                 y.style.display="none";
+                z.style.display="none";
             }
-            else
+            /*else
             {
                 x.style.display = "none";
                 y.style.display = "block";
 
-            }
+            }*/
         }
 
         function loginFun()
         {
             var x= document.getElementById("loginDiv");
             var y= document.getElementById("signupDiv");
+            var z= document.getElementById("forgotPasswordDiv");
 
-            if (x.style.display === "none") {
+
+            if (x.style.display === "none")
+            {
                 x.style.display = "block";
                 y.style.display="none";
-            } else {
-                x.style.display = "none";
-                y.style.display = "block";
+                z.style.display="none";
 
             }
+           /* else
+            {
+                x.style.display = "none";
+                y.style.display = "block";
+            }*/
+        }
+
+        function forgotPasswordFun()
+        {
+            var x= document.getElementById("loginDiv");
+            var y= document.getElementById("signupDiv");
+            var z= document.getElementById("forgotPasswordDiv");
+
+
+            if (z.style.display === "none")
+            {
+                x.style.display = "none";
+                y.style.display="none";
+                z.style.display="block";
+
+            }
+            /*else
+            {
+                 x.style.display = "block";
+                 y.style.display = "none";
+                 z.style.display = "none";
+            }*/
         }
 
         window.onload =function ()
@@ -97,9 +127,11 @@
 
             var x= document.getElementById("loginDiv");
             var y= document.getElementById("signupDiv");
+            var z= document.getElementById("forgotPasswordDiv");
 
             x.style.display = "block";
             y.style.display="none";
+            z.style.display="none";
 
         }
     </script>
@@ -126,6 +158,8 @@
             </br>
 
             <input class="btn btn-primary btn-block" type="submit" value="login" name="action"/>
+            <br/>
+            <div class="password" style="text-align: left;color: #0000FF" onclick="forgotPasswordFun()">Forgot Password?</div>
             <label class="pull-right checkbox-inline"><button class="text-center"  id="new signup"  onclick="SignupFun()">Create Account</button></label>
         </form>
     </div>
@@ -183,6 +217,26 @@
         </form>
     </div>
 </div>
+
+
+<div id="forgotPasswordDiv">
+<div class="login-form">
+    <form action="forgotPassword" method="post" >
+        <div class="form-group">
+            <div style="text-align: center">Enter your email address to recover your password</div><br/>
+            <input type="text" class="form-control"placeholder="enter your registered email address" name="email"/>
+        </div>
+
+        </br>
+
+        <input class="btn btn-primary btn-block" type="submit" value="Send recovery link"/>
+    </form>
+        <br/>
+        <label class="pull-right checkbox-inline"><button class="text-center"  id="forgotPassword"  onclick="loginFun()">Go Back</button></label>
+
+</div>
+</div>
+
 
 </body>
 </html>
