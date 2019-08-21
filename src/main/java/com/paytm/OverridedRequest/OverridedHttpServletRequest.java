@@ -141,6 +141,7 @@ public class OverridedHttpServletRequest implements HttpServletRequest
         return this.wrappedRequest.getInputStream();
     }
 
+    /*
     @Override
     public String getLocalAddr() {
         return this.wrappedRequest.getLocalAddr();
@@ -155,6 +156,7 @@ public class OverridedHttpServletRequest implements HttpServletRequest
     public int getLocalPort() {
         return this.wrappedRequest.getLocalPort();
     }
+    */
 
     @Override
     public ServletContext getServletContext() {
@@ -228,10 +230,12 @@ public class OverridedHttpServletRequest implements HttpServletRequest
         return this.wrappedRequest.getRemoteHost();
     }
 
+    /*
     @Override
     public int getRemotePort() {
         return this.wrappedRequest.getRemotePort();
     }
+    */
 
     @Override
     public RequestDispatcher getRequestDispatcher(String arg0) {
@@ -351,10 +355,12 @@ public class OverridedHttpServletRequest implements HttpServletRequest
         return this.wrappedRequest.getSession();
     }
 
+    /*
     @Override
     public String changeSessionId() {
         return null;
     }
+     */
 
     @Override
     public HttpSession getSession(boolean arg0) {
@@ -382,6 +388,7 @@ public class OverridedHttpServletRequest implements HttpServletRequest
         return this.wrappedRequest.isRequestedSessionIdFromUrl();
     }
 
+    /*
     @Override
     public boolean authenticate(HttpServletResponse httpServletResponse) throws IOException, ServletException {
         return false;
@@ -411,6 +418,7 @@ public class OverridedHttpServletRequest implements HttpServletRequest
     public <T extends HttpUpgradeHandler> T upgrade(Class<T> aClass) throws IOException, ServletException {
         return null;
     }
+    */
 
     @Override
     public boolean isRequestedSessionIdValid() {
