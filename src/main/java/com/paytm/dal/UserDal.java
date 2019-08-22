@@ -93,6 +93,11 @@ public class UserDal
         return u;
     }
 
+    public User findUserByResetTokenMethod(String token){
+        return userRepo.findUserByResetToken(token);
+    }
+
+
     public int findUserIdByTokenMethod(String token) {
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();

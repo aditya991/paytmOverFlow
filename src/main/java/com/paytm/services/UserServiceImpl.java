@@ -14,6 +14,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     UserDal userDal;
 
+    @Autowired
+    UserRepo userRepo;
 
     @Override
     public User findUserByNameService(String name) {
@@ -32,5 +34,13 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean deleteUserService(String email) {
         return false;
+    }
+
+    @Override
+    public User findUserByResetTokenService(String token){ return userDal.findUserByResetTokenMethod(token); }
+
+    @Override
+    public void save(User user) {
+        userRepo.save(user);
     }
 }

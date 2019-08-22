@@ -8,38 +8,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64c1fbb1-b356-4314-a7b3-18fec436fb59" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/paytm/controller/PasswordController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/Interceptor/LoginInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/Interceptor/LoginInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/OverridedRequest/OverridedHttpServletRequest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/services/EmailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/services/EmailServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/Interceptor/LoginInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/Interceptor/LoginInterceptor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/dal/InterestDal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/dal/InterestDal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/dal/QuestionDalImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/dal/QuestionDalImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/dal/UserDal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/dal/UserDal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/entity/Interest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/entity/Interest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/services/LoginServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/services/LoginServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/Interceptor/LoginInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/Interceptor/LoginInterceptor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/Interceptor/TokenValidatorInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/Interceptor/TokenValidatorInterceptor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/OverridedRequest/OverridedHttpServletRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/ErrorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/ErrorController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/FeedController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/FeedController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/ProfileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/ProfileController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/QuestionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/QuestionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/dal/InterestDal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/dal/InterestDal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/dal/QuestionDalImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/dal/QuestionDalImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/dal/UserDal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/dal/UserDal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/entity/Interest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/entity/Interest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/services/LoginServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/services/LoginServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/lib/commons-logging-1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/loginSignup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/loginSignup.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/userProfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/userProfile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/dal/UserDal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/dal/UserDal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/repo/UserRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/repo/UserRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/services/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/services/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -191,7 +167,7 @@
       <workItem from="1566365484680" duration="130000" />
       <workItem from="1566391564470" duration="2951000" />
       <workItem from="1566418311422" duration="4665000" />
-      <workItem from="1566452542218" duration="5233000" />
+      <workItem from="1566452542218" duration="6408000" />
     </task>
     <servers />
   </component>
