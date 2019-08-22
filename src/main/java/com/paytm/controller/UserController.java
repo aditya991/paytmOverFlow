@@ -43,6 +43,7 @@ public class UserController {
     @RequestMapping(value = "/forgotPassword", method = RequestMethod.POST)
     public ModelAndView forgotPassword(HttpServletRequest request, HttpServletResponse response, @RequestParam("email") String userEmail) {
 
+        System.out.println("Inside forgotPassword");
         ModelAndView mv = new ModelAndView();
         mv.setViewName("loginSignup.jsp");
         // Lookup user in database by e-mail
@@ -52,44 +53,27 @@ public class UserController {
             request.setAttribute("message", "e-mail entered is not registered with us!");
             return mv;
         }
+        else{
 
-        request.setAttribute("message", "e-mail entered is registered with us!");
+            System.out.println("Found User!");
+            request.setAttribute("message", "e-mail entered is registered with us!");
+            String appUrl = request.getScheme() + "://" + request.getServerName();
 
+            // Email message
+            SimpleMailMessage passwordResetEmail = new SimpleMailMessage();
+           // passwordResetEmail.setFrom("support@demo.com");
+            passwordResetEmail.setTo(foundUser.getEmail());
+            passwordResetEmail.setSubject("Password Reset Request");
+            passwordResetEmail.setText("To reset your password, click the link below:\n" + appUrl
+                    + "/reset?token=" + "ekansh");
+
+            emailService.sendEmail(passwordResetEmail);
+            System.out.println("Email send successfully");
+        }
         return mv;
 
-            /*
-            if (!optional.isPresent()) {
-                modelAndView.addObject("errorMessage", "We didn't find an account for that e-mail address.");
-            } else {
-
-                // Generate random 36-character string token for reset password
-                User user = optional.get();
-                user.setResetToken(UUID.randomUUID().toString());
-
-                // Save token to database
-                userService.saveUser(user);
-
-                String appUrl = request.getScheme() + "://" + request.getServerName();
-
-                // Email message
-                SimpleMailMessage passwordResetEmail = new SimpleMailMessage();
-                passwordResetEmail.setFrom("support@demo.com");
-                passwordResetEmail.setTo(user.getEmail());
-                passwordResetEmail.setSubject("Password Reset Request");
-                passwordResetEmail.setText("To reset your password, click the link below:\n" + appUrl
-                        + "/reset?token=" + user.getResetToken());
-
-                emailService.sendEmail(passwordResetEmail);
-
-                // Add success message to view
-                modelAndView.addObject("successMessage", "A password reset link has been sent to " + userEmail);
-            }
-
-            modelAndView.setViewName("forgotPassword");
-            return modelAndView;
-
         }
-
+/*
         // Display form to reset password
         @RequestMapping(value = "/reset", method = RequestMethod.GET)
         public ModelAndView displayResetPasswordPage(ModelAndView modelAndView, @RequestParam("token") String token) {
@@ -104,9 +88,10 @@ public class UserController {
 
             modelAndView.setViewName("resetPassword");
             return modelAndView;
-        }
+        }*/
 
         // Process reset password form
+    /*
         @RequestMapping(value = "/reset", method = RequestMethod.POST)
         public ModelAndView setNewPassword(ModelAndView modelAndView, @RequestParam Map<String, String> requestParams, RedirectAttributes redir) {
 
@@ -140,14 +125,14 @@ public class UserController {
             }
 
             return modelAndView;
-        }
+        }*/
 
-        /* Going to reset page without a token redirects to login page
+        /*Going to reset page without a token redirects to login page
         @ExceptionHandler(MissingServletRequestParameterException.class)
         public ModelAndView handleMissingParams(MissingServletRequestParameterException ex) {
             return new ModelAndView("redirect:login");
         }*/
-    }
+  //  }
 
     @RequestMapping(value = "/indexPage", method = RequestMethod.GET)
     public ModelAndView redirectToLogin(HttpServletRequest request, HttpServletResponse response) {

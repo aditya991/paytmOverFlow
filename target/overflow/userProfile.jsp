@@ -59,14 +59,15 @@
                 <form action="answerfeed" method="post">
                     <input type="submit"  value="Show my given Answers">
                 </form>
+                <br/><br/>
+                <font color="#a52a2a">
+                    <%=S%>
+                </font>
                 <br/>
             </ul>
         </td>
         <td style="padding:50px; background-color:#f2f2f2; vertical-align:top;">
             <h2>You interests are</h2>
-
-
-
             <c:forEach items="${listinterest}" var="s">
                 <font color="blue"><c:out value="${s}"/></font><br/>
             </c:forEach>

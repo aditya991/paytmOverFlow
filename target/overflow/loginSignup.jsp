@@ -45,8 +45,7 @@
         /*    margin: 0 0 15px;*/
         /*}*/
 
-        .form-control, .btn
-        {
+        .form-control, .btn {
             min-height: 38px;
             border-radius: 2px;
         }
@@ -58,73 +57,43 @@
 
     <script type="text/javascript">
 
-        function SignupFun()
-        {
+        function SignupFun() {
             var x= document.getElementById("signupDiv");
             var y= document.getElementById("loginDiv");
             var z= document.getElementById("forgotPasswordDiv");
 
-
-            if (x.style.display === "none")
-            {
+            if (x.style.display === "none") {
                 x.style.display = "block";
                 y.style.display="none";
                 z.style.display="none";
             }
-            /*else
-            {
-                x.style.display = "none";
-                y.style.display = "block";
-
-            }*/
         }
 
-        function loginFun()
-        {
+        function loginFun() {
             var x= document.getElementById("loginDiv");
             var y= document.getElementById("signupDiv");
             var z= document.getElementById("forgotPasswordDiv");
 
-
-            if (x.style.display === "none")
-            {
+            if (x.style.display === "none") {
                 x.style.display = "block";
                 y.style.display="none";
                 z.style.display="none";
-
             }
-           /* else
-            {
-                x.style.display = "none";
-                y.style.display = "block";
-            }*/
         }
 
-        function forgotPasswordFun()
-        {
+        function forgotPasswordFun() {
             var x= document.getElementById("loginDiv");
             var y= document.getElementById("signupDiv");
             var z= document.getElementById("forgotPasswordDiv");
 
-
-            if (z.style.display === "none")
-            {
+            if (z.style.display === "none") {
                 x.style.display = "none";
                 y.style.display="none";
                 z.style.display="block";
-
             }
-            /*else
-            {
-                 x.style.display = "block";
-                 y.style.display = "none";
-                 z.style.display = "none";
-            }*/
         }
 
-        window.onload =function ()
-        {
-
+        window.onload =function () {
             var x= document.getElementById("loginDiv");
             var y= document.getElementById("signupDiv");
             var z= document.getElementById("forgotPasswordDiv");
@@ -132,8 +101,8 @@
             x.style.display = "block";
             y.style.display="none";
             z.style.display="none";
-
         }
+
     </script>
 </head>
 <body>
@@ -218,18 +187,28 @@
     </div>
 </div>
 
+<%
+    String S =  (String) request.getAttribute("message");
+    if(S == null)
+    S = "";
+%>
 
 <div id="forgotPasswordDiv">
 <div class="login-form">
     <form action="forgotPassword" method="post" >
+        <div style="text-align: center;color: blueviolet">Forgot Password</div><br/>
         <div class="form-group">
-            <div style="text-align: center">Enter your email address to recover your password</div><br/>
-            <input type="text" class="form-control"placeholder="enter your registered email address" name="email"/>
+            <div style="text-align: center">Enter your e-mail address and we will send you a link to reset your password</div><br/>
+            <input type="text" class="form-control" placeholder="enter your registered email address" name="email"/>
         </div>
 
         </br>
 
         <input class="btn btn-primary btn-block" type="submit" value="Send recovery link"/>
+        <br/><br/>
+        <font color="#a52a2a">
+            <%=S%>
+        </font>
     </form>
         <br/>
         <label class="pull-right checkbox-inline"><button class="text-center"  id="forgotPassword"  onclick="loginFun()">Go Back</button></label>
