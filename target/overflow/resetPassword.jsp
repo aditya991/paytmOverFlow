@@ -43,8 +43,8 @@
         <form action="reset" method="post" >
 
             <div class="form-group">
-                <div style="text-align: center;color: blueviolet">Enter new password</div><br/>
-                <input type="password" class="form-control" placeholder="enter your new password" name="updatedPassword"/>
+                <div style="text-align: center;color: blueviolet">Reset password</div><br/>
+                <input type="password" class="form-control" placeholder="Enter your new password here" name="updatedPassword"/>
                 <input type="text" name="token" value="${resetToken}" style="display: none"/>
             </div>
 
