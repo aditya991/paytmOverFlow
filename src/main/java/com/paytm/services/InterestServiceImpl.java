@@ -63,8 +63,4 @@ public class InterestServiceImpl implements InterestService {
         return interestDal.getUserAllInterestMethod(u_id);
     }
 
-    @Override
-    public void showFeedService(User u) {
-
-    }
 }

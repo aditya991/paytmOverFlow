@@ -2,17 +2,16 @@ package com.paytm.controller;
 
 import com.paytm.entity.User;
 import com.paytm.services.EmailServiceImpl;
-import com.paytm.services.LoginServiceImpl;
-import com.paytm.services.SignupServiceImpl;
 import com.paytm.services.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.MissingServletRequestParameterException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.UUID;
@@ -26,41 +25,69 @@ public class PasswordController {
     @Autowired
     private UserServiceImpl userService;
 
-
-    @RequestMapping(value = "/forgotPassword", method = RequestMethod.POST)
+    @RequestMapping(value = "/forgot", method = RequestMethod.POST)
     public ModelAndView forgotPassword(HttpServletRequest request, HttpServletResponse response, @RequestParam("email") String userEmail) {
 
         System.out.println("Inside forgotPassword");
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("loginSignup.jsp");
-        // Lookup user in database by e-mail
         User foundUser = userService.findUserByEmailService(userEmail);
 
         if (foundUser == null) {
             request.setAttribute("message", "e-mail entered is not registered with us!");
-            return mv;
         }
         else{
-
             System.out.println("Found User!");
             request.setAttribute("message", "e-mail entered is registered with us!");
             foundUser.setResetToken(UUID.randomUUID().toString());
             userService.save(foundUser);
-            String appUrl = request.getScheme() + "://" + request.getServerName();
 
-            // Email message
             SimpleMailMessage passwordResetEmail = new SimpleMailMessage();
-            // passwordResetEmail.setFrom("support@demo.com");
             passwordResetEmail.setTo(foundUser.getEmail());
             passwordResetEmail.setSubject("Password Reset Request");
-            passwordResetEmail.setText("To reset your password, click the link below:\n" + appUrl
-                    + "/reset?token=" + foundUser.getResetToken());
+            passwordResetEmail.setText("To reset your password, click the link below:\n" + request.getScheme() + "://" +
+                    request.getServerName() + ":8080/com_paytm_war" + "/reset?token=" + foundUser.getResetToken());
 
             emailService.sendEmail(passwordResetEmail);
+            request.setAttribute("message","Reset link sent successfully to "+foundUser.getEmail());
             System.out.println("Email send successfully");
         }
-        return mv;
 
+        mv.setViewName("forgotPassword.jsp");
+        return mv;
     }
 
+    @RequestMapping(value = "/reset" ,  method= RequestMethod.GET)
+    public ModelAndView displayResetPasswordPage(HttpServletRequest request,HttpServletResponse response, @RequestParam("token") String token) {
+        ModelAndView mv = new ModelAndView();
+        User user = userService.findUserByResetTokenService(token);
+
+        if (user ==  null) {
+            mv.setViewName("expiredResetToken.jsp");
+        } else {
+            mv.addObject("token", token);
+            mv.setViewName("resetPassword.jsp");
+        }
+
+        return mv;
+    }
+
+    @RequestMapping(value = "/reset", method = RequestMethod.POST)
+    public ModelAndView resetPassword(HttpServletRequest request,HttpServletResponse response, @RequestParam("token") String token){
+        ModelAndView mv = new ModelAndView();
+        System.out.println("Inside resetPassword token is " + token);
+        User user = userService.findUserByResetTokenService(token);
+
+        user.setPassword(request.getParameter("updatedPassword"));
+        user.setResetToken(null);
+        userService.save(user);
+
+        mv.setViewName("index.jsp");
+        return mv;
+    }
+
+    // Going to reset page without a token redirects to login page
+    @ExceptionHandler(MissingServletRequestParameterException.class)
+    public ModelAndView handleMissingParams(MissingServletRequestParameterException ex) {
+        return new ModelAndView("index.jsp");
+    }
 }

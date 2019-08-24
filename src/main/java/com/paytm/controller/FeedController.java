@@ -4,7 +4,6 @@ import com.paytm.entity.Answer;
 import com.paytm.entity.Dept;
 import com.paytm.entity.Question;
 import com.paytm.entity.User;
-import com.paytm.repo.QuestionRepo;
 import com.paytm.services.AnswerServiceImpl;
 import com.paytm.services.InterestServiceImpl;
 import com.paytm.services.QuestionServiceImpl;
@@ -14,7 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -54,6 +52,7 @@ public class FeedController {
 
         mv.addObject("listquestions",listQuestions);
         request.getAttribute("message");
+
         return  mv;
     }
 
@@ -124,6 +123,7 @@ public class FeedController {
         mv.addObject("listdepartments",deptSet);
         mv.addObject("userName",userName);
         request.getAttribute("message");
+
         return  mv;
     }
 
@@ -140,6 +140,7 @@ public class FeedController {
 
         mv.addObject("listanswers",listAnswers);
         request.getAttribute("message");
+
         return  mv;
     }
 

@@ -2,17 +2,12 @@ package com.paytm.controller;
 
 import com.paytm.entity.Token;
 import com.paytm.entity.User;
-import com.paytm.services.EmailServiceImpl;
 import com.paytm.services.LoginServiceImpl;
 import com.paytm.services.SignupServiceImpl;
-import com.paytm.services.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -120,6 +115,7 @@ public class UserController {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("postLoggedIn.jsp");
         mv.addObject("email", modelEmail);
+
         return mv;
     }
 
@@ -131,6 +127,7 @@ public class UserController {
         ls.markSessionInactiveService((String) session.getAttribute("token"));   //mark that session id inactive
 
         session.invalidate();
+
         return mv;
     }
 
@@ -178,6 +175,7 @@ public class UserController {
         }
 
         mv.setViewName("index.jsp");
+
         return mv;
     }
 }
