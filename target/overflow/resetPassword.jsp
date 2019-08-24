@@ -10,11 +10,11 @@
 <head>
     <title>paytmOverFlow</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel   = "stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <style type="text/css">
+    <style type = "text/css">
         .login-form {
             width: 340px;
             margin: 50px auto;
@@ -30,29 +30,44 @@
         }
     </style>
 
+    <script type = "text/javascript">
+        function showAlert(){
+            if(document.resetForm.updatedPassword.value === document.resetForm.confirmedPassword.value){
+                alert("Password reset successfully!")
+            }
+            }
+    </script>
+
 </head>
 <body>
 
 <%
     String token =  (String) request.getAttribute("token");
     request.setAttribute("resetToken",token);
+    String S =  (String) request.getAttribute("message");
+    if(S == null)
+        S = "";
 %>
-<div id="resetPasswordDiv">
-    <div class="login-form">
 
-        <form action="reset" method="post" >
+<div id = "resetPasswordDiv">
+    <div class = "login-form">
+
+        <form name = "resetForm" action = "reset" method = "post" >
 
             <div class="form-group">
                 <div style="text-align: center;color: blueviolet">Reset password</div><br/>
-                <input type="password" class="form-control" placeholder="Enter your new password here" name="updatedPassword"/>
-                <input type="text" name="token" value="${resetToken}" style="display: none"/>
+                <input type = "password" class = "form-control" placeholder = "Enter your new password here" name = "updatedPassword"/><br/>
+                <input type = "password" class = "form-control" placeholder = "Confirm new password here"    name = "confirmedPassword"/>
+                <input type = "text" name = "token" value = "${resetToken}" style = "display: none"/>
             </div>
 
             <br/>
 
-            <input class="btn btn-primary btn-block" type="submit" value="Update"/>
+            <input class = "btn btn-primary btn-block" type = "submit" value = "Update" onclick = "showAlert()"/>
             <br/><br/>
-
+            <font color = "#a52a2a">
+                <%=S%>
+            </font>
         </form>
 
     </div>

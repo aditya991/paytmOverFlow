@@ -26,7 +26,6 @@ public class EmailServiceImpl {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
         mailSender.setHost("smtp.gmail.com");
         mailSender.setPort(587);
-
         mailSender.setUsername("paytmoverflow@gmail.com");
         mailSender.setPassword("gbwircokytdmfwrl");
 

@@ -10,13 +10,15 @@
     <list default="true" id="64c1fbb1-b356-4314-a7b3-18fec436fb59" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/controller/PasswordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/controller/PasswordController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/services/EmailService.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/services/EmailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/services/EmailServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/services/EmailService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/forgotPassword.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/forgotPassword.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resetPassword.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resetPassword.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/controller/PasswordController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/controller/PasswordController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/services/EmailServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/services/EmailServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/overflow.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/services/EmailService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/PasswordController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/PasswordController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/services/EmailServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/services/EmailServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/overflow/forgotPassword.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/forgotPassword.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/overflow/resetPassword.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/resetPassword.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -172,7 +174,7 @@
       <workItem from="1566418311422" duration="4665000" />
       <workItem from="1566452542218" duration="8687000" />
       <workItem from="1566543575466" duration="320000" />
-      <workItem from="1566641697339" duration="9761000" />
+      <workItem from="1566641697339" duration="14557000" />
     </task>
     <servers />
   </component>

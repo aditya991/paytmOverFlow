@@ -9,11 +9,11 @@
 <html>
 <head>
     <title>paytmOverFlow</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel   = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <style type="text/css">
+    <style type = "text/css">
         .login-form {
             width: 340px;
             margin: 50px auto;
@@ -38,27 +38,27 @@
         S = "";
 %>
 
-<div id="forgotPasswordDiv">
-    <div class="login-form">
+<div id = "forgotPasswordDiv">
+    <div class = "login-form">
 
-        <form action="forgot" method="post" >
-            <div style="text-align: center;color: blueviolet">Forgot Password</div><br/>
-            <div class="form-group">
-                <div style="text-align: center">Enter your e-mail address and we will send you a link to reset your password</div><br/>
-                <input type="text" class="form-control" placeholder="enter your registered email address" name="email"/>
+        <form action = "forgot" method = "post" >
+            <div style = "text-align: center;color: blueviolet">Forgot Password</div><br/>
+            <div class = "form-group">
+                <div style  = "text-align: center">Enter your e-mail address and we will send you a link to reset your password</div><br/>
+                <input type = "text" class = "form-control" placeholder="enter your registered email address" name = "email"/>
             </div>
 
             <br/>
 
-            <input class="btn btn-primary btn-block" type="submit" value="Send recovery link"/>
+            <input class = "btn btn-primary btn-block" type = "submit" value = "Send recovery link"/>
             <br/><br/>
-            <font color="#a52a2a">
+            <font color = "#a52a2a">
                 <%=S%>
             </font>
         </form>
 
         <br/>
-        <label class="pull-right checkbox-inline"><a href="index.jsp">Go Back</a></label>
+        <label class = "pull-right checkbox-inline"><a href = "index.jsp">Go Back</a></label>
 
     </div>
 </div>
