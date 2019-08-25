@@ -41,16 +41,18 @@
 <div id = "forgotPasswordDiv">
     <div class = "login-form">
 
-        <form action = "forgot" method = "post" >
+        <form name="forgotForm" action = "forgot" method = "post" >
             <div style = "text-align: center;color: blueviolet">Forgot Password</div><br/>
             <div class = "form-group">
-                <div style  = "text-align: center">Enter your e-mail address and we will send you a link to reset your password</div><br/>
-                <input type = "text" class = "form-control" placeholder="enter your registered email address" name = "email"/>
+                <div style  = "text-align: center">
+                    Enter your e-mail address registered with us where the link to reset your password can be sent
+                </div><br/>
+                <input type = "text" class = "form-control" placeholder = "Enter email address here" name = "email"/>
             </div>
 
             <br/>
 
-            <input class = "btn btn-primary btn-block" type = "submit" value = "Send recovery link"/>
+            <input class = "btn btn-primary btn-block" type = "submit" value = "Send recovery link" />
             <br/><br/>
             <font color = "#a52a2a">
                 <%=S%>

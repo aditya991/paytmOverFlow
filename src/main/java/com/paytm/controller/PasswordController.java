@@ -6,8 +6,6 @@ import com.paytm.services.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.MissingServletRequestParameterException;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,9 +30,10 @@ public class PasswordController {
         User foundUser = userService.findUserByEmailService(userEmail);
 
         if (foundUser == null) {
-            request.setAttribute("message", "E-mail entered is not registered with us!");
+            request.setAttribute("message", "This E-mail address is not registered with us!");
         }
-        else{
+        else if(foundUser.getResetToken() == null) {
+            System.out.println("Hello i m inside getresettoken");
             foundUser.setResetToken(UUID.randomUUID().toString());
             userService.save(foundUser);
 
@@ -44,7 +43,10 @@ public class PasswordController {
                     request.getServerName() + ":8080/com_paytm_war" + "/reset?token=" + foundUser.getResetToken());
             emailService.sendEmail(passwordResetEmail);
 
-            request.setAttribute("message","You will receive a password reset link at "+foundUser.getEmail()+" in 2 minutes");
+            request.setAttribute("message", "A link will be sent to reset your password at " + foundUser.getEmail() + " in 2 minutes.");
+        }
+        else{
+            request.setAttribute("message","A password reset link has already been send to this E-mail address.");
         }
 
         mv.setViewName("forgotPassword.jsp");
