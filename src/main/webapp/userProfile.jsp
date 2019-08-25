@@ -8,6 +8,9 @@
 <head>
     <meta charset="utf-8">
     <title>paytmOverFlow</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body style="margin:0px;">
 <table style="width:100%; border-collapse:collapse; font:14px Arial,sans-serif;">
@@ -78,5 +81,7 @@
         </td>
     </tr>
 </table>
+<footer class="container-fluid text-center">
+    <p>© 2019 PaytmOverFlow.com. All rights reserved</p></footer>
 </body>
 </html>

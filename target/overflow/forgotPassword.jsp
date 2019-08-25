@@ -45,7 +45,7 @@
             <div style = "text-align: center;color: blueviolet">Forgot Password</div><br/>
             <div class = "form-group">
                 <div style  = "text-align: center">
-                    Enter your e-mail address registered with us where the link to reset your password can be sent
+                    Enter your e-mail address registered with us where the recovery link can be sent
                 </div><br/>
                 <input type = "text" class = "form-control" placeholder = "Enter email address here" name = "email"/>
             </div>
@@ -64,5 +64,7 @@
 
     </div>
 </div>
+<footer class="container-fluid text-center">
+    <p>© 2019 PaytmOverFlow.com. All rights reserved</p></footer>
 </body>
 </html>

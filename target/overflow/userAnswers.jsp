@@ -11,6 +11,9 @@ To change this template use File | Settings | File Templates.
 <html>
 <head>
     <title>PaytmOverFlow</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
 <h1>You have asked following answers :-</h1>
@@ -41,6 +44,7 @@ To change this template use File | Settings | File Templates.
 <font color="#a52a2a">
     <%=S%>
 </font>
-
+<footer class="container-fluid text-center">
+    <p>© 2019 PaytmOverFlow.com. All rights reserved</p></footer>
 </body>
 </html>
