@@ -10,7 +10,7 @@ import javax.persistence.*;
  * @created: 06/08/19
  */
 @Entity
-public class Question
+public class Question extends AbstractEntity
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,25 +18,19 @@ public class Question
     private Integer question_Id;
     private String question;
 
-    private String department;
-
     @ManyToOne
     private User user;
 
-    public User getUser() {
-        return user;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "dept_id", nullable = false)
+    private Dept dept;
+
+    public Integer getQuestion_Id() {
+        return question_Id;
     }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
+    public void setQuestion_Id(Integer question_Id) {
+        this.question_Id = question_Id;
     }
 
     public String getQuestion() {
@@ -47,11 +41,19 @@ public class Question
         this.question = question;
     }
 
-    public Integer getQuestion_Id() {
-        return question_Id;
+    public User getUser() {
+        return user;
     }
 
-    public void setQuestion_Id(Integer question_Id) {
-        this.question_Id = question_Id;
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Dept getDept() {
+        return dept;
+    }
+
+    public void setDept(Dept dept) {
+        this.dept = dept;
     }
 }

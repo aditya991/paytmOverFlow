@@ -13,37 +13,84 @@
 <html>
 <head>
     <title>Title</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+    <style type="text/css">
+        .login-form {
+            width: 340px;
+            margin: 50px auto;
+        }
+        .login-form form {
+            margin-bottom: 15px;
+            background: #f7f7f7;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+        }
+        .login-form h2 {
+            margin: 0 0 15px;
+        }
+
+        /*.signup-form {*/
+        /*    width: 340px;*/
+        /*    margin: 50px auto;*/
+        /*}*/
+        /*.signup-form form {*/
+        /*    margin-bottom: 15px;*/
+        /*    background: #f7f7f7;*/
+        /*    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);*/
+        /*    padding: 30px;*/
+        /*}*/
+        /*.signup-form h2 {*/
+        /*    margin: 0 0 15px;*/
+        /*}*/
+
+        .form-control, .btn
+        {
+            min-height: 38px;
+            border-radius: 2px;
+        }
+        .btn {
+            font-size: 15px;
+            font-weight: bold;
+        }
+    </style>
+
+    <script>
+        if ( window.history.replaceState ) {
+            window.history.replaceState( null, null, window.location.href );
+        }
+    </script>
 
     <script type="text/javascript">
 
-          function SignupFun() {
 
 
+          function SignupFun()
+          {
               var x= document.getElementById("signupDiv");
               var y= document.getElementById("loginDiv");
 
 
-              if (x.style.display === "none") {
+              if (x.style.display === "none")
+              {
                   x.style.display = "block";
                   y.style.display="none";
-              } else {
+              }
+              else
+              {
                   x.style.display = "none";
                   y.style.display = "block";
 
               }
           }
 
-
-          function loginFun() {
-
-
+          function loginFun()
+          {
               var x= document.getElementById("loginDiv");
               var y= document.getElementById("signupDiv");
 
-
               if (x.style.display === "none") {
                   x.style.display = "block";
                   y.style.display="none";
@@ -54,7 +101,8 @@
               }
           }
 
-          window.onload =function () {
+          window.onload =function ()
+          {
 
               var x= document.getElementById("loginDiv");
               var y= document.getElementById("signupDiv");
@@ -62,13 +110,50 @@
               x.style.display = "block";
                       y.style.display="none";
 
-                  }
+          }
 
+          function validateEmail(emailField){
+              var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+              emailField.value=emailField.value.toLowerCase();
+
+              if (reg.test(emailField.value) == false)
+              {
+                  alert('Invalid Email Address');
+
+                  emailField.value="";
+                  return false;
+              }
+              return true;
+          }
+
+          function validatePhone(phoneField) {
+
+               if (/^\d{10}$/.test(phoneField.value)) {
+                  // value is ok, use it
+              } else {
+                  alert("Invalid number; must be ten digits");
+                   phoneField.value="";
+                  return false;
+              }
+          }
+
+          function validateName(nameField) {
+
+            //returns true if matched, vaidates for a-z and A-Z and white space
+
+
+              if (/^[A-Za-z\s]+$/.test(nameField.value)) {
+                  // value is ok, use it
+              } else {
+                  alert("Invalid name");
+                  nameField.value="";
+                  return false;
+              }
+          }
 
 
         </script>
-
-
 </head>
 <body>
 
@@ -76,90 +161,79 @@
     List deptList =(List) request.getAttribute("deptList");
 %>
 
-<%--${deptList}--%>
-
 <div id="loginDiv">
+    <div class="login-form">
+        <form action="login" method="post" >
+            <div class="form-group">
+            Email ID: <input type="text" class="form-control" onblur="validateEmail(this)"  placeholder="enter your email address" name="email" required/>
+            </div>
 
+            </br>
 
-<form action="login" method="post" >
-    Email ID: <input type="text" placeholder="enter your email address" name="email" required/>
-    </br>
-    Password: <input type="password" placeholder="enter your password" name="password" required/>
-    </br>
-    <input type="submit" value="login" name="action"/>
-</form>
+            <div class="form-group">
+            Password: <input type="password" class="form-control" placeholder="enter your password" name="password" required/>
+            </div>
 
+            </br>
 
-
-
-
-
-    <br>
-    <h2> New User Signup here</h2>
-    <button id="new signup" onclick="SignupFun()">New User CLick here</button>
-
-
+            <input class="btn btn-primary btn-block" type="submit" value="login" name="action"/>
+            <label class="pull-right checkbox-inline"><button class="text-center"  id="new signup"  onclick="SignupFun()">Create Account</button></label>
+        </form>
+    </div>
 </div>
+<%--<form action="adminLogin" method="post">--%>
+<%--    Admin Email ID: <input type="text" placeholder="enter your email address" name="email" required/>--%>
 
-
-
-
-
-
-<br>
-<br>
-
-
-
+<%--    </br>--%>
+<%--    Password: <input type="password" placeholder="enter your password" name="password" required/>--%>
+<%--    </br>--%>
+<%--    <input type="submit" value="login" />--%>
+<%--</form>--%>
 
 <div id="signupDiv">
+    <div class="login-form">
+        <form action="signup" method="post">
 
+            <div class="form-group">
+            Name  : <input class="form-control" type="text" name="name" onblur="validateName(this)" placeholder="Enter your name" required/>
+            </div>
 
+            </br>
 
+            <div class="form-group">
+            Email Id: <input class="form-control" type="text" name="email"  onblur="validateEmail(this)"  placeholder="Enter your email" required/>
+            </div>
 
-<form action="signup" method="post">
+            </br>
 
-    Name  : <input type="text" name="name" required/>  <br>
-    Email Id: <input type="text" name="email" required/> <br>
-    Phone : <input type="text" name="phone"/> <br>
-<%--    Department: <input type="text" name="dept" required/> <br>--%>
-Department :
+            <div class="form-group">
+            Phone : <input class="form-control" type="text" name="phone" onblur="validatePhone(this)" placeholder="Enter your phone number(Optional)"/>
+            </div>
 
+            </br>
 
+            <div class="form-group">
+            Department :
+                    <select class="form-control" name="dept">
+                        <c:forEach items="${deptList}" var="s">
+                            <option value="${s}">${s}</option>
+                        </c:forEach>
+                    </select>
+            </div>
 
+            </br>
 
-    <select name="dept">
+            <div class="form-group">
+            Password: <input class="form-control" type="password" name="password" placeholder="********************" required/>
+            </div>
 
+            </br>
 
-
-        <c:forEach items="${deptList}" var="s">
-            <option value="${s}">${s}</option>
-        </c:forEach>
-
-
-
-
-    </select>
-
-    <br>
-
-    Password: <input type="password" name="password" required/> <br>
-            <input type="submit" value="signup"/> <br>
-
-</form>
-
-    <br>
-    <br>
-
-    <button id="old login" onclick="loginFun()">Already a User </button>
-
-
+            <input class="btn btn-primary btn-block" type="submit" value="Sign Up"/>
+            <label class="pull-right checkbox-inline"><button id="old login" onclick="loginFun()">Already a User </button></label>
+        </form>
+    </div>
 </div>
-
-<script type="text/javascript">
-    $(window).unload(function(){ alert('do unload stuff here'); });
-</script>
-
 
 </body>
 </html>

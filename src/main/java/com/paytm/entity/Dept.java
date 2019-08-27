@@ -1,6 +1,9 @@
 package com.paytm.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -19,10 +22,23 @@ public class Dept extends AbstractEntity {
     /*This is for creating a join on Dept and User*/
     /*@ManyToMany
     Set<User> likes;*/
+
+    @OneToMany(cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER,
+            mappedBy = "dept")
+    private List<Question> questions = new ArrayList<>();
+
+    public List<Question> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(List<Question> questions) {
+        this.questions = questions;
+    }
+
     public Dept() {
         this.dept_name = "name not given";
     }
-
 
     public Dept(String dept_name) {
         this.dept_name = dept_name;

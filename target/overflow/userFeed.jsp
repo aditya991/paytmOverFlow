@@ -12,5 +12,16 @@
 </head>
 <body>
 <h1>PaytmOverFlow mein Aapka Swagat Hai</h1>
+<h2>Do you wanna give Answer or ask Question?</h2>
+<h3>
+    <br/>
+    <form action="askQuestion" method="post">
+        <input type="submit"  value="I wanna ask Questions">
+    </form>
+    <br/>
+    <form action="generalfeed" method="post">
+        <input type="submit"  value="I wanna give Answers">
+    </form>
+</h3>
 </body>
 </html>

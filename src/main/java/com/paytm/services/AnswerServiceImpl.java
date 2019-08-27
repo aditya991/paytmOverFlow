@@ -2,6 +2,7 @@ package com.paytm.services;
 
 import com.paytm.dal.AnswerDal;
 import com.paytm.entity.Answer;
+import com.paytm.entity.Question;
 import com.paytm.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,5 +39,12 @@ public class AnswerServiceImpl implements AnswerService
     public List<Answer> findAllAnswerByUserService(User user)
     {
         return answerDal.findAllAnswerByUserMethod(user);
+    }
+
+    @Override
+    public List<Answer> findAllAnswerByQuestionService(Question q)
+    {
+        System.out.println(("Inside findAllAnswerByQuestionService"));
+        return answerDal.findAllAnswerByQuestionMethod(q);
     }
 }
