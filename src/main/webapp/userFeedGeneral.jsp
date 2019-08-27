@@ -144,66 +144,68 @@
                     request.setAttribute("askedQuestions",questionsList);
             %>
 
-                <c:forEach items="${askedQuestions}" var="ques">
-            <form action ="manageFeed" method = "post" id="${ques.question_Id}">
-                    <div class="card gedf-card">
-                        <div class="card-header">
-                            <div class="d-flex justify-content-between align-items-center">
+            <c:forEach items="${askedQuestions}" var="ques">
+                <form action ="manageFeed" method = "post" id="${ques.question_Id}">
+                        <div class="card gedf-card">
+                            <div class="card-header">
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <div class="mr-2">
-                                        <img class="rounded-circle" width="45" src="https://picsum.photos/50/50" alt="">
-                                    </div>
-                                    <div class="ml-2">
-                                        <div class="h5 m-0">
-                                                ${ques.user.email}
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="mr-2">
+                                            <img class="rounded-circle" width="45" src="https://picsum.photos/50/50" alt="">
                                         </div>
-                                        <div class="h7 text-muted">
-                                                ${ques.user.u_name}
+                                        <div class="ml-2">
+                                            <div class="h5 m-0">
+                                                    ${ques.user.email}
+                                            </div>
+                                            <div class="h7 text-muted">
+                                                    ${ques.user.u_name}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div>
                                     <div>
-                                        #${ques.question_Id}
-                                    </div>
-                                    <div class="dropdown">
-                                        <button class="btn btn-link dropdown-toggle" type="button" id="gedf-drop1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fa fa-ellipsis-h"></i>
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
-                                            <div class="h6 dropdown-header">Configuration</div>
-                                            <a class="dropdown-item" href="#">Save</a>
-                                            <a class="dropdown-item" href="#">Hide</a>
-                                            <a class="dropdown-item" href="#">Report</a>
+                                        <div>
+                                            ${ques.dept.dept_name}
+                                        </div>
+                                        <div>
+                                            #${ques.question_Id}
+                                        </div>
+                                        <div class="dropdown">
+                                            <button class="btn btn-link dropdown-toggle" type="button" id="gedf-drop1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fa fa-ellipsis-h"></i>
+                                            </button>
+                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
+                                                <div class="h6 dropdown-header">Configuration</div>
+                                                <a class="dropdown-item" href="#">Save</a>
+                                                <a class="dropdown-item" href="#">Hide</a>
+                                                <a class="dropdown-item" href="#">Report</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
-
-                        </div>
-                        <div class="card-body">
-                            <div class="text-muted h5 mb-2"> <i class="fa fa-clock-o"></i>Asked On: ${ques.created}</div>
-                                <p style="font-size:20px;">
-                                    ${ques.question}
-                                </p>
-                                <input type="text" style="display:none;" class="cardText" name="ques" value="${ques.question}" id="selectQues" onclick="submitByTextbox(${ques.question_Id})" style="font-size:18pt;border:1px dashed blue;" readonly="true"/>
-<%--                                </p>--%>
+                            <div class="card-body">
+                                <div class="text-muted h5 mb-2"> <i class="fa fa-clock-o"></i>Asked On: ${ques.created}</div>
+                                    <p style="font-size:20px;">
+                                        ${ques.question}
+                                    </p>
+                                    <input type="text" style="display:none;" class="cardText" name="ques" value="${ques.question}" id="selectQues" onclick="submitByTextbox(${ques.question_Id})" style="font-size:18pt;border:1px dashed blue;" readonly="true"/>
+    <%--                                </p>--%>
+                                </div>
+                            <div class="card-footer">
+                                <a href="#" class="card-link"><i class="fa fa-gittip"></i> Like</a>
+                                <a href="#" onclick="submitByTextbox(${ques.question_Id})" class="card-link"><i class="fa fa-comment"></i> Answer</a>
+                                <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Share</a>
                             </div>
-                        <div class="card-footer">
-                            <a href="#" class="card-link"><i class="fa fa-gittip"></i> Like</a>
-                            <a href="#" onclick="submitByTextbox(${ques.question_Id})" class="card-link"><i class="fa fa-comment"></i> Answer</a>
-                            <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Share</a>
                         </div>
-                    </div>
 
-                    <br/>
-            </form>
-                </c:forEach>
+                        <br/>
+                </form>
+            </c:forEach>
 
-                <br/><br/>
-                <%
-                    }
-                %>
+            <%
+                }
+            %>
 
             <br/>
             <font color="#a52a2a">
