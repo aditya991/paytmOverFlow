@@ -100,7 +100,7 @@ public class FeedController {
         List<Dept> deptSet = deptDal.enterAllAvailableDeptMethod(resultSet);
 
 
-        mv.setViewName("profile.jsp");
+        mv.setViewName("Profile.jsp");
         mv.addObject("listofinterest",resultSet);
         mv.addObject("listofdepartments",deptSet);
         mv.addObject("username",u.getU_name());
