@@ -89,7 +89,8 @@ public class FeedController {
     }
 
     @RequestMapping(value = "/profile", method = RequestMethod.POST)
-    public ModelAndView  showAllInterest(HttpServletRequest req, HttpServletResponse res) {
+    public ModelAndView  showAllInterest(HttpServletRequest req, HttpServletResponse res)
+    {
         HttpSession session = req.getSession(false);
         ModelAndView mv = new ModelAndView();
 

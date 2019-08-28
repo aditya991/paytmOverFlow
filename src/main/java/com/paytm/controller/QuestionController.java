@@ -59,7 +59,7 @@ public class QuestionController {
         HttpSession session = request.getSession(false);
         ModelAndView mv = new ModelAndView();
 
-        String quesName = request.getParameter("selectedQuestion");
+        String quesName = request.getParameter("ques");
         Question q = questionRepo.getQuestionByName(quesName);
         request.setAttribute("ques",q);
         return  answerController.showAnswer(request,response);

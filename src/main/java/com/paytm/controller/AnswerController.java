@@ -100,7 +100,7 @@ public class AnswerController
         Question q= (Question) request.getAttribute("ques");
 
         System.out.println("Here in showAnswer------1");
-
+        System.out.println(q);
         //retrieve user & user_id using ques id
         int id= q.getQuestion_Id();
 
