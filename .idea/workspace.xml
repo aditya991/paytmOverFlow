@@ -7,9 +7,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64c1fbb1-b356-4314-a7b3-18fec436fb59" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="64c1fbb1-b356-4314-a7b3-18fec436fb59" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -285,7 +283,7 @@
       <workItem from="1566190835843" duration="6981000" />
       <workItem from="1566198875198" duration="9138000" />
       <workItem from="1566306491873" duration="616000" />
-      <workItem from="1566382975631" duration="15291000" />
+      <workItem from="1566382975631" duration="15544000" />
     </task>
     <task id="LOCAL-00001" summary="Paytm Overflow">
       <created>1565089028672</created>
