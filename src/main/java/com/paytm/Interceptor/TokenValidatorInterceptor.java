@@ -3,6 +3,8 @@ package com.paytm.Interceptor;
  * @author: aditya10.kumar
  * @created: 08/08/19
  */
+import com.paytm.controller.UserController;
+import com.paytm.entity.Token;
 import com.paytm.entity.User;
 import com.paytm.services.LoginServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,86 +19,107 @@ public class TokenValidatorInterceptor implements HandlerInterceptor
     @Autowired
     private LoginServiceImpl ls;
 
+
     @Override
-    public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
-        String path = ((HttpServletRequest) httpServletRequest).getRequestURI();
-        System.out.println(path);
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
 
-        String email=httpServletRequest.getParameter("email");
-        String SEmail= (String) httpServletRequest.getSession().getAttribute("email");
-        //if email & session email doesn't exist then there is an
-        // intrusion by some else...redirect that person to login page
-        if(email==null && SEmail==null)
-        {
-            httpServletRequest.getRequestDispatcher("index.jsp").forward(httpServletRequest, httpServletResponse);
-            return false;
-        }
 
-        String action=httpServletRequest.getParameter("action");
-        HttpSession session = httpServletRequest.getSession();
-        System.out.println("action is "+action);
-        int valid1=ls.isTokenActiveService((String)session.getAttribute("token"));
+        String path = ((HttpServletRequest) request).getRequestURI();
+        System.out.println("Request path is ....." + path);
 
-        System.out.println(valid1);
-        if(valid1==1)
-        {
-            return true;
-        }
-        //typecasting needed to access the getSession()method;
-        HttpServletRequest request = (HttpServletRequest) httpServletRequest;
-        HttpSession sess = request.getSession(false);
+        HttpSession session =(HttpSession) request.getSession(false);
+        String requestEmail=(String) request.getParameter("email");
 
-//            if(sess==null && action=="login")
-//            {
-//                return true;
-//            }
-        System.out.println("qwerty");
-        if (sess != null)
-        {
-            String token = (String) sess.getAttribute("token");
-            System.out.print("Inside Token Validator Interceptor :");
-            System.out.println(token);
 
-            //query fire
-            int valid = ls.isTokenActiveService(token);
+        System.out.println("inside interceptor . Current session is ---> " + session);
 
-            if (valid == 1)
+
+
+        //user may be a fresh user or existing user who logged in before and not logged out(closed window.).
+        if(session == null)
             {
-                int id = ls.findUserIdByTokenService(token);
-                System.out.println("User Id: "+id);
+
+                System.out.println("session is null");
+
+                //come here from other then login page then redirect to login
+
+                try {
+                    if (!request.getParameter("action").equals("login")) {
+                        System.out.println("system is here");
+                        response.sendRedirect(request.getContextPath() + "/index.jsp");
+                        return false;
+                    }
+                }
+                catch (Exception e)
+                {
+                    response.sendRedirect(request.getContextPath() + "/index.jsp");
+                    return false;
+                }
+
+
+                System.out.println("session is null ----->< inside validator interceptor        +email in request is "+requestEmail);
+
+                User user= ls.findUserByEmailService(requestEmail);
+
+                System.out.println("interceptor "+user);
+
+
+                Token t=ls.findTokenByUserService(user);
+
+                System.out.println("interceptor "+t);
+
+                System.out.println("return from interceptor (null session )");
+                return true;
+
+            }
+        else            //have an active session (with valid token or with invalid token )
+            {
+               String sessionEmail =(String) session.getAttribute("email") ;
+               String sessionToken= (String) session.getAttribute("token");
+             //  String action=session.getAttribute("action");
+
+               boolean validToken =ls.isTokenActiveService(sessionToken);
+
+
+               //logged in user             have an active token            just validate user email with token
+                if(validToken==true) {
+
+                int id = ls.findUserIdByTokenService(sessionToken);
+                System.out.println("User Id: " + id);
                 User u = ls.findUserByUserIdService(id);
 
-                //for allowing multiple tabs to one account
-                if(action==null && token!=null && sess.getAttribute("email").equals(u.getEmail()))
-                {
-                    httpServletRequest.getRequestDispatcher("postLoggedIn.jsp").forward(httpServletRequest, httpServletResponse);
-                    return true;
-                }
+                    if(u.getEmail().equals(sessionEmail)) {             // comparing token and session email.....
+                            return true;
+                    }
+                    else {
+                            ls.markSessionInactiveService(sessionToken);    // invalidate token
+                            session.invalidate();
+                            response.sendRedirect(request.getContextPath()+ "/index.jsp");
+                            return  false;
+                    }
 
-                if (!u.getEmail().equals(sess.getAttribute("email")))
+
+                }
+                else        // new user       create a token for him
                 {
-                    //login unsuccessful
-                    httpServletRequest.getRequestDispatcher("index.jsp").forward(httpServletRequest, httpServletResponse);
-                    //return false;
+                    session.invalidate();
+                    response.sendRedirect(request.getContextPath()+ "/index.jsp");
+                    return false;
                 }
             }
-            else
-            {
-                httpServletRequest.getRequestDispatcher("index.jsp").forward(httpServletRequest, httpServletResponse);
-                //return false;
-            }
-        }
-        System.out.println("Here after redirecting in Interceptor.");
-    return true;
+
+
  }
 
     @Override
-    public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) throws Exception
-    {
+    public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) throws Exception {
 
     }
+
     @Override
     public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) throws Exception {
 
     }
+
+
 }

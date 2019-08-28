@@ -18,7 +18,7 @@ public class Token extends AbstractEntity
     @Column(unique = true)
     private String token_no;
     private Date expiry_time;
-    private Integer flag;
+    private boolean flag;
 
     @ManyToOne
     private User user;
@@ -55,11 +55,11 @@ public class Token extends AbstractEntity
         this.expiry_time = expiry_time;
     }
 
-    public Integer getFlag() {
+    public boolean isFlag() {
         return flag;
     }
 
-    public void setFlag(Integer flag) {
+    public void setFlag(boolean flag) {
         this.flag = flag;
     }
 }

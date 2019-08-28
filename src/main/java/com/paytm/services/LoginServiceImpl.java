@@ -37,16 +37,16 @@ public class LoginServiceImpl implements LoginService
     }
 
     @Override
-    public int isTokenActiveService(String token)
+    public boolean isTokenActiveService(String token)
     {
         try{
-            int flag=userDal.isTokenActiveMethod(token);
+            boolean flag=userDal.isTokenActiveMethod(token);
             LOG.info("flag {}",flag);
-            return flag;
+            return  flag;
         }catch (Exception e){
             LOG.error("Error occurred", e);
         }
-        return -1;
+        return false;
     }
 
     @Override

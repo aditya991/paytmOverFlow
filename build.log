@@ -1,0 +1,44 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< com.paytm:com.paytm >-------------------------
+[INFO] Building com.paytm Maven Webapp 1.0-SNAPSHOT
+[INFO] --------------------------------[ war ]---------------------------------
+[WARNING] The POM for com.sun.xml.bind:jaxb-core:jar:2.2.11 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+[WARNING] The POM for com.sun.xml.bind:jaxb-impl:jar:2.2.11 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ com.paytm ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /Users/navalkishore/IdeaProjects/paytmOverFlow/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ com.paytm ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 39 source files to /Users/navalkishore/IdeaProjects/paytmOverFlow/target/classes
+[INFO] /Users/navalkishore/IdeaProjects/paytmOverFlow/src/main/java/com/paytm/OverridedRequest/OverridedHttpServletRequest.java: /Users/navalkishore/IdeaProjects/paytmOverFlow/src/main/java/com/paytm/OverridedRequest/OverridedHttpServletRequest.java uses unchecked or unsafe operations.
+[INFO] /Users/navalkishore/IdeaProjects/paytmOverFlow/src/main/java/com/paytm/OverridedRequest/OverridedHttpServletRequest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:testResources (default-testResources) @ com.paytm ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ com.paytm ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.1:test (default-test) @ com.paytm ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-war-plugin:3.2.2:war (default-war) @ com.paytm ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [com.paytm] in [/Users/navalkishore/IdeaProjects/paytmOverFlow/target/overflow]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/Users/navalkishore/IdeaProjects/paytmOverFlow/src/main/webapp]
+[INFO] Webapp assembled in [631 msecs]
+[INFO] Building war: /Users/navalkishore/IdeaProjects/paytmOverFlow/target/overflow.war
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ com.paytm ---
+[INFO] Installing /Users/navalkishore/IdeaProjects/paytmOverFlow/target/overflow.war to /Users/navalkishore/.m2/repository/com/paytm/com.paytm/1.0-SNAPSHOT/com.paytm-1.0-SNAPSHOT.war
+[INFO] Installing /Users/navalkishore/IdeaProjects/paytmOverFlow/pom.xml to /Users/navalkishore/.m2/repository/com/paytm/com.paytm/1.0-SNAPSHOT/com.paytm-1.0-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  8.720 s
+[INFO] Finished at: 2019-08-21T11:04:33+05:30
+[INFO] ------------------------------------------------------------------------

@@ -1,6 +1,7 @@
 <%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.util.List" %>
+<%@ page session = "false" %>
 <%--
   Created by IntelliJ IDEA.
   User: navalkishore
@@ -56,7 +57,15 @@
         }
     </style>
 
+    <script>
+        if ( window.history.replaceState ) {
+            window.history.replaceState( null, null, window.location.href );
+        }
+    </script>
+
     <script type="text/javascript">
+
+
 
           function SignupFun()
           {
@@ -102,6 +111,48 @@
                       y.style.display="none";
 
           }
+
+          function validateEmail(emailField){
+              var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+              emailField.value=emailField.value.toLowerCase();
+
+              if (reg.test(emailField.value) == false)
+              {
+                  alert('Invalid Email Address');
+
+                  emailField.value="";
+                  return false;
+              }
+              return true;
+          }
+
+          function validatePhone(phoneField) {
+
+               if (/^\d{10}$/.test(phoneField.value)) {
+                  // value is ok, use it
+              } else {
+                  alert("Invalid number; must be ten digits");
+                   phoneField.value="";
+                  return false;
+              }
+          }
+
+          function validateName(nameField) {
+
+            //returns true if matched, vaidates for a-z and A-Z and white space
+
+
+              if (/^[A-Za-z\s]+$/.test(nameField.value)) {
+                  // value is ok, use it
+              } else {
+                  alert("Invalid name");
+                  nameField.value="";
+                  return false;
+              }
+          }
+
+
         </script>
 </head>
 <body>
@@ -114,7 +165,7 @@
     <div class="login-form">
         <form action="login" method="post" >
             <div class="form-group">
-            Email ID: <input type="text" class="form-control"placeholder="enter your email address" name="email" required/>
+            Email ID: <input type="text" class="form-control" onblur="validateEmail(this)"  placeholder="enter your email address" name="email" required/>
             </div>
 
             </br>
@@ -144,19 +195,19 @@
         <form action="signup" method="post">
 
             <div class="form-group">
-            Name  : <input class="form-control" type="text" name="name" placeholder="Enter your name" required/>
+            Name  : <input class="form-control" type="text" name="name" onblur="validateName(this)" placeholder="Enter your name" required/>
             </div>
 
             </br>
 
             <div class="form-group">
-            Email Id: <input class="form-control" type="text" name="email" placeholder="Enter your email" required/>
+            Email Id: <input class="form-control" type="text" name="email"  onblur="validateEmail(this)"  placeholder="Enter your email" required/>
             </div>
 
             </br>
 
             <div class="form-group">
-            Phone : <input class="form-control" type="text" name="phone" placeholder="Enter your phone number(Optional)"/>
+            Phone : <input class="form-control" type="text" name="phone" onblur="validatePhone(this)" placeholder="Enter your phone number(Optional)"/>
             </div>
 
             </br>

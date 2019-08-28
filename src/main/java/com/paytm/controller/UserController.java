@@ -4,21 +4,22 @@ import com.paytm.entity.Token;
 import com.paytm.entity.User;
 import com.paytm.services.LoginServiceImpl;
 import com.paytm.services.SignupServiceImpl;
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
+
 /*
  * @author: aditya10.kumar
  * @created: 06/08/19
@@ -38,122 +39,146 @@ public class UserController
     @RequestMapping(value = "/indexPage" ,method = RequestMethod.GET)
     public  ModelAndView redirectToLogin(HttpServletRequest request,HttpServletResponse response)
     {
-        System.out.println("hello to index servlet");
+        System.out.println("hello to index servlet page");
+
+
+        HttpSession session =(HttpSession)request.getSession(false);
 
         List<String> deptList =signupServiceImpl.listAllDeptByNameService();
 
-        for(String str:deptList)
-            System.out.println("hello in UC "+str);
 
         ModelAndView mv= new ModelAndView();
         mv.setViewName("loginSignup.jsp");
         mv.addObject("deptList",deptList);
 
+
+
+
+        if(session !=null)
+        {
+
+            System.out.println("there is an active session      " + session.getId()+"        "+session.getAttribute("email")+"      "+ session.getAttribute("password") +"      "+ session.getAttribute("token")  );
+
+
+            mv.addObject("email",session.getAttribute("email"));
+            mv.addObject("password",session.getAttribute("password"));
+            mv.addObject("token",session.getAttribute("token"));
+
+
+            mv.setViewName("redirect:login");
+        }
+        else
+        System.out.println("current session is null");
+
+
+
         return mv;
 
     }
-//
-//    @RequestMapping(value = "/hello",method = RequestMethod.GET)
-//    @ResponseBody
-//    public List<String> initialPage(HttpServletRequest request, HttpServletResponse response)
-//    {
-//
-//
-//        List<String> deptList=signupServiceImpl.listAllDeptByNameService();
-//
-//        ModelAndView mv =new ModelAndView();
-//
-//        mv.setViewName("index.jsp");
-//        mv.addObject("deptList"  ,deptList);
-//
-//        for(String d_name:deptList)
-//        {
-//            System.out.println(d_name +"    In a check loop");
-//        }
-//
-//        System.out.println("hello home page");
-//
-//    return deptList;
-//
-//    }
 
-    @RequestMapping(value="/login", method = RequestMethod.POST )
-    public ModelAndView login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-    {
+
+
+    @RequestMapping(value="/login", method = {RequestMethod.POST, RequestMethod.GET})
+    public ModelAndView login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
+
+        ModelAndView mv = new ModelAndView();
+
+        System.out.println("inside login API");
+
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-
+       
         request.setAttribute("type", "back");
         System.out.println(request.getAttribute("type"));
+       
+       
         System.out.println("email is :"+request.getParameter("email"));
+
+
+
+        // if incorrect details then redirect to index page.
         try
         {
             boolean flag = ls.UserAuthenticationService(email, password);
             System.out.println("Flag is "+flag+".");
-            if (!flag)
+            if (flag!=true)
             {
-                request.getRequestDispatcher("index.jsp").forward(request, response);
+                System.out.println("flag is not true");
+
+                mv.setViewName("index.jsp");
+                return mv;
             }
         }
         catch(Exception e)
         {
-            request.getRequestDispatcher("index.jsp").forward(request, response);
-        }
-//        System.out.println(request.getParameter("password")+"           pass is ");
-        System.out.println("Inside Login Controller-----------1");
+            System.out.println("flag is not true");
+
+            mv.setViewName("index.jsp");   }
+        
+        
+        System.out.println("Inside Login Controller----------- id passwords are correct");
 
         //find the user id on the basis of his email
-        User u=ls.findUserByEmailService(email);
+        User user=ls.findUserByEmailService(email);
         //then find if a active session of the user exist
-        Token t1=ls.findTokenByUserService(u);
+        Token token=ls.findTokenByUserService(user);
         // if it exists then assign that token to the user otherwise generate a new one
-        String modelEmail=u.getEmail();
-        if(t1!=null)
+
+        System.out.println("Inside Login Controller----- token is "+token+"  user is  "+user);
+
+
+        HttpSession session = request.getSession(false);
+
+        if(session == null)           // no existing session create new one
         {
-            HttpSession session = request.getSession();
-            session.setAttribute("email", email);
-            //session.setAttribute("password", password);
-            session.setAttribute("token", t1.getToken_no());
-            session.setAttribute("created", System.currentTimeMillis());
-            session.setAttribute("dept", u.getDept());
-            System.out.println("Used old token & logged user inside the website...");
-            modelEmail= (String) session.getAttribute("email");
+            System.out.println("created new session");
+            session = request.getSession(true);
         }
-        else
+        else {
+            System.out.println("already a session");
+        }
+
+        //set session attributes
+        session.setAttribute("email",email);
+        session.setAttribute("password",password);
+        session.setAttribute("created", System.currentTimeMillis());
+
+
+
+        //Now already a session just check for token
+        if(token!=null)   {              // already a valid token
+            System.out.println("already an active token ....");
+            session.setAttribute("token", token.getToken_no());}
+        else                    // create a new token
         {
-            HttpSession session = request.getSession();
+            System.out.println("creating new token ");
+
             UUID uuid = UUID.randomUUID();
             String randomUUIDString = uuid.toString();
-
-            session.setAttribute("dept", u.getDept());
-            session.setAttribute("email", email);
-            //session.setAttribute("password", password);
             session.setAttribute("token", randomUUIDString);
-            session.setAttribute("created", System.currentTimeMillis());
-            //User u = ls.findUserByEmailService(email);
+
             Token t = new Token();
             //t.setExpiry_time();
-            t.setFlag(1);
+            t.setFlag(true);
             t.setToken_no((String) session.getAttribute("token"));
-            t.setUser(u);
+            t.setUser(user);
             t.setCreated(new Date());
             t.setUpdated(new Date());
-
             System.out.println("Created new token & assigned to the user.");
 
             ls.createTokenService(t);
-            modelEmail= (String) session.getAttribute("email");
+        }
 
-            System.out.println("Passed createTokenService.");
-       }
-        //no caching & force reload
+        //no caching
         response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
         response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
         response.setHeader("Expires", "0");
 
-        ModelAndView mv = new ModelAndView();
+
         mv.setViewName("postLoggedIn.jsp");
-        mv.addObject("email",   modelEmail);
+        mv.addObject("email",   email);
         return mv;
     }
 
@@ -166,6 +191,7 @@ public class UserController
         ls.markSessionInactiveService((String)session.getAttribute("token"));   //mark that session id inactive
 
         session.invalidate();
+
         return mv;
     }
 
@@ -220,4 +246,6 @@ public class UserController
         mv.setViewName("index.jsp");
         return mv;
     }
+
+
 }

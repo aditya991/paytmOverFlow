@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.util.List" %>
+<%@ page session = "false" %>
 <%@ page import="com.paytm.entity.Dept" %>
 <%@ page import="java.util.Iterator" %><%--
   Created by IntelliJ IDEA.
@@ -20,6 +21,7 @@
 <h2>You interests are</h2>
 
 <%
+
     List listDept = (List) request.getAttribute("listofdepartments");
     List listInterest = (List) request.getAttribute("listofinterest");
     request.setAttribute("listinterest", listInterest);

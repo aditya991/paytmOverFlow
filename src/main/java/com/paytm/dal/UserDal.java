@@ -139,15 +139,15 @@ public class UserDal
         em.close();
     }
 
-    public int isTokenActiveMethod(String token)
+    public boolean isTokenActiveMethod(String token)
     {
         try {
-            int flag = tokenRepo.isSessionActive(token);
+            boolean flag = tokenRepo.isSessionActive(token);
             return flag;
         }
         catch(Exception e)
         {
-            return 0;
+            return false;
         }
     }
 

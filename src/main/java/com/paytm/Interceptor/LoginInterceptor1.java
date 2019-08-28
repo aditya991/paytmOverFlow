@@ -22,7 +22,6 @@ public class LoginInterceptor1 implements HandlerInterceptor
     {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-
         return true;
     }
 
