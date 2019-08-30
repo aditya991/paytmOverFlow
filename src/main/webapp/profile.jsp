@@ -13,7 +13,7 @@
 <body style="margin:0px;">
 <table style="width:100%; border-collapse:collapse; font:14px Arial,sans-serif;">
     <tr>
-        <td colspan="2" style="padding:10px 20px; background-color:#acb3b9;">
+        <td colspan="2" style="padding:10px 20px; background-color:#ADD8E6;">
             <h1 style="font-size:24px;">Aap apni profile dekh rahe</h1>
         </td>
     </tr>
@@ -74,7 +74,7 @@
         </td>
     </tr>
     <tr>
-        <td colspan="2" style="padding:5px; background-color:#acb3b9; text-align:center;">å
+        <td colspan="2" style="padding:5px; background-color:#acb3b9; text-align:center;">
         </td>
     </tr>
 </table>
