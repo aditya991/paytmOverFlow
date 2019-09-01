@@ -34,8 +34,6 @@ public class UserController
     @Autowired
     private LoginServiceImpl ls;
 
-
-
     @RequestMapping(value = "/indexPage" ,method = RequestMethod.GET)
     public  ModelAndView redirectToLogin(HttpServletRequest request,HttpServletResponse response)
     {
@@ -50,8 +48,6 @@ public class UserController
         ModelAndView mv= new ModelAndView();
         mv.setViewName("loginSignup.jsp");
         mv.addObject("deptList",deptList);
-
-
 
 
         if(session !=null)
@@ -197,15 +193,11 @@ public class UserController
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public ModelAndView signup(HttpServletRequest request, HttpServletResponse response) {
-
-
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String phone = request.getParameter("phone");
         String password = request.getParameter("password");
         String dept = request.getParameter("dept");
-
-
 
         System.out.println("step 1 in controller" +name+"  "+email+"    "+phone);
 
@@ -246,6 +238,4 @@ public class UserController
         mv.setViewName("index.jsp");
         return mv;
     }
-
-
 }
