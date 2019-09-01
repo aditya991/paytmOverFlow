@@ -10,20 +10,11 @@
     <list default="true" id="64c1fbb1-b356-4314-a7b3-18fec436fb59" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/askUserQuestion.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/askUserQuestion.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/expiredResetToken.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/expiredResetToken.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/forgotPassword.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/forgotPassword.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/loginSignup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/loginSignup.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/postLoggedIn.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/postLoggedIn.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resetPassword.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resetPassword.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/showAnswers.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/showAnswers.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/userAnswers.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/userAnswers.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/userFeedGeneral.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/userFeedGeneral.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/userFeedHome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/userFeedHome.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/userProfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/userProfile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/userQuestions.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/userQuestions.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/configuration/DBConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/configuration/DBConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/com.paytm.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/Interceptor/LoginInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/Interceptor/LoginInterceptor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/Interceptor/TokenValidatorInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/Interceptor/TokenValidatorInterceptor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/configuration/DBConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/configuration/DBConfiguration.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/controller/ErrorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/controller/ErrorController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/controller/FeedController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/controller/FeedController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/controller/PasswordController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/controller/PasswordController.class" afterDir="false" />
@@ -37,8 +28,10 @@
       <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/services/LoginServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/services/LoginServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/overflow.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow.war" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/overflow/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/META-INF/com.paytm.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/Interceptor/LoginInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/Interceptor/LoginInterceptor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/Interceptor/TokenValidatorInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/Interceptor/TokenValidatorInterceptor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/configuration/DBConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/configuration/DBConfiguration.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/ErrorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/ErrorController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/FeedController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/FeedController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/PasswordController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/PasswordController.class" afterDir="false" />
@@ -50,9 +43,6 @@
       <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/dal/UserDal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/dal/UserDal.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/entity/Interest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/entity/Interest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/services/LoginServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/services/LoginServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/askUserQuestion.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/askUserQuestion.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/forgotPassword.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/forgotPassword.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/userFeedHome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/userFeedHome.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -94,7 +84,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
