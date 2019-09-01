@@ -13,6 +13,8 @@
 HttpSession session=(HttpSession)request.getSession(false);
 %>
 
+<%@include file="header.html"%>
+
 <html>
 <head>
     <title>Welcome !!</title>

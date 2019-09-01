@@ -91,6 +91,9 @@ public class FeedController {
     @RequestMapping(value = "/profile", method = RequestMethod.POST)
     public ModelAndView  showAllInterest(HttpServletRequest req, HttpServletResponse res)
     {
+
+        System.out.println("inside profile controller");
+
         HttpSession session = req.getSession(false);
         ModelAndView mv = new ModelAndView();
 
@@ -101,10 +104,13 @@ public class FeedController {
         List<Dept> deptSet = deptDal.enterAllAvailableDeptMethod(resultSet);
 
 
-        mv.setViewName("Profile.jsp");
+        mv.setViewName("profile.jsp");
         mv.addObject("listofinterest",resultSet);
         mv.addObject("listofdepartments",deptSet);
         mv.addObject("username",u.getU_name());
+        mv.addObject("email",email);
+
+        mv.addObject("myDept",u.getDept().getDept_name());
         req.getAttribute("message");
        // mv.addObject("message","");
         return  mv;
