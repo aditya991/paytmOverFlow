@@ -1,7 +1,6 @@
 <%@ page import="com.paytm.entity.Answer" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.paytm.entity.Question" %>
 <%--
   Created by IntelliJ IDEA.
   User: adityakumar
@@ -10,6 +9,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@include file="header.html"%>
 <html>
 <title></title>
 <head>
@@ -85,10 +85,16 @@
     </style>
 </head>
 <body>
+   <% String askerName = (String) request.getAttribute("user");
+      String viewerName = (String) request.getAttribute("viewer");
+      request.setAttribute("viewerName",viewerName);
+      if(askerName.equals(viewerName))
+          askerName = "You";
+   %>
     <div class="detailBox">
         <div class="titleBox">
             <label>
-                Asked By : <span class="text"><%=request.getAttribute("user")%></span>
+                Asked By : <span class="text"><%=askerName%></span>
                 <span class="sub-text"></span>
                 <span style="margin-left: 620px;" class="text">#<%=request.getAttribute("ques_id")%></span>
             </label>
@@ -105,11 +111,17 @@
         <div class="actionBox">
             <ul class="commentList">
                 <c:forEach items="${Alist}" var="s">
+
+                    <c:set var="name" value="${s.user.getU_name()}" />
+                    <c:if test="${name eq viewerName}">
+                        <c:set var="name" value="you" />
+                    </c:if>
+
                     <li>
                         <div class="commentText">
-                            <p class="">${s.answer}</p>
+                            <p>${s.answer}</p>
                             <span class="date sub-text">on ${s.getCreated()}</span>
-                            <span class="date sub-text">Answered By: ${s.user.getU_name()}</span>
+                            <span class="date sub-text">Answered By: ${name}</span>
 
                         </div>
                     </li>
@@ -118,7 +130,7 @@
 <%--            entering new answer--%>
             <form class="form-inline" role="form" action="answer" method="post">
                 <div class="form-group" >
-                    <input class="form-control" type="text" placeholder="Write your answer here..." name="answer" />
+                    <input class="form-control" type="text" placeholder="Write your answer here..." name="answer" required/>
                     <input type="text" style="display:none" name="ques" value="<%=request.getAttribute("ques_id")%>"/>
                 </div>
                 <div class="form-group">

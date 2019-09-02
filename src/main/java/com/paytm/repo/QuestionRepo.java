@@ -1,7 +1,5 @@
 package com.paytm.repo;
 
-import org.springframework.data.jpa.repository.Query;
-
 import com.paytm.entity.Question;
 import com.paytm.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,7 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 public interface QuestionRepo extends JpaRepository<Question,Integer> {
@@ -23,13 +20,19 @@ public interface QuestionRepo extends JpaRepository<Question,Integer> {
 
         @Transactional
         @Modifying
-        @Query("delete FROM Question q WHERE q.question_Id=:Ques_Id")
-        void deleteQuestionById(@Param("Ques_Id")Integer Ques_Id);
+        @Query("delete FROM Question q WHERE q.question_Id=:question_Id")
+        void deleteQuestionById(@Param("question_Id") int question_Id);
 
         @Transactional
         @Modifying
         @Query("update Question q SET q.question =:UpdateQuestion WHERE q.question=:question")
         void updateQuestionByName(@Param("UpdateQuestion") String UpdateQuestion, @Param("question")String question);
+
+        //todo ekansh
+        @Transactional
+        @Modifying
+        @Query("update Question q SET q.answersCount = q.answersCount + 1 WHERE q.question_Id=:qid")
+        void incrementAnswersCount(@Param("qid") int qid);
 
     /**
      * created by Aditya

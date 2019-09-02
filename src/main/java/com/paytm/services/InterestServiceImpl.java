@@ -1,9 +1,12 @@
 package com.paytm.services;
 
+import com.paytm.configuration.DBConfiguration;
 import com.paytm.dal.InterestDalImpl;
 import com.paytm.entity.Dept;
 import com.paytm.entity.Interest;
 import com.paytm.entity.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +19,8 @@ import java.util.List;
 @Service
 public class InterestServiceImpl implements InterestService {
 
+    private static final Logger LOG = LoggerFactory.getLogger(DBConfiguration.class);
+
     @Autowired
     private InterestDalImpl interestDal;
 
@@ -27,7 +32,7 @@ public class InterestServiceImpl implements InterestService {
         Integer u_id = u.getU_id();
         Integer dept_id = d.getDept_id();
 
-        System.out.println("Inside addInterest");
+        LOG.info("Inside addInterest");
 
         Interest i = new Interest(u_id, dept_id);
         i.setCreated(new Date());
@@ -40,7 +45,7 @@ public class InterestServiceImpl implements InterestService {
         em.getTransaction().commit();
         em.close();
 
-        System.out.println("Interest Added.");
+        LOG.info("Interest Added.");
         return true;
     }
 

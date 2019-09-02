@@ -1,8 +1,5 @@
 package com.paytm.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.*;
 
 /*
@@ -17,6 +14,9 @@ public class Question extends AbstractEntity
     @Column(name = "question_Id", updatable = false, nullable = false)
     private Integer question_Id;
     private String question;
+
+    //todo ekansh
+    private int answersCount;
 
     @ManyToOne
     private User user;
@@ -55,5 +55,13 @@ public class Question extends AbstractEntity
 
     public void setDept(Dept dept) {
         this.dept = dept;
+    }
+
+    public int getAnswersCount() {
+        return answersCount;
+    }
+
+    public void setAnswersCount(int answersCount) {
+        this.answersCount = answersCount;
     }
 }

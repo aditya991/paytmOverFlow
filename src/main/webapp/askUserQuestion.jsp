@@ -1,7 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.paytm.entity.Dept" %>
-<%@ page import="java.util.Iterator" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: ekanshgupta
   Date: 07/08/19
@@ -15,6 +14,9 @@
 <html>
 <head>
     <title>PaytmOverFlow</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -71,20 +73,7 @@
     if(S == null)
         S = "";
 %>
-<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">Logo</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+
 <div class="container-fluid text-center">
         <div class="card" >
             <div class="card-body" id="formTop">
@@ -98,7 +87,7 @@
 
                     <br/><br/>
 
-                    <input type="text" placeholder="Type your question here" name='Question' style="font-size:18pt;height:80px;width:500px;text-align:center;" required></input>
+                    <textarea placeholder="Type your question here" name='Question' style="font-size:18pt;height:100px;width:500px;text-align:center;resize:none" required></textarea>
                     <br/>
                     <input type="submit" class="btn btn-primary" value="Submit" style="margin-top:10px;" />
                 </form>
@@ -109,9 +98,8 @@
         <%=S%>
     </font>
 </div>
-
     <footer class="container-fluid text-center">
-        <p>© 2018 Paytm.com. All rights reserved</p>
+        <p>© 2019 PaytmOverFlow.com. All rights reserved</p>
     </footer>
 </body>
 </html>

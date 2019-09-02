@@ -2,9 +2,6 @@ package com.paytm.entity;
 
 import javax.persistence.*;
 
-import java.util.List;
-import java.util.Set;
-
 /*
  * @author: aditya10.kumar
  * @created: 06/08/19

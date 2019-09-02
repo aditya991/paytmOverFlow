@@ -13,10 +13,11 @@ public interface QuestionService {
     User getUserByQuestionIdService(int id);
     Question getQuestionByQuestionIdService(int id);
 
+    //todo ekansh
+    void incrementAnswersCountService(int qid);
 
 
     boolean AddQuestionService(String Department, String Question , String email);
-
     boolean UpdateQuestionService(String question,String UpdateQuestion);
     boolean DeleteQuestionService(String question);
 

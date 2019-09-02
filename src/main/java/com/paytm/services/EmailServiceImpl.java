@@ -1,5 +1,8 @@
 package com.paytm.services;
 
+import com.paytm.configuration.DBConfiguration;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +18,8 @@ import java.util.Properties;
 @Configuration
 @EnableAsync
 public class EmailServiceImpl {
+
+    private static final Logger LOG = LoggerFactory.getLogger(DBConfiguration.class);
 
     @Autowired
     private JavaMailSender mailSender;
@@ -38,7 +43,7 @@ public class EmailServiceImpl {
 
     @Async
     public void sendEmail(SimpleMailMessage email) {
-        System.out.println("Inside sendEmail");
+        LOG.info("Inside sendEmail");
         mailSender.send(email);
     }
 }

@@ -93,8 +93,6 @@
 
         <form name = "resetForm" action = "reset" method = "post" >
 
-            <!--<div class="form-group">-->
-
             <div style="text-align: center;color: blueviolet">Reset password</div><br/>
 
             <input type = "password" id = "pswd1"   style = "width: 80%" placeholder = "Enter your new password here" name = "updatedPassword"/>
@@ -103,27 +101,7 @@
             <input type = "password" id = "pswd2"   style = "width: 80%" placeholder = "Confirm new password here" name = "confirmedPassword"/>
             <input type = "button"   id = "button2" value = "Show" onclick = "change2()"><br/><br/>
 
-            <!--
-                <div class="input-group mb-3">
-                    <input type="password" class="form-control" id = "pswd1" name = "updatedPassword" placeholder="Enter your new password here" aria-label="Enter your new password here" aria-describedby="button1">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button" id="button1" onclick = "change1()" >Show</button>
-                    </div>
-                </div>
-
-                <br/>
-
-                <div class="input-group mb-3">
-                    <input type="password" class="form-control" id = "pswd2" name = "confirmedPassword" placeholder="Confirm new password here" aria-label="Confirm new password here" aria-describedby="button2">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button" id="button2" onclick = "change2()">Show</button>
-                    </div>
-                </div>
-            -->
-
             <input type = "text" name = "token" value = "${resetToken}" style = "display: none"/>
-
-            <!-- </div>-->
 
             <br/>
 
@@ -137,6 +115,7 @@
     </div>
 </div>
 <footer class="container-fluid text-center">
-    <p>© 2019 PaytmOverFlow.com. All rights reserved</p></footer>
+    <p>© 2019 PaytmOverFlow.com. All rights reserved</p>
+</footer>
 </body>
 </html>

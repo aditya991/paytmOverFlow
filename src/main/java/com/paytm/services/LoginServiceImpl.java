@@ -15,6 +15,8 @@ import org.springframework.stereotype.Service;
 public class LoginServiceImpl implements LoginService
 {
 
+
+
     private Logger LOG = LoggerFactory.getLogger(LoginServiceImpl.class);
     @Autowired
     private UserDal userDal;
@@ -75,7 +77,7 @@ public class LoginServiceImpl implements LoginService
         }
         catch (Exception e)
         {
-            System.out.println("User not found");
+            LOG.info("User not found");
         }
         return false;
     }

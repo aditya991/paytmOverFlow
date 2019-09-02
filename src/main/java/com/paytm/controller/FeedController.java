@@ -1,5 +1,6 @@
 package com.paytm.controller;
 
+import com.paytm.configuration.DBConfiguration;
 import com.paytm.dal.DeptDalImpl;
 import com.paytm.entity.Dept;
 import com.paytm.entity.User;
@@ -7,11 +8,14 @@ import com.paytm.services.AnswerServiceImpl;
 import com.paytm.services.InterestServiceImpl;
 import com.paytm.services.QuestionServiceImpl;
 import com.paytm.services.UserServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -24,6 +28,8 @@ import java.util.List;
 
 @Controller
 public class FeedController {
+
+    private static final Logger LOG = LoggerFactory.getLogger(DBConfiguration.class);
 
     @Autowired
     private UserServiceImpl userService;
@@ -92,7 +98,7 @@ public class FeedController {
     public ModelAndView  showAllInterest(HttpServletRequest request, HttpServletResponse response)
     {
 
-        System.out.println("inside profile controller");
+        LOG.info("inside profile controller");
 
         HttpSession session = request.getSession(false);
         ModelAndView mv = new ModelAndView();

@@ -1,10 +1,8 @@
 package com.paytm.services;
 
 import com.paytm.entity.Dept;
-import com.paytm.entity.Interest;
 import com.paytm.entity.User;
 
-import javax.persistence.EntityManagerFactory;
 import java.util.List;
 
 public interface InterestService {

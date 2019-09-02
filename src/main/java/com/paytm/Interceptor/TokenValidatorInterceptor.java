@@ -3,19 +3,26 @@ package com.paytm.Interceptor;
  * @author: aditya10.kumar
  * @created: 08/08/19
  */
-import com.paytm.controller.UserController;
+
+import com.paytm.configuration.DBConfiguration;
 import com.paytm.entity.Token;
 import com.paytm.entity.User;
 import com.paytm.services.LoginServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class TokenValidatorInterceptor implements HandlerInterceptor
 {
+
+    private static final Logger LOG = LoggerFactory.getLogger(DBConfiguration.class);
+
     @Autowired
     private LoginServiceImpl ls;
 
@@ -25,13 +32,13 @@ public class TokenValidatorInterceptor implements HandlerInterceptor
 
 
         String path = ((HttpServletRequest) request).getRequestURI();
-        System.out.println("Request path is ....." + path);
+        LOG.info("Request path is ....." + path);
 
         HttpSession session =(HttpSession) request.getSession(false);
         String requestEmail=(String) request.getParameter("email");
 
 
-        System.out.println("inside interceptor . Current session is ---> " + session);
+        LOG.info("inside interceptor . Current session is ---> " + session);
 
 
 
@@ -39,13 +46,13 @@ public class TokenValidatorInterceptor implements HandlerInterceptor
         if(session == null)
             {
 
-                System.out.println("session is null");
+                LOG.info("session is null");
 
                 //come here from other then login page then redirect to login
 
                 try {
                     if (!request.getParameter("action").equals("login")) {
-                        System.out.println("system is here");
+                        LOG.info("system is here");
                         response.sendRedirect(request.getContextPath() + "/index.jsp");
                         return false;
                     }
@@ -57,18 +64,18 @@ public class TokenValidatorInterceptor implements HandlerInterceptor
                 }
 
 
-                System.out.println("session is null ----->< inside validator interceptor        +email in request is "+requestEmail);
+                LOG.info("session is null ----->< inside validator interceptor        +email in request is "+requestEmail);
 
                 User user= ls.findUserByEmailService(requestEmail);
 
-                System.out.println("interceptor "+user);
+                LOG.info("interceptor "+user);
 
 
                 Token t=ls.findTokenByUserService(user);
 
-                System.out.println("interceptor "+t);
+                LOG.info("interceptor "+t);
 
-                System.out.println("return from interceptor (null session )");
+                LOG.info("return from interceptor (null session )");
                 return true;
 
             }
@@ -85,7 +92,7 @@ public class TokenValidatorInterceptor implements HandlerInterceptor
                 if(validToken==true) {
 
                 int id = ls.findUserIdByTokenService(sessionToken);
-                System.out.println("User Id: " + id);
+                LOG.info("User Id: " + id);
                 User u = ls.findUserByUserIdService(id);
 
                     if(u.getEmail().equals(sessionEmail)) {             // comparing token and session email.....
