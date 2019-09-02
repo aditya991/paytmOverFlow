@@ -2,9 +2,6 @@ package com.paytm.dal;
 
 import com.paytm.entity.Question;
 import com.paytm.entity.User;
-import com.paytm.entity.Dept;
-import com.paytm.entity.Question;
-import com.paytm.entity.User;
 
 import java.util.List;
 

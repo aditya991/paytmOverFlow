@@ -10,5 +10,9 @@ public interface UserService
     User findUserByNameService(String name);
     User findUserByEmailService(String email);
     boolean deleteUserService(String email);
+    //todo ekansh
+    User findUserByResetTokenService(String token);
+    //todo ekansh
+    void save(User user);
 }
 

@@ -8,9 +8,11 @@ import com.paytm.repo.UserRepo;
 import com.paytm.services.InterestServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import java.util.Date;
 
 /*
  * @author: aditya10.kumar
@@ -36,6 +38,11 @@ public class UserDal
 
     @Autowired
     private EntityManagerFactory emf;
+
+
+    public User findUserByResetTokenMethod(String token){
+        return userRepo.findUserByResetToken(token);
+    }
 
     public boolean createUserMethod(User user) {
         System.out.println("in user DAL initial "+ emf);
@@ -155,11 +162,27 @@ public class UserDal
     {
         tokenRepo.markSessionInactive(token);
     }
+
     public Token findTokenByUserMethod(User user)
     {
         try
         {
-            return tokenRepo.findTokenByUser(user);
+            Token token= tokenRepo.findTokenByUser(user);
+
+
+            long diff = new Date().getTime()-token.getCreated().getTime();
+
+            long diffMinutes = diff / (60 * 1000) % 60;
+
+            if (diffMinutes >20)
+            {
+                markSessionInactivemethod(token.getToken_no());
+                return null;
+            }
+
+            return token;
+
+
         }
         catch(Exception e)
         {
