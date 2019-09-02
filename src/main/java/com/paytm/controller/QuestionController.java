@@ -4,6 +4,7 @@ package com.paytm.controller;
  * @created: 06/08/19
  */
 
+import com.paytm.configuration.DBConfiguration;
 import com.paytm.dal.DeptDalImpl;
 import com.paytm.entity.Dept;
 import com.paytm.entity.Question;
@@ -12,6 +13,8 @@ import com.paytm.repo.QuestionRepo;
 import com.paytm.services.InterestServiceImpl;
 import com.paytm.services.QuestionServiceImpl;
 import com.paytm.services.UserServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +28,8 @@ import java.util.List;
 
 @Controller
 public class QuestionController {
+
+    private static final Logger LOG = LoggerFactory.getLogger(DBConfiguration.class);
 
     @Autowired
     private QuestionServiceImpl questionServiceImpl;
@@ -93,9 +98,9 @@ public class QuestionController {
         String updatedQuestion = request.getParameter("updatedQuestion");
 
         if (option.equals("Update")) {
-            System.out.println("Inside Update");
-            System.out.println(selectedQuestion);
-            System.out.println(updatedQuestion);
+            LOG.info("Inside Update");
+            LOG.info(selectedQuestion);
+            LOG.info(updatedQuestion);
             questionServiceImpl.UpdateQuestionService(selectedQuestion, updatedQuestion);
             request.setAttribute("message", "Question updated successfully.");
         } else if (option.equals("Delete")) {
@@ -119,14 +124,14 @@ public class QuestionController {
     public ModelAndView updateQuestion(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView mv = new ModelAndView();
 
-        System.out.println("Inside updateQuestion");
+        LOG.info("Inside updateQuestion");
 
         String selectedQuestion = request.getParameter("selectedQuestion");
         String updatedQuestion = request.getParameter("updatedQuestion");
 
-        System.out.println("Inside Update");
-        System.out.println(selectedQuestion);
-        System.out.println(updatedQuestion);
+        LOG.info("Inside Update");
+        LOG.info(selectedQuestion);
+        LOG.info(updatedQuestion);
         questionServiceImpl.UpdateQuestionService(selectedQuestion, updatedQuestion);
         request.setAttribute("message", "Question updated successfully.");
 

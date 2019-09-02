@@ -1,9 +1,12 @@
 package com.paytm.dal;
 
+import com.paytm.configuration.DBConfiguration;
 import com.paytm.entity.Question;
 import com.paytm.entity.User;
 import com.paytm.repo.QuestionRepo;
 import com.paytm.repo.UserRepo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -14,6 +17,8 @@ import java.util.List;
 
 @Component
 public class QuestionDalImpl implements QuestionDal {
+
+    private static final Logger LOG = LoggerFactory.getLogger(DBConfiguration.class);
 
     @Autowired
     private UserRepo userRepo;
@@ -84,7 +89,7 @@ public class QuestionDalImpl implements QuestionDal {
 
     @Override
     public List<Question> showAllQuestionMethod(User user) {
-        System.out.println("inside showAll");
+        LOG.info("inside showAll");
 
         return questionRepo.getQuestionByUser(user);
 

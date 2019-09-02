@@ -23,6 +23,7 @@ public class User extends AbstractEntity  {
     @Column(unique = true)
     private String email;
 
+    @Column(unique = true)
     private String phone;
 
     //todo ekansh

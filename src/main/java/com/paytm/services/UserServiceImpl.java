@@ -1,8 +1,11 @@
 package com.paytm.services;
 
+import com.paytm.configuration.DBConfiguration;
 import com.paytm.dal.UserDal;
 import com.paytm.entity.User;
 import com.paytm.repo.UserRepo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +13,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceImpl implements UserService {
+
+    private static final Logger LOG = LoggerFactory.getLogger(DBConfiguration.class);
 
     @Autowired
     UserDal userDal;
@@ -26,7 +31,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findUserByEmailService(String email) {
 
-        System.out.println("Inside findUserByEmailService.");
+        LOG.info("Inside findUserByEmailService.");
        // return userRepo.findUserByEmail(email);
         return userDal.findUserByEmailMethod(email);
     }

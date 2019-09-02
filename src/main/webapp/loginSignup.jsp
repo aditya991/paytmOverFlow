@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
 
     <style type="text/css">
         .login-form {
@@ -57,7 +58,6 @@
     </script>
 
     <script type="text/javascript">
-
 
         function SignupFun() {
             var x = document.getElementById("signupDiv");
@@ -103,7 +103,7 @@
 
             emailField.value = emailField.value.toLowerCase();
 
-            if (reg.test(emailField.value) == false) {
+            if (reg.test(emailField.value) === false) {
                 alert('Invalid Email Address');
 
                 emailField.value = "";
@@ -134,31 +134,35 @@
             }
         }
 
-
-        function validatePasswordLogin() {
-
+        function validatePasswordLogin()
+        {
             var passwordField = document.getElementById("loginPassword");
 
-            if (passwordField.value.length < 6) {
+            if (passwordField.value.length < 6)
+            {
+                passwordField.setAttribute("value","");
                 alert("invalid password");
-            } else {
-                document.forms["loginForm"].submit();
+            }
+            else
+            {
+                document.getElementById("loginForm").submit();
             }
         }
 
-
-        function validatePasswordSignup() {
+        function validatePasswordSignup()
+        {
 
             var passwordField = document.getElementById("signupPassword");
 
-            if (passwordField.value.length < 6) {
+            if (passwordField.value.length < 6)
+            {
                 alert("invalid password");
-            } else {
-                document.forms["signupForm"].submit();
+            }
+            else
+            {
+                document.getElementById("signupForm").submit();
             }
         }
-
-
     </script>
 </head>
 <body>
@@ -184,7 +188,7 @@
 
             </br>
 
-            <input class="btn btn-primary btn-block" type="submit" value="login" onsubmit="validatePasswordLogin()"
+            <input class="btn btn-primary btn-block" type="submit" value="login" onclick="validatePasswordLogin()"
                    name="action"/>
 
             <a href="forgotPassword.jsp">Forgot Password?</a>
@@ -194,14 +198,6 @@
         </form>
     </div>
 </div>
-<%--<form action="adminLogin" method="post">--%>
-<%--    Admin Email ID: <input type="text" placeholder="enter your email address" name="email" required/>--%>
-
-<%--    </br>--%>
-<%--    Password: <input type="password" placeholder="enter your password" name="password" required/>--%>
-<%--    </br>--%>
-<%--    <input type="submit" value="login" />--%>
-<%--</form>--%>
 
 <div id="signupDiv">
     <div class="login-form">
@@ -246,7 +242,7 @@
 
             </br>
 
-            <input class="btn btn-primary btn-block" type="submit" onsubmit="validatePasswordSignup()" value="Sign Up"/>
+            <input class="btn btn-primary btn-block" type="submit" onclick="validatePasswordSignup()" value="Sign Up"/>
 
 
             <label class="pull-right checkbox-inline">
