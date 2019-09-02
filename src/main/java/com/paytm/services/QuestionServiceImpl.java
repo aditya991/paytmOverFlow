@@ -1,16 +1,14 @@
 package com.paytm.services;
+
 import com.paytm.dal.DeptDalImpl;
 import com.paytm.dal.QuestionDalImpl;
 import com.paytm.entity.Dept;
 import com.paytm.entity.Question;
 import com.paytm.entity.User;
 import com.paytm.repo.QuestionRepo;
-import com.paytm.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 import java.util.List;
 
 

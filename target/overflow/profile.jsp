@@ -1,8 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.util.List" %>
 <%@ page session = "false" %>
-<%@ page import="com.paytm.entity.Dept" %>
-<%@ page import="java.util.Iterator" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: ekanshgupta
   Date: 07/08/19

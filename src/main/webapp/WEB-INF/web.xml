@@ -61,9 +61,9 @@
   </servlet-mapping>
 
 
-<!--  <error-page>-->
-<!--    <location>/errors</location>-->
-<!--  </error-page>-->
+  <error-page>
+    <location>/errors</location>
+  </error-page>
 
 
 </web-app>

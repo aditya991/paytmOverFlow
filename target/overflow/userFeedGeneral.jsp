@@ -1,9 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="java.util.List" %>
 <%@ page import="com.paytm.entity.Dept" %>
 <%@ page import="com.paytm.entity.Question" %>
 <%@ page import="java.util.Iterator" %>
-<%@ page import="java.util.Set" %>
+<%@ page import="java.util.List" %>
 <%--
   Created by IntelliJ IDEA.
   User: ekanshgupta
@@ -56,10 +55,6 @@
         }
         body {
             background-color: #eeeeee;
-        }
-
-        .h7 {
-            font-size: 0.8rem;
         }
 
         .gedf-wrapper {

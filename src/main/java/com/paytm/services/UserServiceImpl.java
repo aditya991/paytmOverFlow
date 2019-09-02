@@ -2,7 +2,6 @@ package com.paytm.services;
 
 import com.paytm.dal.UserDal;
 import com.paytm.entity.User;
-import com.paytm.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

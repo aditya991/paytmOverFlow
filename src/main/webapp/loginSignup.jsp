@@ -1,6 +1,5 @@
 <%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="java.util.List" %>
 <%@ page session = "false" %>
 <%--
   Created by IntelliJ IDEA.
@@ -119,7 +118,7 @@
 
           function validatePhone(phoneField) {
 
-               if (/^\d{10}$/.test(phoneField.value)) {
+               if (/^\d{10}$/.test(phoneField.value) || /^\d{0}$/.test(phoneField.value)) {
                   // value is ok, use it
               } else {
                   alert("Invalid number; must be ten digits");
@@ -129,16 +128,20 @@
           }
 
           function validateName(nameField) {
-
             //returns true if matched, vaidates for a-z and A-Z and white space
-
-
               if (/^[A-Za-z\s]+$/.test(nameField.value)) {
                   // value is ok, use it
               } else {
                   alert("Invalid name");
                   nameField.value="";
                   return false;
+              }
+          }
+
+
+          function validatePassword(passwordField) {
+                if (passwordField.value.length<6) {
+                  alert("invalid password");
               }
           }
 
@@ -161,7 +164,7 @@
             </br>
 
             <div class="form-group">
-            Password: <input type="password" class="form-control" placeholder="enter your password" name="password" required/>
+            Password: <input type="password" class="form-control" placeholder="enter your password" onblur="validatePassword(this)" name="password" required/>
             </div>
 
             </br>
@@ -214,13 +217,13 @@
             </br>
 
             <div class="form-group">
-            Password: <input class="form-control" type="password" name="password" placeholder="********************" required/>
+            Password: <input class="form-control" type="password" name="password" onblur="validatePassword(this)" placeholder="********************" required/>
             </div>
 
             </br>
 
             <input class="btn btn-primary btn-block" type="submit" value="Sign Up"/>
-            <label class="pull-right checkbox-inline"><button id="old login" onclick="loginFun()">Already a User </button></label>
+            <label class="pull-right checkbox-inline"><button id="old login"  onclick="loginFun()">Already a User </button></label>
         </form>
     </div>
 </div>

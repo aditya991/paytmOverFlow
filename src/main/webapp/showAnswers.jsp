@@ -1,7 +1,6 @@
 <%@ page import="com.paytm.entity.Answer" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.paytm.entity.Question" %>
 <%--
   Created by IntelliJ IDEA.
   User: adityakumar
