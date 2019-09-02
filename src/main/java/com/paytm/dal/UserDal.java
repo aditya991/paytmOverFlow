@@ -1,11 +1,14 @@
 package com.paytm.dal;
 
+import com.paytm.configuration.DBConfiguration;
 import com.paytm.entity.Token;
 import com.paytm.entity.User;
 import com.paytm.repo.DeptRepo;
 import com.paytm.repo.TokenRepo;
 import com.paytm.repo.UserRepo;
 import com.paytm.services.InterestServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -23,6 +26,8 @@ import java.util.Date;
 
 public class UserDal
 {
+
+    private static final Logger LOG = LoggerFactory.getLogger(DBConfiguration.class);
 
     @Autowired
     private UserRepo userRepo;
@@ -45,7 +50,7 @@ public class UserDal
     }
 
     public boolean createUserMethod(User user) {
-        System.out.println("in user DAL initial "+ emf);
+        LOG.info("in user DAL initial "+ emf);
 
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -57,14 +62,13 @@ public class UserDal
 
         //ekansh
         boolean isAdded = interestService.addInterestService(user, user.getDept());//,emf);
-        System.out.println("in user DAL final .user must be added to table");
+        LOG.info("in user DAL final .user must be added to table");
         return true;
     }
 
     public boolean validUserEmailMethod(String email) {
         try{
             User u=userRepo.findUserByEmail(email);
-            System.out.println(u);
 
             if(u==null)
                 return false;
@@ -79,7 +83,6 @@ public class UserDal
     public boolean validUserPhoneMethod(String phone) {
         try{
             User u=userRepo.findUserByPhone(phone);
-            System.out.println(u);
 
             if(u==null)
                 return false;
@@ -131,9 +134,9 @@ public class UserDal
     }
 
     public User findUserByEmailMethod(String email) {
-        System.out.println("Inside findUserByEmailMethod");
+        LOG.info("Inside findUserByEmailMethod");
         User u= userRepo.findUserByEmail(email);
-        System.out.println("in find"+ u);
+        LOG.info("in find"+ u);
         return u;
     }
 

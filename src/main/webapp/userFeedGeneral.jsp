@@ -111,8 +111,6 @@
 
 <body>
 
-
-
 <div class="container-fluid text-center">
     <div class="row">
         <div class="col-md-6 gedf-main" style="margin:0 auto;">
@@ -129,7 +127,7 @@
                 while (iterator.hasNext())
                 {
                     Dept d= (Dept) iterator.next();
-                    System.out.println(d.getDept_name());
+                    LOG.info(d.getDept_name());
                     List<Question> questionsList=d.getQuestions();
                     request.setAttribute("askedQuestions",questionsList);
             %>

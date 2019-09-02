@@ -41,7 +41,7 @@ To change this template use File | Settings | File Templates.
 </style>
 
 <body>
-    <h1>You have asked following questions :-</h1>
+<h1>You have asked following questions :-</h1>
 
     <%
         List listQuestions = (List) request.getAttribute("listquestions");

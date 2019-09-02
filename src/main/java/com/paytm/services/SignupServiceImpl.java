@@ -1,10 +1,13 @@
 package com.paytm.services;
 
+import com.paytm.configuration.DBConfiguration;
 import com.paytm.dal.DeptDalImpl;
 import com.paytm.dal.UserDal;
 import com.paytm.entity.Dept;
 import com.paytm.entity.User;
 import com.paytm.repo.DeptRepo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +15,8 @@ import java.util.List;
 
 @Service
 public class SignupServiceImpl implements SignupService {
+
+    private static final Logger LOG = LoggerFactory.getLogger(DBConfiguration.class);
 
     @Autowired
     UserDal userDal ;
@@ -35,7 +40,7 @@ public class SignupServiceImpl implements SignupService {
     @Override
     public boolean createUserService(String u_name, String email, String phone, String password , String dept) {
 
-        System.out.println("inside create user function");
+        LOG.info("inside create user function");
 
 
 
@@ -56,7 +61,7 @@ public class SignupServiceImpl implements SignupService {
         userDal.createUserMethod(user);
 
 
-        System.out.println("inside create user function final step");
+        LOG.info("inside create user function final step");
 
         return false;
     }
@@ -69,7 +74,7 @@ public class SignupServiceImpl implements SignupService {
         boolean b= !userDal.validUserPhoneMethod(phone) ;
 
 
-        System.out.println("in valid user     "+a+"        "+ b);
+        LOG.info("in valid user     "+a+"        "+ b);
 
 
         return  a && b;

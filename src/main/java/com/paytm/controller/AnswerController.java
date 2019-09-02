@@ -1,5 +1,6 @@
 package com.paytm.controller;
 
+import com.paytm.configuration.DBConfiguration;
 import com.paytm.entity.Answer;
 import com.paytm.entity.Question;
 import com.paytm.entity.User;
@@ -7,6 +8,8 @@ import com.paytm.services.AnswerServiceImpl;
 import com.paytm.services.LoginServiceImpl;
 import com.paytm.services.QuestionServiceImpl;
 import com.paytm.services.UserServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +29,7 @@ import java.util.List;
 @Controller
 public class AnswerController
 {
+    private static final Logger LOG = LoggerFactory.getLogger(DBConfiguration.class);
 
     @Autowired
     private AnswerServiceImpl answerService;
@@ -42,18 +46,17 @@ public class AnswerController
     @RequestMapping(value="/answer", method= RequestMethod.POST)
     public ModelAndView answerGiven(HttpServletRequest request, HttpServletResponse response)
     {
-        System.out.println("Inside add answer method");
+        LOG.info("Inside add answer method");
         String answer=request.getParameter("answer");
-        System.out.println(answer);
+        LOG.info(answer);
 
         int q_id= Integer.parseInt(request.getParameter("ques"));
 
-        System.out.println(q_id);
 
         Question ques=questionService.getQuestionByQuestionIdService(q_id);
 
         String email= (String) request.getSession().getAttribute("email");
-        System.out.println(email);
+        LOG.info(email);
 
         User u = userService.findUserByEmailService(email);
 
@@ -63,12 +66,12 @@ public class AnswerController
         ans.setQuestion(ques);
         answerService.saveAnswerService(ans);
 
-        System.out.println("here in add Answer");
+        LOG.info("here in add Answer");
         List<Answer> Alist= answerService.findAllAnswerByQuestionService(ques);
 
-        System.out.println(u.getU_name());
-        System.out.println(ques.getQuestion_Id());
-        System.out.println(ques.getQuestion());
+        LOG.info(u.getU_name());
+        LOG.info(ques.getQuestion_Id().toString());
+        LOG.info(ques.getQuestion());
 
         Date createdDate= ques.getCreated();
         SimpleDateFormat formatter=new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
@@ -104,17 +107,16 @@ public class AnswerController
     {
         Question q= (Question) request.getAttribute("ques");
 
-        System.out.println("Here in showAnswer-----------1");
-        System.out.println(q);
+        LOG.info("Here in showAnswer-----------1");
         //retrieve user & user_id using ques id
         int id= q.getQuestion_Id();
 
         User u=q.getUser();
-        System.out.println("id is "+id);
+        LOG.info("id is "+id);
 
-        System.out.println(u.getU_name());
+        LOG.info(u.getU_name());
 
-        System.out.println("Here in showAnswer-----------2");
+        LOG.info("Here in showAnswer-----------2");
 
         //retrieve all answers from question id
         List<Answer> Alist= answerService.findAllAnswerByQuestionService(q);
@@ -122,8 +124,8 @@ public class AnswerController
         Date createdDate= q.getCreated();
         SimpleDateFormat formatter=new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         String askDate=formatter.format(createdDate);
-        //System.out.println("Qwerty"+request.getContextPath());
-        System.out.println(u.getU_name());
+        //LOG.info("Qwerty"+request.getContextPath());
+        LOG.info(u.getU_name());
 
         ModelAndView mv=new ModelAndView();
         mv.setViewName("showAnswers.jsp");
@@ -143,12 +145,12 @@ public class AnswerController
         Iterator<Answer> it= listAnswer.iterator();
         while(it.hasNext())
         {
-            System.out.println(it.next().getAnswer());
+            LOG.info(it.next().getAnswer());
         }
         ModelAndView mv= new ModelAndView();
         mv.setViewName("showAllAnswerByUser.jsp");
         mv.addObject("answer", listAnswer);
-        System.out.println("here is show all answer by user................");
+        LOG.info("here is show all answer by user................");
         return mv;
     }
 }

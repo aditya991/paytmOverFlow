@@ -4,10 +4,13 @@ package com.paytm.dal;
  * @created: 09/08/19
  */
 
+import com.paytm.configuration.DBConfiguration;
 import com.paytm.entity.Answer;
 import com.paytm.entity.Question;
 import com.paytm.entity.User;
 import com.paytm.repo.AnswerRepo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -18,6 +21,8 @@ import java.util.List;
 @Component
 public class AnswerDal
 {
+    private static final Logger LOG = LoggerFactory.getLogger(DBConfiguration.class);
+
     @Autowired
     private AnswerRepo answerRepo;
 
@@ -42,7 +47,7 @@ public class AnswerDal
         em.getTransaction().commit();
         em.close();
 
-        System.out.println("Answer saved....Inside AnswerDal");
+        LOG.info("Answer saved....Inside AnswerDal");
     }
     public List<Answer> findAllAnswerByUserMethod(User user)
     {
@@ -51,7 +56,7 @@ public class AnswerDal
 
     public List<Answer> findAllAnswerByQuestionMethod(Question q)
     {
-        System.out.println(("Inside findAllAnswerByQuestionMethod"));
+        LOG.info(("Inside findAllAnswerByQuestionMethod"));
         return answerRepo.findAllAnswerByQuestion(q);
     }
 }

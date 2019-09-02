@@ -74,9 +74,6 @@
         S = "";
 %>
 
-
-
-
 <div class="container-fluid text-center">
         <div class="card" >
             <div class="card-body" id="formTop">
@@ -101,7 +98,6 @@
         <%=S%>
     </font>
 </div>
-
     <footer class="container-fluid text-center">
         <p>© 2018 Paytm.com. All rights reserved</p>
     </footer>

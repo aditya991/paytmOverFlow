@@ -1,11 +1,14 @@
 package com.paytm.services;
 
+import com.paytm.configuration.DBConfiguration;
 import com.paytm.dal.DeptDalImpl;
 import com.paytm.dal.QuestionDalImpl;
 import com.paytm.entity.Dept;
 import com.paytm.entity.Question;
 import com.paytm.entity.User;
 import com.paytm.repo.QuestionRepo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +18,7 @@ import java.util.List;
 @Service
 public class QuestionServiceImpl implements QuestionService{
 
+    private static final Logger LOG = LoggerFactory.getLogger(DBConfiguration.class);
 
     @Autowired
     QuestionDalImpl questionDal;
@@ -37,15 +41,13 @@ public class QuestionServiceImpl implements QuestionService{
     public boolean AddQuestionService(String department, String question ,String email)
     {
 
-        System.out.println("in question service");
-        System.out.println(department+"      "+ question+"          "+ email);
+        LOG.info("in question service");
+        LOG.info(department+"      "+ question+"          "+ email);
 
 
 
         User user=userService.findUserByEmailService(email);
         Dept d =deptDal.findDeptByNameMethod(department);
-
-        System.out.println(user);
 
         Question q=new Question();
         q.setQuestion(question);
@@ -75,7 +77,7 @@ public class QuestionServiceImpl implements QuestionService{
     public List<Question> showAllQuestionService(String email) {
 
         User user=userService.findUserByEmailService(email);
-        System.out.println("in showAllquestion   "+user.getU_id());
+        LOG.info("in showAllquestion   "+user.getU_id());
 
         List<Question> l= questionDal.showAllQuestionMethod(user);
 

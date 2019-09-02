@@ -1,9 +1,12 @@
 package com.paytm.dal;
 
+import com.paytm.configuration.DBConfiguration;
 import com.paytm.entity.Dept;
 import com.paytm.entity.Interest;
 import com.paytm.repo.DeptRepo;
 import com.paytm.repo.InterestRepo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,6 +19,8 @@ import java.util.List;
 
 @Component
 public class InterestDalImpl {
+
+    private static final Logger LOG = LoggerFactory.getLogger(DBConfiguration.class);
 
     @Autowired
     private EntityManagerFactory emf3;
@@ -30,11 +35,11 @@ public class InterestDalImpl {
 
     public boolean insertInterestMethod(Integer u_id, Integer dept_id, EntityManagerFactory EMF2)
     {
-        //System.out.println("inside insertInterestMethod-------1");
+        //LOG.info("inside insertInterestMethod-------1");
         //return true;
         //try
         //{
-            System.out.println("inside insert InterestMethod");
+            LOG.info("inside insert InterestMethod");
             Interest i = new Interest(u_id, dept_id);
            // i.setCreated(new Date());
           //  i.setUpdated(new Date());
@@ -49,7 +54,7 @@ public class InterestDalImpl {
      /*   }
         catch (Exception e)
         {
-           // System.out.println(e);
+           // LOG.info(e);
             return false;
         }*/
     }
@@ -57,7 +62,7 @@ public class InterestDalImpl {
     public boolean deleteInterestMethod(Integer u_id, Integer dept_id) {
        try {
            interestRepo.removeInterestByUIdByDeptId(u_id,dept_id);
-           System.out.println("Inside deleteInterestMethod OwnDept");
+           LOG.info("Inside deleteInterestMethod OwnDept");
            return true;
           } catch (Exception e) {
            System.out.println(e);
@@ -67,7 +72,7 @@ public class InterestDalImpl {
 
     public List<String> getUserAllInterestNamesMethod(Integer u_id) {
 
-        System.out.println("inside showAllInterestMethod ");
+        LOG.info("inside showAllInterestMethod ");
 
         List<Integer> deptIdList = interestRepo.getDeptIdbyUId(u_id);
         List<String> deptNameList = new ArrayList<>();
@@ -78,7 +83,7 @@ public class InterestDalImpl {
         while (iterator.hasNext()) {
 
             Dept dpt = em.find(Dept.class, (Integer)iterator.next());
-            System.out.println(dpt.getDept_name());
+            LOG.info(dpt.getDept_name());
             deptNameList.add(dpt.getDept_name());
         }
         return deptNameList;
@@ -86,7 +91,7 @@ public class InterestDalImpl {
 
     public List<Dept> getUserAllInterestMethod(Integer u_id) {
 
-        System.out.println("inside showAllInterestMethod ");
+        LOG.info("inside showAllInterestMethod ");
 
         List<Integer> deptIdList = interestRepo.getDeptIdbyUId(u_id);
         List<Dept> deptList = new ArrayList<>();

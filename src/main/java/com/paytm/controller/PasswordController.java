@@ -1,8 +1,11 @@
 package com.paytm.controller;
 
+import com.paytm.configuration.DBConfiguration;
 import com.paytm.entity.User;
 import com.paytm.services.EmailServiceImpl;
 import com.paytm.services.UserServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
@@ -16,6 +19,8 @@ import java.util.UUID;
 
 @Controller
 public class PasswordController {
+
+    private static final Logger LOG = LoggerFactory.getLogger(DBConfiguration.class);
 
     @Autowired
     private EmailServiceImpl emailService;
@@ -33,14 +38,14 @@ public class PasswordController {
             request.setAttribute("message", "This E-mail address is not registered with us!");
         }
         else if(foundUser.getResetToken() == null) {
-            System.out.println("Hello i m inside getresettoken");
+            LOG.info("Hello i m inside getresettoken");
             foundUser.setResetToken(UUID.randomUUID().toString());
             userService.save(foundUser);
 
             passwordResetEmail.setTo(foundUser.getEmail());
             passwordResetEmail.setSubject("Password Reset Request");
             passwordResetEmail.setText("To reset your password, click the link below:\n" + request.getScheme() + "://" +
-                    request.getServerName() + ":8080/com_paytm_war" + "/reset?token=" + foundUser.getResetToken());
+                    request.getServerName() + ":8080/paytmOverFlow_war" + "/reset?token=" + foundUser.getResetToken());
             emailService.sendEmail(passwordResetEmail);
 
             request.setAttribute("message", "A link will be sent to reset your password at " + foundUser.getEmail() + " in 2 minutes.");
@@ -76,15 +81,14 @@ public class PasswordController {
         String updatedPassword = request.getParameter("updatedPassword");
         String confirmedPassword = request.getParameter("confirmedPassword");
 
-        if(updatedPassword.equals(confirmedPassword)) {
+        if (updatedPassword.equals(confirmedPassword)) {
             user.setPassword(updatedPassword);
             user.setResetToken(null);
             userService.save(user);
             mv.setViewName("index.jsp");
-        }
-        else{
-            request.setAttribute("message","Passwords don't match.Please enter again!");
-            return displayResetPasswordPage(request,response,token);
+        } else {
+            request.setAttribute("message", "Passwords don't match.Please enter again!");
+            return displayResetPasswordPage(request, response, token);
         }
 
         return mv;
