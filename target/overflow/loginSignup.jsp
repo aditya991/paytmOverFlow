@@ -32,6 +32,9 @@
             margin: 0 0 15px;
         }
 
+        #loginDiv{
+            margin-top: 200px;
+        }
 
         .form-control, .btn
         {

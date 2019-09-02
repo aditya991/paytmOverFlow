@@ -70,7 +70,7 @@ public class AnswerController
 
         ModelAndView mv=new ModelAndView();
         mv.setViewName("showAnswers.jsp");
-        mv.addObject("user", u.getU_name());
+        mv.addObject("user", ques.getUser().getU_name());
         mv.addObject("askDate", askDate);
         mv.addObject("ques_id", ques.getQuestion_Id());
         mv.addObject("ques", ques.getQuestion());

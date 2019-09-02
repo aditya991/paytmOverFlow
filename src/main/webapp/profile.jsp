@@ -28,7 +28,7 @@
         z-index: 1;
         text-align: center;
         color: #818181;
-        background-color: #111;
+        background-color: #1dcad8;
         overflow-x: hidden;
         padding-top: 20px;
     }
