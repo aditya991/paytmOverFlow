@@ -58,7 +58,7 @@ To change this template use File | Settings | File Templates.
                     <c:forEach items="${askedQuestions}" var="ques">
                         <div style="text-align:center;align-items:center;">
                             <input name="selectedQuestion" type="radio" value="${ques.question}" />
-                            <textarea placeholder="${ques.question}" style="font-size:18pt;height:80px;width:500px;text-align:center;border:1px dashed blue;" readonly="true"></textarea>
+                            <input placeholder="${ques.question}" style="font-size:18pt;height:80px;width:500px;text-align:center;border:1px dashed blue;" readonly="true"></input>
                         </div>
                         <br/>
                      </c:forEach>

@@ -20,8 +20,8 @@ public interface QuestionRepo extends JpaRepository<Question,Integer> {
 
         @Transactional
         @Modifying
-        @Query("delete FROM Question q WHERE q.question_Id=:Ques_Id")
-        void deleteQuestionById(@Param("Ques_Id")Integer Ques_Id);
+        @Query("delete FROM Question q WHERE q.question_Id=:question_Id")
+        void deleteQuestionById(@Param("question_Id") int question_Id);
 
         @Transactional
         @Modifying

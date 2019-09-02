@@ -32,4 +32,9 @@ public interface AnswerRepo extends JpaRepository<Answer,Integer>
     @Query("select a from Answer a where a.question=:ques")
     List<Answer> findAllAnswerByQuestion(@Param("ques") Question ques);
 
+    @Transactional
+    @Modifying
+    @Query("delete from Answer a where a.question=:question")
+    void deleteAnswerByQuestion(@Param("question") Question question);
+
 }

@@ -118,7 +118,7 @@
 <%--            entering new answer--%>
             <form class="form-inline" role="form" action="answer" method="post">
                 <div class="form-group" >
-                    <input class="form-control" type="text" placeholder="Write your answer here..." name="answer" />
+                    <input class="form-control" type="text" placeholder="Write your answer here..." name="answer" required/>
                     <input type="text" style="display:none" name="ques" value="<%=request.getAttribute("ques_id")%>"/>
                 </div>
                 <div class="form-group">

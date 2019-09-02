@@ -17,4 +17,5 @@ public interface AnswerService
     void saveAnswerService(Answer ans);
     List<Answer> findAllAnswerByUserService(User user);
     List<Answer> findAllAnswerByQuestionService(Question q);
+    void deleteAnswerByQuestionService(Question question);
 }

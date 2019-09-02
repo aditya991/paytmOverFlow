@@ -128,7 +128,7 @@
             if (/^[A-Za-z\s]+$/.test(nameField.value)) {
                 // value is ok, use it
             } else {
-                alert("Invalid name");
+                alert("Invalid Name");
                 nameField.value = "";
                 return false;
             }
@@ -141,7 +141,7 @@
             if (passwordField.value.length < 6)
             {
                 passwordField.setAttribute("value","");
-                alert("invalid password");
+                alert("Invalid Username/Password");
             }
             else
             {
@@ -156,7 +156,7 @@
 
             if (passwordField.value.length < 6)
             {
-                alert("invalid password");
+                alert("Invalid Username/Password");
             }
             else
             {

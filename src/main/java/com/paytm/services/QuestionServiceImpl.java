@@ -31,6 +31,9 @@ public class QuestionServiceImpl implements QuestionService{
     @Autowired
     DeptDalImpl deptDal;
 
+    @Autowired
+    AnswerServiceImpl answerService;
+
     /**
      * This service takes
      * @param Department
@@ -44,8 +47,6 @@ public class QuestionServiceImpl implements QuestionService{
         LOG.info("in question service");
         LOG.info(department+"      "+ question+"          "+ email);
 
-
-
         User user=userService.findUserByEmailService(email);
         Dept d =deptDal.findDeptByNameMethod(department);
 
@@ -55,7 +56,6 @@ public class QuestionServiceImpl implements QuestionService{
         q.setUser(user);
 
          return questionDal.AddQuestionMethod(q);
-
     }
 
     @Override
@@ -68,7 +68,11 @@ public class QuestionServiceImpl implements QuestionService{
     @Override
     public boolean DeleteQuestionService(String question)
     {
+        System.out.println(question);
         Question ques=questionRepo.getQuestionByName(question);
+        answerService.deleteAnswerByQuestionService(ques);
+
+        System.out.println((ques+" "+ ques.getQuestion_Id()+ " "+ques.getQuestion()));
         questionDal.DeleteQuestionMethod(ques.getQuestion_Id());
         return true;
     }

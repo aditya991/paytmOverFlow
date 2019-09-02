@@ -59,4 +59,8 @@ public class AnswerDal
         LOG.info(("Inside findAllAnswerByQuestionMethod"));
         return answerRepo.findAllAnswerByQuestion(q);
     }
+    public void deleteAnswerByQuestionMethod(Question question)
+    {
+        answerRepo.deleteAnswerByQuestion(question);
+    }
 }

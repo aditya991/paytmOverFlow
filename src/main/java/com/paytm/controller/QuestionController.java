@@ -62,7 +62,8 @@ public class QuestionController {
 
     //todo ekansh
     @RequestMapping(value = "/manageFeed", method = RequestMethod.POST)
-    public ModelAndView manageFeed(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView manageFeed(HttpServletRequest request, HttpServletResponse response)
+    {
         HttpSession session = request.getSession(false);
         ModelAndView mv = new ModelAndView();
 
@@ -91,7 +92,7 @@ public class QuestionController {
     //todo ekansh
     @RequestMapping(value = "/manageQuestion", method = RequestMethod.POST)
     public ModelAndView manageQuestion(HttpServletRequest request, HttpServletResponse response) {
-        ModelAndView mv = new ModelAndView();
+//        ModelAndView mv = new ModelAndView();
 
         String option = request.getParameter("option");
         String selectedQuestion = request.getParameter("selectedQuestion");
@@ -103,12 +104,18 @@ public class QuestionController {
             LOG.info(updatedQuestion);
             questionServiceImpl.UpdateQuestionService(selectedQuestion, updatedQuestion);
             request.setAttribute("message", "Question updated successfully.");
-        } else if (option.equals("Delete")) {
-
+        }
+        else if (option.equals("Delete"))
+        {
             if (selectedQuestion == null) {
                 request.setAttribute("message", "Question not selected!");
-            } else {
+            }
+            else
+            {
+                System.out.println(selectedQuestion);
+                System.out.println("Here in delete...............1");
                 questionServiceImpl.DeleteQuestionService(selectedQuestion);
+                System.out.println("Here in delete");
                 request.setAttribute("message", "Question deleted successfully.");
             }
 
