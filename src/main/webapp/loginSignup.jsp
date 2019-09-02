@@ -32,6 +32,9 @@
             margin: 0 0 15px;
         }
 
+        #loginDiv{
+            margin-top: 200px;
+        }
 
         .form-control, .btn
         {
@@ -164,6 +167,7 @@
             </br>
 
             <input class="btn btn-primary btn-block" type="submit" value="login" name="action"/>
+            <a href="forgotPassword.jsp">Forgot Password?</a>
             <label class="pull-right checkbox-inline"><button class="text-center"  id="new signup"  onclick="SignupFun()">Create Account</button></label>
         </form>
     </div>

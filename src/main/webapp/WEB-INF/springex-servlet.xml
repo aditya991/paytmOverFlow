@@ -19,13 +19,15 @@
 <!--        </mvc:interceptor>-->
 <!--    </mvc:interceptors>-->
 
-<!--    <mvc:interceptors>-->
-<!--        <mvc:interceptor>-->
-<!--            <mvc:mapping path="/**" />-->
-<!--                        <mvc:exclude-mapping path="/signup"/>-->
-<!--                        <mvc:exclude-mapping path="/indexPage"/>-->
-<!--                        <mvc:exclude-mapping path="/errors"/>-->
-<!--            <bean class="com.paytm.Interceptor.TokenValidatorInterceptor"/>-->
-<!--        </mvc:interceptor>-->
-<!--    </mvc:interceptors>-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**" />
+                        <mvc:exclude-mapping path="/signup"/>
+                        <mvc:exclude-mapping path="/indexPage"/>
+                        <mvc:exclude-mapping path="/errors"/>
+                        <mvc:exclude-mapping path="/forgot"/>
+                        <mvc:exclude-mapping path="/reset"/>
+            <bean class="com.paytm.Interceptor.TokenValidatorInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>

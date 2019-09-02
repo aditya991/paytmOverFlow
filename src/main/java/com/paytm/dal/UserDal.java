@@ -37,6 +37,11 @@ public class UserDal
     @Autowired
     private EntityManagerFactory emf;
 
+
+    public User findUserByResetTokenMethod(String token){
+        return userRepo.findUserByResetToken(token);
+    }
+
     public boolean createUserMethod(User user) {
         System.out.println("in user DAL initial "+ emf);
 

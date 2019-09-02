@@ -172,7 +172,7 @@ public class UserController
         response.setHeader("Expires", "0");
 
 
-        mv.setViewName("postLoggedIn.jsp");
+        mv.setViewName("userFeedHome.jsp");
         mv.addObject("email",   email);
         return mv;
     }
