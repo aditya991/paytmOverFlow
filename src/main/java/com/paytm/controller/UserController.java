@@ -4,12 +4,12 @@ import com.paytm.entity.Token;
 import com.paytm.entity.User;
 import com.paytm.services.LoginServiceImpl;
 import com.paytm.services.SignupServiceImpl;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,6 +26,7 @@ import java.util.UUID;
 @Controller
 public class UserController
 {
+    private static final Logger logger = Logger.getLogger(UserController.class);
 
     @Autowired
     private SignupServiceImpl signupServiceImpl ;
@@ -36,13 +37,10 @@ public class UserController
     @RequestMapping(value = "/indexPage" ,method = RequestMethod.GET)
     public  ModelAndView redirectToLogin(HttpServletRequest request,HttpServletResponse response)
     {
-        System.out.println("hello to index servlet page");
-
+        logger.debug("Inside redirectToLogin Method");
 
         HttpSession session =(HttpSession)request.getSession(false);
-
         List<String> deptList =signupServiceImpl.listAllDeptByNameService();
-
 
         ModelAndView mv= new ModelAndView();
         mv.setViewName("loginSignup.jsp");
@@ -51,54 +49,43 @@ public class UserController
 
         if(session !=null)
         {
-
-            System.out.println("there is an active session      " + session.getId()+"        "+session.getAttribute("email")+"      "+ session.getAttribute("password") +"      "+ session.getAttribute("token")  );
-
+            logger.debug("There is an active session " + session.getId() + " ");
+            logger.debug(session.getAttribute("email") + " " + session.getAttribute("password"));
+            logger.debug(" " + session.getAttribute("token"));
 
             mv.addObject("email",session.getAttribute("email"));
             mv.addObject("password",session.getAttribute("password"));
             mv.addObject("token",session.getAttribute("token"));
 
-
             mv.setViewName("redirect:login");
         }
         else
-        System.out.println("current session is null");
-
-
+        logger.debug("Current session is null");
 
         return mv;
 
     }
 
-
-
     @RequestMapping(value="/login", method = {RequestMethod.POST, RequestMethod.GET})
     public ModelAndView login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
+        logger.debug("Inside login API");
 
         ModelAndView mv = new ModelAndView();
 
-        System.out.println("inside login API");
-
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-       
         request.setAttribute("type", "back");
-        System.out.println(request.getAttribute("type"));
-       
-       
-        System.out.println("email is :"+request.getParameter("email"));
 
-
+        logger.debug("Type of request : " + request.getAttribute("type"));
+        logger.debug("Email entered by user is : " + request.getParameter("email"));
 
         // if incorrect details then redirect to index page.
         try
         {
             boolean flag = ls.UserAuthenticationService(email, password);
-            System.out.println("Flag is "+flag+".");
-            if (flag!=true)
+            logger.debug("Flag is " + flag + ".");
+            if (!flag)
             {
                 System.out.println("flag is not true");
 

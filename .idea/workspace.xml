@@ -8,107 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e25e2180-0c11-4849-bf0b-8f0f630f8aec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/forgotPassword.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resetPassword.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/Interceptor/LoginInterceptor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/Interceptor/LoginInterceptor1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/controller/AnswerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/controller/AnswerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/controller/PasswordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/controller/PasswordController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/dal/UserDal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/dal/UserDal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/repo/UserRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/repo/UserRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/services/EmailService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/services/EmailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/services/EmailServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/services/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/services/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/DeleteQuestion.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Questions.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/springex-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/springex-servlet.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/answer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/expiredResetToken.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/loginSignup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/loginSignup.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/postLoggedIn.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/userFeed.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/userFeedGeneral.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/userFeedGeneral.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/userFeedHome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/userFeedHome.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/userFeedSpecific.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/userQuestions.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/userQuestions.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/com.paytm.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/Interceptor/LoginInterceptor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/Interceptor/LoginInterceptor1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/Interceptor/TokenValidatorInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/Interceptor/TokenValidatorInterceptor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/controller/AnswerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/controller/AnswerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/controller/FeedController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/controller/FeedController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/controller/PasswordController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/controller/PasswordController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/controller/ProfileController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/controller/QuestionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/controller/QuestionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/dal/DeptDal.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/dal/InterestDal.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/dal/InterestDalImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/dal/InterestDalImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/dal/QuestionDalImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/dal/QuestionDalImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/dal/UserDal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/dal/UserDal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/entity/Interest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/entity/Interest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/repo/UserRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/repo/UserRepo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/services/DeptService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/services/DeptServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/services/EmailServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/services/EmailServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/services/LoginServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/services/LoginServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/services/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/services/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/services/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/services/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/DeleteQuestion.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/Profile.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/Questions.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/META-INF/com.paytm.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/Interceptor/LoginInterceptor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/Interceptor/LoginInterceptor1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/Interceptor/TokenValidatorInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/Interceptor/TokenValidatorInterceptor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/AnswerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/AnswerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/FeedController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/FeedController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/PasswordController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/PasswordController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/ProfileController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/QuestionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/QuestionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/dal/DeptDal.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/dal/InterestDal.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/dal/InterestDalImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/dal/InterestDalImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/dal/QuestionDalImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/dal/QuestionDalImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/dal/UserDal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/dal/UserDal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/entity/Interest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/entity/Interest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/repo/UserRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/repo/UserRepo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/services/DeptService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/services/DeptServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/services/EmailServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/services/EmailServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/services/LoginServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/services/LoginServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/services/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/services/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/services/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/services/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/errors/Error.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/errors/errorPage.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/lib/commons-logging-1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/springex-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/springex-servlet.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/answer.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/expiredResetToken.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/expiredResetToken.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/forgotPassword.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/forgotPassword.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/loginSignup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/loginSignup.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/postLoggedIn.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/resetPassword.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/resetPassword.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/userFeed.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/userFeedGeneral.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/userFeedGeneral.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/userFeedHome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/userFeedHome.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/userFeedSpecific.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/userProfile.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/overflow/userQuestions.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/userQuestions.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -406,7 +309,7 @@
       <workItem from="1566930807827" duration="1078000" />
       <workItem from="1566977678833" duration="235000" />
       <workItem from="1567401889291" duration="70000" />
-      <workItem from="1567402322698" duration="2651000" />
+      <workItem from="1567402322698" duration="4993000" />
     </task>
     <task id="LOCAL-00001" summary="Paytm Overflow">
       <created>1565089028672</created>
