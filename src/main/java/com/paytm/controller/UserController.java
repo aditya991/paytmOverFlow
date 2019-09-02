@@ -34,8 +34,6 @@ public class UserController
     @Autowired
     private LoginServiceImpl ls;
 
-
-
     @RequestMapping(value = "/indexPage" ,method = RequestMethod.GET)
     public  ModelAndView redirectToLogin(HttpServletRequest request,HttpServletResponse response)
     {
@@ -50,9 +48,6 @@ public class UserController
         ModelAndView mv= new ModelAndView();
         mv.setViewName("loginSignup.jsp");
         mv.addObject("deptList",deptList);
-
-
-
 
         if(session !=null)
         {
@@ -70,14 +65,9 @@ public class UserController
         else
         System.out.println("current session is null");
 
-
-
         return mv;
 
     }
-
-
-
     @RequestMapping(value="/login", method = {RequestMethod.POST, RequestMethod.GET})
     public ModelAndView login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -92,11 +82,8 @@ public class UserController
        
         request.setAttribute("type", "back");
         System.out.println(request.getAttribute("type"));
-       
-       
+
         System.out.println("email is :"+request.getParameter("email"));
-
-
 
         // if incorrect details then redirect to index page.
         try
@@ -229,10 +216,12 @@ public class UserController
 
             boolean created=signupServiceImpl.createUserService(name,email,phone,password,dept);
 
-            if(created) {
+            if(created)
+            {
                 mv.addObject("status", "User Created successfully");
             }
-            else {
+            else
+            {
                 mv.addObject("status","Error in creating user");
             }
         }
@@ -246,6 +235,4 @@ public class UserController
         mv.setViewName("index.jsp");
         return mv;
     }
-
-
 }
