@@ -40,7 +40,7 @@ public class PasswordController {
             passwordResetEmail.setTo(foundUser.getEmail());
             passwordResetEmail.setSubject("Password Reset Request");
             passwordResetEmail.setText("To reset your password, click the link below:\n" + request.getScheme() + "://" +
-                    request.getServerName() + ":8082/com_paytm_war" + "/reset?token=" + foundUser.getResetToken());
+                    request.getServerName() + ":8080/com_paytm_war" + "/reset?token=" + foundUser.getResetToken());
             emailService.sendEmail(passwordResetEmail);
 
             request.setAttribute("message", "A link will be sent to reset your password at " + foundUser.getEmail() + " in 2 minutes.");
