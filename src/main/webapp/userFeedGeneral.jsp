@@ -127,7 +127,7 @@
                 while (iterator.hasNext())
                 {
                     Dept d= (Dept) iterator.next();
-                    LOG.info(d.getDept_name());
+//                    LOG.info(d.getDept_name());
                     List<Question> questionsList=d.getQuestions();
                     request.setAttribute("askedQuestions",questionsList);
             %>
