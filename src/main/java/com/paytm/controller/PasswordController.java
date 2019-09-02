@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.UUID;
@@ -31,8 +32,7 @@ public class PasswordController {
 
         if (foundUser == null) {
             request.setAttribute("message", "This E-mail address is not registered with us!");
-        }
-        else if(foundUser.getResetToken() == null) {
+        } else if (foundUser.getResetToken() == null) {
             System.out.println("Hello i m inside getresettoken");
             foundUser.setResetToken(UUID.randomUUID().toString());
             userService.save(foundUser);
@@ -40,25 +40,25 @@ public class PasswordController {
             passwordResetEmail.setTo(foundUser.getEmail());
             passwordResetEmail.setSubject("Password Reset Request");
             passwordResetEmail.setText("To reset your password, click the link below:\n" + request.getScheme() + "://" +
-                    request.getServerName() + ":8080/paytmOverFlow_war" + "/reset?token=" + foundUser.getResetToken());
+
+            request.getServerName() + ":8080/paytmOverFlow_war" + "/reset?token=" + foundUser.getResetToken());
             emailService.sendEmail(passwordResetEmail);
 
             request.setAttribute("message", "A link will be sent to reset your password at " + foundUser.getEmail() + " in 2 minutes.");
-        }
-        else{
-            request.setAttribute("message","A password reset link has already been send to this E-mail address.");
+        } else {
+            request.setAttribute("message", "A password reset link has already been send to this E-mail address.");
         }
 
         mv.setViewName("forgotPassword.jsp");
         return mv;
     }
 
-    @RequestMapping(value = "/reset" ,  method= RequestMethod.GET)
-    public ModelAndView displayResetPasswordPage(HttpServletRequest request,HttpServletResponse response, @RequestParam("token") String token) {
+    @RequestMapping(value = "/reset", method = RequestMethod.GET)
+    public ModelAndView displayResetPasswordPage(HttpServletRequest request, HttpServletResponse response, @RequestParam("token") String token) {
         ModelAndView mv = new ModelAndView();
         User user = userService.findUserByResetTokenService(token);
 
-        if (user ==  null) {
+        if (user == null) {
             mv.setViewName("expiredResetToken.jsp");
         } else {
             mv.addObject("token", token);
@@ -69,22 +69,21 @@ public class PasswordController {
     }
 
     @RequestMapping(value = "/reset", method = RequestMethod.POST)
-    public ModelAndView resetPassword(HttpServletRequest request,HttpServletResponse response, @RequestParam("token") String token){
+    public ModelAndView resetPassword(HttpServletRequest request, HttpServletResponse response, @RequestParam("token") String token) {
         ModelAndView mv = new ModelAndView();
         User user = userService.findUserByResetTokenService(token);
 
         String updatedPassword = request.getParameter("updatedPassword");
         String confirmedPassword = request.getParameter("confirmedPassword");
 
-        if(updatedPassword.equals(confirmedPassword)) {
+        if (updatedPassword.equals(confirmedPassword)) {
             user.setPassword(updatedPassword);
             user.setResetToken(null);
             userService.save(user);
             mv.setViewName("index.jsp");
-        }
-        else{
-            request.setAttribute("message","Passwords don't match.Please enter again!");
-            return displayResetPasswordPage(request,response,token);
+        } else {
+            request.setAttribute("message", "Passwords don't match.Please enter again!");
+            return displayResetPasswordPage(request, response, token);
         }
 
         return mv;

@@ -37,7 +37,6 @@ To change this template use File | Settings | File Templates.
                 <div style="display:flex;align-items:center;">
                     <input name="selectedQuestion" type="radio" value="${ques.question}" />
                     <textarea placeholder="${ques.question}" style="font-size:18pt;height:80px;width:300px;border:1px dashed blue;" readonly="true"></textarea>
-                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Update</button>
                 </div>
             <br/>
         </c:forEach>

@@ -1,6 +1,8 @@
 <%@ page import="java.util.List" %>
+<%@ page import="com.google.common.hash.Hashing" %>
+<%@ page import="java.nio.charset.StandardCharsets" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page session = "false" %>
+<%@ page session="false" %>
 <%--
   Created by IntelliJ IDEA.
   User: navalkishore
@@ -21,25 +23,27 @@
             width: 340px;
             margin: 50px auto;
         }
+
         .login-form form {
             margin-bottom: 15px;
             background: #f7f7f7;
             box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
             padding: 30px;
         }
+
         .login-form h2 {
             margin: 0 0 15px;
         }
 
-        #loginDiv{
+        #loginDiv {
             margin-top: 200px;
         }
 
-        .form-control, .btn
-        {
+        .form-control, .btn {
             min-height: 38px;
             border-radius: 2px;
         }
+
         .btn {
             font-size: 15px;
             font-weight: bold;
@@ -47,131 +51,146 @@
     </style>
 
     <script>
-        if ( window.history.replaceState ) {
-            window.history.replaceState( null, null, window.location.href );
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
         }
     </script>
 
     <script type="text/javascript">
 
 
-
-          function SignupFun()
-          {
-              var x= document.getElementById("signupDiv");
-              var y= document.getElementById("loginDiv");
+        function SignupFun() {
+            var x = document.getElementById("signupDiv");
+            var y = document.getElementById("loginDiv");
 
 
-              if (x.style.display === "none")
-              {
-                  x.style.display = "block";
-                  y.style.display="none";
-              }
-              else
-              {
-                  x.style.display = "none";
-                  y.style.display = "block";
+            if (x.style.display === "none") {
+                x.style.display = "block";
+                y.style.display = "none";
+            } else {
+                x.style.display = "none";
+                y.style.display = "block";
 
-              }
-          }
+            }
+        }
 
-          function loginFun()
-          {
-              var x= document.getElementById("loginDiv");
-              var y= document.getElementById("signupDiv");
+        function loginFun() {
+            var x = document.getElementById("loginDiv");
+            var y = document.getElementById("signupDiv");
 
-              if (x.style.display === "none") {
-                  x.style.display = "block";
-                  y.style.display="none";
-              } else {
-                  x.style.display = "none";
-                  y.style.display = "block";
+            if (x.style.display === "none") {
+                x.style.display = "block";
+                y.style.display = "none";
+            } else {
+                x.style.display = "none";
+                y.style.display = "block";
 
-              }
-          }
+            }
+        }
 
-          window.onload =function ()
-          {
+        window.onload = function () {
 
-              var x= document.getElementById("loginDiv");
-              var y= document.getElementById("signupDiv");
+            var x = document.getElementById("loginDiv");
+            var y = document.getElementById("signupDiv");
 
-              x.style.display = "block";
-                      y.style.display="none";
+            x.style.display = "block";
+            y.style.display = "none";
 
-          }
+        }
 
-          function validateEmail(emailField){
-              var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+        function validateEmail(emailField) {
+            var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
 
-              emailField.value=emailField.value.toLowerCase();
+            emailField.value = emailField.value.toLowerCase();
 
-              if (reg.test(emailField.value) == false)
-              {
-                  alert('Invalid Email Address');
+            if (reg.test(emailField.value) == false) {
+                alert('Invalid Email Address');
 
-                  emailField.value="";
-                  return false;
-              }
-              return true;
-          }
+                emailField.value = "";
+                return false;
+            }
+            return true;
+        }
 
-          function validatePhone(phoneField) {
+        function validatePhone(phoneField) {
 
-               if (/^\d{10}$/.test(phoneField.value) || /^\d{0}$/.test(phoneField.value)) {
-                  // value is ok, use it
-              } else {
-                  alert("Invalid number; must be ten digits");
-                   phoneField.value="";
-                  return false;
-              }
-          }
+            if (/^\d{10}$/.test(phoneField.value) || /^\d{0}$/.test(phoneField.value)) {
+                // value is ok, use it
+            } else {
+                alert("Invalid number; must be ten digits");
+                phoneField.value = "";
+                return false;
+            }
+        }
 
-          function validateName(nameField) {
+        function validateName(nameField) {
             //returns true if matched, vaidates for a-z and A-Z and white space
-              if (/^[A-Za-z\s]+$/.test(nameField.value)) {
-                  // value is ok, use it
-              } else {
-                  alert("Invalid name");
-                  nameField.value="";
-                  return false;
-              }
-          }
+            if (/^[A-Za-z\s]+$/.test(nameField.value)) {
+                // value is ok, use it
+            } else {
+                alert("Invalid name");
+                nameField.value = "";
+                return false;
+            }
+        }
 
 
-          function validatePassword(passwordField) {
-                if (passwordField.value.length<6) {
-                  alert("invalid password");
-              }
-          }
+        function validatePasswordLogin() {
+
+            var passwordField = document.getElementById("loginPassword");
+
+            if (passwordField.value.length < 6) {
+                alert("invalid password");
+            } else {
+                document.forms["loginForm"].submit();
+            }
+        }
 
 
-        </script>
+        function validatePasswordSignup() {
+
+            var passwordField = document.getElementById("signupPassword");
+
+            if (passwordField.value.length < 6) {
+                alert("invalid password");
+            } else {
+                document.forms["signupForm"].submit();
+            }
+        }
+
+
+    </script>
 </head>
 <body>
 
 <%
-    List deptList =(List) request.getAttribute("deptList");
+    List deptList = (List) request.getAttribute("deptList");
 %>
 
 <div id="loginDiv">
     <div class="login-form">
-        <form action="login" method="post" >
+        <form id="loginForm" action="login" method="post">
             <div class="form-group">
-            Email ID: <input type="text" class="form-control" onblur="validateEmail(this)"  placeholder="enter your email address" name="email" required/>
+                Email ID: <input type="text" class="form-control" onblur="validateEmail(this)"
+                                 placeholder="enter your email address" name="email" required/>
             </div>
 
             </br>
 
             <div class="form-group">
-            Password: <input type="password" class="form-control" placeholder="enter your password" onblur="validatePassword(this)" name="password" required/>
+                Password: <input type="password" class="form-control" placeholder="enter your password"
+                                 id="loginPassword" name="password" required/>
             </div>
 
             </br>
 
-            <input class="btn btn-primary btn-block" type="submit" value="login" name="action"/>
+            <input class="btn btn-primary btn-block" type="submit" value="login" onsubmit="validatePasswordLogin()"
+                   name="action"/>
+
             <a href="forgotPassword.jsp">Forgot Password?</a>
-            <label class="pull-right checkbox-inline"><button class="text-center"  id="new signup"  onclick="SignupFun()">Create Account</button></label>
+            <label class="pull-right checkbox-inline">
+                <button class="text-center" id="new signup" onclick="SignupFun()">Create Account</button>
+            </label>
         </form>
     </div>
 </div>
@@ -186,45 +205,53 @@
 
 <div id="signupDiv">
     <div class="login-form">
-        <form action="signup" method="post">
+        <form id="signupForm" action="signup" method="post">
 
             <div class="form-group">
-            Name  : <input class="form-control" type="text" name="name" onblur="validateName(this)" placeholder="Enter your name" required/>
+                Name : <input class="form-control" type="text" name="name" onblur="validateName(this)"
+                              placeholder="Enter your name" required/>
             </div>
 
             </br>
 
             <div class="form-group">
-            Email Id: <input class="form-control" type="text" name="email"  onblur="validateEmail(this)"  placeholder="Enter your email" required/>
+                Email Id: <input class="form-control" type="text" name="email" onblur="validateEmail(this)"
+                                 placeholder="Enter your email" required/>
             </div>
 
             </br>
 
             <div class="form-group">
-            Phone : <input class="form-control" type="text" name="phone" onblur="validatePhone(this)" placeholder="Enter your phone number(Optional)"/>
+                Phone : <input class="form-control" type="text" name="phone" onblur="validatePhone(this)"
+                               placeholder="Enter your phone number(Optional)"/>
             </div>
 
             </br>
 
             <div class="form-group">
-            Department :
-                    <select class="form-control" name="dept">
-                        <c:forEach items="${deptList}" var="s">
-                            <option value="${s}">${s}</option>
-                        </c:forEach>
-                    </select>
+                Department :
+                <select class="form-control" name="dept">
+                    <c:forEach items="${deptList}" var="s">
+                        <option value="${s}">${s}</option>
+                    </c:forEach>
+                </select>
             </div>
 
             </br>
 
             <div class="form-group">
-            Password: <input class="form-control" type="password" name="password" onblur="validatePassword(this)" placeholder="********************" required/>
+                Password: <input class="form-control" type="password" name="password" id="signupPassword"
+                                 placeholder="********************" required/>
             </div>
 
             </br>
 
-            <input class="btn btn-primary btn-block" type="submit" value="Sign Up"/>
-            <label class="pull-right checkbox-inline"><button id="old login"  onclick="loginFun()">Already a User </button></label>
+            <input class="btn btn-primary btn-block" type="submit" onsubmit="validatePasswordSignup()" value="Sign Up"/>
+
+
+            <label class="pull-right checkbox-inline">
+                <button id="old login" onclick="loginFun()">Already a User</button>
+            </label>
         </form>
     </div>
 </div>

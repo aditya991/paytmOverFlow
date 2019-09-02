@@ -9,6 +9,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@include file="header.html"%>
 <html>
 <title></title>
 <head>
@@ -106,7 +107,7 @@
                 <c:forEach items="${Alist}" var="s">
                     <li>
                         <div class="commentText">
-                            <p class="">${s.answer}</p>
+                            <p>${s.answer}</p>
                             <span class="date sub-text">on ${s.getCreated()}</span>
                             <span class="date sub-text">Answered By: ${s.user.getU_name()}</span>
 

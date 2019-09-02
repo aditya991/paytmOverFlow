@@ -8,9 +8,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e25e2180-0c11-4849-bf0b-8f0f630f8aec" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Java_EE_6_Java_EE_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/showAllAnswerByUser.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/overflow/showAllAnswerByUser.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/controller/AnswerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/controller/AnswerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/expiredResetToken.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/expiredResetToken.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/loginSignup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/loginSignup.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/profile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/showAnswers.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/showAnswers.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/userFeedHome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/userFeedHome.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/userQuestions.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/userQuestions.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/controller/AnswerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/controller/AnswerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/paytm/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/paytm/controller/UserController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/overflow.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/overflow/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/overflow/Profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/Profile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/AnswerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/AnswerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/WEB-INF/classes/com/paytm/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/overflow/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/overflow/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/overflow/loginSignup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/loginSignup.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/overflow/showAnswers.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/showAnswers.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/overflow/userFeedHome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/userFeedHome.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/overflow/userQuestions.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/overflow/userQuestions.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -308,6 +333,7 @@
       <workItem from="1566977678833" duration="235000" />
       <workItem from="1567397494655" duration="5887000" />
       <workItem from="1567406674516" duration="2656000" />
+      <workItem from="1567412056343" duration="3303000" />
     </task>
     <task id="LOCAL-00001" summary="Paytm Overflow">
       <created>1565089028672</created>
