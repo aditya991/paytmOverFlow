@@ -17,13 +17,14 @@ import java.util.Properties;
 @Service
 @Configuration
 @EnableAsync
-public class EmailServiceImpl {
+public class EmailServiceImpl implements EmailService {
 
     private static final Logger LOG = LoggerFactory.getLogger(DBConfiguration.class);
 
     @Autowired
     private JavaMailSender mailSender;
 
+    @Override
     @Bean
     public JavaMailSender getJavaMailSender() {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
@@ -41,6 +42,7 @@ public class EmailServiceImpl {
         return mailSender;
     }
 
+    @Override
     @Async
     public void sendEmail(SimpleMailMessage email) {
         LOG.info("Inside sendEmail");

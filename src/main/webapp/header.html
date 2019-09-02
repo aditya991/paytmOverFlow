@@ -2,7 +2,7 @@
 <html>
 <head>
     <style>
-        .navUL{
+        .navUL {
             list-style-type: none;
             margin: 0;
             padding: 0;
@@ -10,7 +10,7 @@
             background-color: #0AA9D8;
         }
 
-        .navLI{
+        .navLI {
             float: left;
         }
 
@@ -37,16 +37,16 @@
         function taskFunction(formName) {
 
             document.forms[formName.name].submit();
-    }
+        }
     </script>
 </head>
 <body>
 
 <ul class="navUL">
 
-    <li class="navLI"><a href="userFeedHome.jsp" >Home</a></li>
+    <li class="navLI"><a href="userFeedHome.jsp">Home</a></li>
 
-    <li class="navLI"><a href="#" name="profileForm" onclick="taskFunction(this)"  >Profile</a></li>
+    <li class="navLI"><a href="#" name="profileForm" onclick="taskFunction(this)">Profile</a></li>
 
     <li class="navLI"><a href="#" name="askQuestionForm" onclick="taskFunction(this)">Ask a Question</a></li>
 
@@ -54,20 +54,13 @@
 </ul>
 
 
+<form id="generalfeedForm" action="generalfeed" method="post"></form>
 
+<form id="profileForm" action="profile" method="post"></form>
 
+<form id="askQuestionForm" action="askQuestion" method="post"></form>
 
-<form id="generalfeedForm" action="generalfeed" method="post"> </form>
-
-<form  id="profileForm" action="profile" method="post"> </form>
-
-<form id="askQuestionForm" action="askQuestion" method="post"> </form>
-
-<form  id="logoutForm" action="logout" method="post"> </form>
-
-
-
-
+<form id="logoutForm" action="logout" method="post"></form>
 
 
 </body>

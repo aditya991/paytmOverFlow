@@ -8,7 +8,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 
-<%@include file="header.html"%>
+<%@include file="header.html" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -28,13 +28,16 @@
     .navbar-custom {
         background-color: #0AA9D8;
     }
+
     .navbar-dark {
         margin-bottom: 0;
         border-radius: 0;
     }
 
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 450px}
+    .row.content {
+        height: 450px
+    }
 
     /* Set gray background color and 100% height */
     .sidenav {
@@ -56,11 +59,13 @@
             height: auto;
             padding: 15px;
         }
-        .row.content {height:auto;}
+
+        .row.content {
+            height: auto;
+        }
     }
 
-    #formTop
-    {
+    #formTop {
         margin-top: 40px;
     }
 </style>
@@ -69,37 +74,38 @@
 <%
     List listInterest = (List) request.getAttribute("listofDept");
     request.setAttribute("listinterest", listInterest);
-    String S =  (String) request.getAttribute("message");
-    if(S == null)
+    String S = (String) request.getAttribute("message");
+    if (S == null)
         S = "";
 %>
 
 <div class="container-fluid text-center">
-        <div class="card" >
-            <div class="card-body" id="formTop">
-                <form action="saveQuestion" method="post">
-                    Select any department of your interests
-                    <select name="Department">
-                        <c:forEach items="${listinterest}" var="s">
-                            <option value="${s}">${s}</option>
-                        </c:forEach>
-                    </select>
+    <div class="card">
+        <div class="card-body" id="formTop">
+            <form action="saveQuestion" method="post">
+                Select any department of your interests
+                <select name="Department">
+                    <c:forEach items="${listinterest}" var="s">
+                        <option value="${s}">${s}</option>
+                    </c:forEach>
+                </select>
 
-                    <br/><br/>
+                <br/><br/>
 
-                    <input type="text" placeholder="Type your question here" name='Question' style="font-size:18pt;height:80px;width:500px;text-align:center;" required></input>
-                    <br/>
-                    <input type="submit" class="btn btn-primary" value="Submit" style="margin-top:10px;" />
-                </form>
-            </div>
+                <input type="text" placeholder="Type your question here" name='Question'
+                       style="font-size:18pt;height:80px;width:500px;text-align:center;" required></input>
+                <br/>
+                <input type="submit" class="btn btn-primary" value="Submit" style="margin-top:10px;"/>
+            </form>
         </div>
-            <br/><br/>
+    </div>
+    <br/><br/>
     <font color="#a52a2a">
         <%=S%>
     </font>
 </div>
-    <footer class="container-fluid text-center">
-        <p>© 2018 Paytm.com. All rights reserved</p>
-    </footer>
+<footer class="container-fluid text-center">
+    <p>© 2018 Paytm.com. All rights reserved</p>
+</footer>
 </body>
 </html>
