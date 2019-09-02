@@ -23,6 +23,7 @@ import java.util.UUID;
  * @author: aditya10.kumar
  * @created: 06/08/19
  */
+
 @Controller
 public class UserController
 {
@@ -81,26 +82,21 @@ public class UserController
         logger.debug("Email entered by user is : " + request.getParameter("email"));
 
         // if incorrect details then redirect to index page.
-        try
-        {
+        try {
             boolean flag = ls.UserAuthenticationService(email, password);
-            logger.debug("Flag is " + flag + ".");
-            if (!flag)
-            {
-                System.out.println("flag is not true");
-
+            logger.debug("flag is " + flag + ".");
+            if (!flag) {
+                logger.debug("Flag is not true");
                 mv.setViewName("index.jsp");
                 return mv;
             }
         }
-        catch(Exception e)
-        {
-            System.out.println("flag is not true");
-
-            mv.setViewName("index.jsp");   }
+        catch(Exception e) {
+            logger.error("flag is not true");
+            mv.setViewName("index.jsp");
+        }
         
-        
-        System.out.println("Inside Login Controller----------- id passwords are correct");
+        logger.debug("Inside Login API : Id passwords are correct");
 
         //find the user id on the basis of his email
         User user=ls.findUserByEmailService(email);
@@ -108,18 +104,17 @@ public class UserController
         Token token=ls.findTokenByUserService(user);
         // if it exists then assign that token to the user otherwise generate a new one
 
-        System.out.println("Inside Login Controller----- token is "+token+"  user is  "+user);
-
+        logger.debug("Inside Login API : token is " + token + " user is " + user);
 
         HttpSession session = request.getSession(false);
 
         if(session == null)           // no existing session create new one
         {
-            System.out.println("created new session");
+            logger.debug("Created new session.");
             session = request.getSession(true);
         }
         else {
-            System.out.println("already a session");
+            logger.debug("Already a Session.");
         }
 
         //set session attributes
@@ -127,15 +122,14 @@ public class UserController
         session.setAttribute("password",password);
         session.setAttribute("created", System.currentTimeMillis());
 
-
-
         //Now already a session just check for token
-        if(token!=null)   {              // already a valid token
-            System.out.println("already an active token ....");
-            session.setAttribute("token", token.getToken_no());}
-        else                    // create a new token
-        {
-            System.out.println("creating new token ");
+        if(token!=null) {
+            // already a valid token
+            logger.debug("Already an active token.");
+            session.setAttribute("token", token.getToken_no());
+        } else {
+            // create a new token
+            logger.debug("Creating new token.");
 
             UUID uuid = UUID.randomUUID();
             String randomUUIDString = uuid.toString();
@@ -148,7 +142,8 @@ public class UserController
             t.setUser(user);
             t.setCreated(new Date());
             t.setUpdated(new Date());
-            System.out.println("Created new token & assigned to the user.");
+
+            logger.debug("Created new token & assigned to the user.");
 
             ls.createTokenService(t);
         }
@@ -158,7 +153,6 @@ public class UserController
         response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
         response.setHeader("Expires", "0");
 
-
         mv.setViewName("userFeedHome.jsp");
         mv.addObject("email",   email);
         return mv;
@@ -167,7 +161,7 @@ public class UserController
     @RequestMapping(value="/logout", method = RequestMethod.POST)
     public ModelAndView logout(HttpSession session)
     {
-        System.out.println("Logging you out...session Invalidated");
+        logger.info("Logging you out...session Invalidated");
         ModelAndView mv = new ModelAndView("index.jsp");
 
         ls.markSessionInactiveService((String)session.getAttribute("token"));   //mark that session id inactive
@@ -185,39 +179,31 @@ public class UserController
         String password = request.getParameter("password");
         String dept = request.getParameter("dept");
 
-        System.out.println("step 1 in controller" +name+"  "+email+"    "+phone);
-
+        logger.debug("Step 1 in signup controller " + name + " " + email + "  " + phone);
 
         SignupServiceImpl signupService =new SignupServiceImpl();
-
-
         ModelAndView mv = new ModelAndView();
-
-
-        System.out.println(" in controller");
-
 
         boolean valid_user= signupServiceImpl.checkExistingUserService(email,phone);
 
-        System.out.println(" in controller 1");
-
         if(valid_user)
         {
-            System.out.println("User creating stage");
+            logger.debug("User creating stage");
 
             boolean created=signupServiceImpl.createUserService(name,email,phone,password,dept);
 
             if(created) {
+                logger.debug("User Created successfully");
                 mv.addObject("status", "User Created successfully");
             }
             else {
+                logger.error("Error in creating User");
                 mv.addObject("status","Error in creating user");
             }
         }
         else
         {
-
-            System.out.println("User already exists ");
+            logger.debug("User already exists ");
             mv.addObject("status", "User already Exists");
         }
 
