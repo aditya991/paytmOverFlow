@@ -114,7 +114,7 @@
 
         function validatePhone(phoneField) {
 
-            if (/^\d{10}$/.test(phoneField.value) || /^\d{0}$/.test(phoneField.value)) {
+            if (/^\d{10}$/.test(phoneField.value) ) {
                 // value is ok, use it
             } else {
                 alert("Invalid number; must be ten digits");
@@ -223,7 +223,7 @@
 
             <div class="form-group">
                 Phone : <input class="form-control" type="text" name="phone" onblur="validatePhone(this)"
-                               placeholder="Enter your phone number(Optional)"/>
+                               placeholder="Enter your phone number"/>
             </div>
 
             </br>
