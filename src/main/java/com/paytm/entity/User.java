@@ -23,9 +23,10 @@ public class User extends AbstractEntity  {
     @Column(unique = true)
     private String email;
 
-    @Column(unique = true)
     private String phone;
 
+    //todo ekansh
+    private String resetToken;
 
     /*This is for creating a join on Dept and User
     @ManyToMany
@@ -89,12 +90,13 @@ public class User extends AbstractEntity  {
         this.phone = phone;
     }
 
+    public String getResetToken() {
+        return resetToken;
+    }
 
-
-
-
-
-
+    public void setResetToken(String resetToken) {
+        this.resetToken = resetToken;
+    }
 
     @Override
     public String toString() {
