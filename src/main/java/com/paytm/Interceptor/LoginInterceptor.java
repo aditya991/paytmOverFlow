@@ -4,7 +4,6 @@ package com.paytm.Interceptor;
  * @created: 08/08/19
  */
 
-import com.paytm.OverridedRequest.OverridedHttpServletRequest;
 import com.paytm.services.LoginServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;

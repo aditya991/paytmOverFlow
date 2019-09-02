@@ -4,21 +4,20 @@ import com.paytm.entity.Token;
 import com.paytm.entity.User;
 import com.paytm.services.LoginServiceImpl;
 import com.paytm.services.SignupServiceImpl;
-import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.*;
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
 
 /*
  * @author: aditya10.kumar
@@ -34,8 +33,6 @@ public class UserController
     @Autowired
     private LoginServiceImpl ls;
 
-
-
     @RequestMapping(value = "/indexPage" ,method = RequestMethod.GET)
     public  ModelAndView redirectToLogin(HttpServletRequest request,HttpServletResponse response)
     {
@@ -50,8 +47,6 @@ public class UserController
         ModelAndView mv= new ModelAndView();
         mv.setViewName("loginSignup.jsp");
         mv.addObject("deptList",deptList);
-
-
 
 
         if(session !=null)
@@ -197,15 +192,11 @@ public class UserController
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public ModelAndView signup(HttpServletRequest request, HttpServletResponse response) {
-
-
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String phone = request.getParameter("phone");
         String password = request.getParameter("password");
         String dept = request.getParameter("dept");
-
-
 
         System.out.println("step 1 in controller" +name+"  "+email+"    "+phone);
 
@@ -246,6 +237,4 @@ public class UserController
         mv.setViewName("index.jsp");
         return mv;
     }
-
-
 }

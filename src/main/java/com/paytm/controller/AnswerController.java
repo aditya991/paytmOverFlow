@@ -41,7 +41,6 @@ public class AnswerController
         System.out.println(answer);
 
         int q_id= Integer.parseInt(request.getParameter("ques"));
-//      Question ques= (Question)request.getAttribute("ques");
 
         System.out.println(q_id);
 

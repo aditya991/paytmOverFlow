@@ -89,12 +89,12 @@ public class FeedController {
     }
 
     @RequestMapping(value = "/profile", method = RequestMethod.POST)
-    public ModelAndView  showAllInterest(HttpServletRequest req, HttpServletResponse res)
+    public ModelAndView  showAllInterest(HttpServletRequest request, HttpServletResponse response)
     {
 
         System.out.println("inside profile controller");
 
-        HttpSession session = req.getSession(false);
+        HttpSession session = request.getSession(false);
         ModelAndView mv = new ModelAndView();
 
         String email = (String) session.getAttribute("email");
@@ -111,7 +111,7 @@ public class FeedController {
         mv.addObject("email",email);
 
         mv.addObject("myDept",u.getDept().getDept_name());
-        req.getAttribute("message");
+        request.getAttribute("message");
        // mv.addObject("message","");
         return  mv;
     }
