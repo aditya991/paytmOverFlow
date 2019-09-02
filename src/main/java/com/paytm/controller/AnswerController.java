@@ -156,6 +156,7 @@ public class AnswerController
         ModelAndView mv= new ModelAndView();
         mv.setViewName("showAllAnswerByUser.jsp");
         mv.addObject("answer", listAnswer);
+        mv.addObject("viewer",u.getU_name());
         LOG.info("here is show all answer by user................");
         return mv;
     }

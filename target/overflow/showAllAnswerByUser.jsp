@@ -91,6 +91,8 @@
 
     <% List<Answer> Alist= (List<Answer>) request.getAttribute("answer");
         request.setAttribute("AnswerList", Alist);
+        String viewerName = (String) request.getAttribute("viewer");
+        request.setAttribute("viewerName",viewerName);
         int size=Alist.size();
     %>
 
@@ -99,16 +101,26 @@
     <c:forEach items="${AnswerList}" var = "i">
         <c:set var="emptyText" value="" />
         <div class="detailBox">
+
+            <c:set var="name" value="${i.question.user.u_name}" />
+            <c:if test="${name eq viewerName}">
+                <c:set var="name" value="you" />
+            </c:if>
+
             <div class="titleBox">
                 <label>
-                    Asked By : <span class="text">${i.question.user.u_name}</span>
+                    Asked By : <span class="text">${name}</span>
                     <span class="sub-text"></span>
                     <span style="margin-left: 620px;" class="text">#${i.question.question_Id}</span>
                 </label>
             </div>
-            <div class="commentBox">
 
+            <div class="commentBox">
                 <p class="taskDescription">${i.question.question}</p><span class="date sub-text">${i.question.created}</span>
+            </div>
+
+            <div class="titleBox">
+                <label>Your Response</label>
             </div>
 
             <div class="actionBox">
@@ -121,11 +133,27 @@
                         </li>
                 </ul>
             </div>
+
+            <div class="commentBox">
+            <form action ="manageFeed" method = "post" id="${i.answer_id}">
+                <input name="ques" type="text" value="${i.question.question}" style="display: none" />
+                <p class="taskDescription">
+                <a href="#" onclick="submitByTextbox(${i.answer_id})" class="card-link"><i class="fa fa-comment"></i>Show All Answers</a>
+                </p>
+            </form>
+            </div>
+
         </div>
         <br><br>
     </c:forEach>
     <center>
     <font color="red" size="18"><c:out value="${emptyText}" escapeXml="false" /></font>
     </center>
+    <script type="text/javascript">
+        function submitByTextbox(id)
+        {
+            document.getElementById(id).submit();
+        }
+    </script>
 </body>
 </html>
