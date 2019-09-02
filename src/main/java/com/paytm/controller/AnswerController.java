@@ -4,6 +4,7 @@ import com.paytm.entity.Answer;
 import com.paytm.entity.Question;
 import com.paytm.entity.User;
 import com.paytm.services.AnswerServiceImpl;
+import com.paytm.services.LoginServiceImpl;
 import com.paytm.services.QuestionServiceImpl;
 import com.paytm.services.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 /*
  * @author: aditya10.kumar
@@ -33,6 +35,9 @@ public class AnswerController
     @Autowired
     private QuestionServiceImpl questionService;
 
+    @Autowired
+    private LoginServiceImpl ls;
+
     @RequestMapping(value="/answer", method= RequestMethod.POST)
     public ModelAndView answerGiven(HttpServletRequest request, HttpServletResponse response)
     {
@@ -41,7 +46,6 @@ public class AnswerController
         System.out.println(answer);
 
         int q_id= Integer.parseInt(request.getParameter("ques"));
-//      Question ques= (Question)request.getAttribute("ques");
 
         System.out.println(q_id);
 
@@ -127,6 +131,23 @@ public class AnswerController
         mv.addObject("ques_id",id);
         mv.addObject("ques", q.getQuestion());
         mv.addObject("Alist", Alist);
+        return mv;
+    }
+    @RequestMapping(value="/showAllAnswer", method= RequestMethod.POST)
+    public ModelAndView showAllAnswer(HttpServletRequest request, HttpServletResponse response)
+    {
+        String email= request.getParameter("email");
+        User u=ls.findUserByEmailService(email);
+        List<Answer> listAnswer= answerService.findAllAnswerByUserService(u);
+        Iterator<Answer> it= listAnswer.iterator();
+        while(it.hasNext())
+        {
+            System.out.println(it.next().getAnswer());
+        }
+        ModelAndView mv= new ModelAndView();
+        mv.setViewName("showAllAnswerByUser.jsp");
+        mv.addObject("answer", listAnswer);
+        System.out.println("here is show all answer by user................");
         return mv;
     }
 }

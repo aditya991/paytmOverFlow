@@ -13,6 +13,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%@include file="header.html"%>
+
+
+
 <html>
 <head>
     <title>PaytmOverFlow</title>
@@ -111,20 +116,8 @@
 
 <body>
 
-<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">Logo</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+
+
 <div class="container-fluid text-center">
     <div class="row">
         <div class="col-md-6 gedf-main" style="margin:0 auto;">
