@@ -68,11 +68,8 @@ public class QuestionServiceImpl implements QuestionService{
     @Override
     public boolean DeleteQuestionService(String question)
     {
-        System.out.println(question);
         Question ques=questionRepo.getQuestionByName(question);
         answerService.deleteAnswerByQuestionService(ques);
-
-        System.out.println((ques+" "+ ques.getQuestion_Id()+ " "+ques.getQuestion()));
         questionDal.DeleteQuestionMethod(ques.getQuestion_Id());
         return true;
     }
@@ -82,9 +79,7 @@ public class QuestionServiceImpl implements QuestionService{
 
         User user=userService.findUserByEmailService(email);
         LOG.info("in showAllquestion   "+user.getU_id());
-
         List<Question> l= questionDal.showAllQuestionMethod(user);
-
         return l;
     }
 

@@ -39,8 +39,6 @@ public class UserController
     @Autowired
     private LoginServiceImpl ls;
 
-
-
     @RequestMapping(value = "/indexPage" ,method = RequestMethod.GET)
     public  ModelAndView redirectToLogin(HttpServletRequest request,HttpServletResponse response)
     {
@@ -78,10 +76,11 @@ public class UserController
 
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        //password = SCryptUtil.scrypt(password, 16, 16, 16);
+        //System.out.println(password);
 
-//        password= Hashing.sha256().hashString(password, StandardCharsets.UTF_8).toString();
+
         request.setAttribute("type", "back");
-//        LOG.info(request.getAttribute("type"));
         LOG.info("email is :"+request.getParameter("email"));
 
         // if incorrect details then redirect to index page.
@@ -131,12 +130,12 @@ public class UserController
         session.setAttribute("password",password);
         session.setAttribute("created", System.currentTimeMillis());
 
-
-
         //Now already a session just check for token
-        if(token!=null)   {              // already a valid token
+        if(token!=null)
+        {              // already a valid token
             LOG.info("already an active token ....");
-            session.setAttribute("token", token.getToken_no());}
+            session.setAttribute("token", token.getToken_no());
+        }
         else                    // create a new token
         {
             LOG.info("creating new token ");

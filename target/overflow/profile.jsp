@@ -165,6 +165,11 @@
         .sidenav {padding-top: 15px;}
         .sidenav a {font-size: 18px;}
     }
+    footer {
+        background-color: #0AA9D8;
+        color: white;
+        padding: 15px;
+    }
 </style>
 
 <head>
@@ -179,8 +184,10 @@
             <div class="profile-sidebar">
                 <!-- SIDEBAR USERPIC -->
                 <div class="profile-userpic">
-                    <img src="http://keenthemes.com/preview/metronic/theme/assets/admin/pages/media/profile/profile_user.jpg" class="img-responsive" alt="">
+                    <img class="rounded-circle" src="https://previews.123rf.com/images/solargaria/solargaria1709/solargaria170900008/85425363-user-icon-male-with-beard-icon-hipster-flat-icon-avatar-of-man-with-beard-flat-internet-icon-in-roun.jpg"  class="img-responsive" alt="">
                 </div>
+
+<%--                //https://loremflickr.com/320/240--%>
                 <!-- END SIDEBAR USERPIC -->
                 <!-- SIDEBAR USER TITLE -->
                 <div class="profile-usertitle">
@@ -199,10 +206,10 @@
                 </div>
                 <!-- END SIDEBAR USER TITLE -->
                 <!-- SIDEBAR BUTTONS -->
-                <div class="profile-userbuttons">
-                    <button type="button" class="btn btn-success btn-sm">Follow</button>
-                    <button type="button" class="btn btn-danger btn-sm">Message</button>
-                </div>
+<%--                <div class="profile-userbuttons">--%>
+<%--                    <button type="button" class="btn btn-success btn-sm">Follow</button>--%>
+<%--                    <button type="button" class="btn btn-danger btn-sm">Message</button>--%>
+<%--                </div>--%>
                 <!-- END SIDEBAR BUTTONS -->
                 <!-- SIDEBAR MENU -->
 <%--                <div class="profile-usermenu">--%>
@@ -297,6 +304,5 @@
     <br/>
 
 </div>
-
 </body>
 </html>

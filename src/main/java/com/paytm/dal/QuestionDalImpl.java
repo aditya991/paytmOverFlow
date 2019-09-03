@@ -9,7 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -48,9 +47,9 @@ public class QuestionDalImpl implements QuestionDal {
         if(!checkExistingQuestionMethod(ques)) {
             EntityManager em = emf.createEntityManager();
             EntityTransaction tx = em.getTransaction();
-            em.getTransaction().begin();
+            tx.begin();
             em.persist(ques);
-            em.getTransaction().commit();
+            tx.commit();
             em.close();
             return true;
         }
@@ -81,7 +80,7 @@ public class QuestionDalImpl implements QuestionDal {
     @Override
     public boolean DeleteQuestionMethod(int ques_id)
     {
-        System.out.println(ques_id);
+//        System.out.println(ques_id);
         questionRepo.deleteQuestionById(ques_id);
         return true;
     }

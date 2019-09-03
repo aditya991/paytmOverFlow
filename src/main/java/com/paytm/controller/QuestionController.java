@@ -112,10 +112,10 @@ public class QuestionController {
             }
             else
             {
-                System.out.println(selectedQuestion);
-                System.out.println("Here in delete...............1");
+//                System.out.println(selectedQuestion);
+//                System.out.println("Here in delete...............1");
                 questionServiceImpl.DeleteQuestionService(selectedQuestion);
-                System.out.println("Here in delete");
+//                System.out.println("Here in delete");
                 request.setAttribute("message", "Question deleted successfully.");
             }
 
