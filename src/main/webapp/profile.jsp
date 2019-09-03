@@ -7,7 +7,7 @@
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.util.List" %>
-<%@ page session = "false" %>
+<%@ page session="false" %>
 <%--
   Created by IntelliJ IDEA.
   User: ekanshgupta
@@ -17,7 +17,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<%@include file="header.html"%>
+<%@include file="header.html" %>
 
 <html>
 <style>
@@ -162,8 +162,13 @@
     }
 
     @media screen and (max-height: 450px) {
-        .sidenav {padding-top: 15px;}
-        .sidenav a {font-size: 18px;}
+        .sidenav {
+            padding-top: 15px;
+        }
+
+        .sidenav a {
+            font-size: 18px;
+        }
     }
 </style>
 
@@ -174,66 +179,67 @@
 
 <div class="sidenav" style="align-content: center ;">
     <div class="container">
-    <div class="row profile" style="background-color: #1dcad8">
-        <div class="col-md-3" style="background-color: #1dcad8">
-            <div class="profile-sidebar">
-                <!-- SIDEBAR USERPIC -->
-                <div class="profile-userpic">
-                    <img src="http://keenthemes.com/preview/metronic/theme/assets/admin/pages/media/profile/profile_user.jpg" class="img-responsive" alt="">
+        <div class="row profile" style="background-color: #1dcad8">
+            <div class="col-md-3" style="background-color: #1dcad8">
+                <div class="profile-sidebar">
+                    <!-- SIDEBAR USERPIC -->
+                    <div class="profile-userpic">
+                        <img src="https://previews.123rf.com/images/solargaria/solargaria1709/solargaria170900008/85425363-user-icon-male-with-beard-icon-hipster-flat-icon-avatar-of-man-with-beard-flat-internet-icon-in-roun.jpg"
+                             class="img-responsive" alt="">
+                    </div>
+                    <!-- END SIDEBAR USERPIC -->
+                    <!-- SIDEBAR USER TITLE -->
+                    <div class="profile-usertitle">
+                        <div class="profile-usertitle-name">
+                            <%=request.getAttribute("username")%>
+                        </div>
+                        <div class="profile-usertitle-job">
+                            Developer
+                        </div>
+                        <div class="profile-usertitle-job">
+                            Email : <%=request.getAttribute("email")%>
+                        </div>
+                        <div class="profile-usertitle-job">
+                            Department : <%=request.getAttribute("myDept")%>
+                        </div>
+                    </div>
+                    <!-- END SIDEBAR USER TITLE -->
+                    <!-- SIDEBAR BUTTONS -->
+                    <div class="profile-userbuttons">
+                        <button type="button" class="btn btn-success btn-sm">Follow</button>
+                        <button type="button" class="btn btn-danger btn-sm">Message</button>
+                    </div>
+                    <!-- END SIDEBAR BUTTONS -->
+                    <!-- SIDEBAR MENU -->
+                    <%--                <div class="profile-usermenu">--%>
+                    <%--                    <ul class="nav">--%>
+                    <%--                        <li class="active">--%>
+                    <%--                            <a href="#">--%>
+                    <%--                                <i class="glyphicon glyphicon-home"></i>--%>
+                    <%--                                Overview </a>--%>
+                    <%--                        </li>--%>
+                    <%--                        <li>--%>
+                    <%--                            <a href="#">--%>
+                    <%--                                <i class="glyphicon glyphicon-user"></i>--%>
+                    <%--                                Account Settings </a>--%>
+                    <%--                        </li>--%>
+                    <%--                        <li>--%>
+                    <%--                            <a href="#" target="_blank">--%>
+                    <%--                                <i class="glyphicon glyphicon-ok"></i>--%>
+                    <%--                                Tasks </a>--%>
+                    <%--                        </li>--%>
+                    <%--                        <li>--%>
+                    <%--                            <a href="#">--%>
+                    <%--                                <i class="glyphicon glyphicon-flag"></i>--%>
+                    <%--                                Help </a>--%>
+                    <%--                        </li>--%>
+                    <%--                    </ul>--%>
+                    <%--                </div>--%>
+                    <!-- END MENU -->
                 </div>
-                <!-- END SIDEBAR USERPIC -->
-                <!-- SIDEBAR USER TITLE -->
-                <div class="profile-usertitle">
-                    <div class="profile-usertitle-name">
-                        <%=request.getAttribute("username")%>
-                    </div>
-                    <div class="profile-usertitle-job">
-                        Developer
-                    </div>
-                    <div class="profile-usertitle-job">
-                        Email : <%=request.getAttribute("email")%>
-                    </div>
-                    <div class="profile-usertitle-job">
-                        Department : <%=request.getAttribute("myDept")%>
-                    </div>
-                </div>
-                <!-- END SIDEBAR USER TITLE -->
-                <!-- SIDEBAR BUTTONS -->
-                <div class="profile-userbuttons">
-                    <button type="button" class="btn btn-success btn-sm">Follow</button>
-                    <button type="button" class="btn btn-danger btn-sm">Message</button>
-                </div>
-                <!-- END SIDEBAR BUTTONS -->
-                <!-- SIDEBAR MENU -->
-<%--                <div class="profile-usermenu">--%>
-<%--                    <ul class="nav">--%>
-<%--                        <li class="active">--%>
-<%--                            <a href="#">--%>
-<%--                                <i class="glyphicon glyphicon-home"></i>--%>
-<%--                                Overview </a>--%>
-<%--                        </li>--%>
-<%--                        <li>--%>
-<%--                            <a href="#">--%>
-<%--                                <i class="glyphicon glyphicon-user"></i>--%>
-<%--                                Account Settings </a>--%>
-<%--                        </li>--%>
-<%--                        <li>--%>
-<%--                            <a href="#" target="_blank">--%>
-<%--                                <i class="glyphicon glyphicon-ok"></i>--%>
-<%--                                Tasks </a>--%>
-<%--                        </li>--%>
-<%--                        <li>--%>
-<%--                            <a href="#">--%>
-<%--                                <i class="glyphicon glyphicon-flag"></i>--%>
-<%--                                Help </a>--%>
-<%--                        </li>--%>
-<%--                    </ul>--%>
-<%--                </div>--%>
-                <!-- END MENU -->
             </div>
         </div>
     </div>
-</div>
 </div>
 
 <div class="main">
@@ -244,9 +250,9 @@
         List listDept = (List) request.getAttribute("listofdepartments");
         List listInterest = (List) request.getAttribute("listofinterest");
         request.setAttribute("listinterest", listInterest);
-        request.setAttribute("listdept",listDept);
-        String S =  (String) request.getAttribute("message");
-        if(S == null)
+        request.setAttribute("listdept", listDept);
+        String S = (String) request.getAttribute("message");
+        if (S == null)
             S = "";
     %>
 
@@ -264,7 +270,7 @@
                 <option value="${dept.dept_name}">${dept.dept_name}</option>
             </c:forEach>
         </select>
-        <input type="submit" value="Add" />
+        <input type="submit" value="Add"/>
     </form>
 
     <br/>
@@ -276,15 +282,15 @@
                 <option value="${s}">${s}</option>
             </c:forEach>
         </select>
-        <input type="submit" value="Remove" />
+        <input type="submit" value="Remove"/>
     </form>
 
     <br/>
     <form action="questionfeed" method="post">
-        <input type="submit"  value="Show my asked Questions">
+        <input type="submit" value="Show my asked Questions">
     </form>
     <form action="showAllAnswer" method="post">
-        <input type="submit"  value="Show my given Answers">
+        <input type="submit" value="Show my given Answers">
         <input type="text" style="display:none;" name="email" value='<%= request.getAttribute("email")%>'>
     </form>
     <br/>

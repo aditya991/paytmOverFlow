@@ -231,6 +231,8 @@ public class UserController
             mv.addObject("status", "User already Exists");
         }
 
+
+
         mv.setViewName("index.jsp");
         return mv;
     }

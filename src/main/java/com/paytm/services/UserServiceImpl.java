@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -32,7 +31,7 @@ public class UserServiceImpl implements UserService {
     public User findUserByEmailService(String email) {
 
         LOG.info("Inside findUserByEmailService.");
-       // return userRepo.findUserByEmail(email);
+        // return userRepo.findUserByEmail(email);
         return userDal.findUserByEmailMethod(email);
     }
 
@@ -43,7 +42,9 @@ public class UserServiceImpl implements UserService {
 
     //todo ekansh
     @Override
-    public User findUserByResetTokenService(String token){ return userDal.findUserByResetTokenMethod(token); }
+    public User findUserByResetTokenService(String token) {
+        return userDal.findUserByResetTokenMethod(token);
+    }
 
     //todo ekansh
     @Override

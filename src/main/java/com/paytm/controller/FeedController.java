@@ -4,10 +4,7 @@ import com.paytm.configuration.DBConfiguration;
 import com.paytm.dal.DeptDalImpl;
 import com.paytm.entity.Dept;
 import com.paytm.entity.User;
-import com.paytm.services.AnswerServiceImpl;
-import com.paytm.services.InterestServiceImpl;
-import com.paytm.services.QuestionServiceImpl;
-import com.paytm.services.UserServiceImpl;
+import com.paytm.services.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +38,9 @@ public class FeedController {
     private AnswerServiceImpl answerService;
 
     @Autowired
-    private DeptDalImpl deptDal;
+    private DeptServiceImpl deptService;
+
+
 
     @Autowired
     private QuestionServiceImpl questionService;
@@ -55,7 +54,8 @@ public class FeedController {
 
         User u = userService.findUserByEmailService(email);
         if(deptName != null) {
-            Dept d = deptDal.findDeptByNameMethod(deptName);
+            Dept d =deptService.findDeptByNameService(deptName);
+
             if(interestService.addInterestService(u,d)){
                 req.setAttribute("message","Interest successfully added.");
             }
@@ -77,7 +77,7 @@ public class FeedController {
         String email = (String) session.getAttribute("email");
 
         User u = userService.findUserByEmailService(email);
-        Dept d = deptDal.findDeptByNameMethod(deptName);
+        Dept d = deptService.findDeptByNameService(deptName);
 
         if(u.getDept().getDept_name().equals(d.getDept_name())) {
             req.setAttribute("message","You can't remove your own department.");
@@ -107,8 +107,7 @@ public class FeedController {
         User u= userService.findUserByEmailService(email);
 
         List<String> resultSet = interestService.getUserAllInterestNamesService(u);
-        List<Dept> deptSet = deptDal.enterAllAvailableDeptMethod(resultSet);
-
+        List<Dept> deptSet =deptService.enterAllAvailableDeptService(resultSet);
 
         mv.setViewName("profile.jsp");
         mv.addObject("listofinterest",resultSet);

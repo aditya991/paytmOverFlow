@@ -12,7 +12,7 @@ import javax.persistence.EntityManagerFactory;
 import java.util.List;
 
 @Component
-public class DeptDalImpl {
+public class DeptDalImpl implements DeptDal {
 
     private static final Logger LOG = LoggerFactory.getLogger(DBConfiguration.class);
 
@@ -22,13 +22,16 @@ public class DeptDalImpl {
     @Autowired
     private EntityManagerFactory emf;
 
+    @Override
     public Dept findDeptByNameMethod(String deptName) {
         return deptRepo.findDeptByName(deptName);
     }
 
+    @Override
     public List<Dept> enterAllAvailableDeptMethod(List<String> deptNames) { return deptRepo.showAllDept(deptNames); }
 
 
+    @Override
     public List<String> listAllDeptByNameMethod()
     {
         return deptRepo.listAllDeptByName();

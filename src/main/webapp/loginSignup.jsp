@@ -1,6 +1,4 @@
 <%@ page import="java.util.List" %>
-<%@ page import="com.google.common.hash.Hashing" %>
-<%@ page import="java.nio.charset.StandardCharsets" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page session="false" %>
 <%--
@@ -114,7 +112,7 @@
 
         function validatePhone(phoneField) {
 
-            if (/^\d{10}$/.test(phoneField.value) || /^\d{0}$/.test(phoneField.value)) {
+            if (/^\d{10}$/.test(phoneField.value)) {
                 // value is ok, use it
             } else {
                 alert("Invalid number; must be ten digits");
@@ -134,32 +132,25 @@
             }
         }
 
-        function validatePasswordLogin()
-        {
+        function validatePasswordLogin() {
             var passwordField = document.getElementById("loginPassword");
 
-            if (passwordField.value.length < 6)
-            {
-                passwordField.setAttribute("value","");
+            if (passwordField.value.length < 6) {
+                passwordField.setAttribute("value", "");
                 alert("invalid password");
-            }
-            else
-            {
+            } else {
+                // passwordField.value=CryptoJS.MD5()
                 document.getElementById("loginForm").submit();
             }
         }
 
-        function validatePasswordSignup()
-        {
+        function validatePasswordSignup() {
 
             var passwordField = document.getElementById("signupPassword");
 
-            if (passwordField.value.length < 6)
-            {
+            if (passwordField.value.length < 6) {
                 alert("invalid password");
-            }
-            else
-            {
+            } else {
                 document.getElementById("signupForm").submit();
             }
         }
