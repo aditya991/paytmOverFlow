@@ -14,4 +14,6 @@ public interface QuestionDal
     boolean DeleteQuestionMethod(int Ques_Id);
     boolean checkExistingQuestionMethod(Question q);
     List<Question> showAllQuestionMethod(User user);
+    //todo ekansh
+    void incrementAnswersCountMethod(int qid);
 }

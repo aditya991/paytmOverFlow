@@ -35,9 +35,18 @@ public class QuestionServiceImpl implements QuestionService{
     AnswerServiceImpl answerService;
 
     /**
+     * Created by Ekansh
+     */
+    @Override
+    public void incrementAnswersCountService(int qid){
+        questionDal.incrementAnswersCountMethod(qid);
+    }
+
+    /**
      * This service takes
-     * @param Department
-     * @param Question
+     * @param department
+     * @param question
+     * @param email
      * @return
      */
     @Override
@@ -54,6 +63,7 @@ public class QuestionServiceImpl implements QuestionService{
         q.setQuestion(question);
         q.setDept(d);
         q.setUser(user);
+        q.setAnswersCount(0);
 
          return questionDal.AddQuestionMethod(q);
     }

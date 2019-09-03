@@ -85,10 +85,16 @@
     </style>
 </head>
 <body>
+   <% String askerName = (String) request.getAttribute("user");
+      String viewerName = (String) request.getAttribute("viewer");
+      request.setAttribute("viewerName",viewerName);
+      if(askerName.equals(viewerName))
+          askerName = "You";
+   %>
     <div class="detailBox">
         <div class="titleBox">
             <label>
-                Asked By : <span class="text"><%=request.getAttribute("user")%></span>
+                Asked By : <span class="text"><%=askerName%></span>
                 <span class="sub-text"></span>
                 <span style="margin-left: 620px;" class="text">#<%=request.getAttribute("ques_id")%></span>
             </label>
@@ -105,11 +111,17 @@
         <div class="actionBox">
             <ul class="commentList">
                 <c:forEach items="${Alist}" var="s">
+
+                    <c:set var="name" value="${s.user.getU_name()}" />
+                    <c:if test="${name eq viewerName}">
+                        <c:set var="name" value="you" />
+                    </c:if>
+
                     <li>
                         <div class="commentText">
                             <p>${s.answer}</p>
                             <span class="date sub-text">on ${s.getCreated()}</span>
-                            <span class="date sub-text">Answered By: ${s.user.getU_name()}</span>
+                            <span class="date sub-text">Answered By: ${name}</span>
 
                         </div>
                     </li>

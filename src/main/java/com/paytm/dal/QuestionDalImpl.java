@@ -30,6 +30,11 @@ public class QuestionDalImpl implements QuestionDal {
     private EntityManagerFactory emf;
 
     @Override
+    public void incrementAnswersCountMethod(int qid) {
+        questionRepo.incrementAnswersCount(qid);
+    }
+
+    @Override
     public User getUserByQuestionIdMethod(int id)
     {
         return questionRepo.getUserByQuestionId(id);

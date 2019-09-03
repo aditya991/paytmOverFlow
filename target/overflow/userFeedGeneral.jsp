@@ -118,6 +118,8 @@
             <%
                 List listDept = (List) request.getAttribute("listdepartments");
                 //request.setAttribute("listdept",listDept);
+                String viewerName = (String) request.getAttribute("viewer");
+                request.setAttribute("viewerName",viewerName);
                 String S =  (String) request.getAttribute("message");
                 if(S == null)
                     S = "";
@@ -134,6 +136,12 @@
 
             <c:forEach items="${askedQuestions}" var="ques">
                 <form action ="manageFeed" method = "post" id="${ques.question_Id}">
+
+                    <c:set var="name" value="${ques.user.u_name}" />
+                    <c:if test="${name eq viewerName}">
+                        <c:set var="name" value="you" />
+                    </c:if>
+
                         <div class="card gedf-card">
                             <div class="card-header">
                                 <div class="d-flex justify-content-between align-items-center">
@@ -146,7 +154,7 @@
                                                     ${ques.user.email}
                                             </div>
                                             <div class="h7 text-muted">
-                                                    ${ques.user.u_name}
+                                                    ${name}
                                             </div>
                                         </div>
                                     </div>
@@ -180,10 +188,22 @@
                                     <input type="text" style="display:none;" class="cardText" name="ques" value="${ques.question}" id="selectQues" onclick="submitByTextbox(${ques.question_Id})" style="font-size:18pt;border:1px dashed blue;" readonly="true"/>
     <%--                                </p>--%>
                                 </div>
+
+                            <c:set var="zero" value="0" />
+                            <c:set var="name" value="${ques.answersCount}" />
+                            <c:set var="numberOfAnswers" value="${ques.answersCount} answers" />
+                            <c:if test="${name eq zero}">
+                                <c:set var="numberOfAnswers" value="unanswered" />
+                            </c:if>
+
+
                             <div class="card-footer">
                                 <a href="#" class="card-link"><i class="fa fa-gittip"></i> Like</a>
                                 <a href="#" onclick="submitByTextbox(${ques.question_Id})" class="card-link"><i class="fa fa-comment"></i> Answer</a>
                                 <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Share</a>
+                                <div style="text-align: right;color: blueviolet">
+                                <c:out value="${numberOfAnswers}" escapeXml="false" />
+                                </div>
                             </div>
                         </div>
 
@@ -203,7 +223,7 @@
 </div>
 </div>
 <footer class="container-fluid text-center">
-    <p>© 2018 Paytm.com. All rights reserved</p>
+    <p>© 2019 PaytmOverFlow.com. All rights reserved</p>
 </footer>
 <script type="text/javascript">
     function submitByTextbox(id)

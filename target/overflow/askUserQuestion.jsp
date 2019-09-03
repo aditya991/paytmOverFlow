@@ -87,7 +87,7 @@
 
                     <br/><br/>
 
-                    <input type="text" placeholder="Type your question here" name='Question' style="font-size:18pt;height:80px;width:500px;text-align:center;" required></input>
+                    <textarea placeholder="Type your question here" name='Question' style="font-size:18pt;height:100px;width:500px;text-align:center;resize:none" required></textarea>
                     <br/>
                     <input type="submit" class="btn btn-primary" value="Submit" style="margin-top:10px;" />
                 </form>
@@ -99,7 +99,7 @@
     </font>
 </div>
     <footer class="container-fluid text-center">
-        <p>© 2018 Paytm.com. All rights reserved</p>
+        <p>© 2019 PaytmOverFlow.com. All rights reserved</p>
     </footer>
 </body>
 </html>

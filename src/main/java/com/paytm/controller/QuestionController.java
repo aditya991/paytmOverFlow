@@ -85,6 +85,8 @@ public class QuestionController {
 
         mv.setViewName("userFeedGeneral.jsp");
         mv.addObject("listdepartments", deptSet);
+        //todo ekansh
+        mv.addObject("viewer",u.getU_name());
         request.getAttribute("message");
         return mv;
     }

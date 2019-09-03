@@ -15,9 +15,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
@@ -51,8 +51,6 @@ public class AnswerController
         LOG.info(answer);
 
         int q_id= Integer.parseInt(request.getParameter("ques"));
-
-
         Question ques=questionService.getQuestionByQuestionIdService(q_id);
 
         String email= (String) request.getSession().getAttribute("email");
@@ -65,6 +63,7 @@ public class AnswerController
         ans.setUser(u);
         ans.setQuestion(ques);
         answerService.saveAnswerService(ans);
+        questionService.incrementAnswersCountService(ques.getQuestion_Id());
 
         LOG.info("here in add Answer");
         List<Answer> Alist= answerService.findAllAnswerByQuestionService(ques);
@@ -84,6 +83,8 @@ public class AnswerController
         mv.addObject("ques_id", ques.getQuestion_Id());
         mv.addObject("ques", ques.getQuestion());
         mv.addObject("Alist", Alist);
+        //todo ekansh
+        mv.addObject("viewer",u.getU_name());
         return mv;
     }
 
@@ -127,6 +128,9 @@ public class AnswerController
         //LOG.info("Qwerty"+request.getContextPath());
         LOG.info(u.getU_name());
 
+        String email = (String) request.getSession(false).getAttribute("email");
+        User viewer= userService.findUserByEmailService(email);
+
         ModelAndView mv=new ModelAndView();
         mv.setViewName("showAnswers.jsp");
         mv.addObject("user", u.getU_name());
@@ -134,6 +138,8 @@ public class AnswerController
         mv.addObject("ques_id",id);
         mv.addObject("ques", q.getQuestion());
         mv.addObject("Alist", Alist);
+        //todo ekansh
+        mv.addObject("viewer",viewer.getU_name());
         return mv;
     }
     @RequestMapping(value="/showAllAnswer", method= RequestMethod.POST)
@@ -150,6 +156,7 @@ public class AnswerController
         ModelAndView mv= new ModelAndView();
         mv.setViewName("showAllAnswerByUser.jsp");
         mv.addObject("answer", listAnswer);
+        mv.addObject("viewer",u.getU_name());
         LOG.info("here is show all answer by user................");
         return mv;
     }

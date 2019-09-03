@@ -51,17 +51,22 @@ To change this template use File | Settings | File Templates.
             S = "";
     %>
     <br/>
+
+    <c:set var="emptyText" value="None" />
+
     <div class="container-fluid text-center">
         <div class="card" >
             <div class="card-body" id="formTop">
                 <form action ="manageQuestion" method = "post">
                     <c:forEach items="${askedQuestions}" var="ques">
-                        <div style="text-align:center;align-items:center;">
+                        <c:set var="emptyText" value="" />
+                        <div style="text-align: center;align-items:center;">
                             <input name="selectedQuestion" type="radio" value="${ques.question}" />
-                            <input placeholder="${ques.question}" style="font-size:18pt;height:80px;width:500px;text-align:center;border:1px dashed blue;" readonly="true"></input>
+                            <input placeholder="${ques.question}" style="font-size:18pt;height:80px;width:500px;text-align:center;" readonly="true" />
                         </div>
                         <br/>
                      </c:forEach>
+                    <font color="red" size="18"><c:out value="${emptyText}" escapeXml="false" /></font>
                     <br/><br/>
                     <input type = "submit"  name = "option" value = "Delete">
                 </form>
@@ -73,7 +78,7 @@ To change this template use File | Settings | File Templates.
         </font>
     </div>
     <footer class="container-fluid text-center">
-        <p>© 2018 Paytm.com. All rights reserved</p>
+        <p>© 2019 PaytmOverFlow.com. All rights reserved</p>
     </footer>
 </body>
 </html>
