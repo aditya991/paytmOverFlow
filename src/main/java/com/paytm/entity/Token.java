@@ -17,7 +17,7 @@ public class Token extends AbstractEntity
 
     @Column(unique = true)
     private String token_no;
-     private boolean flag;
+    private boolean flag;
 
     @ManyToOne
     private User user;
@@ -45,7 +45,6 @@ public class Token extends AbstractEntity
     public void setToken_no(String token_no) {
         this.token_no = token_no;
     }
-
 
     public boolean isFlag() {
         return flag;

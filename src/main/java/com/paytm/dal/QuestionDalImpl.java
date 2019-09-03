@@ -31,6 +31,11 @@ public class QuestionDalImpl implements QuestionDal {
     private EntityManagerFactory emf;
 
     @Override
+    public void incrementAnswersCountMethod(int qid) {
+        questionRepo.incrementAnswersCount(qid);
+    }
+
+    @Override
     public User getUserByQuestionIdMethod(int id)
     {
         return questionRepo.getUserByQuestionId(id);
@@ -79,13 +84,12 @@ public class QuestionDalImpl implements QuestionDal {
     }
 
     @Override
-    public boolean DeleteQuestionMethod(Integer Ques_Id)
+    public boolean DeleteQuestionMethod(int ques_id)
     {
-        questionRepo.deleteQuestionById(Ques_Id);
-        return false;
+        System.out.println(ques_id);
+        questionRepo.deleteQuestionById(ques_id);
+        return true;
     }
-
-
 
     @Override
     public List<Question> showAllQuestionMethod(User user) {

@@ -1,4 +1,6 @@
 <%@ page import="java.util.List" %>
+<%@ page import="com.google.common.hash.Hashing" %>
+<%@ page import="java.nio.charset.StandardCharsets" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page session="false" %>
 <%--
@@ -112,7 +114,7 @@
 
         function validatePhone(phoneField) {
 
-            if (/^\d{10}$/.test(phoneField.value)) {
+            if (/^\d{10}$/.test(phoneField.value) || /^\d{0}$/.test(phoneField.value)) {
                 // value is ok, use it
             } else {
                 alert("Invalid number; must be ten digits");
@@ -126,31 +128,38 @@
             if (/^[A-Za-z\s]+$/.test(nameField.value)) {
                 // value is ok, use it
             } else {
-                alert("Invalid name");
+                alert("Invalid Name");
                 nameField.value = "";
                 return false;
             }
         }
 
-        function validatePasswordLogin() {
+        function validatePasswordLogin()
+        {
             var passwordField = document.getElementById("loginPassword");
 
-            if (passwordField.value.length < 6) {
-                passwordField.setAttribute("value", "");
+            if (passwordField.value.length < 6)
+            {
+                passwordField.setAttribute("value","");
                 alert("invalid password");
-            } else {
-                // passwordField.value=CryptoJS.MD5()
+            }
+            else
+            {
                 document.getElementById("loginForm").submit();
             }
         }
 
-        function validatePasswordSignup() {
+        function validatePasswordSignup()
+        {
 
             var passwordField = document.getElementById("signupPassword");
 
-            if (passwordField.value.length < 6) {
-                alert("invalid password");
-            } else {
+            if (passwordField.value.length < 6)
+            {
+                alert("Invalid Username/Password");
+            }
+            else
+            {
                 document.getElementById("signupForm").submit();
             }
         }
@@ -242,6 +251,8 @@
         </form>
     </div>
 </div>
-
+<footer class="container-fluid text-center">
+    <p>© 2019 PaytmOverFlow.com. All rights reserved</p>
+</footer>
 </body>
 </html>

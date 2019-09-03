@@ -15,6 +15,9 @@ public class Question extends AbstractEntity
     private Integer question_Id;
     private String question;
 
+    //todo ekansh
+    private int answersCount;
+
     @ManyToOne
     private User user;
 
@@ -52,5 +55,13 @@ public class Question extends AbstractEntity
 
     public void setDept(Dept dept) {
         this.dept = dept;
+    }
+
+    public int getAnswersCount() {
+        return answersCount;
+    }
+
+    public void setAnswersCount(int answersCount) {
+        this.answersCount = answersCount;
     }
 }
