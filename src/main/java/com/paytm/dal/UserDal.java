@@ -177,15 +177,13 @@ public class UserDal
 
             long diffMinutes = diff / (60 * 1000) % 60;
 
-            if (diffMinutes >20)
+            if (diffMinutes >2)
             {
                 markSessionInactivemethod(token.getToken_no());
                 return null;
             }
 
             return token;
-
-
         }
         catch(Exception e)
         {

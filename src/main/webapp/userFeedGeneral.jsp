@@ -189,12 +189,12 @@
     <%--                                </p>--%>
                                 </div>
 
-                            <c:set var="zero" value="0" />
-                            <c:set var="name" value="${ques.answersCount}" />
-                            <c:set var="numberOfAnswers" value="${ques.answersCount} answers" />
-                            <c:if test="${name eq zero}">
-                                <c:set var="numberOfAnswers" value="unanswered" />
-                            </c:if>
+<%--                            <c:set var="zero" value="0" />--%>
+<%--                            <c:set var="name" value="${ques.answersCount}" />--%>
+<%--                            <c:set var="numberOfAnswers" value="${ques.answersCount} answers" />--%>
+<%--                            <c:if test="${name eq zero}">--%>
+<%--                                <c:set var="numberOfAnswers" value="unanswered" />--%>
+<%--                            </c:if>--%>
 
 
                             <div class="card-footer">

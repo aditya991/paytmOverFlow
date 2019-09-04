@@ -20,6 +20,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -39,7 +41,32 @@ public class UserController
     @Autowired
     private LoginServiceImpl ls;
 
+    public String hashPassword(String password)
+    {
+        String passwordToHash = password;
+        String generatedPassword = null;
+        try
+        {
+            // Create MessageDigest instance for MD5
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            md.update(passwordToHash.getBytes());
+            //Get the hash's bytes
+            byte[] bytes = md.digest();
 
+            StringBuilder sb = new StringBuilder();
+            for(int i=0; i< bytes.length ;i++)
+            {
+                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+            }
+            //Get complete hashed password in hex format
+            generatedPassword = sb.toString();
+        }
+        catch (NoSuchAlgorithmException e)
+        {
+            e.printStackTrace();
+        }
+        return generatedPassword;
+    }
 
     @RequestMapping(value = "/indexPage" ,method = RequestMethod.GET)
     public  ModelAndView redirectToLogin(HttpServletRequest request,HttpServletResponse response)
@@ -79,10 +106,11 @@ public class UserController
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-//        password= Hashing.sha256().hashString(password, StandardCharsets.UTF_8).toString();
+        password=hashPassword(password);
+
         request.setAttribute("type", "back");
 //        LOG.info(request.getAttribute("type"));
-        LOG.info("email is :"+request.getParameter("email"));
+//        System.out.println("email is :"+request.getParameter("email")+" "+ password);
 
         // if incorrect details then redirect to index page.
         try
@@ -193,7 +221,8 @@ public class UserController
         String phone = request.getParameter("phone");
         String password = request.getParameter("password");
         String dept = request.getParameter("dept");
-//        password=Hashing.sha256().hashString(password, StandardCharsets.UTF_8).toString();
+
+        password=hashPassword(password);
 
         LOG.info("step 1 in controller" +name+"  "+email+"    "+phone);
 
@@ -230,9 +259,6 @@ public class UserController
             LOG.info("User already exists ");
             mv.addObject("status", "User already Exists");
         }
-
-
-
         mv.setViewName("index.jsp");
         return mv;
     }
