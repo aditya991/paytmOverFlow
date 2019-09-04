@@ -104,7 +104,7 @@
 
             <c:set var="name" value="${i.question.user.u_name}" />
             <c:if test="${name eq viewerName}">
-                <c:set var="name" value="you" />
+                <c:set var="name" value="You" />
             </c:if>
 
             <div class="titleBox">
@@ -120,7 +120,7 @@
             </div>
 
             <div class="titleBox">
-                <label>Your Response</label>
+                <label>Your Response:</label>
             </div>
 
             <div class="actionBox">
@@ -138,7 +138,7 @@
             <form action ="manageFeed" method = "post" id="${i.answer_id}">
                 <input name="ques" type="text" value="${i.question.question}" style="display: none" />
                 <p class="taskDescription">
-                <a href="#" onclick="submitByTextbox(${i.answer_id})" class="card-link"><i class="fa fa-comment"></i>Show All Answers</a>
+                <a href="#" onclick="submitByTextbox(${i.answer_id})" class="card-link"><i class="fa fa-comment"></i>See Original Post</a>
                 </p>
             </form>
             </div>

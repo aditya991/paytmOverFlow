@@ -138,7 +138,7 @@
             <form action ="manageFeed" method = "post" id="${i.answer_id}">
                 <input name="ques" type="text" value="${i.question.question}" style="display: none" />
                 <p class="taskDescription">
-                <a href="#" onclick="submitByTextbox(${i.answer_id})" class="card-link"><i class="fa fa-comment"></i>Show All Answers</a>
+                <a href="#" onclick="submitByTextbox(${i.answer_id})" class="card-link"><i class="fa fa-comment"></i>See Original Post</a>
                 </p>
             </form>
             </div>
