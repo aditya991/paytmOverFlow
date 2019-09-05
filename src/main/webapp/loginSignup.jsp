@@ -150,6 +150,8 @@
             if (passwordField.value.length < 6) {
                 alert("invalid password");
             } else {
+
+                CryptoJS.MD5(passwordField);
                 document.getElementById("signupForm").submit();
             }
         }

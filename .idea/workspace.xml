@@ -8,14 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e25e2180-0c11-4849-bf0b-8f0f630f8aec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/paytm/dal/DeptDal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/paytm/services/DeptService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/paytm/services/DeptServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/controller/AnswerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/controller/AnswerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/controller/FeedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/controller/FeedController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/dal/DeptDalImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/dal/DeptDalImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/userFeedHome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/userFeedHome.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paytm/dal/UserDal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paytm/dal/UserDal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/loginSignup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/loginSignup.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
