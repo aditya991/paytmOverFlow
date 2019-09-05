@@ -93,10 +93,12 @@
                 <br/><br/>
 
                 <input type="text" placeholder="Type your question here" name='Question'
-                       style="font-size:18pt;height:80px;width:500px;text-align:center;" required></input>
+                       style="font-size:18pt;height:80px;width:500px;text-align:center;" required/>
                 <br/>
                 <input type="submit" class="btn btn-primary" value="Submit" style="margin-top:10px;"/>
             </form>
+<%--            <button class="btn btn-warning" style="margin-top:10px;">Want to Ask Anonymously ?...Click Here</button>--%>
+
         </div>
     </div>
     <br/><br/>

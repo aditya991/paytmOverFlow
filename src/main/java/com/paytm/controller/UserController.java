@@ -1,6 +1,5 @@
 package com.paytm.controller;
 
-import com.google.common.hash.Hashing;
 import com.paytm.configuration.DBConfiguration;
 import com.paytm.entity.Token;
 import com.paytm.entity.User;
@@ -13,19 +12,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
-
 /*
  * @author: aditya10.kumar
  * @created: 06/08/19
@@ -73,11 +69,9 @@ public class UserController
     {
         LOG.info("hello to index servlet page");
 
-
         HttpSession session =(HttpSession)request.getSession(false);
 
         List<String> deptList =signupServiceImpl.listAllDeptByNameService();
-
 
         ModelAndView mv= new ModelAndView();
         mv.setViewName("loginSignup.jsp");
@@ -94,7 +88,6 @@ public class UserController
         else
             LOG.info("current session is null");
         return mv;
-
     }
     @RequestMapping(value="/login", method = {RequestMethod.POST, RequestMethod.GET})
     public ModelAndView login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
@@ -130,8 +123,7 @@ public class UserController
             LOG.info("flag is not true");
 
             mv.setViewName("index.jsp");   }
-        
-        
+
         LOG.info("Inside Login Controller----------- id passwords are correct");
 
         //find the user id on the basis of his email
@@ -141,7 +133,6 @@ public class UserController
         // if it exists then assign that token to the user otherwise generate a new one
 
         LOG.info("Inside Login Controller----- token is "+token+"  user is  "+user);
-
 
         HttpSession session = request.getSession(false);
 
@@ -158,8 +149,6 @@ public class UserController
         session.setAttribute("email",email);
         session.setAttribute("password",password);
         session.setAttribute("created", System.currentTimeMillis());
-
-
 
         //Now already a session just check for token
         if(token!=null)   {              // already a valid token
@@ -189,14 +178,9 @@ public class UserController
         response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
         response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
         response.setHeader("Expires", "0");
-
-
         mv.setViewName("userFeedHome.jsp");
         mv.addObject("email",   email);
         return mv;
-
-
-
     }
 
     @RequestMapping(value="/logout", method = RequestMethod.POST)
@@ -246,16 +230,17 @@ public class UserController
 
             boolean created=signupServiceImpl.createUserService(name,email,phone,password,dept);
 
-            if(created) {
+            if(created)
+            {
                 mv.addObject("status", "User Created successfully");
             }
-            else {
+            else
+            {
                 mv.addObject("status","Error in creating user");
             }
         }
         else
         {
-
             LOG.info("User already exists ");
             mv.addObject("status", "User already Exists");
         }

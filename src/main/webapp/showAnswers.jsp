@@ -11,7 +11,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="header.html"%>
 <html>
-<title></title>
+<title>PaytmOverflow</title>
 <head>
     <style>
         .detailBox {

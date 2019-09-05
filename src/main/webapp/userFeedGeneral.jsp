@@ -12,10 +12,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <%@include file="header.html"%>
-
-
 
 <html>
 <head>
@@ -129,7 +126,6 @@
                 while (iterator.hasNext())
                 {
                     Dept d= (Dept) iterator.next();
-//                    LOG.info(d.getDept_name());
                     List<Question> questionsList=d.getQuestions();
                     request.setAttribute("askedQuestions",questionsList);
             %>
@@ -186,15 +182,14 @@
                                         ${ques.question}
                                     </p>
                                     <input type="text" style="display:none;" class="cardText" name="ques" value="${ques.question}" id="selectQues" onclick="submitByTextbox(${ques.question_Id})" style="font-size:18pt;border:1px dashed blue;" readonly="true"/>
-    <%--                                </p>--%>
                                 </div>
 
-<%--                            <c:set var="zero" value="0" />--%>
-<%--                            <c:set var="name" value="${ques.answersCount}" />--%>
-<%--                            <c:set var="numberOfAnswers" value="${ques.answersCount} answers" />--%>
-<%--                            <c:if test="${name eq zero}">--%>
-<%--                                <c:set var="numberOfAnswers" value="unanswered" />--%>
-<%--                            </c:if>--%>
+                            <c:set var="zero" value="0" />
+                            <c:set var="name" value="${ques.answersCount}" />
+                            <c:set var="numberOfAnswers" value="${ques.answersCount} answers" />
+                            <c:if test="${name eq zero}">
+                                <c:set var="numberOfAnswers" value="unanswered" />
+                            </c:if>
 
 
                             <div class="card-footer">

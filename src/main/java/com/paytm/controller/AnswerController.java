@@ -40,7 +40,6 @@ public class AnswerController {
     @Autowired
     private QuestionServiceImpl questionService;
 
-
     @Autowired
     private LoginServiceImpl ls;
 
@@ -48,15 +47,12 @@ public class AnswerController {
     public ModelAndView answerGiven(HttpServletRequest request, HttpServletResponse response) {
         LOG.info("Inside add answer method");
         String answer = request.getParameter("answer");
-        LOG.info(answer);
 
         int q_id = Integer.parseInt(request.getParameter("ques"));
-
 
         Question ques = questionService.getQuestionByQuestionIdService(q_id);
 
         String email = (String) request.getSession().getAttribute("email");
-        LOG.info(email);
 
         User u = userService.findUserByEmailService(email);
 
@@ -65,6 +61,7 @@ public class AnswerController {
         ans.setUser(u);
         ans.setQuestion(ques);
         answerService.saveAnswerService(ans);
+        questionService.incrementAnswersCountService(ques.getQuestion_Id());  //for incrementing answer count
 
         LOG.info("here in add Answer");
         List<Answer> Alist = answerService.findAllAnswerByQuestionService(ques);
@@ -84,45 +81,40 @@ public class AnswerController {
         mv.addObject("ques_id", ques.getQuestion_Id());
         mv.addObject("ques", ques.getQuestion());
         mv.addObject("Alist", Alist);
+        mv.addObject("viewer", u.getU_name());
         return mv;
     }
 
     @RequestMapping(value = "/answer", method = RequestMethod.DELETE)
-    public void deleteAnswer(HttpServletRequest request, HttpServletResponse response) {
+    public void deleteAnswer(HttpServletRequest request, HttpServletResponse response)
+    {
         int id = Integer.parseInt(request.getParameter("answer_id"));
         answerService.deleteAnswerByAnswerIdService(id);
     }
 
     @RequestMapping(value = "/answer", method = RequestMethod.PUT)
-    public void updateAnswer(HttpServletRequest request, HttpServletResponse response) {
+    public void updateAnswer(HttpServletRequest request, HttpServletResponse response)
+    {
         int ans_id = Integer.parseInt(request.getParameter("answer_id"));
         String answer = request.getParameter("answer");
         answerService.updateAnswerByAnswerIdService(ans_id, answer);
     }
 
     @RequestMapping(value = "/answer", method = RequestMethod.GET)
-    public ModelAndView showAnswer(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView showAnswer(HttpServletRequest request, HttpServletResponse response)
+    {
         Question q = (Question) request.getAttribute("ques");
-
-        LOG.info("Here in showAnswer-----------1");
         //retrieve user & user_id using ques id
         int id = q.getQuestion_Id();
-
         User u = q.getUser();
-        LOG.info("id is " + id);
-
-        LOG.info(u.getU_name());
-
-        LOG.info("Here in showAnswer-----------2");
-
         //retrieve all answers from question id
         List<Answer> Alist = answerService.findAllAnswerByQuestionService(q);
-
         Date createdDate = q.getCreated();
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         String askDate = formatter.format(createdDate);
-        //LOG.info("Qwerty"+request.getContextPath());
-        LOG.info(u.getU_name());
+
+        String email = (String) request.getSession(false).getAttribute("email");
+        User viewer= userService.findUserByEmailService(email);
 
         ModelAndView mv = new ModelAndView();
         mv.setViewName("showAnswers.jsp");
@@ -131,22 +123,22 @@ public class AnswerController {
         mv.addObject("ques_id", id);
         mv.addObject("ques", q.getQuestion());
         mv.addObject("Alist", Alist);
+        mv.addObject("viewer", viewer.getU_name());
         return mv;
     }
 
     @RequestMapping(value = "/showAllAnswer", method = RequestMethod.POST)
-    public ModelAndView showAllAnswer(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView showAllAnswer(HttpServletRequest request, HttpServletResponse response)
+    {
         String email = request.getParameter("email");
         User u = ls.findUserByEmailService(email);
+
         List<Answer> listAnswer = answerService.findAllAnswerByUserService(u);
-        Iterator<Answer> it = listAnswer.iterator();
-        while (it.hasNext()) {
-            LOG.info(it.next().getAnswer());
-        }
+
         ModelAndView mv = new ModelAndView();
         mv.setViewName("showAllAnswerByUser.jsp");
         mv.addObject("answer", listAnswer);
-        LOG.info("here is show all answer by user................");
+        mv.addObject("viewer", u.getU_name());
         return mv;
     }
 }

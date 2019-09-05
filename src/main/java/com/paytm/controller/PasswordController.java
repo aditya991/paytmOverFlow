@@ -28,6 +28,9 @@ public class PasswordController {
     @Autowired
     private UserServiceImpl userService;
 
+    @Autowired
+    private UserController userController;
+
     @RequestMapping(value = "/forgot", method = RequestMethod.POST)
     public ModelAndView forgotPassword(HttpServletRequest request, HttpServletResponse response, @RequestParam("email") String userEmail) {
         ModelAndView mv = new ModelAndView();
@@ -81,12 +84,16 @@ public class PasswordController {
         String updatedPassword = request.getParameter("updatedPassword");
         String confirmedPassword = request.getParameter("confirmedPassword");
 
-        if (updatedPassword.equals(confirmedPassword)) {
+        if (updatedPassword.equals(confirmedPassword))
+        {
+            updatedPassword=userController.hashPassword(updatedPassword);
             user.setPassword(updatedPassword);
             user.setResetToken(null);
             userService.save(user);
             mv.setViewName("index.jsp");
-        } else {
+        }
+        else
+        {
             request.setAttribute("message", "Passwords don't match.Please enter again!");
             return displayResetPasswordPage(request, response, token);
         }

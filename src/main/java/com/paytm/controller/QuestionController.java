@@ -27,7 +27,8 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
-public class QuestionController {
+public class QuestionController
+{
 
     private static final Logger LOG = LoggerFactory.getLogger(DBConfiguration.class);
 

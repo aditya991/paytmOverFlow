@@ -60,9 +60,7 @@ public class UserDal
         em.getTransaction().commit();
         em.close();
 
-        //ekansh
-        boolean isAdded = interestService.addInterestService(user, user.getDept());//,emf);
-        LOG.info("in user DAL final .user must be added to table");
+        boolean isAdded = interestService.addInterestService(user, user.getDept());
         return true;
     }
 
@@ -74,9 +72,10 @@ public class UserDal
                 return false;
 
         }
-        catch (Exception e) {
+        catch (Exception e)
+        {
+            LOG.warn("Caught an Exception in UserDal");
         }
-
         return  true;
     }
 

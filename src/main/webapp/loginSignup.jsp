@@ -13,7 +13,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>PaytmOverflow</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -114,7 +114,7 @@
 
         function validatePhone(phoneField) {
 
-            if (/^\d{10}$/.test(phoneField.value) || /^\d{0}$/.test(phoneField.value)) {
+            if (/^\d{10}$/.test(phoneField.value)) {
                 // value is ok, use it
             } else {
                 alert("Invalid number; must be ten digits");
@@ -219,7 +219,7 @@
 
             <div class="form-group">
                 Phone : <input class="form-control" type="text" name="phone" onblur="validatePhone(this)"
-                               placeholder="Enter your phone number"/>
+                               placeholder="Enter your phone number" required/>
             </div>
 
             </br>
