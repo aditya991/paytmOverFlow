@@ -184,7 +184,7 @@
                 <div class="profile-sidebar">
                     <!-- SIDEBAR USERPIC -->
                     <div class="profile-userpic">
-                        <img src="http://keenthemes.com/preview/metronic/theme/assets/admin/pages/media/profile/profile_user.jpg"
+                        <img src="https://previews.123rf.com/images/solargaria/solargaria1709/solargaria170900008/85425363-user-icon-male-with-beard-icon-hipster-flat-icon-avatar-of-man-with-beard-flat-internet-icon-in-roun.jpg"
                              class="img-responsive" alt="">
                     </div>
                     <!-- END SIDEBAR USERPIC -->
@@ -303,6 +303,5 @@
     <br/>
 
 </div>
-
 </body>
 </html>

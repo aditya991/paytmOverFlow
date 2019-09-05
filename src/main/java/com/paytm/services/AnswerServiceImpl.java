@@ -53,4 +53,10 @@ public class AnswerServiceImpl implements AnswerService
         LOG.info(("Inside findAllAnswerByQuestionService"));
         return answerDal.findAllAnswerByQuestionMethod(q);
     }
+
+    @Override
+    public void deleteAnswerByQuestionService(Question question)
+    {
+        answerDal.deleteAnswerByQuestionMethod(question);
+    }
 }

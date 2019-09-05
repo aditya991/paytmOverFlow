@@ -16,7 +16,7 @@ import java.util.List;
 
 
 @Service
-public class QuestionServiceImpl implements QuestionService {
+public class QuestionServiceImpl implements QuestionService{
 
     private static final Logger LOG = LoggerFactory.getLogger(DBConfiguration.class);
 
@@ -31,41 +31,60 @@ public class QuestionServiceImpl implements QuestionService {
     @Autowired
     DeptDalImpl deptDal;
 
+    @Autowired
+    AnswerServiceImpl answerService;
+
+    /**
+     * Created by Ekansh
+     */
+    @Override
+    public void incrementAnswersCountService(int qid){
+        questionDal.incrementAnswersCountMethod(qid);
+    }
+
     /**
      * This service takes
-     *
      * @param Department
      * @param Question
      * @return
      */
     @Override
-    public boolean AddQuestionService(String department, String question, String email) {
+    public boolean AddQuestionService(String department, String question ,String email)
+    {
 
         LOG.info("in question service");
-        LOG.info(department + "      " + question + "          " + email);
+        LOG.info(department+"      "+ question+"          "+ email);
 
 
-        User user = userService.findUserByEmailService(email);
-        Dept d = deptDal.findDeptByNameMethod(department);
 
-        Question q = new Question();
+        User user=userService.findUserByEmailService(email);
+        Dept d =deptDal.findDeptByNameMethod(department);
+
+        Question q=new Question();
         q.setQuestion(question);
         q.setDept(d);
         q.setUser(user);
+        q.setAnswersCount(0);
 
-        return questionDal.AddQuestionMethod(q);
+         return questionDal.AddQuestionMethod(q);
 
     }
 
     @Override
-    public boolean UpdateQuestionService(String question, String UpdateQuestion) {
-        questionDal.UpdateQuestionMethod(question, UpdateQuestion);
+    public boolean UpdateQuestionService(String question,String UpdateQuestion)
+    {
+        questionDal.UpdateQuestionMethod(question,UpdateQuestion);
         return true;
     }
 
     @Override
-    public boolean DeleteQuestionService(String question) {
-        Question ques = questionRepo.getQuestionByName(question);
+    public boolean DeleteQuestionService(String question)
+    {
+        System.out.println(question);
+        Question ques=questionRepo.getQuestionByName(question);
+        answerService.deleteAnswerByQuestionService(ques);
+
+        System.out.println((ques+" "+ ques.getQuestion_Id()+ " "+ques.getQuestion()));
         questionDal.DeleteQuestionMethod(ques.getQuestion_Id());
         return true;
     }
@@ -73,10 +92,10 @@ public class QuestionServiceImpl implements QuestionService {
     @Override
     public List<Question> showAllQuestionService(String email) {
 
-        User user = userService.findUserByEmailService(email);
-        LOG.info("in showAllquestion   " + user.getU_id());
+        User user=userService.findUserByEmailService(email);
+        LOG.info("in showAllquestion   "+user.getU_id());
 
-        List<Question> l = questionDal.showAllQuestionMethod(user);
+        List<Question> l= questionDal.showAllQuestionMethod(user);
 
         return l;
     }
@@ -87,17 +106,19 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     /**
+     * @created by: Aditya
      * @param id
      * @return User
-     * @created by: Aditya
      */
     @Override
-    public User getUserByQuestionIdService(int id) {
-        return questionDal.getUserByQuestionIdMethod(id);
+    public User getUserByQuestionIdService(int id)
+    {
+        return  questionDal.getUserByQuestionIdMethod(id);
     }
 
     @Override
-    public Question getQuestionByQuestionIdService(int id) {
+    public Question getQuestionByQuestionIdService(int id)
+    {
         return questionDal.getQuestionByQuestionIdMethod(id);
     }
 }
