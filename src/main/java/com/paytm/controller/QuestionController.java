@@ -3,7 +3,6 @@ package com.paytm.controller;
  * @author: aditya10.kumar
  * @created: 06/08/19
  */
-
 import com.paytm.configuration.DBConfiguration;
 import com.paytm.dal.DeptDalImpl;
 import com.paytm.entity.Dept;
@@ -20,7 +19,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -76,7 +74,8 @@ public class QuestionController
 
     //todo ekansh
     @RequestMapping(value = "/generalfeed", method = RequestMethod.POST)
-    public ModelAndView showFeed(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView showFeed(HttpServletRequest request, HttpServletResponse response)
+    {
         HttpSession session = request.getSession(false);
         ModelAndView mv = new ModelAndView();
 
@@ -94,9 +93,9 @@ public class QuestionController
 
     //todo ekansh
     @RequestMapping(value = "/manageQuestion", method = RequestMethod.POST)
-    public ModelAndView manageQuestion(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView manageQuestion(HttpServletRequest request, HttpServletResponse response)
+    {
 //        ModelAndView mv = new ModelAndView();
-
         String option = request.getParameter("option");
         String selectedQuestion = request.getParameter("selectedQuestion");
         String updatedQuestion = request.getParameter("updatedQuestion");
@@ -110,22 +109,24 @@ public class QuestionController
         }
         else if (option.equals("Delete"))
         {
-            if (selectedQuestion == null) {
+            if (selectedQuestion == null)
+            {
                 request.setAttribute("message", "Question not selected!");
             }
             else
             {
-                System.out.println(selectedQuestion);
-                System.out.println("Here in delete...............1");
+                LOG.info(selectedQuestion);
+                LOG.info("Here in delete...............1");
                 questionServiceImpl.DeleteQuestionService(selectedQuestion);
-                System.out.println("Here in delete");
+                LOG.info("Here in delete");
                 request.setAttribute("message", "Question deleted successfully.");
             }
 
-        } else {
-            request.setAttribute("message", "Invalid option on Question.");
         }
-
+        else
+        {
+            request.setAttribute("message", "Invalid action.");
+        }
         return showUserQuestionsFeed(request, response);
     }
 
@@ -172,13 +173,14 @@ public class QuestionController
         String question = request.getParameter("Question");
 
         String email = (String) request.getSession().getAttribute("email");
-
-        ModelAndView mv = new ModelAndView();
+        int anonymously= Integer.parseInt(request.getParameter("checkBox"));
+        LOG.warn("Status is :"+anonymously);
 
         if (question.equals(""))
             request.setAttribute("message", "Question can't be empty!");
-        else {
-            if (questionServiceImpl.AddQuestionService(department, question, email))
+        else
+        {
+            if (questionServiceImpl.AddQuestionService(department, question, email, anonymously))
                 request.setAttribute("message", "Question successfully submitted.");
             else
                 request.setAttribute("message", "Question already exists.");

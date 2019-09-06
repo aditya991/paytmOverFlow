@@ -95,9 +95,10 @@
                 <input type="text" placeholder="Type your question here" name='Question'
                        style="font-size:18pt;height:80px;width:500px;text-align:center;" required/>
                 <br/>
+                <p>Want to ask question Anonymously <input name="checkBox" type="checkbox" id="myCheck" onclick="myCheckBox()"></p>
+                <p id="text" style="display:none; color: limegreen;">This question will be posted Anonymously.</p>
                 <input type="submit" class="btn btn-primary" value="Submit" style="margin-top:10px;"/>
             </form>
-<%--            <button class="btn btn-warning" style="margin-top:10px;">Want to Ask Anonymously ?...Click Here</button>--%>
 
         </div>
     </div>
@@ -106,6 +107,24 @@
         <%=S%>
     </font>
 </div>
+<script type="text/javascript">
+    function myCheckBox()
+    {
+        var checkBox = document.getElementById("myCheck");
+        var text = document.getElementById("text");
+        if (checkBox.checked == true)
+        {
+            text.style.display = "block";
+            checkBox.value=1;
+        }
+        else
+        {
+            text.style.display = "none";
+            checkBox.value=0;
+        }
+        console.log(checkBox.value);
+    }
+</script>
 <footer class="container-fluid text-center">
     <p>© 2018 Paytm.com. All rights reserved</p>
 </footer>

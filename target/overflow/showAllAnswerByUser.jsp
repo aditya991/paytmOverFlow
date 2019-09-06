@@ -101,10 +101,15 @@
 
     <c:forEach items="${AnswerList}" var = "i">
         <c:set var="emptyText" value="" />
-        <div class="detailBox">
+        <c:set var="nameAlias" value="${i.question.user.u_name}" />
 
+        <div class="detailBox">
             <c:set var="name" value="${i.question.user.u_name}" />
-            <c:if test="${name eq viewerName}">
+            <c:set var="anon" value="${i.question.anonymous}"/>
+            <c:if test="${anon eq true}">
+                <c:set var="name" value="Anonymous User" />
+            </c:if>
+            <c:if test="${nameAlias eq viewerName }">
                 <c:set var="name" value="You" />
             </c:if>
 

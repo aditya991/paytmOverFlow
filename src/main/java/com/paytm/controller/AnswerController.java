@@ -15,12 +15,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 /*
@@ -44,8 +42,9 @@ public class AnswerController {
     private LoginServiceImpl ls;
 
     @RequestMapping(value = "/answer", method = RequestMethod.POST)
-    public ModelAndView answerGiven(HttpServletRequest request, HttpServletResponse response) {
-        LOG.info("Inside add answer method");
+    public ModelAndView answerGiven(HttpServletRequest request, HttpServletResponse response)
+    {
+        System.out.println("Inside add answer method");
         String answer = request.getParameter("answer");
 
         int q_id = Integer.parseInt(request.getParameter("ques"));
@@ -63,7 +62,7 @@ public class AnswerController {
         answerService.saveAnswerService(ans);
         questionService.incrementAnswersCountService(ques.getQuestion_Id());  //for incrementing answer count
 
-        LOG.info("here in add Answer");
+        System.out.println("here in add Answer");
         List<Answer> Alist = answerService.findAllAnswerByQuestionService(ques);
 
         LOG.info(u.getU_name());
@@ -77,6 +76,7 @@ public class AnswerController {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("showAnswers.jsp");
         mv.addObject("user", ques.getUser().getU_name());
+        mv.addObject("anon", ques.isAnonymous());
         mv.addObject("askDate", askDate);
         mv.addObject("ques_id", ques.getQuestion_Id());
         mv.addObject("ques", ques.getQuestion());
@@ -115,10 +115,15 @@ public class AnswerController {
 
         String email = (String) request.getSession(false).getAttribute("email");
         User viewer= userService.findUserByEmailService(email);
-
+        String username=q.getUser().getU_name();
+        if(q.isAnonymous())
+        {
+            username="Anonymous User";
+        }
         ModelAndView mv = new ModelAndView();
         mv.setViewName("showAnswers.jsp");
-        mv.addObject("user", u.getU_name());
+        mv.addObject("user", username);
+        mv.addObject("anon", q.isAnonymous());
         mv.addObject("askDate", askDate);
         mv.addObject("ques_id", id);
         mv.addObject("ques", q.getQuestion());

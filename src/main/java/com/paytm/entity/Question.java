@@ -14,9 +14,8 @@ public class Question extends AbstractEntity
     @Column(name = "question_Id", updatable = false, nullable = false)
     private Integer question_Id;
     private String question;
-
-    //todo ekansh
     private int answersCount;
+    private boolean anonymous;
 
     @ManyToOne
     private User user;
@@ -63,5 +62,13 @@ public class Question extends AbstractEntity
 
     public void setAnswersCount(int answersCount) {
         this.answersCount = answersCount;
+    }
+
+    public boolean isAnonymous() {
+        return anonymous;
+    }
+
+    public void setAnonymous(boolean anonymous) {
+        this.anonymous = anonymous;
     }
 }

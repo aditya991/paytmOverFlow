@@ -134,7 +134,14 @@
                 <form action ="manageFeed" method = "post" id="${ques.question_Id}">
 
                     <c:set var="name" value="${ques.user.u_name}" />
-                    <c:if test="${name eq viewerName}">
+                    <c:set var="anonymous" value="${ques.anonymous}"/>
+                    <c:set var="email" value="${ques.user.email}"/>
+
+                    <c:if test="${anonymous eq true}">
+                        <c:set var="name" value="Anonymous User" />
+                        <c:set var="email" value="Anonymous" />
+                    </c:if>
+                    <c:if test="${name eq viewerName && anonymous eq false}">
                         <c:set var="name" value="you" />
                     </c:if>
 
@@ -147,7 +154,7 @@
                                         </div>
                                         <div class="ml-2">
                                             <div class="h5 m-0">
-                                                    ${ques.user.email}
+                                                    ${email}
                                             </div>
                                             <div class="h7 text-muted">
                                                     ${name}

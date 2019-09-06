@@ -85,12 +85,17 @@
     </style>
 </head>
 <body>
-   <% String askerName = (String) request.getAttribute("user");
+   <%
+       String askerName = (String) request.getAttribute("user");
+      boolean anon= (boolean) request.getAttribute("anon");
       String viewerName = (String) request.getAttribute("viewer");
       request.setAttribute("viewerName",viewerName);
-      if(askerName.equals(viewerName))
-          askerName = "You";
+       if(askerName.equals(viewerName))
+           askerName = "You";
+       if(anon)
+           askerName="Anonymous User";
    %>
+
     <div class="detailBox">
         <div class="titleBox">
             <label>

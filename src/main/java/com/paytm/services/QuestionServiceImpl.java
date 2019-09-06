@@ -49,25 +49,28 @@ public class QuestionServiceImpl implements QuestionService{
      * @return
      */
     @Override
-    public boolean AddQuestionService(String department, String question ,String email)
+    public boolean AddQuestionService(String department, String question ,String email, int anonymously)
     {
-
         LOG.info("in question service");
         LOG.info(department+"      "+ question+"          "+ email);
 
-
-
         User user=userService.findUserByEmailService(email);
         Dept d =deptDal.findDeptByNameMethod(department);
+        boolean anon;
+        if(anonymously==0)
+        {
+            anon=false;
+        }
+        else anon=true;
 
         Question q=new Question();
         q.setQuestion(question);
         q.setDept(d);
         q.setUser(user);
+        q.setAnonymous(anon);
         q.setAnswersCount(0);
 
-         return questionDal.AddQuestionMethod(q);
-
+        return questionDal.AddQuestionMethod(q);
     }
 
     @Override

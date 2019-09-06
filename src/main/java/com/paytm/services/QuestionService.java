@@ -17,7 +17,7 @@ public interface QuestionService {
     void incrementAnswersCountService(int qid);
 
 
-    boolean AddQuestionService(String Department, String Question , String email);
+    boolean AddQuestionService(String Department, String Question , String email, int anonymously);
 
     boolean UpdateQuestionService(String question,String UpdateQuestion);
     boolean DeleteQuestionService(String question);
